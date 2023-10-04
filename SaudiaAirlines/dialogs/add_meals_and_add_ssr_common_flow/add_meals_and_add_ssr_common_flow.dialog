@@ -1,0 +1,579 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "LctL6G",
+    "name": "AddMeals/AddSSR Common",
+    "comment": "the flow for add and ssr flow"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "0TnFx6"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "F0Jd2Z"
+          },
+          "activity": "${SendActivity_F0Jd2Z()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Soembl"
+          },
+          "condition": "=user.Login == true",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "PTQqNw"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "dGJk7v"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "prompt": "${ChoiceInput_Prompt_dGJk7v()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "style": "heroCard",
+                  "choices": [
+                    "Add meals",
+                    "Add special assistance",
+                    "Add meals & special assistance"
+                  ],
+                  "property": "turn.user_meals_option_select",
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true
+                  }
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "HZZ46W"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "dR71xZ"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.selected_both_ssrandmeal",
+                          "value": true
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "AHBZZL"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.selected_both_ssrandmeal",
+                          "value": false
+                        }
+                      ]
+                    }
+                  ],
+                  "condition": "=turn.user_meals_option_select == 'Add Meals & Request for Special Service'"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "FYYbTr"
+                  },
+                  "condition": "turn.user_meals_option_select",
+                  "cases": [
+                    {
+                      "value": "Add meals",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "8eRtPX"
+                          },
+                          "activity": "${SendActivity_8eRtPX()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "zlKUd2"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Add Meals"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "2Oms9Y"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "9cK7Bi"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "CheckIn"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "4TR94V"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "AddMeal_Main"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Add special assistance",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "nrgFbO"
+                          },
+                          "activity": "${SendActivity_nrgFbO()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "oXZOek"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Special Service Request"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "S1rRoq"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "yZaRwj"
+                              },
+                              "condition": "=user.flowName == 'AddMealSSRTryAgain'",
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "E8ZUdf"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "CheckIn"
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "qNswi7"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "Check-in"
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperties",
+                              "$designer": {
+                                "id": "Ghu1Mu"
+                              },
+                              "assignments": [
+                                {
+                                  "property": "user.flowName",
+                                  "value": "AddMealSSRTryAgain"
+                                },
+                                {
+                                  "property": "user.Login",
+                                  "value": true
+                                }
+                              ]
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "oayz4o"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "SSR_main"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Add meals & special assistance",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "4uM0aP"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Add Meals"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "4EF0cT"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "nbhv6L"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "CheckIn"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "80ga2T"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "AddMeal_Main"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "X8SGVk"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "k3FiPx"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${ChoiceInput_Prompt_k3FiPx()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "style": "heroCard",
+                  "choices": [
+                    "إضافة الوجبات",
+                    "إضافة المساعدة الخاصة",
+                    "إضافة الوجبات والمساعدة الخاصة"
+                  ],
+                  "property": "turn.user_meals_option_select"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "1cTSQX"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "maNTMH"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.selected_both_ssrandmeal",
+                          "value": true
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "ftEXz3"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.selected_both_ssrandmeal",
+                          "value": false
+                        }
+                      ]
+                    }
+                  ],
+                  "condition": "=turn.user_meals_option_select == 'إضافة وجبات الطعام وطلب المساعدة الخاصة'"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "pUowg4"
+                  },
+                  "condition": "turn.user_meals_option_select",
+                  "cases": [
+                    {
+                      "value": "إضافة الوجبات",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "uMR8VS"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Add Meals"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "00dnrA"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "YQnTXs"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "CheckIn"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "KjCq4O"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "AddMeal_Main"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إضافة المساعدة الخاصة",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "rLwyD3"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Special Service Request"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "6p6jGo"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "BSiWat"
+                              },
+                              "condition": "=user.flowName == 'AddMealSSRTryAgain'",
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "thsNkU"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "CheckIn"
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "xCqRQ8"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "Check-in"
+                                }
+                              ]
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperties",
+                              "$designer": {
+                                "id": "mmpol0"
+                              },
+                              "assignments": [
+                                {
+                                  "property": "user.flowName",
+                                  "value": "AddMealSSRTryAgain"
+                                },
+                                {
+                                  "property": "user.Login",
+                                  "value": true
+                                }
+                              ]
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "byhEzR"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "SSR_main"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إضافة الوجبات والمساعدة الخاصة",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "1iBQ5o"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Add Meals"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "GkuE5a"
+                          },
+                          "condition": "=user.flowName == 'AddMealSSRCommon'",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "S8XogR"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "CheckIn"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "x7z3bT"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "AddMeal_Main"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "fYBFw8"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ],
+              "condition": "=user.lanuage_selected==\"English\""
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "Y8uizz"
+              },
+              "activityProcessed": true,
+              "dialog": "Check-in"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "add_meals_and_add_ssr_common_flow.lg",
+  "recognizer": "add_meals_and_add_ssr_common_flow.lu.qna",
+  "id": "add_meals_and_add_ssr_common_flow"
+}

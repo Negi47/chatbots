@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# Ask_Activity_g1LUmK()
+[Activity
+    Attachments = ${json(Ask_Activity_g1LUmK_attachment_ZC8F3z())}
+]
+
+# Ask_Activity_g1LUmK_attachment_ZC8F3z()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "I'm sorry to hear that. Let's try again",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_PgeaOh()
+[Activity
+    Attachments = ${json(Ask_Activity_PgeaOh_attachment_kW4BCI())}
+]
+
+# Ask_Activity_PgeaOh_attachment_kW4BCI()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "أنا آسف لسماع ذلك. دعنا نحاول مرة أخرى",
+            "wrap": true
+        }
+    ]
+}```

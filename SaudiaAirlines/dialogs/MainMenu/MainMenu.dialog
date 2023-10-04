@@ -1,0 +1,326 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ZvFfAD",
+    "name": "MainMenu",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "VJp915"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "zFyFKb"
+          },
+          "activity": "${SendActivity_zFyFKb()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "WROfvs"
+          },
+          "assignments": [
+            {
+              "property": "user.Loginflow",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "10TWFS"
+          },
+          "condition": "user.lanuage_selected",
+          "cases": [
+            {
+              "value": "English",
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "WMenA4"
+                  },
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": false,
+                  "invalidPrompt": "",
+                  "property": "user.loggedoption",
+                  "prompt": "${TextInput_Prompt_WMenA4()}"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "Mgb9Gj"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "Change seats",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "kZjQkJ"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Upgrade_Seat"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Check-in",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "MsxCOv"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "aCkbDi"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Add baggage",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "BXjUt8"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AddBaggage"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Get your AlFursan account ID",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "yG3v0g"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Know_Your_Account"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "See other topics",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "HE0hus"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "TypingMenuOption"
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "WC6UBT"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "العربية",
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "wzOhnc"
+                  },
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": false,
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${TextInput_Prompt_wzOhnc()}",
+                  "property": "user.loggedoption"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "fUFVrw"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "تغيير المقاعد",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "kNVpEZ"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Upgrade_Seat"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إتمام إجراءات السفر",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "1fgm96"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "n2RG3i"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إضافة الأمتعة",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "E6hhOM"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AddBaggage"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "الحصول على رقم حساب الفرسان",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "MLyB7U"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Know_Your_Account"
+                        }
+                      ]
+                    },
+                    {
+                      "value": "اطلع على استفسارات أخرى",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "GWwLDA"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "TypingMenuOption"
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "1Uohlp"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "J3DzcQ"
+              },
+              "condition": "=user.lanuage_selected == 'en-us'",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "m6U746"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.lanuage_selected",
+                      "value": "English"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "OAH1OW"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.lanuage_selected",
+                      "value": "Sauida Arbic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "4GHAVu"
+              },
+              "activityProcessed": true,
+              "dialog": "CommonIdentifyFlow"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "MainMenu.lg",
+  "recognizer": "MainMenu.lu.qna",
+  "id": "MainMenu"
+}

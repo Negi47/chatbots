@@ -1,0 +1,744 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "dQ6m84",
+    "name": "mealNameslist",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "82GMfK"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "izJ6a2"
+          },
+          "activity": "${SendActivity_izJ6a2()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "FwOKOj"
+          },
+          "condition": "=user.lanuage_selected==\"English\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "zNzZRC"
+              },
+              "activity": "${Ask_Activity_W8a9eC()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "caA4iJ"
+              },
+              "activity": "${Ask_Activity_caA4iJ()}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "QSSAhF",
+        "name": "Message received (Message received activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "V1P2ho"
+          },
+          "activity": "${SendActivity_V1P2ho()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "n1dk6I"
+          },
+          "assignments": [
+            {
+              "property": "dialog.selected_meal",
+              "value": "=turn.activity.text"
+            },
+            {
+              "value": [
+                "SHML",
+                "CNML",
+                "AVML",
+                "AUML",
+                "BBML",
+                "SPML",
+                "BLML",
+                "BDML",
+                "CHML",
+                "DBML",
+                "FZML",
+                "FPML",
+                "GFML",
+                "HNML",
+                "VLML",
+                "LQML",
+                "LCML",
+                "LFML",
+                "LSML",
+                "NSML",
+                "STRD",
+                "VGML"
+              ],
+              "property": "dialog.main_meals"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Nucxhy"
+          },
+          "activity": "${SendActivity_Nucxhy()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "h6y5uW"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.mealdataSuccess",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "c0clZ1"
+              },
+              "activity": "${SendActivity_c0clZ1()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "ykC4lH"
+              },
+              "condition": "=dialog.selected_meal == dialog.foreach.value.descriptions[1].content",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "cHZWpn"
+                  },
+                  "activity": "${SendActivity_cHZWpn()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "LAOTVz"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.finalselectedMealData",
+                      "value": "=dialog.foreach.value"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "KlavBo"
+                  },
+                  "activity": "${SendActivity_KlavBo()}",
+                  "disabled": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "pPzAPP"
+          },
+          "assignments": [
+            {
+              "property": "dialog.finalSelectedId",
+              "value": "=dialog.finalselectedMealData.id"
+            },
+            {
+              "property": "dialog.finalSelectedQuantity",
+              "value": "=dialog.finalselectedMealData.quantity"
+            },
+            {
+              "value": "=dialog.finalselectedMealData.travelerIds[0]",
+              "property": "dialog.finalSelectedTravelerIds"
+            },
+            {
+              "property": "dialog.food_enum",
+              "value": "=dialog.finalselectedMealData.descriptions[0].content"
+            },
+            {
+              "property": "dialog.checkMealExist",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "SrmWUL"
+          },
+          "activity": "${SendActivity_SrmWUL()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "5ANYXk"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.getorder.data.services",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "aK2wCk"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "sH7Hzy"
+                  },
+                  "activity": "${SendActivity_sH7Hzy()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "5yHP2A"
+                  },
+                  "property": "dialog.existingMeal",
+                  "value": "=dialog.foreach.value.id"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "0F5JyN"
+                  },
+                  "property": "dialog.checkMealExist",
+                  "value": true
+                },
+                {
+                  "$kind": "Microsoft.BreakLoop",
+                  "$designer": {
+                    "id": "vVhcDH"
+                  }
+                }
+              ],
+              "condition": "=contains(dialog.main_meals, dialog.foreach.value.descriptions[0].content) ",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "JrcrGg"
+                  },
+                  "activity": "${SendActivity_JrcrGg()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "NoCim5"
+                  },
+                  "property": "dialog.checkMealExist",
+                  "value": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "GXcE2t"
+          },
+          "condition": "=dialog.checkMealExist == true",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "3zlMf1"
+              },
+              "activity": "${SendActivity_3zlMf1()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "mbR4gt"
+              },
+              "resultProperty": "turn.deletedresults",
+              "method": "DELETE",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/services?lastName=${user.lastName}&serviceIds=${dialog.existingMeal}",
+              "headers": {
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "SAA-session-id": "=user.session_id"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "CPk9F7"
+              },
+              "condition": "=turn.deletedresults.statusCode == 200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "X4k9Yp"
+                  },
+                  "activity": "${SendActivity_X4k9Yp()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "8BhjgM"
+                  },
+                  "resultProperty": "turn.resultsupdatemeal",
+                  "method": "POST",
+                  "url": "${user.baseURl}/purchase/orders/${user.pnr}/services?lastName=${user.lastName}",
+                  "body": {
+                    "services": [
+                      {
+                        "serviceId": "=dialog.finalSelectedId",
+                        "quantity": "=dialog.finalSelectedQuantity",
+                        "travelerId": "=dialog.finalSelectedTravelerIds"
+                      }
+                    ]
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "zsGHKf"
+                  },
+                  "condition": "=turn.resultsupdatemeal.statusCode == 201",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "Sw1eEX"
+                      },
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "rYtqLs"
+                          },
+                          "activity": "${SendActivity_rYtqLs()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "9JJHPu"
+                          },
+                          "activity": "${SendActivity_9JJHPu()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "mYL3KS"
+                          },
+                          "activity": "${SendActivity_mYL3KS()}"
+                        }
+                      ],
+                      "condition": "=user.lanuage_selected==\"English\""
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "L0eWnI"
+                      },
+                      "condition": "=user.lanuage_selected==\"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ConfirmInput",
+                          "$designer": {
+                            "id": "ixbs4z"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${ConfirmInput_Prompt_ixbs4z()}",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "style": "suggestedAction",
+                          "confirmChoices": [
+                            "Yes",
+                            "No"
+                          ],
+                          "property": "turn.ifsrrflow_true"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.ConfirmInput",
+                          "$designer": {
+                            "id": "MMkPkk"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "property": "turn.ifsrrflow_true",
+                          "style": "suggestedAction",
+                          "confirmChoices": [
+                            "نعم",
+                            "لا"
+                          ],
+                          "prompt": "${ConfirmInput_Prompt_MMkPkk()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "azTb1j"
+                      },
+                      "condition": "=turn.ifsrrflow_true == true",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "ywJfWj"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "SSR_main"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "5rKWbU"
+                          },
+                          "condition": "=user.lanuage_selected==\"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "iDgG48"
+                              },
+                              "activity": "${SendActivity_iDgG48()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "MOExQR"
+                              },
+                              "activity": "${SendActivity_MOExQR()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "xL5Iqi"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "SytTun"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Api_Failure"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "4Xvyb9"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "Ai38Wo"
+              },
+              "activity": "${SendActivity_Ai38Wo()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "cZy2A5"
+              },
+              "resultProperty": "turn.resultsupdatemeal",
+              "method": "POST",
+              "url": "${user.baseURl}/purchase/orders/${user.pnr}/services?lastName=${user.lastName}",
+              "body": {
+                "services": [
+                  {
+                    "serviceId": "=dialog.finalSelectedId",
+                    "quantity": "=dialog.finalSelectedQuantity",
+                    "travelerId": "=dialog.finalSelectedTravelerIds"
+                  }
+                ]
+              },
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Authorization": "=concat('Bearer',' ', user.access_token)"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "ktELUs"
+              },
+              "condition": "=turn.resultsupdatemeal.statusCode == 201",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "EkSL5s"
+                  },
+                  "activity": "${SendActivity_EkSL5s()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "L4J8Ic"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "YeNDTr"
+                      },
+                      "activity": "${SendActivity_YeNDTr()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "CNHeH7"
+                      },
+                      "activity": "${SendActivity_CNHeH7()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "ad17I6"
+                      },
+                      "activity": "${Ask_Activity_ad17I6()}"
+                    }
+                  ],
+                  "condition": "=user.lanuage_selected==\"English\""
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "awNMLz"
+                  },
+                  "condition": "=user.lanuage_selected==\"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.ConfirmInput",
+                      "$designer": {
+                        "id": "Bk6ofK"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${ConfirmInput_Prompt_Bk6ofK()}",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "style": "suggestedAction",
+                      "confirmChoices": [
+                        "Yes",
+                        "No"
+                      ],
+                      "property": "turn.ifsrrflow_true"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.ConfirmInput",
+                      "$designer": {
+                        "id": "INDtKU"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${ConfirmInput_Prompt_INDtKU()}",
+                      "choiceOptions": {
+                        "includeNumbers": true,
+                        "inlineOrMore": ", or ",
+                        "inlineOr": " or ",
+                        "inlineSeparator": ", "
+                      },
+                      "property": "turn.ifsrrflow_true",
+                      "style": "suggestedAction",
+                      "confirmChoices": [
+                        "نعم",
+                        "لا"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "XBt3YA"
+                  },
+                  "condition": "=turn.ifsrrflow_true == true",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "SevjaC"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "SSR_main"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "eeywn8"
+                      },
+                      "condition": "=user.lanuage_selected==\"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "snIDSw"
+                          },
+                          "activity": "${SendActivity_snIDSw()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "FmM3tE"
+                          },
+                          "activity": "${SendActivity_FmM3tE()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "gJMgzW"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "rO87qc"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "mealNameslist.lg",
+  "recognizer": "mealNameslist.lu.qna",
+  "id": "mealNameslist"
+}

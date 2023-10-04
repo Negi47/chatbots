@@ -1,0 +1,656 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "1WujTc",
+    "name": "Update_Contact_Details",
+    "comment": "Update Contact Details"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "MpCMtA"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Wfl0bL"
+          },
+          "activity": "${SendActivity_Wfl0bL()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "9xHtpA"
+          },
+          "activity": "${SendActivity_9xHtpA()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "CKpjT6"
+          },
+          "property": "user.selectContactOpt",
+          "value": "=user.checkin_option_select"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "mI9gYs"
+          },
+          "condition": "user.checkin_option_select",
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "54ZIvo"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Email_Dialog",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ceXhHS"
+                  },
+                  "activity": "${SendActivity_ceXhHS()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Foreach",
+                  "$designer": {
+                    "id": "6mozwe"
+                  },
+                  "index": "dialog.foreach.index",
+                  "value": "dialog.foreach.value",
+                  "itemsProperty": "user.contactData",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "PtoIhs"
+                      },
+                      "condition": "=dialog.foreach.value.purpose == \"standard\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "mIQWUj"
+                          },
+                          "condition": "=dialog.foreach.value[\"contactType\"]== \"Phone\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "1CChmt"
+                              },
+                              "property": "user.existingNumber",
+                              "value": "${dialog.foreach.value.number}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "EfYQ0Z"
+                              },
+                              "property": "user.existingEmail",
+                              "value": "${dialog.foreach.value.address}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "1Xcojg"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.existingNumber",
+                              "value": "${dialog.foreach.value.number}"
+                            },
+                            {
+                              "property": "user.existingEmail",
+                              "value": "${dialog.foreach.value.address}"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "h8nfZR"
+                          },
+                          "activity": "${SendActivity_h8nfZR()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.EditArray",
+                          "$designer": {
+                            "id": "hu4ZsJ"
+                          },
+                          "changeType": "push",
+                          "itemsProperty": "dialog.storePhEmail",
+                          "value": "${dialog.foreach.value.contactType}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.ContinueLoop",
+                          "$designer": {
+                            "id": "NyHtsc"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "J61iZ9"
+                  },
+                  "activity": "${SendActivity_J61iZ9()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "pUW11s"
+                  },
+                  "activity": "${SendActivity_pUW11s()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "FkO1Jv"
+                  },
+                  "condition": "=count(dialog.storePhEmail) != 0",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "XGxXJg"
+                      },
+                      "activity": "${SendActivity_XGxXJg()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "IMHAt2"
+                      },
+                      "condition": "=count(dialog.storePhEmail) >= 2",
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "csdH8f"
+                          },
+                          "activity": "${SendActivity_csdH8f()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "RnMmwM"
+                          },
+                          "condition": "=dialog.storePhEmail[0] == \"Phone\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "rvUbH4"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "tR7BmF"
+                                  },
+                                  "activity": "${SendActivity_tR7BmF()}",
+                                  "disabled": true
+                                },
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "RRLyTT"
+                                  },
+                                  "activity": "${Ask_Activity_TehgGJ()}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "QOsvMT"
+                                  },
+                                  "activity": "${Ask_Activity_QOsvMT()}"
+                                }
+                              ]
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "IjOo7S"
+                              },
+                              "activity": "${SendActivity_IjOo7S()}",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "XXqq15"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "pmdVJL"
+                                  },
+                                  "activity": "${Ask_Activity_pmdVJL()}"
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "OmSqGl"
+                                  },
+                                  "activity": "${Ask_Activity_CNwu5s()}"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "XA2Veg"
+                          },
+                          "activity": "${SendActivity_XA2Veg()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "VU35uA"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "3fNQZp"
+                              },
+                              "activity": "${Ask_Activity_VBRg9b()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "3qIHnV"
+                              },
+                              "activity": "${Ask_Activity_3qIHnV()}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "Check With Another PNR",
+              "actions": []
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "vvvAlB"
+              },
+              "activityProcessed": true,
+              "dialog": "CommonIdentifyFlow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "mnujSB",
+        "name": "confirm/check with another PNR"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "WY0DUS"
+          },
+          "property": "user.selectContactOpt",
+          "value": "=turn.activity.text"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "tkEGDF"
+          },
+          "condition": "user.selectContactOpt",
+          "cases": [
+            {
+              "value": "Confirm",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "AF8V0T"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Email_Dialog",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "zuqQyR"
+                  },
+                  "activity": "${SendActivity_zuqQyR()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Foreach",
+                  "$designer": {
+                    "id": "IbA2R9"
+                  },
+                  "index": "dialog.foreach.index",
+                  "value": "dialog.foreach.value",
+                  "itemsProperty": "user.contactData",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "Au4OUm"
+                      },
+                      "condition": "=dialog.foreach.value.purpose == \"standard\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "ROJplK"
+                          },
+                          "condition": "=dialog.foreach.value[\"contactType\"]== \"Phone\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "xYqEdQ"
+                              },
+                              "property": "user.existingNumber",
+                              "value": "${dialog.foreach.value.number}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SetProperty",
+                              "$designer": {
+                                "id": "sibOzB"
+                              },
+                              "property": "user.existingEmail",
+                              "value": "${dialog.foreach.value.address}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "mBNayT"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.existingNumber",
+                              "value": "${dialog.foreach.value.number}"
+                            },
+                            {
+                              "property": "user.existingEmail",
+                              "value": "${dialog.foreach.value.address}"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "kXpcXL"
+                          },
+                          "activity": "${SendActivity_kXpcXL()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.EditArray",
+                          "$designer": {
+                            "id": "z4IX0f"
+                          },
+                          "changeType": "push",
+                          "itemsProperty": "dialog.storePhEmail",
+                          "value": "${dialog.foreach.value.contactType}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.ContinueLoop",
+                          "$designer": {
+                            "id": "XJpk93"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "vw180N"
+                  },
+                  "activity": "${SendActivity_vw180N()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ax8Vgl"
+                  },
+                  "activity": "${SendActivity_ax8Vgl()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "luguUC"
+                  },
+                  "condition": "=count(dialog.storePhEmail) != 0",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "GZpAXu"
+                      },
+                      "activity": "${SendActivity_GZpAXu()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "qTdpXR"
+                      },
+                      "condition": "=count(dialog.storePhEmail) == 2",
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "8PYPjH"
+                          },
+                          "condition": "=dialog.storePhEmail[0] == \"Phone\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "4ni3aF"
+                              },
+                              "activity": "${SendActivity_4ni3aF()}",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "TehgGJ"
+                              },
+                              "activity": "${Ask_Activity_TehgGJ()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "K6Jfdu"
+                              },
+                              "activity": "${SendActivity_K6Jfdu()}",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "CNwu5s"
+                              },
+                              "activity": "${Ask_Activity_CNwu5s()}"
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "1y9w4J"
+                          },
+                          "condition": "=dialog.storePhEmail[0] == \"Phone\" && dialog.storePhEmail[1] == \"Email\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "t2NaXV"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "Update_Contact_send_verify_otp",
+                              "disabled": true
+                            },
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "VBRg9b"
+                              },
+                              "activity": "${Ask_Activity_VBRg9b()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "1LeepM"
+                              },
+                              "activity": "${SendActivity_1LeepM()}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "Check With Another PNR"
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "IPFk53"
+              },
+              "activityProcessed": true,
+              "dialog": "CommonIdentifyFlow"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "ui51IQ",
+        "name": "capture Email/SMS for OTP"
+      },
+      "condition": "=turn.activity.value.btnValue == \"Email ID\" || turn.activity.value.btnValue == \"SMS\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "q0uEAG"
+          },
+          "property": "user.verifyByPhEmail",
+          "value": "=turn.activity.value.btnValue"
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "78JkMp"
+          },
+          "property": "user.useAltOTPChannel",
+          "value": "=\"Yes\""
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "jZ5wxu"
+          },
+          "activityProcessed": true,
+          "dialog": "Update_Contact_send_verify_otp"
+        }
+      ]
+    }
+  ],
+  "generator": "Update_Contact_Details.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Update_Contact_Details"
+}

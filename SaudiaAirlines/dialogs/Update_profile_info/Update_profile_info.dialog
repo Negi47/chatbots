@@ -1,0 +1,1476 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ponofx",
+    "name": "Update_profile_info",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "rFB3G8"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "IAv1fq"
+          },
+          "assignments": [
+            {
+              "property": "user.new_nation",
+              "value": "\"\""
+            },
+            {
+              "property": "user.passport_number",
+              "value": "\"\""
+            },
+            {
+              "property": "user.dob",
+              "value": "\"\""
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "PK51AM"
+          },
+          "condition": "=user.Login == true",
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "PJloMK",
+                "name": "To Fetch Frequent Flyer Profile [AccountNo]"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${user.baseURL}/frequent-flyer/profile",
+              "body": {
+                "jwtToken": "=user.jwtToken"
+              },
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Authorization": "=user.access_token",
+                "x-api-version": "2"
+              },
+              "responseType": "json",
+              "contentType": "application/json"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "z6EWto"
+              },
+              "activity": "${SendActivity_z6EWto()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "Dv7WJG"
+              },
+              "assignments": [
+                {
+                  "property": "user.nation",
+                  "value": "=turn.results.content.data.profiles[0].personalInformation.nationality"
+                },
+                {
+                  "property": "user.date_of_birth",
+                  "value": "=turn.results.content.data.profiles[0].personalInformation.dateOfBirth"
+                },
+                {
+                  "property": "user.passport_number",
+                  "value": "=turn.results.content.data.profiles[0].personalInformation.passportNumber"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "aofWWi"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "YQtZTT"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": true,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${ChoiceInput_Prompt_YQtZTT()}",
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "turn.user_option_select",
+                  "choices": [
+                    "Nationality",
+                    "Passport",
+                    "Date of Birth",
+                    "Others"
+                  ],
+                  "style": "heroCard"
+                },
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "fjzdBH"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${TextInput_Prompt_fjzdBH()}",
+                  "property": "turn.user_option_select"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "MxxeGX"
+                  },
+                  "condition": "=turn.user_option_select",
+                  "cases": [
+                    {
+                      "value": "Nationality",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "eR5RWM"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "style": "suggestedAction",
+                          "choices": [
+                            "Yes",
+                            "Not Now"
+                          ],
+                          "property": "turn.simple_options",
+                          "prompt": "${ChoiceInput_Prompt_eR5RWM()}"
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "lW9Iiy"
+                          },
+                          "condition": "=turn.simple_options==\"Yes\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "hBJnZI"
+                              },
+                              "activity": "${Ask_Activity_8ZeDF2()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "LJ8N5M"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Passport",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "L0vuE6"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${ChoiceInput_Prompt_L0vuE6()}",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or "
+                          },
+                          "property": "turn.simple_options",
+                          "style": "suggestedAction",
+                          "choices": [
+                            "Yes",
+                            "Not Now"
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "DDFH00"
+                          },
+                          "condition": "=turn.simple_options==\"Yes\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "li9sfI"
+                              },
+                              "activity": "${Ask_Activity_8NM5b5()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "Wds9k4"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Date of Birth",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "trOM68"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "style": "suggestedAction",
+                          "choices": [
+                            "Yes",
+                            "Not Now"
+                          ],
+                          "property": "turn.simple_options",
+                          "prompt": "${ChoiceInput_Prompt_trOM68()}"
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "TbzVkq"
+                          },
+                          "condition": "=turn.simple_options==\"Yes\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "M3lDzj"
+                              },
+                              "activity": "${Ask_Activity_njh0aJ()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "IHotSt"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Others",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "RR7hwx"
+                          },
+                          "activity": "${SendActivity_RR7hwx()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "l1mA9c"
+                          },
+                          "activity": "${Ask_Activity_uAMjQI()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "xc9kk3"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "z2hRUs"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": true,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${ChoiceInput_Prompt_z2hRUs()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "turn.user_option_select",
+                  "style": "suggestedAction",
+                  "choices": [
+                    "الجنسية",
+                    "جواز السفر",
+                    "تاريخ الميلاد",
+                    "معلومات أخرى"
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "OMSMqt"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${TextInput_Prompt_OMSMqt()}",
+                  "property": "turn.user_option_select"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "VD3nUe"
+                  },
+                  "condition": "=turn.user_option_select",
+                  "cases": [
+                    {
+                      "value": "الجنسية",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "lRDSfP"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "style": "suggestedAction",
+                          "choices": [
+                            "نعم",
+                            "ليس الآن"
+                          ],
+                          "property": "turn.simple_options",
+                          "prompt": "${ChoiceInput_Prompt_lRDSfP()}"
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "MbxrpK"
+                          },
+                          "condition": "=turn.simple_options==\"نعم\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "iiaoSo"
+                              },
+                              "activity": "${Ask_Activity_iiaoSo()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "qW74Jd"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "جواز السفر",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "Ydjgd1"
+                          },
+                          "activity": "${SendActivity_Ydjgd1()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "sTMSjq"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${ChoiceInput_Prompt_sTMSjq()}",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "property": "turn.simple_options",
+                          "style": "suggestedAction",
+                          "choices": [
+                            "نعم",
+                            "ليس الآن"
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "EmUqfz"
+                          },
+                          "condition": "=turn.simple_options==\"نعم\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "zj4qM7"
+                              },
+                              "activity": "${Ask_Activity_INX2sc()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "beGCpE"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "تاريخ الميلاد",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.ChoiceInput",
+                          "$designer": {
+                            "id": "LqPOOz"
+                          },
+                          "defaultLocale": "en-us",
+                          "disabled": false,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "choiceOptions": {
+                            "includeNumbers": true,
+                            "inlineOrMore": ", or ",
+                            "inlineOr": " or ",
+                            "inlineSeparator": ", "
+                          },
+                          "style": "suggestedAction",
+                          "choices": [
+                            "نعم",
+                            "ليس الآن"
+                          ],
+                          "property": "turn.simple_options",
+                          "prompt": "${ChoiceInput_Prompt_LqPOOz()}"
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "n3tdNc"
+                          },
+                          "condition": "=turn.simple_options==\"نعم\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "lXsHzo"
+                              },
+                              "activity": "${Ask_Activity_lXsHzo()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "xMDPLD"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": "معلومات أخرى",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "4M1Vpo"
+                          },
+                          "activity": "${SendActivity_4M1Vpo()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "9DiPLW"
+                          },
+                          "activity": "${Ask_Activity_9DiPLW()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "PcBjhD"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "imyKXV"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "UMTupp"
+                  },
+                  "activity": "${SendActivity_UMTupp()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ESE2y4"
+                  },
+                  "activity": "${SendActivity_ESE2y4()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "JIGHGb"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "lqo8Ys",
+        "name": "Update Nationalality Activity"
+      },
+      "condition": "=turn.activity.value.btnValue==\"submit-nation\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "jcj1q8"
+          },
+          "assignments": [
+            {
+              "property": "turn.countryArrayLst",
+              "value": [
+                {
+                  "AF": "Saudi Arabia",
+                  "AL": "Afghanistan",
+                  "DZ": "Albania",
+                  "AS": "Algeria",
+                  "AD": "American Samoa",
+                  "AO": "Andorra",
+                  "AI": "Angola",
+                  "AQ": "Anguilla",
+                  "AG": "Antarctica",
+                  "AR": "Antigua",
+                  "AM": "Argentina",
+                  "AW": "Armenia",
+                  "AU": "Aruba",
+                  "AT": "Australia",
+                  "BS": "Azerbaijan",
+                  "BH": "Bahamas",
+                  "BD": "Bahrain",
+                  "BB": "Bangladesh",
+                  "BY": "Barbados",
+                  "BE": "Belarus",
+                  "BZ": "Belgium",
+                  "BJ": "Belize",
+                  "BM": "Benin",
+                  "BT": "Bermuda",
+                  "BO": "Bhutan",
+                  "BQ": "Bolivia, Plurinational State of",
+                  "BA": "Bonaire, Sint Eustatius and Saba",
+                  "BW": "Bosnia and Herzegovina",
+                  "BR": "Botswana",
+                  "IO": "Brazil",
+                  "BN": "British Indian Ocean Territory",
+                  "BG": "Brunei Darussalam",
+                  "BF": "Bulgaria",
+                  "KH": "Burundi",
+                  "CM": "Cambodia",
+                  "CA": "Cameroon",
+                  "CV": "Canada",
+                  "KY": "BCape Verde",
+                  "CF": "Cayman Islands",
+                  "TD": "Central African Republic",
+                  "CL": "Chad",
+                  "CN": "Chile",
+                  "CX": "China",
+                  "CC": "Christmas Island",
+                  "CO": "Cocos (Keeling) Islands",
+                  "KM": "Colombia",
+                  "CG": "Comoros",
+                  "CD": "Congo",
+                  "CK": "Congo, the Democratic Republic of the",
+                  "CR": "Cook Islands",
+                  "CI": "Costa Rica",
+                  "HR": "Cote D Ivorie",
+                  "CU": "Croatia",
+                  "CY": "Cuba",
+                  "CZ": "Cyprus",
+                  "DK": "Czech Republic",
+                  "DJ": "Denmark",
+                  "DM": "Djibouti",
+                  "DO": "Dominica",
+                  "EG": "Ecuador",
+                  "SV": "Egypt",
+                  "GQ": "El Salvador",
+                  "ER": "Equatorial Guinea",
+                  "EE": "Eritrea",
+                  "ET": "Estonia",
+                  "FK": "Ethiopia",
+                  "FO": "Falkland Islands (Malvinas)",
+                  "FJ": "Faroe Islands",
+                  "FI": "Fiji",
+                  "FR": "Finland",
+                  "GF": "France",
+                  "PF": "French Guiana",
+                  "GA": "French Polynesia",
+                  "GM": "Gabon",
+                  "GE": "Gambia",
+                  "DE": "Georgia",
+                  "GH": "Germany",
+                  "GI": "Ghana",
+                  "GR": "Gibraltar",
+                  "GL": "Greece",
+                  "GD": "Greenland",
+                  "GP": "Grenada",
+                  "GU": "Guadeloupe",
+                  "GT": "Guam",
+                  "GN": "Guatemala",
+                  "GW": "Guinea",
+                  "GY": "Guinea-Bissau",
+                  "HT": "Guyana",
+                  "HN": "Haiti",
+                  "HU": "Honduras",
+                  "IS": "Hungary",
+                  "IN": "Iceland",
+                  "ID": "India",
+                  "IR": "Indonesia",
+                  "IQ": "Iran",
+                  "IE": "Iraq",
+                  "IL": "Ireland",
+                  "IT": "Israel",
+                  "JM": "Italy",
+                  "JP": "Jamaica",
+                  "JO": "Japan",
+                  "KZ": "Jordan",
+                  "KE": "Kazakhstan",
+                  "KI": "Kenya",
+                  "KP": "Kiribati",
+                  "KR": "Korea North",
+                  "KW": "Korea South",
+                  "KG": "Kuwait",
+                  "LA": "Kyrgyzstan",
+                  "LV": "Lao Peoples Democratic Republic",
+                  "LB": "Latvia",
+                  "LS": "Lebanon",
+                  "LR": "Lesotho",
+                  "LY": "Liberia",
+                  "LI": "Libya",
+                  "LT": "Liechtenstein",
+                  "LU": "Lithuania",
+                  "MK": "Luxembourg",
+                  "MG": "Macedonia",
+                  "MW": "Madagascar",
+                  "MY": "Malawi",
+                  "MV": "Malaysia",
+                  "ML": "Maldives",
+                  "MT": "Mali",
+                  "MH": "Malta",
+                  "MQ": "Marshall Islands",
+                  "MR": "Martinique",
+                  "MU": "Mauritania",
+                  "YT": "Mauritius",
+                  "MX": "Mayotte",
+                  "FM": "Mexico",
+                  "MD": "Micronesia, Federated States of",
+                  "MC": "Moldova",
+                  "MN": "Monaco",
+                  "MS": "Mongolia",
+                  "MA": "Montserrat",
+                  "MZ": "Morocco",
+                  "MM": "Mozambique",
+                  "NA": "Myanmar",
+                  "NR": "Namibia",
+                  "NP": "Nauru",
+                  "NL": "Nepal",
+                  "NC": "Netherlands",
+                  "NZ": "New Caledonia",
+                  "NI": "New Zealand",
+                  "NE": "Nicaragua",
+                  "NG": "Niger",
+                  "NU": "Nigeria",
+                  "NF": "Niue",
+                  "MP": "Norfolk Island",
+                  "NO": "Northern Mariana Islands",
+                  "OM": "Norway",
+                  "PK": "Oman",
+                  "PW": "Pakistan",
+                  "PS": "Palau",
+                  "PA": "Palestine, State of",
+                  "PG": "Panama",
+                  "PY": "Papua New Guinea",
+                  "PE": "Paraguay",
+                  "PH": "Peru",
+                  "PL": "Philippines",
+                  "PT": "Poland",
+                  "PR": "Portugal",
+                  "QA": "Puerto Rico",
+                  "RE": "Qatar",
+                  "RO": "Reunion",
+                  "RU": "Romania",
+                  "RW": "Russian Federation",
+                  "SH": "Rwanda",
+                  "KN": "Saint Helena, Ascension and Tristan da Cunha",
+                  "LC": "Saint Kitts and Nevis",
+                  "MF": "Saint Lucia",
+                  "PM": "Saint Martin (French part)",
+                  "VC": "Saint Pierre and Miquelon",
+                  "WS": "Saint Vincent and the Grenadines",
+                  "SM": "Samoa",
+                  "ST": "San Marino",
+                  "SN": "Sao Tome and Principe",
+                  "RS": "Senegal",
+                  "SC": "Serbia",
+                  "SL": "Seychelles",
+                  "SG": "Sierra Leone",
+                  "SX": "Singapore",
+                  "SK": "Sint Maarten (Dutch part)",
+                  "SI": "Slovakia",
+                  "SB": "Slovenia",
+                  "SO": "Solomon Islands",
+                  "ZA": "Somalia",
+                  "GS": "South Africa",
+                  "SD": "South Georgia and the South Sandwich Islands",
+                  "SS": "Sudan",
+                  "ES": "South Sudan",
+                  "LK": "Spain",
+                  "SR": "Sri Lanka",
+                  "SZ": "Suriname",
+                  "SE": "Swaziland",
+                  "CH": "Sweden",
+                  "SY": "Switzerland",
+                  "TW": "Syria",
+                  "TJ": "Taiwan",
+                  "TZ": "Tajikistan",
+                  "TH": "Tanzania",
+                  "TL": "Thailand",
+                  "TG": "Timor-Leste",
+                  "TK": "Togo",
+                  "TO": "Tokelau",
+                  "TT": "Tonga",
+                  "TN": "Trinidad and Tobago",
+                  "TR": "Tunisia",
+                  "TM": "Turkey",
+                  "TC": "Turkmenistan",
+                  "TV": "Turks and Caicos Islands",
+                  "UG": "Tuvalu",
+                  "UA": "Uganda",
+                  "AE": "Ukraine",
+                  "GB": "United Arab Emirates",
+                  "US": "United Kingdom",
+                  "UY": "United States",
+                  "UZ": "Uruguay",
+                  "VU": "Uzbekistan",
+                  "VE": "Vanuatu",
+                  "VN": "Venezuela",
+                  "VG": "Vietnam",
+                  "VI": "Virgin Islands, British",
+                  "YE": "Virgin Islands, U.S.",
+                  "ZM": "Yemen",
+                  "ZW": "Zambia",
+                  "OTHER": "Zimbabwe",
+                  "other": "OTHER"
+                }
+              ]
+            },
+            {
+              "value": "=getProperty(turn.countryArrayLst[0], turn.activity.value.country_select)",
+              "property": "turn.fetchCountryKey"
+            },
+            {
+              "property": "user.new_nation",
+              "value": "=turn.activity.value.country_select"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "5yDWzZ"
+          },
+          "activity": "${SendActivity_5yDWzZ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "Hou9wF"
+          },
+          "resultProperty": "turn.results",
+          "method": "PATCH",
+          "url": "${user.baseURL}//customer/update-profile",
+          "body": {
+            "nationality": "=user.new_nation"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)",
+            "idToken": "=user.jwtToken"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "l5pEQz"
+          },
+          "condition": "=turn.results.statusCode==200 || turn.results.statusCode ==403",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "8oFYOp"
+              },
+              "condition": "=turn.results.statusCode== 403 &&  turn.results.content.message ==\"JWT verification failed - jwt expired\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "cwxo1D"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "GET",
+                  "url": "${user.baseURL}//customer/renew-token",
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "uPTAYZ"
+                  },
+                  "activity": "${SendActivity_uPTAYZ()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "p44Ro5"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.jwtToken",
+                      "value": "=turn.results.content.data.id_token"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "SzHpu9"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "PATCH",
+                  "url": "${user.baseURL}//customer/update-profile",
+                  "body": {
+                    "nationality": "=user.new_nation"
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "RKUj1R"
+              },
+              "condition": "=turn.results.statusCode==200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "7fz6aP"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Tz8PqV"
+                      },
+                      "activity": "${SendActivity_Tz8PqV()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "J3iJTT"
+                      },
+                      "activity": "${SendActivity_J3iJTT()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "2j3XEU"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "MeCerB"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "NDMRMB"
+              },
+              "activityProcessed": true,
+              "dialog": "Api_Failure"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "F3lwp7",
+        "name": "Update Passport "
+      },
+      "condition": "=turn.activity.value.btnValue==\"submit-passport\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "r33Pen"
+          },
+          "assignments": [
+            {
+              "property": "user.passport_number",
+              "value": "=turn.activity.value.passport_number"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "0xPdWQ"
+          },
+          "resultProperty": "turn.results",
+          "method": "PATCH",
+          "url": "${user.baseURL}//customer/update-profile",
+          "body": {
+            "passportNo": "=user.passport_number"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)",
+            "idToken": "=user.jwtToken"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "HCvuMK"
+          },
+          "condition": "=turn.results.statusCode==200 || turn.results.statusCode ==403",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "thqLhM"
+              },
+              "condition": "=turn.results.statusCode== 403 &&  turn.results.content.message ==\"JWT verification failed - jwt expired\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "rL85G7"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "GET",
+                  "url": "${user.baseURL}//customer/renew-token",
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "WBkGqk"
+                  },
+                  "activity": "${SendActivity_WBkGqk()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "913cFi"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.jwtToken",
+                      "value": "=turn.results.content.data.id_token"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "1jM8Qq"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "PATCH",
+                  "url": "${user.baseURL}//customer/update-profile",
+                  "body": {
+                    "passportNo": "=user.passport_number"
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "SwpjE3"
+              },
+              "condition": "=turn.results.statusCode==200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "vhoWtw"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "e9fFY5"
+                      },
+                      "activity": "${SendActivity_e9fFY5()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "5aePu1"
+                      },
+                      "activity": "${SendActivity_5aePu1()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "56kht5"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "CwyYa0"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "WlrSjR"
+              },
+              "activityProcessed": true,
+              "dialog": "Api_Failure"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "QJGAd8",
+        "name": "DOB update"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "uGWrVI"
+          },
+          "assignments": [
+            {
+              "property": "user.dob",
+              "value": "=turn.activity.value.user_dob"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Gf40FH"
+          },
+          "activity": "${SendActivity_Gf40FH()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "jEgA1H"
+          },
+          "resultProperty": "turn.results",
+          "method": "PATCH",
+          "url": "${user.baseURL}//customer/update-profile",
+          "body": {
+            "birthDate": "=user.dob"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)",
+            "idToken": "=user.jwtToken"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "KLcEcg"
+          },
+          "activity": "${SendActivity_KLcEcg()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "dhVUBg"
+          },
+          "condition": "=turn.results.statusCode==200 || turn.results.statusCode ==403",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "hUqkQd"
+              },
+              "condition": "=turn.results.statusCode== 403 &&  turn.results.content.message ==\"JWT verification failed - jwt expired\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "Pf8r4R"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "GET",
+                  "url": "${user.baseURL}//customer/renew-token",
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "6zNs2L"
+                  },
+                  "activity": "${SendActivity_6zNs2L()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "6HbPdm"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.jwtToken",
+                      "value": "=turn.results.content.data.id_token"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "2LguC9"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "PATCH",
+                  "url": "${user.baseURL}//customer/update-profile",
+                  "body": {
+                    "birthDate": "=user.dob"
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "idToken": "=user.jwtToken"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "4J6DnR"
+              },
+              "condition": "=turn.results.statusCode==200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "zLoQwn"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "NvPSgU"
+                      },
+                      "activity": "${SendActivity_NvPSgU()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Eqk9kc"
+                      },
+                      "activity": "${SendActivity_Eqk9kc()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "7Wsqy2"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "GAoXSJ"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "mInk7t"
+              },
+              "activityProcessed": true,
+              "dialog": "Api_Failure"
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btnValue==\"submit-dob\""
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "3qkuf0",
+        "name": "agent handover"
+      },
+      "condition": "=turn.activity.value.btnValue==\"Chat-with-Customer-Support\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "f2n710"
+          },
+          "activityProcessed": true,
+          "dialog": "agent-handover"
+        }
+      ]
+    }
+  ],
+  "generator": "Update_profile_info.lg",
+  "recognizer": "Update_profile_info.lu.qna",
+  "id": "Update_profile_info"
+}

@@ -1,0 +1,8 @@
+{
+  "$kind": "Microsoft.LuisRecognizer",
+  "id": "LUIS_add_meals_and_add_ssr_common_flow",
+  "applicationId": "=settings.luis.add_meals_and_add_ssr_common_flow_en_us_lu.appId",
+  "version": "=settings.luis.add_meals_and_add_ssr_common_flow_en_us_lu.version",
+  "endpoint": "=settings.luis.endpoint",
+  "endpointKey": "=settings.luis.endpointKey"
+}

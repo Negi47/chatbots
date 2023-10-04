@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# ConfirmInput_Prompt_Lfj10m()
+[Activity
+    Text = ${ConfirmInput_Prompt_Lfj10m_text()}
+]
+
+# ConfirmInput_Prompt_Lfj10m_text()
+- Okay, so you would like to ${user.loggedoption}, correct?

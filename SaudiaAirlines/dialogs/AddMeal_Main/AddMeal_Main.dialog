@@ -1,0 +1,365 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "0SWTjS",
+    "name": "AddMeal_Main",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "m2C91G"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "WQZYUg"
+          },
+          "activity": "${SendActivity_WQZYUg()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "4wTHnZ"
+          },
+          "resultProperty": "turn.mealresults",
+          "method": "GET",
+          "url": "${user.baseURL}/shopping/services/by-order?orderId=${user.pnr}&lastName=${user.lastName}",
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "WS4M7c"
+          },
+          "assignments": [
+            {
+              "property": "dialog.duration",
+              "value": "=user.getorder.data.air.bounds[0].duration"
+            },
+            {
+              "property": "dialog.boundvalue",
+              "value": "=user.getorder.data.air.bounds[0]"
+            },
+            {
+              "property": "dialog.fromdes",
+              "value": "=user.getorder.data.air.bounds[0].originLocationCode"
+            },
+            {
+              "property": "dialog.todes",
+              "value": "=user.getorder.data.air.bounds[0].destinationLocationCode"
+            },
+            {
+              "property": "dialog.byorder",
+              "value": "=turn.mealresults.content.data[0].services"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "iNLeOt"
+          },
+          "assignments": [
+            {
+              "property": "dialog.fromcountry",
+              "value": "=user.getorder.dictionaries.location[dialog.fromdes].countryCode"
+            },
+            {
+              "property": "dialog.tocountry",
+              "value": "=user.getorder.dictionaries.location[dialog.todes].countryCode"
+            },
+            {
+              "property": "user.flightselectedId",
+              "value": "=user.getorder.data.travelDocuments[0].flightIds[0]"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "jrBLnM"
+          },
+          "activity": "${SendActivity_jrBLnM()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "Bu6zN4"
+          },
+          "assignments": [
+            {
+              "property": "user.meal_list",
+              "value": []
+            },
+            {
+              "property": "user.designmeal",
+              "value": []
+            },
+            {
+              "property": "user.mealdataSuccess",
+              "value": []
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "I2slDt"
+          },
+          "condition": "=dialog.fromcountry != dialog.tocountry && dialog.duration >= 10800",
+          "actions": [
+            {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "ls17Kr"
+              },
+              "index": "dialog.foreach.index",
+              "value": "dialog.foreach.value",
+              "itemsProperty": "dialog.byorder",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "Cwdsoo"
+                  },
+                  "condition": "=dialog.foreach.value.tags[0] == \"MEAL\" && count(dialog.foreach.value.flightIds)== 1 && dialog.foreach.value.flightIds[0] == user.flightselectedId",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "iS4zoY"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.mealdataSuccess",
+                          "value": "=concat(user.mealdataSuccess,[dialog.foreach.value])"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "GjGBcP"
+                      },
+                      "activity": "${SendActivity_GjGBcP()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "xcWXSQ"
+                      },
+                      "property": "user.meal_list",
+                      "value": "=concat(user.meal_list,[dialog.foreach.value.descriptions[1].content])"
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "xAloTa"
+                      },
+                      "property": "user.designmeal",
+                      "value": "=concat(user.designmeal, [   {     \"type\": \"Action.Submit\",     \"title\": dialog.foreach.value.descriptions[1].content,     \"data\": dialog.foreach.value.descriptions[1].content   } ])"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "twLsR6"
+              },
+              "activityProcessed": true,
+              "dialog": "mealNameslist"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "uw8YAN"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "D5qABI"
+                  },
+                  "activity": "${SendActivity_D5qABI()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "h63jdU"
+                  },
+                  "activity": "${SendActivity_h63jdU()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "Wi95U0"
+                  },
+                  "activity": "${Ask_Activity_Wi95U0()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "R9j7YV"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.ConfirmInput",
+                  "$designer": {
+                    "id": "3vkJNP"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${ConfirmInput_Prompt_3vkJNP()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "style": "suggestedAction",
+                  "confirmChoices": [
+                    "Yes",
+                    "No"
+                  ],
+                  "property": "turn.ifsrrflow_true"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.ConfirmInput",
+                  "$designer": {
+                    "id": "llIOye"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": false,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${ConfirmInput_Prompt_llIOye()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "turn.ifsrrflow_true",
+                  "style": "suggestedAction",
+                  "confirmChoices": [
+                    "نعم",
+                    "لا"
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "KSQmFR"
+              },
+              "condition": "=turn.ifsrrflow_true == true",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ZoQ01I"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "SSR_main"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "qmYaaZ"
+                  },
+                  "condition": "=user.lanuage_selected==\"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "NhSSsN"
+                      },
+                      "activity": "${SendActivity_NhSSsN()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "akC7Rb"
+                      },
+                      "activity": "${SendActivity_akC7Rb()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "HF1V4U"
+                      },
+                      "activity": "${Ask_Activity_HF1V4U()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "hYUZIE"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "2KoojM"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "AddMeal_Main.lg",
+  "recognizer": "AddMeal_Main.lu.qna",
+  "id": "AddMeal_Main"
+}

@@ -1,0 +1,108 @@
+[import](common.lg)
+
+# SendActivity_jrBLnM_text()
+- ```${dialog.fromcountry}
+${dialog.tocountry}```
+# SendActivity_jrBLnM()
+[Activity
+    Text = ${SendActivity_jrBLnM_text()}
+]
+
+# SendActivity_GjGBcP_text()
+- ${dialog.foreach.value.descriptions[1].content}
+# SendActivity_GjGBcP()
+[Activity
+    Text = ${SendActivity_GjGBcP_text()}
+]
+
+# SendActivity_WQZYUg()
+[Activity
+    Text = ${SendActivity_WQZYUg_text()}
+]
+
+# SendActivity_WQZYUg_text()
+- array -> ${user.meal_array}
+# SendActivity_D5qABI_text()
+- Sorry, there seems to be no meals on this flight 😕
+# SendActivity_D5qABI()
+[Activity
+    Text = ${SendActivity_D5qABI_text()}
+]
+
+# SendActivity_h63jdU()
+[Activity
+    Text = ${SendActivity_h63jdU_text()}
+]
+
+# SendActivity_h63jdU_text()
+- عفواً، لا يوجد وجبات لهذه الرحلة.😕
+# ConfirmInput_Prompt_3vkJNP_text()
+- Do you need any special assistance? 
+# ConfirmInput_Prompt_3vkJNP()
+[Activity
+    Text = ${ConfirmInput_Prompt_3vkJNP_text()}
+]
+
+# ConfirmInput_Prompt_llIOye_text()
+- هل تحتاج لمزيد من المساعدة؟
+# ConfirmInput_Prompt_llIOye()
+[Activity
+    Text = ${ConfirmInput_Prompt_llIOye_text()}
+]
+
+# SendActivity_NhSSsN_text()
+- Alright, enjoy your flight!🙂
+# SendActivity_NhSSsN()
+[Activity
+    Text = ${SendActivity_NhSSsN_text()}
+]
+
+# SendActivity_akC7Rb_text()
+- حسناً، استمتع برحلتك!🙂
+# SendActivity_akC7Rb()
+[Activity
+    Text = ${SendActivity_akC7Rb_text()}
+]
+
+# Ask_Activity_Wi95U0()
+[Activity
+    Attachments = ${json(Ask_Activity_Wi95U0_attachment_zxIWFQ())}
+]
+
+# Ask_Activity_Wi95U0_attachment_zxIWFQ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "عفواً، لا يوجد وجبات لهذه الرحلة.😕",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_HF1V4U()
+[Activity
+    Attachments = ${json(Ask_Activity_HF1V4U_attachment_CuaEf4())}
+]
+
+# Ask_Activity_HF1V4U_attachment_CuaEf4()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"حسناً، استمتع برحلتك!🙂",
+            "wrap": true
+        }
+    ]
+}```

@@ -1,0 +1,69 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "4MEYRv",
+    "name": "BookingDetails",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "otFDXz"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "sQ05xn"
+          },
+          "condition": "=user.Login == true",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "OIAWhR"
+              },
+              "activityProcessed": true,
+              "dialog": "CheckIn"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "VVjA4D"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "f3eph3"
+                  },
+                  "activity": "${SendActivity_f3eph3()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "6VSnCj"
+                  },
+                  "activity": "${Ask_Activity_6VSnCj()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "BookingDetails.lg",
+  "recognizer": "BookingDetails.lu.qna",
+  "id": "BookingDetails"
+}

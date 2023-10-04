@@ -1,0 +1,93 @@
+[import](common.lg)
+
+# SendActivity_KLKXnW()
+[Activity
+    Text = ${SendActivity_KLKXnW_text()}
+]
+
+# SendActivity_KLKXnW_text()
+- Hello again
+# SendActivity_l9H6F9_text()
+- ```You will be assigned to an agent who will contact you for further assistance. 😊
+
+Please do not close the chat; you are being transferred to the queue now. ⌛```
+# SendActivity_l9H6F9()
+[Activity
+    Text = ${SendActivity_l9H6F9_text()}
+]
+
+# SendActivity_5Iob5W()
+[Activity
+    Attachments = ${json(SendActivity_5Iob5W_attachment_U74lIK())}
+]
+
+# ChoiceInput_Prompt_6OeQcK_text()
+- Please select a reason for your call in order to serve you better
+# ChoiceInput_Prompt_6OeQcK()
+[Activity
+    Text = ${ChoiceInput_Prompt_6OeQcK_text()}
+]
+
+# ChoiceInput_Prompt_VU2zBf()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_VU2zBf_attachment_ZsZQRA())}
+]
+
+# ChoiceInput_Prompt_VU2zBf_attachment_ZsZQRA()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "يرجى اختيار سبب لاتصالك لكي نتمكن من خدمتك بشكل أفضل.",
+            "wrap": true
+        }
+    ]
+}```
+# TextInput_Prompt_1eE7ax()
+[Activity
+    Text = ${TextInput_Prompt_1eE7ax_text()},
+    Attachments = ${json(LinkButtonTemplateEN("Al Fursan"))} | ${json(LinkButtonTemplateEN("Government Services"))} | ${json(LinkButtonTemplateEN("Other"))}
+]
+
+# TextInput_Prompt_1eE7ax_text()
+- Please select a reason for your call in order to serve you better
+# TextInput_Prompt_UaizmU()
+[Activity
+    Attachments = ${json(RTLText("يرجى اختيار سبب لاتصالك لكي نتمكن من خدمتك بشكل أفضل."))} | ${json(LinkButtonTemplateAR("الفرسان"))} | ${json(LinkButtonTemplateAR("الخدمات الحكومية"))} | ${json(LinkButtonTemplateAR("أسباب أخرى"))}
+]
+# SendActivity_5Iob5W_attachment_U74lIK()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سيتم التواصل معك من قبل أحد موظفي خدمة العملاء لمساعدتك. 😊",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "  ",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "من فضلك لا تغلق المحادثة، سيتم تحويلك إلى قائمة الانتظار الآن. ⌛",
+      "wrap": true
+    }
+  ]
+}```

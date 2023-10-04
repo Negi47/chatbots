@@ -1,0 +1,23 @@
+{
+  "profileName": "samplecheck",
+  "jobId": "68fcc100-a3d6-4731-a8e5-4b3cc1796067",
+  "projectId": "56205.81595508418",
+  "time": "2023-07-31T07:33:05.979Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Creating Resource Group ...",
+    "> Creating App Registration ...",
+    "Start to add password for App, Id : 6a51950c-39b5-454c-80d5-04fa2f645d21",
+    "> Create App Registration Success! ID: 6a51950c-39b5-454c-80d5-04fa2f645d21",
+    "Deploying Web App Resource ...",
+    "Deploying Bot Resource ...",
+    "Deploying Application Insights Resource ...",
+    "> Linking Application Insights settings to Bot Service ...",
+    "> AppInsights AppId: d1d8a5c9-4aca-4d2e-997c-daf77325ae6b ...",
+    "> AppInsights InstrumentationKey: e4c3aa2f-f24e-441b-b539-63bac9441fe2 ...",
+    "> AppInsights ApiKey: pedgoa6gnx3h5hyhf6slemfht2h3lj7qf6i1hakz ...",
+    "> Linking Application Insights settings to Bot Service Success!",
+    "Provisioning completed successfully!"
+  ]
+}

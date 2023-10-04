@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# Ask_Activity_nCIYeh()
+[Activity
+    Attachments = ${json(Ask_Activity_nCIYeh_attachment_gKQSln())}
+]
+
+# Ask_Activity_nCIYeh_attachment_gKQSln()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Wa Alaikum Al Salaam! How can I help you?",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_iklgkr()
+[Activity
+    Attachments = ${json(Ask_Activity_iklgkr_attachment_R3Cs5D())}
+]
+
+# Ask_Activity_iklgkr_attachment_R3Cs5D()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "وعليكم السلام! كيف يمكنني مساعدتك اليوم؟",
+            "wrap": true
+        }
+    ]
+}```

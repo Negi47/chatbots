@@ -1,0 +1,49 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_HVP2oW_attachment_5W51Ag()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "Container",
+            "rtl": true,
+            "id": "rtl_1",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "مرحبا ${user.userName}! أنا مساعدك الافتراضي في السعودية، وأنا جاهز لمساعدتك في جميع أسئلتك المتعلقة بالسفر. ✈️",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "يرجى اختيار اللغة المفضلة أدناه  👇",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "  ",
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "Hi ${user.userName}! I'm your SAUDIA Virtual Assistant, ready to assist with all your travel questions. ✈️",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Please choose your preferred language below 👇",
+            "wrap": true
+        }
+    ]
+}```
+# ChoiceInput_Prompt_HVP2oW()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_HVP2oW_attachment_5W51Ag())}
+]
+

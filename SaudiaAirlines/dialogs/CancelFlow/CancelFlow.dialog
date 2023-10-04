@@ -1,0 +1,91 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "jzhkiu",
+    "name": "CancelFlow",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "bNmHZe"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "Gq1h3Q"
+          },
+          "activity": "${SendActivity_Gq1h3Q()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "OcpJYR"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "t1pAOH"
+              },
+              "activity": "${Ask_Activity_t1pAOH()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "cxi5Dl"
+              },
+              "activity": "${SendActivity_cxi5Dl()}",
+              "disabled": true
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "vdi1Gh"
+              },
+              "activity": "${Ask_Activity_vdi1Gh()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "QNHPVD"
+          },
+          "activityProcessed": true,
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "OUTMaG",
+        "name": "Unknown Intent"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "LNB4ix"
+          },
+          "activityProcessed": true,
+          "dialog": "CommonIdentifyFlow"
+        }
+      ]
+    }
+  ],
+  "generator": "CancelFlow.lg",
+  "recognizer": "CancelFlow.lu.qna",
+  "id": "CancelFlow"
+}

@@ -1,0 +1,63 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "hzAGsm",
+    "name": "SmallTalk_Weather",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "fwdrbU"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Vq55I8"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "48NKKt"
+              },
+              "activity": "${Ask_Activity_48NKKt()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "qXso1B"
+              },
+              "activity": "${Ask_Activity_qXso1B()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "zxigeF"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "SmallTalk_Weather.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "SmallTalk_Weather"
+}

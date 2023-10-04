@@ -1,0 +1,5 @@
+{
+  "$kind": "Microsoft.MultiLanguageRecognizer",
+  "id": "LUIS_add_meals_and_add_ssr_common_flow",
+  "recognizers": {}
+}

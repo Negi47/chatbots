@@ -1,0 +1,987 @@
+[import](common.lg)
+
+# Ask_Activity_mnyGxB()
+[Activity
+    Text = ${Ask_Activity_mnyGxB_text()}
+]
+
+# Ask_Activity_mnyGxB_text()
+- ```Great! Please enter the **4 digit OTP** received on your number ${user.existingEmail} below 👇
+
+💡 **Note**: In case you're facing any issue, please click on 'Resend OTP' button given below only after 60 seconds.```
+# ChoiceInput_Prompt_MRB1IG_text()
+- Would you prefer to receive the verification code via SMS or email?
+# ChoiceInput_Prompt_MRB1IG()
+[Activity
+    Text = ${ChoiceInput_Prompt_MRB1IG_text()}
+]
+
+# SendActivity_yYDkkE_text()
+- Inside email verify flow. ${user.emailverifyOTPCount}
+# SendActivity_yYDkkE()
+[Activity
+    Text = ${SendActivity_yYDkkE_text()}
+]
+
+# SendActivity_LuXRwK_text()
+- otp send = ${dialog.results}
+# SendActivity_LuXRwK()
+[Activity
+    Text = ${SendActivity_LuXRwK_text()}
+]
+
+# SendActivity_If7tir_text()
+- ${user.emailCheckSum}
+# SendActivity_If7tir()
+[Activity
+    Text = ${SendActivity_If7tir_text()}
+]
+
+# SendActivity_FY2gNN_text()
+- Inside phone number verify flow
+# SendActivity_FY2gNN()
+[Activity
+    Text = ${SendActivity_FY2gNN_text()}
+]
+
+# NumberInput_Prompt_dsLudS_text()
+- Great!👏To proceed, please enter the 4\-digit verification code that was sent to your email ${user.existingEmail}.
+# NumberInput_Prompt_dsLudS()
+[Activity
+    Text = ${NumberInput_Prompt_dsLudS_text()}
+]
+
+# NumberInput_Prompt_wU0Oq2()
+[Activity
+    Text = ${NumberInput_Prompt_wU0Oq2_text()}
+]
+
+# NumberInput_Prompt_wU0Oq2_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمؤلف من 4 أعداد.
+# SendActivity_HLc4kX_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code.😕
+Please try again by clicking below.👇```
+# SendActivity_HLc4kX()
+[Activity
+    Text = ${SendActivity_HLc4kX_text()}
+]
+
+# NumberInput_Prompt_ePr2w6_text()
+- Great!👏To proceed, please enter the 4\-digit verification code that was sent to your number ${user.existingNumber}.
+# NumberInput_Prompt_ePr2w6()
+[Activity
+    Text = ${NumberInput_Prompt_ePr2w6_text()}
+]
+
+# NumberInput_Prompt_yq04u3()
+[Activity
+    Text = ${NumberInput_Prompt_yq04u3_text()}
+]
+
+# NumberInput_Prompt_yq04u3_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم الجوال ${user.existingNumber} والمؤلف من 4 أعداد.
+# SendActivity_ROBC93_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code.😕
+Please try again after a while.```
+# SendActivity_ROBC93()
+[Activity
+    Text = ${SendActivity_ROBC93_text()}
+]
+
+# NumberInput_Prompt_WvCxeT_text()
+- ```Uh\-oh, that doesn't seem to be right. ☹️
+Please enter a valid 4\-digit verification code.
+💡 For example: 8XXX.```
+# NumberInput_Prompt_WvCxeT()
+[Activity
+    Text = ${NumberInput_Prompt_WvCxeT_text()}
+]
+
+# NumberInput_Prompt_xi7PT0_text()
+- ```Uh\-oh, that doesn't seem to be right.☹️
+Please enter a valid 4\-digit verification code.
+💡For example: 8XXX.```
+# NumberInput_Prompt_xi7PT0()
+[Activity
+    Text = ${NumberInput_Prompt_xi7PT0_text()}
+]
+
+# SendActivity_6ag0kM()
+[Activity
+    Text = ${SendActivity_6ag0kM_text()}
+]
+
+# SendActivity_6ag0kM_text()
+- CONTACT VERIFY OTP API
+# SendActivity_1NjQOM()
+[Activity
+    Text = ${SendActivity_1NjQOM_text()}
+]
+
+# SendActivity_1NjQOM_text()
+- CAME INSIDE SMS OR EMAIL
+# Ask_Activity_IzkIid()
+[Activity
+    Attachments = ${json(Ask_Activity_IzkIid_attachment_VngOlV())}
+]
+
+# Ask_Activity_IzkIid_attachment_VngOlV()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": " Great! 👏 To proceed, please enter the 4-digit verification code that was sent to your email ${user.existingEmail}."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "💡 Note: If you’re facing any issues, please click “Resend” to receive a new code after the 60 seconds timer ends. 🕜"
+    },
+    {
+      "type": "Input.Text",
+      "id": "emailOTP",
+      "label": "💡 Enter the OTP below 👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "Please enter a valid 4-digit OTP"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit",
+          "data": {
+                "btnValue": "otp-recieve-email"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "Resend via email",
+          "data": {
+                "btnValue": "resend-email-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_NeTlWM()
+[Activity
+    Text = ${SendActivity_NeTlWM_text()}
+]
+
+# SendActivity_NeTlWM_text()
+- came to resebd tab
+# SendActivity_z1oAjh_text()
+- ${user.emailCheckSum}
+# SendActivity_z1oAjh()
+[Activity
+    Text = ${SendActivity_z1oAjh_text()}
+]
+
+# SendActivity_GcjlRQ_text()
+- ${user.trycount}
+# SendActivity_GcjlRQ()
+[Activity
+    Text = ${SendActivity_GcjlRQ_text()}
+]
+
+# SendActivity_Gh841p_text()
+- ```Uh\-Oh! 😥 You have exceeded the maximum number of attempts!\n\nBut you can try again in a while. 🔁
+```
+# SendActivity_Gh841p()
+[Activity
+    Text = ${SendActivity_Gh841p_text()}
+]
+
+# NumberInput_Prompt_QukvPW_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمؤلف من 4 أعداد.
+# NumberInput_Prompt_QukvPW()
+[Activity
+    Text = ${NumberInput_Prompt_QukvPW_text()}
+]
+
+# NumberInput_Prompt_Y3p6ks_text()
+- Great! 👏 To proceed, please enter the 4\-digit verification code that was sent to your email ${user.existingEmail}.
+# NumberInput_Prompt_Y3p6ks()
+[Activity
+    Text = ${NumberInput_Prompt_Y3p6ks_text()}
+]
+
+# SendActivity_Ux07hV_text()
+- otp send = ${dialog.results}
+# SendActivity_Ux07hV()
+[Activity
+    Text = ${SendActivity_Ux07hV_text()}
+]
+
+# SendActivity_x16ZNy_text()
+- ${user.emailCheckSum}
+# SendActivity_x16ZNy()
+[Activity
+    Text = ${SendActivity_x16ZNy_text()}
+]
+
+# NumberInput_Prompt_NvqWw5_text()
+- Great! 👏 To proceed, please enter the 4\-digit verification code that was sent to your email ${user.existingEmail}.
+# NumberInput_Prompt_NvqWw5()
+[Activity
+    Text = ${NumberInput_Prompt_NvqWw5_text()}
+]
+
+# NumberInput_Prompt_1cP1JN_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمؤلف من 4 أعداد.
+# NumberInput_Prompt_1cP1JN()
+[Activity
+    Text = ${NumberInput_Prompt_1cP1JN_text()}
+]
+
+# SendActivity_NOKkpt_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code.😕
+Please try again by clicking below. 👇```
+# SendActivity_NOKkpt()
+[Activity
+    Text = ${SendActivity_NOKkpt_text()}
+]
+
+# SendActivity_xnP93h_text()
+- ```عفواً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕
+
+يرجى الضغط أدناه للمحاولة مرة أخرى.👇```
+# SendActivity_xnP93h()
+[Activity
+    Text = ${SendActivity_xnP93h_text()}
+]
+
+# SendActivity_hoMxIm_text()
+- otp send = ${dialog.results}
+# SendActivity_hoMxIm()
+[Activity
+    Text = ${SendActivity_hoMxIm_text()}
+]
+
+# SendActivity_hSVqK4_text()
+- ${user.emailCheckSum}
+# SendActivity_hSVqK4()
+[Activity
+    Text = ${SendActivity_hSVqK4_text()}
+]
+
+# NumberInput_Prompt_zlHJUh_text()
+- Great! 👏 To proceed, please enter the 4\-digit verification code that was sent to your email ${user.existingEmail}.
+# NumberInput_Prompt_zlHJUh()
+[Activity
+    Text = ${NumberInput_Prompt_zlHJUh_text()}
+]
+
+# NumberInput_Prompt_f86kXt_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمؤلف من 4 أعداد.
+# NumberInput_Prompt_f86kXt()
+[Activity
+    Text = ${NumberInput_Prompt_f86kXt_text()}
+]
+
+# SendActivity_FXsJ99_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code. 😕
+Please try again by clicking below. 👇```
+# SendActivity_FXsJ99()
+[Activity
+    Text = ${SendActivity_FXsJ99_text()}
+]
+
+# Ask_Activity_Z45Wpg()
+[Activity
+    Attachments = ${json(Ask_Activity_Z45Wpg_attachment_TyvUcl())}
+]
+
+# Ask_Activity_Z45Wpg_attachment_TyvUcl()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "Great! 👏 To proceed, please enter the 4-digit verification code that was sent to your number ${user.existingNumber}."
+    },
+    {
+      "type": "Input.Text",
+      "id": "smsOTP",
+      "label": "💡 Enter the OTP below 👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "Please enter a valid 4-digit OTP"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit",
+          "data": {
+                "btnValue": "otp-recieve-SMS"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "Resend via SMS",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_WbPpc1()
+[Activity
+    Text = ${SendActivity_WbPpc1_text()}
+]
+
+# SendActivity_WbPpc1_text()
+- came sms otp
+# NumberInput_Prompt_FRI6df_text()
+- Great! 👏 To proceed, please enter the 4\-digit verification code that was sent to your number ${user.existingNumber}.
+# NumberInput_Prompt_FRI6df()
+[Activity
+    Text = ${NumberInput_Prompt_FRI6df_text()}
+]
+
+# NumberInput_Prompt_48kXsD_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم الجوال ${user.existingNumber} والمؤلف من 4 أعداد. 
+# NumberInput_Prompt_48kXsD()
+[Activity
+    Text = ${NumberInput_Prompt_48kXsD_text()}
+]
+
+# SendActivity_ADz25A_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code. 😕
+Please try again by clicking below. 👇```
+# SendActivity_ADz25A()
+[Activity
+    Text = ${SendActivity_ADz25A_text()}
+]
+
+# SendActivity_V2KI01_text()
+- ```Uh\-Oh! 😥 You have exceeded the maximum number of attempts!\n\nBut you can try again in a while. 🔁
+```
+# SendActivity_V2KI01()
+[Activity
+    Text = ${SendActivity_V2KI01_text()}
+]
+
+# Ask_Activity_14m4nx()
+[Activity
+    Text = ${Ask_Activity_14m4nx_text()}
+]
+
+# Ask_Activity_14m4nx_text()
+- email comes here
+# Ask_Activity_ZWMzig()
+[Activity
+    Attachments = ${json(Ask_Activity_ZWMzig_attachment_IuexqZ())}
+]
+
+# Ask_Activity_ZWMzig_attachment_IuexqZ()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمكون من 4 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على إعادة الإرسال للحصول على رمز جديد بعد مرور 60 ثانية. 🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "emailOTP",
+      "label": "💡أدخل كلمة المرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "يرجى إدخال كلمة المرور لمرة واحدة المكون من 4 أعداد بشكل صحيح."
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "btnValue": "otp-recieve-email"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة الإرسال عبر البريد الإلكتروني",
+          "data": {
+                "btnValue": "resend-email-otp"
+            }
+      }
+  ]
+}```
+# Ask_Activity_HIj9nB()
+[Activity
+    Attachments = ${json(Ask_Activity_HIj9nB_attachment_MoFo6y())}
+]
+
+# Ask_Activity_HIj9nB_attachment_MoFo6y()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني *${user.existingEmail}*، والمكون من 4 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على إعادة الإرسال للحصول على رمز جديد بعد مرور 60 ثانية. 🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "emailOTP",
+      "label": "💡أدخل كلمة المرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "يرجى إدخال كلمة المرور لمرة واحدة المكون من 4 أعداد بشكل صحيح."
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "btnValue": "otp-recieve-email"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة الإرسال عبر البريد الإلكتروني",
+          "data": {
+                "btnValue": "resend-email-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_ZvrWF6()
+[Activity
+    Attachments = ${json(SendActivity_ZvrWF6_attachment_mxICPV())}
+]
+
+# SendActivity_ZvrWF6_attachment_mxICPV()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_gjkNCY()
+[Activity
+    Attachments = ${json(SendActivity_gjkNCY_attachment_q3SkET())}
+]
+
+# SendActivity_gjkNCY_attachment_q3SkET()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً!😥لقد تخطيت الحد الأقصى للمحاولات!",
+          "wrap": true
+      },     
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"لكن يمكنك المحاولة مرة أخرى بعد قليل.🔁",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# Ask_Activity_2Ilw0u()
+[Activity
+    Attachments = ${json(Ask_Activity_2Ilw0u_attachment_xcjEUX())}
+]
+
+# Ask_Activity_2Ilw0u_attachment_xcjEUX()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم الجوال ${user.existingNumber} والمؤلف من 4 أعداد."
+    },
+    {
+      "type": "Input.Text",
+      "id": "smsOTP",
+      "label": "💡أدخل كلمة المرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "الرجاء إدخال 4 أرقام صالحة **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "يُقدِّم",
+          "data": {
+                "btnValue": "otp-recieve-SMS"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال SMS OTP",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_l6cTVt()
+[Activity
+    Attachments = ${json(SendActivity_l6cTVt_attachment_KzmdBJ())}
+]
+
+# SendActivity_l6cTVt_attachment_KzmdBJ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_5mKSnw()
+[Activity
+    Attachments = ${json(SendActivity_5mKSnw_attachment_zxrAH2())}
+]
+
+# SendActivity_5mKSnw_attachment_zxrAH2()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً!😥لقد تخطيت الحد الأقصى للمحاولات!"
+      },     
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"لكن يمكنك المحاولة مرة أخرى بعد قليل.🔁"
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_Ml0fWV()
+[Activity
+    Attachments = ${json(SendActivity_Ml0fWV_attachment_6xb08t())}
+]
+
+# SendActivity_Ml0fWV_attachment_6xb08t()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# Ask_Activity_gEpLxR()
+[Activity
+    Attachments = ${json(Ask_Activity_gEpLxR_attachment_24EwLM())}
+]
+
+# Ask_Activity_gEpLxR_attachment_24EwLM()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم الجوال ${user.existingNumber} والمؤلف من 4 أعداد."
+    },
+    {
+      "type": "Input.Text",
+      "id": "smsOTP",
+      "label": "💡أدخل كلمة المرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{4}$",
+      "errorMessage": "يرجى إدخال كلمة المرور لمرة واحدة المكون من 4 أعداد بشكل صحيح."
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "يُقدِّم",
+          "data": {
+                "btnValue": "otp-recieve-SMS"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال SMS OTP",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# ChoiceInput_Prompt_n4gQbJ()
+[Activity
+    Text = ${ChoiceInput_Prompt_n4gQbJ_text()}
+]
+
+# ChoiceInput_Prompt_n4gQbJ_text()
+- Would you like to verify through a different channel?
+# SendActivity_FTwhj8()
+[Activity
+    Attachments = ${json(SendActivity_FTwhj8_attachment_MdpnF1())}
+]
+
+# SendActivity_FTwhj8_attachment_MdpnF1()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# NumberInput_Prompt_4r0dHZ()
+[Activity
+    Attachments = ${json(NumberInput_Prompt_4r0dHZ_attachment_7Bc5gp())}
+]
+
+# NumberInput_Prompt_4r0dHZ_attachment_7Bc5gp()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "id": "rtl_1",
+    "type": "AdaptiveCard",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "عذراً، الرمز غير صحيح. ☹️",
+        "wrap": true
+      },
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "يرجى إدخال الرمز الصحيح والمكون من 4 أعداد.",
+        "wrap": true
+      },
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "💡مثال : 8XXX.",
+        "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# NumberInput_Prompt_r8vV2g()
+[Activity
+    Attachments = ${json(NumberInput_Prompt_r8vV2g_attachment_LY9L3P())}
+]
+
+# NumberInput_Prompt_r8vV2g_attachment_LY9L3P()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "id": "rtl_1",
+    "type": "AdaptiveCard",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "عذراً، الرمز غير صحيح. ☹️",
+        "wrap": true
+      },
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "يرجى إدخال الرمز الصحيح والمكون من 4 أعداد.",
+        "wrap": true
+      },
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "💡مثال : 8XXX.",
+        "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_DYiMuB_text()
+- Inside email verify flow. ${user.emailverifyOTPCount}
+# SendActivity_DYiMuB()
+[Activity
+    Text = ${SendActivity_DYiMuB_text()}
+]
+
+# SendActivity_wGe6GY_text()
+- otp send = ${dialog.results}
+# SendActivity_wGe6GY()
+[Activity
+    Text = ${SendActivity_wGe6GY_text()}
+]
+
+# SendActivity_yb7g5I_text()
+- ${user.emailCheckSum}
+# SendActivity_yb7g5I()
+[Activity
+    Text = ${SendActivity_yb7g5I_text()}
+]
+
+# NumberInput_Prompt_U70JCx_text()
+- Great!👏To proceed, please enter the 4\-digit verification code that was sent to your email ${user.existingEmail}.
+# NumberInput_Prompt_U70JCx()
+[Activity
+    Text = ${NumberInput_Prompt_U70JCx_text()}
+]
+
+# NumberInput_Prompt_irfCFt_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى البريد الإلكتروني ${user.existingEmail}، والمؤلف من 4 أعداد.
+# NumberInput_Prompt_irfCFt()
+[Activity
+    Text = ${NumberInput_Prompt_irfCFt_text()}
+]
+
+# SendActivity_BmP3zR_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code.😕
+Please try again by clicking below.👇```
+# SendActivity_BmP3zR()
+[Activity
+    Text = ${SendActivity_BmP3zR_text()}
+]
+
+# SendActivity_lX15Ob_attachment_MdpnF1()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_lX15Ob()
+[Activity
+    Attachments = ${json(SendActivity_lX15Ob_attachment_MdpnF1())}
+]
+
+# SendActivity_3Uudhj_text()
+- Inside phone number verify flow
+# SendActivity_3Uudhj()
+[Activity
+    Text = ${SendActivity_3Uudhj_text()}
+]
+
+# NumberInput_Prompt_1HRMP2_text()
+- Great!👏To proceed, please enter the 4\-digit verification code that was sent to your number ${user.existingNumber}.
+# NumberInput_Prompt_1HRMP2()
+[Activity
+    Text = ${NumberInput_Prompt_1HRMP2_text()}
+]
+
+# NumberInput_Prompt_Y1gJl1_text()
+- ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم الجوال ${user.existingNumber} والمؤلف من 4 أعداد.
+# NumberInput_Prompt_Y1gJl1()
+[Activity
+    Text = ${NumberInput_Prompt_Y1gJl1_text()}
+]
+
+# SendActivity_job6Ku_text()
+- ```Oops! It looks like there was a system error, and I couldn't send a verification code.😕
+Please try again after a while.```
+# SendActivity_job6Ku()
+[Activity
+    Text = ${SendActivity_job6Ku_text()}
+]
+
+# SendActivity_Yhvf5I_attachment_KzmdBJ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! حدثت مشكلة تقنية، ولم أتمكن من إرسال رمز التحقق.😕",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_Yhvf5I()
+[Activity
+    Attachments = ${json(SendActivity_Yhvf5I_attachment_KzmdBJ())}
+]

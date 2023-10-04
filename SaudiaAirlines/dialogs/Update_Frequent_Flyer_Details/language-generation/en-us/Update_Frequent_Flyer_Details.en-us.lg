@@ -1,0 +1,824 @@
+[import](common.lg)
+
+# Ask_Activity_7wB08Q()
+[Activity
+    Attachments = ${json(Ask_Activity_7wB08Q_attachment_LBCKMs())}
+]
+
+# Ask_Activity_7wB08Q_attachment_LBCKMs()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "Select Frequent Flyer Program 👇",
+            "isSubtle": true,
+            "size": "Medium",
+            "weight": "Bolder"
+        },
+        {
+            "type": "Input.ChoiceSet",
+            "id": "CompactSelectVal",
+            "label": "",
+            "errorMessage": "This is a required input",
+            "placeholder": "Select Program",
+            "choices": [
+                {
+                    "title": "Alfursan Miles - SV",
+                    "value": "SV"
+                },
+                {
+                    "title": "Aeromexico - AM",
+                    "value": "AM"
+                },
+                {
+                    "title": "Aeroflot - SU",
+                    "value": "SU"
+                },
+                {
+                    "title": "Aerolineas Argentinas - AR",
+                    "value": "AR"
+                },
+                {
+                    "title": "Air Europa - UX",
+                    "value": "UX"
+                },
+                {
+                    "title": "Air France - AF",
+                    "value": "AF"
+                },
+                {
+                    "title": "Alitalia S.P.A. In A.S - AZ",
+                    "value": "AZ"
+                },
+                {
+                    "title": "China Airlines Ltd. - CIF",
+                    "value": "CIF"
+                },
+                {
+                    "title": "China Eastern Airlines - MU",
+                    "value": "MU"
+                },
+                {
+                    "title": "China Southern Sky Pearl club (CZ)",
+                    "value": "CZ"
+                },
+                {
+                    "title": "Czech Airlines - OK",
+                    "value": "OK"
+                },
+                {
+                    "title": "Delta Air Lines - DL",
+                    "value": "DL"
+                },
+                {
+                    "title": "Etihad Airways - EY",
+                    "value": "EY"
+                },
+                {
+                    "title": "Garuda Indonesia - GA",
+                    "value": "GA"
+                },
+                {
+                    "title": "KLM Royal Dutch Airlines - KL",
+                    "value": "KL"
+                },
+                {
+                    "title": "Kenya Airways - KQ",
+                    "value": "KQ"
+                },
+                {
+                    "title": "Korean Air - KE",
+                    "value": "KE"
+                },
+                {
+                    "title": "Middle East Airlines - ME",
+                    "value": "ME"
+                },
+                {
+                    "title": "TAROM - RO",
+                    "value": "RO"
+                },
+                {
+                    "title": "Vietnam Airlines - VN",
+                    "value": "VN"
+                },
+                {
+                    "title": "Xiamen Airlines - MF",
+                    "value": "MF"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Done"
+        }
+    ]
+}```
+
+# Ask_Activity_yZEPAC()
+[Activity
+    Attachments = ${json(Ask_Activity_yZEPAC_attachment_afQngV())}
+]
+
+# Ask_Activity_yZEPAC_attachment_afQngV()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+          "type": "TextBlock",
+          "text": "Select Frequent Flyer Program 👇",
+          "isSubtle": true,
+          "size": "Medium",
+          "weight": "Bolder"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "CompactSelectVal",
+          "label": "",
+          "errorMessage": "This is a required input",
+          "placeholder": "Select Program",
+          "choices": [
+              {
+                  "title": "Alfursan Miles - SV",
+                  "value": "SV"
+              },
+              {
+                  "title": "Aeromexico - AM",
+                  "value": "AM"
+              },
+              {
+                  "title": "Aeroflot - SU",
+                  "value": "SU"
+              },
+              {
+                  "title": "Aerolineas Argentinas - AR",
+                  "value": "AR"
+              },
+              {
+                  "title": "Air Europa - UX",
+                  "value": "UX"
+              },
+              {
+                  "title": "Air France - AF",
+                  "value": "AF"
+              },
+              {
+                  "title": "Alitalia S.P.A. In A.S - AZ",
+                  "value": "AZ"
+              },
+              {
+                  "title": "China Airlines Ltd. - CIF",
+                  "value": "CIF"
+              },
+              {
+                  "title": "China Eastern Airlines - MU",
+                  "value": "MU"
+              },
+              {
+                  "title": "China Southern Sky Pearl club (CZ)",
+                  "value": "CZ"
+              },
+              {
+                  "title": "Czech Airlines - OK",
+                  "value": "OK"
+              },
+              {
+                  "title": "Delta Air Lines - DL",
+                  "value": "DL"
+              },
+              {
+                  "title": "Etihad Airways - EY",
+                  "value": "EY"
+              },
+              {
+                  "title": "Garuda Indonesia - GA",
+                  "value": "GA"
+              },
+              {
+                  "title": "KLM Royal Dutch Airlines - KL",
+                  "value": "KL"
+              },
+              {
+                  "title": "Kenya Airways - KQ",
+                  "value": "KQ"
+              },
+              {
+                  "title": "Korean Air - KE",
+                  "value": "KE"
+              },
+              {
+                  "title": "Middle East Airlines - ME",
+                  "value": "ME"
+              },
+              {
+                  "title": "TAROM - RO",
+                  "value": "RO"
+              },
+              {
+                  "title": "Vietnam Airlines - VN",
+                  "value": "VN"
+              },
+              {
+                  "title": "Xiamen Airlines - MF",
+                  "value": "MF"
+              }
+            ]
+        },
+        {
+          "type": "Input.Text",
+          "id": "ffnumber",
+          "spacing":"medium",
+          "isRequired": false,
+          "regex":"^[0-9]{8,10}$",
+          "errorMessage": "Please enter correct number",
+          "label": "Please provide your 8 or 10 digit frequent flyer number below",
+          "style": "tel"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Done"
+        }
+    ]
+}```
+
+# Ask_Activity_OFlveG()
+[Activity
+    Attachments = ${json(Ask_Activity_OFlveG_attachment_DGbNvF())}
+]
+
+# Ask_Activity_OFlveG_attachment_DGbNvF()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_mj4iMb()
+[Activity
+    Text = ${SendActivity_mj4iMb_text()}
+]
+
+# SendActivity_mj4iMb_text()
+- ```pnr = ${turn.activity.value.pnr}
+lastName = ${turn.activity.value.lastName}```
+# SendActivity_eiJVVm()
+[Activity
+    Text = ${SendActivity_eiJVVm_text()}
+]
+
+# SendActivity_eiJVVm_text()
+- base url = ${user.baseURL}
+# SendActivity_wsgxWf()
+[Activity
+    Text = ${SendActivity_wsgxWf_text()}
+]
+
+# SendActivity_wsgxWf_text()
+- ${turn.results}
+# SendActivity_juFUHC()
+[Activity
+    Text = ${SendActivity_juFUHC_text()}
+]
+
+# SendActivity_juFUHC_text()
+- id = ${turn.results.content.data.air.prices.unitPrices[0].travelerIds[0]}
+# SendActivity_kuhyqe()
+[Activity
+    Text = ${SendActivity_kuhyqe_text()}
+]
+
+# SendActivity_kuhyqe_text()
+- get order api failed
+# Ask_Activity_fPyiA7()
+[Activity
+    Attachments = ${json(Ask_Activity_fPyiA7_attachment_V41btI())}
+]
+
+# Ask_Activity_fPyiA7_attachment_V41btI()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_1GMFTd_text()
+- count the traverelrs => ${dialog.travelersCount}
+# SendActivity_1GMFTd()
+[Activity
+    Text = ${SendActivity_1GMFTd_text()}
+]
+
+# SendActivity_XUBycQ_text()
+- ${turn.getFFRes}
+# SendActivity_XUBycQ()
+[Activity
+    Text = ${SendActivity_XUBycQ_text()}
+]
+
+# SendActivity_NN18z3_text()
+- count from ff data=> ${dialog.ffCount}
+# SendActivity_NN18z3()
+[Activity
+    Text = ${SendActivity_NN18z3_text()}
+]
+
+# SendActivity_TI3Rr2_text()
+- Already Alfursan details are added
+# SendActivity_TI3Rr2()
+[Activity
+    Text = ${SendActivity_TI3Rr2_text()}
+]
+
+# ConfirmInput_Prompt_tcBF0r_text()
+- Would you like to change the details?
+# ConfirmInput_Prompt_tcBF0r()
+[Activity
+    Text = ${ConfirmInput_Prompt_tcBF0r_text()}
+]
+
+# SendActivity_97zJbF_text()
+- ${turn.ffidArray}
+# SendActivity_97zJbF()
+[Activity
+    Text = ${SendActivity_97zJbF_text()}
+]
+
+# SendActivity_LAqKP1_text()
+- ${turn.stringFFid}
+# SendActivity_LAqKP1()
+[Activity
+    Text = ${SendActivity_LAqKP1_text()}
+]
+
+# SendActivity_rBmkY9_text()
+- Error while deleting FF IDs.
+# SendActivity_rBmkY9()
+[Activity
+    Text = ${SendActivity_rBmkY9_text()}
+]
+
+# SendActivity_raxw37_text()
+- Alright! Enjoy your flight.😀
+# SendActivity_raxw37()
+[Activity
+    Text = ${SendActivity_raxw37_text()}
+]
+
+# SendActivity_6qiQ2o()
+[Activity
+    Attachments = ${json(SendActivity_6qiQ2o_attachment_bZUE6U())}
+]
+
+# SendActivity_1iIKtH_text()
+- count of passengers not equal 
+# SendActivity_1iIKtH()
+[Activity
+    Text = ${SendActivity_1iIKtH_text()}
+]
+
+# SendActivity_UGvf6u_text()
+- travelers ID =>${user.travelersId}
+# SendActivity_UGvf6u()
+[Activity
+    Text = ${SendActivity_UGvf6u_text()}
+]
+
+# SendActivity_5rQJQ1_text()
+- I can help you update or add the frequent flyer number to the booking.
+# SendActivity_5rQJQ1()
+[Activity
+    Text = ${SendActivity_5rQJQ1_text()}
+]
+
+# SendActivity_QF98KI_text()
+- show the dynamic buttons if more than 1 person is there
+# SendActivity_QF98KI()
+[Activity
+    Text = ${SendActivity_QF98KI_text()}
+]
+
+# SendActivity_6ii8zl_text()
+- 🙂 Your Alfursan details are already added. Your Miles were used for this booking. 👍
+# SendActivity_6ii8zl()
+[Activity
+    Text = ${SendActivity_6ii8zl_text()}
+]
+
+# SendActivity_AT8Cta()
+[Activity
+    Attachments = ${json(SendActivity_AT8Cta_attachment_yx89bj())}
+]
+
+# SendActivity_AT8Cta_attachment_yx89bj()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "م إضافة معلومات برنامج الفرسان الخاصة بك. تم استخدام أميالك لهذا الحجز.👍",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_wqHx6z()
+[Activity
+    Attachments = ${json(SendActivity_wqHx6z_attachment_8aJBpy())}
+]
+
+# SendActivity_wqHx6z_attachment_8aJBpy()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "تم إضافة معلومات برنامج الفرسان الخاصة بك.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "  ",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "هل تريد تغيير المعلومات؟",
+      "wrap": true
+    }
+  ]
+}```
+# ConfirmInput_Prompt_lS5hOe()
+[Activity
+    Attachments = ${json(ConfirmInput_Prompt_lS5hOe_attachment_GbYSKW())}
+]
+
+# ConfirmInput_Prompt_lS5hOe_attachment_GbYSKW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "هل تريد تغيير المعلومات؟",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_s6aDH7()
+[Activity
+    Attachments = ${json(SendActivity_s6aDH7_attachment_QZvxPm())}
+]
+
+# SendActivity_s6aDH7_attachment_QZvxPm()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يمكنني مساعدتك بتحديث أو إضافة رقم المسافر الدائم إلى حجزك. ",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_thwYX2()
+[Activity
+    Text = ${SendActivity_thwYX2_text()}
+]
+
+# SendActivity_thwYX2_text()
+- turn.rewardCheck->${turn.rewardCheck}
+# SendActivity_6qiQ2o_attachment_bZUE6U()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "حسناً، استمتع برحلتك.🙂",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_oa7OmR_text()
+- ```Uh\-Oh!😥You have exceeded the maximum number of attempts!\n\nBut you can try again in a while.🔁
+```
+# SendActivity_oa7OmR()
+[Activity
+    Text = ${SendActivity_oa7OmR_text()}
+]
+
+# SendActivity_1fupnn_attachment_3B5WrK()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عفواً!😥لقد تخطيت الحد الأقصى للمحاولات!",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لكن يمكنك المحاولة مرة أخرى بعد قليل.🔁",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_1fupnn()
+[Activity
+    Attachments = ${json(SendActivity_1fupnn_attachment_3B5WrK())}
+]
+
+# Ask_Activity_Mprsdi()
+[Activity
+    Attachments = ${json(Ask_Activity_Mprsdi_attachment_UWJrpP())}
+]
+
+# Ask_Activity_Mprsdi_attachment_UWJrpP()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "I’m sorry! I cannot seem to find your booking!",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Let’s try again",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Try again",
+            "data": {
+                "btnvalue": "try-again-pnr"
+            }
+        }
+    ]
+}```
+# Ask_Activity_2gsIws()
+[Activity
+    Attachments = ${json(Ask_Activity_2gsIws_attachment_m44Tjn())}
+]
+
+# Ask_Activity_2gsIws_attachment_m44Tjn()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "عفواً! يبدو أنني لم أتمكن من العثور على حسابك!",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "لنحاول مرة أخرى ",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "المحاولة مرة أخرى",
+            "data": {
+                "btnvalue": "try-again-pnr"
+            }
+        }
+    ]
+}```
+# Ask_Activity_JPj5JY()
+[Activity
+    Attachments = ${json(Ask_Activity_JPj5JY_attachment_G6fyPc())}
+]
+
+# Ask_Activity_JPj5JY_attachment_G6fyPc()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter your 6-digit booking reference or 13-digit ticker number, for example:67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_n9SnaS()
+[Activity
+    Attachments = ${json(Ask_Activity_n9SnaS_attachment_IGdQKW())}
+]
+
+# Ask_Activity_n9SnaS_attachment_IGdQKW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```

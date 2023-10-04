@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# SendActivity_Gq1h3Q()
+[Activity
+    Text = ${SendActivity_Gq1h3Q_text()}
+]
+
+# SendActivity_Gq1h3Q_text()
+- inside cancel flow
+# SendActivity_cxi5Dl()
+[Activity
+    Text = ${SendActivity_cxi5Dl_text()}
+]
+
+# SendActivity_cxi5Dl_text()
+- أفهم. إذا كان لديك أي أسئلة أخرى أو كنت بحاجة إلى المساعدة، اسألني أي شيء!
+# Ask_Activity_vdi1Gh()
+[Activity
+    Text = ${Ask_Activity_vdi1Gh_text()}
+]
+
+# Ask_Activity_vdi1Gh_text()
+- I understand. If you have any more questions or need assistance, ask me anything!
+# Ask_Activity_t1pAOH()
+[Activity
+    Attachments = ${json(Ask_Activity_t1pAOH_attachment_6rni0p())}
+]
+
+# Ask_Activity_t1pAOH_attachment_6rni0p()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عُلم. اذا كان لديك أي أسئلة أخرى أو كنت بحاجة إلى المساعدة، اسألني أي شيء تريده!",
+      "wrap": true
+    }
+  ]
+}```

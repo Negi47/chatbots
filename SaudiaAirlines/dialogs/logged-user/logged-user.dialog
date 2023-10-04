@@ -1,0 +1,312 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "laGaVW",
+    "name": "logged-user",
+    "comment": "logged user "
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "DVsINm"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "rMOigC"
+          },
+          "assignments": [
+            {
+              "property": "user.returnUser",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "Y7wrKo",
+            "name": "To Fetch Frequent Flyer Profile [AccountNo]"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${user.baseURL}/frequent-flyer/profile",
+          "body": {
+            "jwtToken": "=user.jwtToken"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=user.access_token",
+            "x-api-version": "2"
+          },
+          "responseType": "json",
+          "contentType": "application/json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "GTyXdp"
+          },
+          "condition": "=turn.results.statusCode==201",
+          "actions": [
+            {
+              "$kind": "Microsoft.Foreach",
+              "$designer": {
+                "id": "vYFMJz"
+              },
+              "index": "dialog.foreach.index",
+              "value": "dialog.foreach.value",
+              "itemsProperty": "turn.results.content.data.profiles",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "IBzYEY"
+                  },
+                  "condition": "=dialog.foreach.value.accountNumber == turn.results.content.data.accountNumber",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "VUqGPL",
+                        "name": "Set Logged-In userdetails properties"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.accountId",
+                          "value": "=dialog.foreach.value.accountNumber"
+                        },
+                        {
+                          "property": "user.userName",
+                          "value": "=dialog.foreach.value.personalInformation.firstName"
+                        },
+                        {
+                          "property": "user.profileLastName",
+                          "value": "=dialog.foreach.value.personalInformation.lastName"
+                        },
+                        {
+                          "property": "user.companyCode",
+                          "value": "=dialog.foreach.value.airlineCode"
+                        },
+                        {
+                          "property": "user.tierLevel",
+                          "value": "=if (dialog.foreach.value.tierLevel == 'Blue', \"Green\", dialog.foreach.value.tierLevel)"
+                        },
+                        {
+                          "property": "user.accountMiles",
+                          "value": "=dialog.foreach.value.accountMiles"
+                        },
+                        {
+                          "value": "=dialog.foreach.value.personalInformation.nationality",
+                          "property": "user.nation"
+                        },
+                        {
+                          "property": "user.date_of_birth",
+                          "value": "=dialog.foreach.value.personalInformation.dateOfBirth"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BreakLoop",
+                      "$designer": {
+                        "id": "80SfZq"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "HVP2oW"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "prompt": "${ChoiceInput_Prompt_HVP2oW()}",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "turn.userinput",
+              "choices": [
+                "English",
+                "العربية"
+              ],
+              "style": "suggestedAction",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              },
+              "defaultValue": "=turn.activity.locale"
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "tTdmCN"
+              },
+              "assignments": [
+                {
+                  "property": "user.lanuage_selected",
+                  "value": "=turn.userinput"
+                },
+                {
+                  "property": "user.Loginflow",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "llECNB"
+              },
+              "condition": "turn.userinput",
+              "cases": [
+                {
+                  "value": "English",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "bfetPa"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CheckIn"
+                    }
+                  ]
+                },
+                {
+                  "value": "العربية",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "t2RMMc"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CheckIn"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "QKpJUV"
+                  },
+                  "condition": "=user.lanuage_selected == 'en-us'",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "LsHwrG"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.lanuage_selected",
+                          "value": "English"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "dQ0xvw"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.lanuage_selected",
+                          "value": "Sauida Arbic"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "WaONeI",
+                "name": "Generate Access Token and Session-Id"
+              },
+              "resultProperty": "user.results",
+              "method": "POST",
+              "url": "${user.baseURL}/session/auth/token/initialization",
+              "headers": {},
+              "responseType": "json",
+              "contentType": "application/x-www-form-urlencoded",
+              "body": "grant_type=client_credentials&client_id=ca2363d9-0d4c-449e-96d6-75eb3bbf816e&client_secret=.YC8Q~caEZ.a3DwbQbyPMGrLxzn.nj9pY9WYKdtk&scope=259a88f9-c8c4-4083-9a20-a80d018987d7%2F.default"
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "mLd9Fe"
+              },
+              "assignments": [
+                {
+                  "property": "user.session_id",
+                  "value": "=user.results.content.session_id"
+                },
+                {
+                  "property": "user.access_token",
+                  "value": "=user.results.content.access_token"
+                },
+                {
+                  "property": "user.trycount",
+                  "value": 0
+                },
+                {
+                  "property": "user.Login",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "9AZn5M"
+              },
+              "activityProcessed": true,
+              "dialog": "not-logged-user"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "s1Ej50"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "logged-user.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "logged-user"
+}

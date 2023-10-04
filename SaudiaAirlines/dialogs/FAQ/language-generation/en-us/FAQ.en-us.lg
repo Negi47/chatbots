@@ -1,0 +1,74 @@
+[import](common.lg)
+
+# SendActivity_IWvX2q_text()
+- Sorry, I'm unable to answer your question at this time.
+# SendActivity_IWvX2q()
+[Activity
+    Text = ${SendActivity_IWvX2q_text()}
+]
+
+# SendActivity_TqZeyn()
+[Activity
+    Attachments = ${json(SendActivity_TqZeyn_attachment_iyyBU4())}
+]
+
+# SendActivity_TqZeyn_attachment_iyyBU4()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "عفواً, لا يمكنني الإجابة على سؤالك في هذا الوقت",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_qzDJq2()
+[Activity
+    Attachments = ${json(SendActivity_qzDJq2_attachment_I2vXzC())}
+]
+
+# SendActivity_qzDJq2_attachment_I2vXzC()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "id": "rtl_1",
+  "body": [
+      {
+          "type": "TextBlock",
+          "size": "default",
+          "text": "${turn.gptResponse.content.answer}",
+          "wrap": true
+      }
+  ]
+}```
+# SendActivity_UELSxP()
+[Activity
+    Attachments = ${json(SendActivity_UELSxP_attachment_4617sM())}
+]
+
+# SendActivity_UELSxP_attachment_4617sM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+      {
+          "type": "TextBlock",
+          "size": "default",
+          "text": "${turn.gptResponse.content.answer}",
+          "wrap": true
+      }
+  ]
+}```

@@ -1,0 +1,708 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "8tWh8Z",
+    "name": "not-logged-user",
+    "comment": "the user is not logged\n"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "iYNjvR"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "BEUT67"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_BEUT67()}",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "turn.userinput",
+          "choices": [
+            "English",
+            "العربية"
+          ],
+          "style": "suggestedAction",
+          "recognizerOptions": {
+            "recognizeOrdinals": false,
+            "recognizeNumbers": false,
+            "noValue": false,
+            "noAction": false
+          },
+          "validations": [],
+          "defaultValue": "=turn.activity.locale"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "6N5cQS"
+          },
+          "assignments": [
+            {
+              "property": "user.lanuage_selected",
+              "value": "=turn.userinput"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "64g7e9"
+          },
+          "activity": "${SendActivity_64g7e9()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "B3fPCg"
+          },
+          "activityProcessed": true,
+          "dialog": "MainMenu"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "SEUEsf"
+          },
+          "condition": "turn.userinput",
+          "cases": [
+            {
+              "value": "English",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ZtKPJX"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "MainMenu",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "3JIC7D"
+                  },
+                  "disabled": true,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": false,
+                  "invalidPrompt": "",
+                  "property": "user.loggedoption",
+                  "prompt": "${TextInput_Prompt_3JIC7D()}"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "c0zOtS"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "Change seats",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "Ie80ue"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Upgrade_Seat",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Check-in",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "O3pa9R"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "sWDTHv"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Update Booking Contact Details",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "lG7bbR"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Update Booking Contact Details"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "y2g3c3"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Add baggage",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "JCn5Rd"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AddBaggage",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Join AlFursan",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "DPep9z"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Update_Frequent_Flyer_Details",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Submit and claim Miles",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "KklXgP"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AlfursanRetroClaim",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "See what else I can help you with",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "jw1K4G"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "TypingMenuOption",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "lhCIda"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow",
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "QWkL77"
+                  },
+                  "activity": "${SendActivity_QWkL77()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "cF4Zke"
+                  },
+                  "defaultLocale": "en-us",
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "prompt": "${ChoiceInput_Prompt_cF4Zke()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "user.loggedoption",
+                  "choices": [
+                    "Alfursan Retro Claim",
+                    "Update Booking Contact Details",
+                    "Check-in"
+                  ],
+                  "style": "heroCard",
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true,
+                    "recognizeNumbers": true
+                  },
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "JOqIWh"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "Alfursan Retro Claim",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "bWnaPn"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AlfursanRetroClaim",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Update Booking Contact Details",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "13mYqy"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Update Booking Contact Details"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "VvMQOS"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "Check-in",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "7K4DDw"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "wlZThr"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "ToXg6Q"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow",
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                }
+              ]
+            },
+            {
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "zmY4gb"
+                  },
+                  "disabled": true,
+                  "maxTurnCount": 3,
+                  "alwaysPrompt": true,
+                  "allowInterruptions": false,
+                  "invalidPrompt": "",
+                  "defaultValueResponse": "",
+                  "prompt": "${TextInput_Prompt_zmY4gb()}",
+                  "property": "user.loggedoption"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "xL24g4"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "تغيير المقاعد",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "84v8WZ"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Upgrade_Seat",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إتمام إجراءات السفر",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "r9OsBq"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "kRNPCS"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إضافة الأمتعة",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "0VGICD"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Upgrade_Seat",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "الانضمام إلى برنامج الفرسان",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "pAfhkk"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "Update_Frequent_Flyer_Details",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إرسال المطالبة بالأميال",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "MQu4aF"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AlfursanRetroClaim",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "استفسارات أخرى يمكنني مساعدتك بها",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "NVnUFp"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "TypingMenuOption",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "zikVG9"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow",
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "D62lS5"
+                  },
+                  "activity": "${SendActivity_D62lS5()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "bR9kBv"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": true,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "user.loggedoption",
+                  "style": "heroCard",
+                  "choices": [
+                    "المطالبة بأميال برنامج الفرسان المفقودة",
+                    "تحديث معلومات التواصل",
+                    "إتمام إجراءات السفر"
+                  ],
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true,
+                    "recognizeNumbers": true
+                  },
+                  "prompt": "${ChoiceInput_Prompt_bR9kBv()}"
+                },
+                {
+                  "$kind": "Microsoft.SwitchCondition",
+                  "$designer": {
+                    "id": "KGtGpG"
+                  },
+                  "condition": "user.loggedoption",
+                  "cases": [
+                    {
+                      "value": "المطالبة بأميال برنامج الفرسان المفقودة",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "cVE4TT"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "AlfursanRetroClaim",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "تحديث معلومات التواصل",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "5IGqD4"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Update Booking Contact Details"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "8uA3Zn"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    {
+                      "value": "إتمام إجراءات السفر",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperties",
+                          "$designer": {
+                            "id": "M2kwm7"
+                          },
+                          "assignments": [
+                            {
+                              "property": "user.loggedoption",
+                              "value": "Check-in"
+                            }
+                          ],
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "UkvTGc"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "CheckIn",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  ],
+                  "default": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "1XENut"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "CommonIdentifyFlow",
+                      "disabled": true
+                    }
+                  ],
+                  "disabled": true
+                }
+              ],
+              "value": "عربي"
+            }
+          ],
+          "default": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "vN9VQL"
+              },
+              "condition": "=user.lanuage_selected == 'en-us'",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "huTLTM"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.lanuage_selected",
+                      "value": "English"
+                    }
+                  ],
+                  "disabled": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "ajRzpB"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.lanuage_selected",
+                      "value": "Sauida Arbic"
+                    }
+                  ],
+                  "disabled": true
+                }
+              ],
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "dfP5WF"
+              },
+              "activityProcessed": true,
+              "dialog": "CommonIdentifyFlow",
+              "disabled": true
+            }
+          ],
+          "disabled": true
+        }
+      ]
+    }
+  ],
+  "generator": "not-logged-user.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "not-logged-user"
+}

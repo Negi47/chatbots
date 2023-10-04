@@ -1,0 +1,527 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "dCKgBq",
+    "name": "UpgradeClass",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "zBOJ4M"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Xc6wx9"
+          },
+          "condition": "=user.loggedoption == 'UpgradeClassLoggedIn'",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "0eVXcU"
+              },
+              "assignments": [
+                {
+                  "property": "user.loggedoption",
+                  "value": "UpgradeClass"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "nakPxD"
+              },
+              "condition": "=user.Login == true",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "KdukfX"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.pnr",
+                      "value": "\"\""
+                    },
+                    {
+                      "property": "user.lastName",
+                      "value": "\"\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "ruCRY4"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "RLEJIk"
+                      },
+                      "activity": "${Ask_Activity_RLEJIk()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "ZaJowN"
+                      },
+                      "activity": "${Ask_Activity_ZaJowN()}"
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "NUI1cY"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CheckIn"
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "PiNbaU"
+              },
+              "assignments": [
+                {
+                  "property": "user.pnr",
+                  "value": "=toUpper(turn.activity.value.pnr)"
+                },
+                {
+                  "property": "user.lastName",
+                  "value": "=toUpper(turn.activity.value.lastName)"
+                }
+              ],
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "m1Gt3n"
+              },
+              "resultProperty": "turn.upClassRes",
+              "method": "POST",
+              "url": "${user.baseURL}/plusgrade/plus-offer/pnr",
+              "body": {
+                "pnr": "=user.pnr",
+                "lastName": "=user.lastName"
+              },
+              "headers": {
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "SAA-session-id": "=user.session_id"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "pB9DQp"
+              },
+              "condition": "=turn.upClassRes.statusCode == 201 ",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "XfxgS0"
+                  },
+                  "assignments": [
+                    {
+                      "property": "turn.responseStatus",
+                      "value": "=turn.upClassRes.content.data.responseStatus"
+                    },
+                    {
+                      "property": "turn.modifyURL",
+                      "value": "=turn.upClassRes.content.data.modifyUrl"
+                    },
+                    {
+                      "property": "turn.offerURL",
+                      "value": "=turn.upClassRes.content.data.offerUrl"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "WJjdDv"
+                  },
+                  "condition": "=toLower(turn.responseStatus) == \"modify\" && turn.offerURL == null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "hmvWtP"
+                      },
+                      "activity": "${SendActivity_hmvWtP()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "1YzAuH"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "ychHec"
+                          },
+                          "activity": "${Ask_Activity_ychHec()}"
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "RB5sC2"
+                          },
+                          "activity": "${Ask_Activity_RB5sC2()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "x3006J"
+                      },
+                      "condition": "=toLower(turn.responseStatus) == \"eligible\" && turn.modifyURL == null",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "SPvMPH"
+                          },
+                          "activity": "${SendActivity_SPvMPH()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "igbWiv"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "MpBYV1"
+                              },
+                              "activity": "${Ask_Activity_MpBYV1()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "H6oCRX"
+                              },
+                              "activity": "${Ask_Activity_H6oCRX()}"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "PcuMAQ"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "Pnml7V"
+                              },
+                              "activity": "${SendActivity_Pnml7V()}"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "XLAT3j"
+                              },
+                              "activity": "${SendActivity_XLAT3j()}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.ReplaceDialog",
+                  "$designer": {
+                    "id": "Q2Mi85"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "36KYxI"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "UXxwx1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "t9ylxy",
+        "name": "Not Logged In(UpgradeClass)"
+      },
+      "condition": "=turn.activity.value.x==\"submit\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "ugbPCi"
+          },
+          "assignments": [
+            {
+              "property": "user.pnr",
+              "value": "=toUpper(turn.activity.value.pnr)"
+            },
+            {
+              "property": "user.lastName",
+              "value": "=toUpper(turn.activity.value.lastName)"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "BzBCxj"
+          },
+          "resultProperty": "turn.upClassRes",
+          "method": "POST",
+          "url": "${user.baseURL}/plusgrade/plus-offer/pnr",
+          "body": {
+            "pnr": "=user.pnr",
+            "lastName": "=user.lastName"
+          },
+          "headers": {
+            "Authorization": "=concat('Bearer',' ', user.access_token)",
+            "SAA-session-id": "=user.session_id"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "YU0wMW"
+          },
+          "condition": "=turn.upClassRes.statusCode == 201 ",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "InJEyZ"
+              },
+              "assignments": [
+                {
+                  "property": "turn.responseStatus",
+                  "value": "=turn.upClassRes.content.data.responseStatus"
+                },
+                {
+                  "property": "turn.modifyURL",
+                  "value": "=turn.upClassRes.content.data.modifyUrl"
+                },
+                {
+                  "property": "turn.offerURL",
+                  "value": "=turn.upClassRes.content.data.offerUrl"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "kLq6Jg"
+              },
+              "condition": "=toLower(turn.responseStatus) == \"modify\" && turn.offerURL == null",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "B8Hr2I"
+                  },
+                  "activity": "${SendActivity_B8Hr2I()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "ehbmLc"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "fZwXEf"
+                      },
+                      "activity": "${Ask_Activity_fZwXEf()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "f2Nqzr"
+                      },
+                      "activity": "${Ask_Activity_f2Nqzr()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "avOwUh"
+                  },
+                  "condition": "=toLower(turn.responseStatus) == \"eligible\" && turn.modifyURL == null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "lLJXLI"
+                      },
+                      "activity": "${SendActivity_lLJXLI()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "zij9GG"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "uAye34"
+                          },
+                          "activity": "${SendActivity_uAye34()}"
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "gaSAqr"
+                          },
+                          "activity": "${SendActivity_gaSAqr()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "DLingk"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "Al0Bl5"
+                          },
+                          "activity": "${SendActivity_Al0Bl5()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "Y0ySua"
+                          },
+                          "activity": "${SendActivity_Y0ySua()}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.ReplaceDialog",
+              "$designer": {
+                "id": "M39Gg2"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "4uzjQu"
+              },
+              "activityProcessed": true,
+              "dialog": "Api_Failure"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "vlizLN"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "UpgradeClass.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "UpgradeClass"
+}

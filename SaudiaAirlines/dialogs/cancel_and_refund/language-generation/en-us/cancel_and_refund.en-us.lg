@@ -1,0 +1,374 @@
+[import](common.lg)
+
+# Ask_Activity_AW75Pt()
+[Activity
+    Attachments = ${json(Ask_Activity_AW75Pt_attachment_EYb3nm())}
+]
+
+# Ask_Activity_AW75Pt_attachment_EYb3nm()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Get my details",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_0fOivz()
+[Activity
+    Attachments = ${json(Ask_Activity_0fOivz_attachment_SQ5mV2())}
+]
+
+# Ask_Activity_0fOivz_attachment_SQ5mV2()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Need more help? 💡",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "You can chat with our customer support team.🙂",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Chat with customer support",
+          "data": {
+                "btnvalue": "chat-with-customer-support"
+            }
+      }
+  ]
+}```
+# Ask_Activity_klsPLe()
+[Activity
+    Attachments = ${json(Ask_Activity_klsPLe_attachment_sMZKkX())}
+]
+
+# Ask_Activity_klsPLe_attachment_sMZKkX()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡تحتاج لمزيد من المساعدة؟",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "تواصل مع فريق دعم العملاء لدينا. 🙂",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحدق مع فريق دعم العملاء",
+          "data": {
+                "btnvalue": "chat-with-customer-support"
+            }
+      }
+  ]
+}```
+# SendActivity_fMQjg3()
+[Activity
+    Text = ${SendActivity_fMQjg3_text()}
+]
+
+# SendActivity_fMQjg3_text()
+- chat with customer support
+# SendActivity_UFuiWj_attachment_QzoimH()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Sorry, we are unable to cancel this booking.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": " ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "You can click 'Continue'👇to request a refund using the refund form or contact the booking source.",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Continue ↗",
+            "url": "https://refund.saudiairlines.com/tkt/?lang=en"
+        }
+    ]
+}```
+# SendActivity_UFuiWj()
+[Activity
+    Attachments = ${json(SendActivity_UFuiWj_attachment_QzoimH())}
+]
+
+# SendActivity_nVNaBG_attachment_Gik3QY()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "عذراً، لم نتمكن من إلغاء حجزك.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "  ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "ولكن يمكنك الضغط على زر 'المتابعة' 👇 لاستخدام النموذج الخاص بطلب استرداد الأموال أو التواصل مع مصدر الحجز. ",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "المتابعة ↖",
+            "url": "https://refund.saudiairlines.com/tkt/?lang=en"
+        }
+    ]
+}```
+# SendActivity_nVNaBG()
+[Activity
+    Attachments = ${json(SendActivity_nVNaBG_attachment_Gik3QY())}
+]
+
+# SendActivity_L0NyM0_text()
+- ```refundStatus =>${turn.results.content.data.cancelAndRefund.refundStatus}
+user.call_order_refund_status=>${user.call_order_refund_status}```
+# SendActivity_L0NyM0()
+[Activity
+    Text = ${SendActivity_L0NyM0_text()}
+]
+
+# SendActivity_CDZ0To_attachment_xg8DfP()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "👇 Click below to cancel your trip. 👋",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 We might need you to verify your identity to complete the cancellation.",
+            "wrap": true
+        }
+
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Cancel now ↗",
+            "url": "${user.baseWebLink}/managemybooking?REC_LOC=${user.pnr}&DIRECT_RETRIEVE_LASTNAME=${user.lastName}&cancel=true"
+        }
+    ]
+}```
+# SendActivity_CDZ0To()
+[Activity
+    Attachments = ${json(SendActivity_CDZ0To_attachment_xg8DfP())}
+]
+
+# SendActivity_gG1nTE_attachment_TGdUtX()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "👇 اضغط أدناه لإلغاء رحلتك. 👋",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡عليك تأكيد هويتك لإكمال عملية الإلغاء.",
+            "wrap": true
+        }
+
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "الإلغاء الآن  ↖",
+            "url": "${user.baseWebLink}/managemybooking?REC_LOC=${user.pnr}&DIRECT_RETRIEVE_LASTNAME=${user.lastName}&cancel=true"
+        }
+    ]
+}```
+# SendActivity_gG1nTE()
+[Activity
+    Attachments = ${json(SendActivity_gG1nTE_attachment_TGdUtX())}
+]
+
+# SendActivity_WuoN7E_attachment_C1vUUV()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Sorry, we are unable to cancel this booking online. 😕",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 To cancel, please click  below to fill out a refund form or contact our customer support team for assistance. 🤝",
+            "wrap": true
+        }
+
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Fill refund form ↗",
+            "url": "https://refund.saudiairlines.com/tkt/?lang=en"
+        }
+    ]
+}```
+# SendActivity_WuoN7E()
+[Activity
+    Attachments = ${json(SendActivity_WuoN7E_attachment_C1vUUV())}
+]
+
+# SendActivity_qZTkWN_attachment_NKRthZ()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "عذراً، لم نتمكن من إلغاء الحجز عبر الإنترنت. 😕",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡للإلغاء يرجى الضغط أدناه لتعبئة نموذج استرداد الأموال أو تواصل مع فريق دعم العملاء للمساعدة. 🤝",
+            "wrap": true
+        }
+
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تعبئة نموذج استرداد الأموال ↖",
+            "url": "https://refund.saudiairlines.com/tkt/?lang=en"
+        }
+    ]
+}```
+# SendActivity_qZTkWN()
+[Activity
+    Attachments = ${json(SendActivity_qZTkWN_attachment_NKRthZ())}
+]

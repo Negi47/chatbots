@@ -1,0 +1,1779 @@
+[import](common.lg)
+
+# SendActivity_oW5HvF()
+[Activity
+    Text = ${SendActivity_oW5HvF_text()}
+]
+
+# SendActivity_oW5HvF_text()
+- Complain status flow
+
+
+# Ask_Activity_kOMNKY()
+[Activity
+    Attachments = ${json(Ask_Activity_kOMNKY_attachment_VPJLIB())}
+]
+
+# Ask_Activity_kOMNKY_attachment_VPJLIB()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Sure thing! To better assist you, please log into your Alfursan account first 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Login Now ↗",
+            "url": "${user.baseWebLink}"
+        }
+    ]
+}```
+# SendActivity_9CvOxy()
+[Activity
+    Text = ${SendActivity_9CvOxy_text()}
+]
+
+# SendActivity_9CvOxy_text()
+- For non logged in user
+# SendActivity_D9lsw2_text()
+- ```${user.session_id}
+${user.access_token}```
+
+# SendActivity_D9lsw2()
+[Activity
+    Text = ${SendActivity_D9lsw2_text()}
+]
+
+# SendActivity_3iQ4qn_text()
+- ---> ${turn.results}
+# SendActivity_3iQ4qn()
+[Activity
+    Text = ${SendActivity_3iQ4qn_text()}
+]
+
+# SendActivity_ub307s_text()
+- came inside
+
+# SendActivity_ub307s()
+[Activity
+    Text = ${SendActivity_ub307s_text()}
+]
+
+# SendActivity_OPsVQv()
+[Activity
+    Text = ${SendActivity_OPsVQv_text()}
+]
+
+# SendActivity_OPsVQv_text()
+- ```${dialog.currTime}
+${dialog.pastTime}```
+# SendActivity_ZVOpcj()
+[Activity
+    Text = ${SendActivity_ZVOpcj_text()}
+]
+
+# SendActivity_ZVOpcj_text()
+- if complain list are present in this period
+# SendActivity_pbd3Jr()
+[Activity
+    Text = ${SendActivity_pbd3Jr_text()}
+]
+
+# SendActivity_pbd3Jr_text()
+- Complains are not in a specified period
+# SendActivity_hqKaCI()
+[Activity
+    Text = ${SendActivity_hqKaCI_text()}
+]
+
+# SendActivity_hqKaCI_text()
+- 401 error token invalid
+# Ask_Activity_xlwE9U()
+[Activity
+    Attachments = ${json(Ask_Activity_xlwE9U_attachment_cezbiX())}
+    AttachmentLayout = list
+]
+
+# Ask_Activity_xlwE9U_attachment_cezbiX()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Input.Text",
+      "id": "myID",
+      "isRequired": true,
+      "regex":"^[0-9]{5}$",
+      "errorMessage": "Please enter a valid 5-digit complaint number 👇 💡Example: 65XX6",
+      "label": "Let me try to help! Please enter your complaint number below.",
+      "style": "tel"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Check Status",
+          "data": {
+              "btn_value": "Check Status"
+          }
+      }
+  ]
+}```
+# SendActivity_aHd69a()
+[Activity
+    Text = ${SendActivity_aHd69a_text()}
+]
+
+# SendActivity_aHd69a_text()
+- ${turn.activity.value.myID}
+# SendActivity_FbSbAu()
+[Activity
+    Text = ${SendActivity_FbSbAu_text()}
+]
+
+# SendActivity_FbSbAu_text()
+- I found the following complaint related to your account 👇
+# SendActivity_yVN8tb()
+[Activity
+    Text = ${SendActivity_yVN8tb_text()}
+]
+
+# SendActivity_yVN8tb_text()
+- came inside
+# SendActivity_EeP5fG()
+[Activity
+    Text = ${SendActivity_EeP5fG_text()}
+]
+
+# SendActivity_EeP5fG_text()
+- ${dialog.checkID}
+# SendActivity_iZxI4X_text()
+- ${dialog.newDataArray}
+# SendActivity_iZxI4X()
+[Activity
+    Text = ${SendActivity_iZxI4X_text()}
+]
+
+# SendActivity_Sw3maZ_text()
+- You selected ${dialog.button_val}
+# SendActivity_Sw3maZ()
+[Activity
+    Text = ${SendActivity_Sw3maZ_text()}
+]
+
+# SendActivity_BPFFm3_text()
+- ID not found
+# SendActivity_BPFFm3()
+[Activity
+    Text = ${SendActivity_BPFFm3_text()}
+]
+
+# SendActivity_GKwBYm_text()
+- ${dialog.externalStatus}
+# SendActivity_GKwBYm()
+[Activity
+    Text = ${SendActivity_GKwBYm_text()}
+]
+
+# SendActivity_JRF3sP_text()
+- ${dialog.chatAgent}
+# SendActivity_JRF3sP()
+[Activity
+    Text = ${SendActivity_JRF3sP_text()}
+]
+
+# SendActivity_kxziMr()
+[Activity
+    Text = ${SendActivity_kxziMr_text()}
+]
+
+# SendActivity_kxziMr_text()
+- data count = ${dialog.dataCount}
+# SendActivity_oH4Ffb()
+[Activity
+    Text = ${SendActivity_oH4Ffb_text()}
+]
+
+# SendActivity_oH4Ffb_text()
+- Data count is null at present
+# TextInput_Prompt_lRU6E5()
+- ${GetCustomAdaptiveCards(dialog.newDataArray)}
+
+# GetCustomAdaptiveCards(collection)
+[Activity
+Attachments = ${take(foreach(collection, itemNew, json(customAdaptiveCards(itemNew))),4)}
+AttachmentLayout = carousel
+]
+
+# customAdaptiveCards(itemNew)
+- ```
+{
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Complaint ID : ${itemNew.ComplaintID}"
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "wrap": true,
+            "text": "Name : ${itemNew.Name}"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Check Status",
+            "data": {
+                "btn_val" : "${itemNew.ComplaintID}",
+                "btn_name": "Check Status"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Check with another complaint number",
+            "data": {
+                "btn_val" : "Check with another complaint number",
+                "btn_name": "Check with another complaint number"
+            }
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3"
+}```
+
+# SendActivity_siOyZe_text()
+- It doesn't seem you have any complaints with us!
+# SendActivity_siOyZe()
+[Activity
+    Text = ${SendActivity_siOyZe_text()}
+]
+
+# SendActivity_CN5IYk()
+[Activity
+    Attachments = ${json(SendActivity_CN5IYk_attachment_qJxW2G())}
+]
+
+# SendActivity_CN5IYk_attachment_qJxW2G()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يبدو أنك لم تقدم أي شكوى إلينا!",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_GndJ5h_text()
+- ```I found ${dialog.dataCount} complaints related to your account. 
+
+Please click on “Check Status” to view the current status of your complaint.```
+# SendActivity_GndJ5h()
+[Activity
+    Text = ${SendActivity_GndJ5h_text()}
+]
+
+# SendActivity_hr2dNN()
+[Activity
+    Attachments = ${json(SendActivity_hr2dNN_attachment_Hd4MqT())}
+]
+
+# SendActivity_hr2dNN_attachment_Hd4MqT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "وجدت ${dialog.dataCount} شكوى مرتبطة بحسابك.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "   ",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "اضغط على ”تحقق من الحالة“ لعرض حالة الشكوى.",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_WtQ2at_text()
+- Let me try to help! Please enter your complaint number below. 
+# SendActivity_WtQ2at()
+[Activity
+    Text = ${SendActivity_WtQ2at_text()}
+]
+
+# SendActivity_afe57s()
+[Activity
+    Attachments = ${json(SendActivity_afe57s_attachment_kgIrYk())}
+]
+
+# SendActivity_afe57s_attachment_kgIrYk()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "دعني أساعدك! أدخل رقم الشكوى أدناه.",
+      "wrap": true
+    }
+  ]
+}```
+# Ask_Activity_jnO5x3()
+[Activity
+    Attachments = ${json(Ask_Activity_jnO5x3_attachment_0kLVLe())}
+]
+
+# Ask_Activity_jnO5x3_attachment_0kLVLe()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Input.Text",
+      "id": "myID",
+      "isRequired": true,
+      "regex":"^[0-9]{5}$",
+      "errorMessage": "أدخل رقم الشكوى المؤلف من 5 أعداد. 👇",
+      "label": "دعني أساعدك! أدخل رقم الشكوى أدناه.",
+      "style": "tel"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحقق من الحالة",
+          "data": {
+              "btn_value": "Check Status"
+          }
+      }
+  ]
+}```
+# SendActivity_WFQfc0_text()
+- ```Dear ${user.userName}, we are sorry to make you wait a little longer. Currently, your complaint status is: ${dialog.externalStatus}. 
+We will get back to you as soon as possible. ```
+# SendActivity_WFQfc0()
+[Activity
+    Text = ${SendActivity_WFQfc0_text()}
+]
+
+# TextInput_Prompt_9SsAnY_attachment_SeeqJD()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_9SsAnY()
+[Activity
+    Attachments = ${TextInput_Prompt_9SsAnY_attachment_SeeqJD()}
+]
+
+# SendActivity_kRkbII()
+[Activity
+    Attachments = ${json(SendActivity_kRkbII_attachment_EDN0aH())}
+]
+
+# SendActivity_kRkbII_attachment_EDN0aH()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، نعتذر أنك انتظرت طويلاً. الشكوى حالياً ${dialog.externalStatus}. سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_058aYj_text()
+- ```Dear ${user.userName}, your complaint is currently ${dialog.externalStatus}. 
+We will get back to you as soon as possible.```
+# SendActivity_058aYj()
+[Activity
+    Text = ${SendActivity_058aYj_text()}
+]
+
+# TextInput_Prompt_7o79PU_attachment_V5SiEh()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_7o79PU()
+[Activity
+    Attachments = ${TextInput_Prompt_7o79PU_attachment_V5SiEh()}
+]
+
+# SendActivity_l06sZ1()
+[Activity
+    Attachments = ${json(SendActivity_l06sZ1_attachment_SDLf3V())}
+]
+
+# SendActivity_l06sZ1_attachment_SDLf3V()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، نعتذر أنك انتظرت طويلاً. الشكوى حالياً ${dialog.externalStatus}.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_10DFF3_text()
+- Dear ${user.userName}, your complaint was ${dialog.externalStatus}.
+# SendActivity_10DFF3()
+[Activity
+    Text = ${SendActivity_10DFF3_text()}
+]
+
+# TextInput_Prompt_2Umm6B_attachment_Fak63F()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_2Umm6B()
+[Activity
+    Attachments = ${TextInput_Prompt_2Umm6B_attachment_Fak63F()}
+]
+
+# SendActivity_Ee8iPq()
+[Activity
+    Attachments = ${json(SendActivity_Ee8iPq_attachment_XdGsbX())}
+]
+
+# SendActivity_Ee8iPq_attachment_XdGsbX()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_1OMGD2_text()
+- Dear ${user.userName}, your complaint was ${dialog.externalStatus}.
+# SendActivity_1OMGD2()
+[Activity
+    Text = ${SendActivity_1OMGD2_text()}
+]
+
+# TextInput_Prompt_hfeZhZ_attachment_UzU9lM()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_hfeZhZ()
+[Activity
+    Attachments = ${TextInput_Prompt_hfeZhZ_attachment_UzU9lM()}
+]
+
+# SendActivity_1P72DF()
+[Activity
+    Attachments = ${json(SendActivity_1P72DF_attachment_IIXTPZ())}
+]
+
+# SendActivity_1P72DF_attachment_IIXTPZ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_NaBUd3_text()
+- Dear ${user.userName}, your complaint is pending and currently ${dialog.externalStatus}.
+# SendActivity_NaBUd3()
+[Activity
+    Text = ${SendActivity_NaBUd3_text()}
+]
+
+# TextInput_Prompt_XW70Qn_attachment_cRhkKI()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_XW70Qn()
+[Activity
+    Attachments = ${TextInput_Prompt_XW70Qn_attachment_cRhkKI()}
+]
+
+# SendActivity_yQy209()
+[Activity
+    Attachments = ${json(SendActivity_yQy209_attachment_XJlnV7())}
+]
+
+# SendActivity_yQy209_attachment_XJlnV7()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى قيد الانتظار وهي حالياً ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_iz7w45_text()
+- Hey ${user.userName}! We need some additional information regarding your complaint. Please check your email and get back to us as soon as possible.
+# SendActivity_iz7w45()
+[Activity
+    Text = ${SendActivity_iz7w45_text()}
+]
+
+# TextInput_Prompt_Hcp7zr_attachment_fJSRjq()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_Hcp7zr()
+[Activity
+    Attachments = ${TextInput_Prompt_Hcp7zr_attachment_fJSRjq()}
+]
+
+# SendActivity_FMFmrt()
+[Activity
+    Attachments = ${json(SendActivity_FMFmrt_attachment_dkxqAx())}
+]
+
+# SendActivity_FMFmrt_attachment_dkxqAx()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "مرحباً ${user.userName}! نحتاج مزيداً من المعلومات عن الشكوى الخاصة بك. تحقق من بريدك الإلكتروني وتواصل معنا مجدداً.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_GJSn8V_text()
+- It doesn't seem you have any complaints with us!
+# SendActivity_GJSn8V()
+[Activity
+    Text = ${SendActivity_GJSn8V_text()}
+]
+
+# SendActivity_ttP4Qj()
+[Activity
+    Attachments = ${json(SendActivity_ttP4Qj_attachment_NzfK18())}
+]
+
+# SendActivity_ttP4Qj_attachment_NzfK18()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يبدو أنك لم تقدم أي شكوى إلينا!",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_2Aw2jV_text()
+- It doesn't seem you have any complaints with us!
+# SendActivity_2Aw2jV()
+[Activity
+    Text = ${SendActivity_2Aw2jV_text()}
+]
+
+# SendActivity_uhD7yG()
+[Activity
+    Attachments = ${json(SendActivity_uhD7yG_attachment_pHxh6w())}
+]
+
+# SendActivity_uhD7yG_attachment_pHxh6w()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يبدو أنك لم تقدم أي شكوى إلينا!",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_UaBkLS_text()
+- ```Dear ${user.userName}, we are sorry to make you wait a little longer. Currently, your complaint status is: ${dialog.externalStatus}. 
+We will get back to you as soon as possible. ```
+# SendActivity_UaBkLS()
+[Activity
+    Text = ${SendActivity_UaBkLS_text()}
+]
+
+# TextInput_Prompt_HNWSjx_attachment_l7AxkL()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_HNWSjx()
+[Activity
+    Attachments = ${TextInput_Prompt_HNWSjx_attachment_l7AxkL()}
+]
+
+# SendActivity_5hSsKz_text()
+- ```Dear ${user.userName}, your complaint is currently ${dialog.externalStatus}. 
+We will get back to you as soon as possible.```
+# SendActivity_5hSsKz()
+[Activity
+    Text = ${SendActivity_5hSsKz_text()}
+]
+
+# TextInput_Prompt_9LGKxE_attachment_N3glAr()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_9LGKxE()
+[Activity
+    Attachments = ${TextInput_Prompt_9LGKxE_attachment_N3glAr()}
+]
+
+# SendActivity_dFznPt_text()
+- Dear ${user.userName}, your complaint was ${dialog.externalStatus}.
+# SendActivity_dFznPt()
+[Activity
+    Text = ${SendActivity_dFznPt_text()}
+]
+
+# TextInput_Prompt_s21XHj_attachment_PkW61A()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_s21XHj()
+[Activity
+    Attachments = ${TextInput_Prompt_s21XHj_attachment_PkW61A()}
+]
+
+# SendActivity_IJGmT0_text()
+- Dear ${user.userName}, your complaint was ${dialog.externalStatus}.
+# SendActivity_IJGmT0()
+[Activity
+    Text = ${SendActivity_IJGmT0_text()}
+]
+
+# TextInput_Prompt_YFCa0C_attachment_dz15DB()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_YFCa0C()
+[Activity
+    Attachments = ${TextInput_Prompt_YFCa0C_attachment_dz15DB()}
+]
+
+# SendActivity_UZJTDZ_text()
+- Dear ${user.userName}, your complaint is pending and currently ${dialog.externalStatus}.
+# SendActivity_UZJTDZ()
+[Activity
+    Text = ${SendActivity_UZJTDZ_text()}
+]
+
+# TextInput_Prompt_NNlzT1_attachment_83lLE4()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_NNlzT1()
+[Activity
+    Attachments = ${TextInput_Prompt_NNlzT1_attachment_83lLE4()}
+]
+
+# SendActivity_yds6s4_text()
+- Hey ${user.userName}! We need some additional information regarding your complaint. Please check your email and get back to us as soon as possible.
+# SendActivity_yds6s4()
+[Activity
+    Text = ${SendActivity_yds6s4_text()}
+]
+
+# TextInput_Prompt_54Zfqa_attachment_OHgcp7()
+[HeroCard
+  text = If you would like to connect to an agent kindly tap below 👇
+  buttons = Chat with Customer Support
+]
+# TextInput_Prompt_54Zfqa()
+[Activity
+    Attachments = ${TextInput_Prompt_54Zfqa_attachment_OHgcp7()}
+]
+
+# SendActivity_o2INPI()
+[Activity
+    Attachments = ${json(SendActivity_o2INPI_attachment_3Ni7dW())}
+]
+
+# SendActivity_o2INPI_attachment_3Ni7dW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، نعتذر أنك انتظرت طويلاً. الشكوى حالياً ${dialog.externalStatus}. سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_uSJkRz()
+[Activity
+    Attachments = ${json(SendActivity_uSJkRz_attachment_Z9BkjJ())}
+]
+
+# SendActivity_uSJkRz_attachment_Z9BkjJ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، نعتذر أنك انتظرت طويلاً. الشكوى حالياً ${dialog.externalStatus}.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سنتواصل معك في أقرب وقت.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_yk7wfR()
+[Activity
+    Attachments = ${json(SendActivity_yk7wfR_attachment_RyZbP4())}
+]
+
+# SendActivity_yk7wfR_attachment_RyZbP4()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_VjmlqG()
+[Activity
+    Attachments = ${json(SendActivity_VjmlqG_attachment_0pk2sA())}
+]
+
+# SendActivity_VjmlqG_attachment_0pk2sA()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_nM8TJN()
+[Activity
+    Attachments = ${json(SendActivity_nM8TJN_attachment_dhqhxH())}
+]
+
+# SendActivity_nM8TJN_attachment_dhqhxH()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عزيزي ${user.userName}، الشكوى قيد الانتظار وهي حالياً ${dialog.externalStatus}.",
+      "wrap": true
+    }
+  ]
+}```
+
+# SendActivity_tzz92d()
+[Activity
+    Attachments = ${json(SendActivity_tzz92d_attachment_MjxqUh())}
+]
+
+# SendActivity_tzz92d_attachment_MjxqUh()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "مرحباً ${user.userName}! نحتاج مزيداً من المعلومات عن الشكوى الخاصة بك. تحقق من بريدك الإلكتروني وتواصل معنا مجدداً.",
+      "wrap": true
+    }
+  ]
+}```
+
+# Ask_Activity_tnH17H()
+[Activity
+    Attachments = ${json(Ask_Activity_tnH17H_attachment_FR21Dw())}
+]
+
+# Ask_Activity_tnH17H_attachment_FR21Dw()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_0ryPf1()
+[Activity
+    Attachments = ${json(Ask_Activity_0ryPf1_attachment_HCvViU())}
+]
+
+# Ask_Activity_0ryPf1_attachment_HCvViU()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_71Lfdo()
+[Activity
+    Attachments = ${json(Ask_Activity_71Lfdo_attachment_a76iHX())}
+]
+
+# Ask_Activity_71Lfdo_attachment_a76iHX()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_UGDfaR()
+[Activity
+    Attachments = ${json(Ask_Activity_UGDfaR_attachment_rQTRVE())}
+]
+
+# Ask_Activity_UGDfaR_attachment_rQTRVE()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_zVEp6j()
+[Activity
+    Attachments = ${json(Ask_Activity_zVEp6j_attachment_J9d5N3())}
+]
+
+# Ask_Activity_zVEp6j_attachment_J9d5N3()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_OIMF8h()
+[Activity
+    Attachments = ${json(Ask_Activity_OIMF8h_attachment_afcI9u())}
+]
+
+# Ask_Activity_OIMF8h_attachment_afcI9u()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_s9ZDy7()
+[Activity
+    Attachments = ${json(Ask_Activity_s9ZDy7_attachment_CEgHJG())}
+]
+
+# Ask_Activity_s9ZDy7_attachment_CEgHJG()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_1DmgQO()
+[Activity
+    Attachments = ${json(Ask_Activity_1DmgQO_attachment_dp4h56())}
+]
+
+# Ask_Activity_1DmgQO_attachment_dp4h56()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_2mBlwp()
+[Activity
+    Attachments = ${json(Ask_Activity_2mBlwp_attachment_KeRuxl())}
+]
+
+# Ask_Activity_2mBlwp_attachment_KeRuxl()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_6RgtCR()
+[Activity
+    Attachments = ${json(Ask_Activity_6RgtCR_attachment_3yfE7O())}
+]
+
+# Ask_Activity_6RgtCR_attachment_3yfE7O()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_h8eIws()
+[Activity
+    Attachments = ${json(Ask_Activity_h8eIws_attachment_nJpZxE())}
+]
+
+# Ask_Activity_h8eIws_attachment_nJpZxE()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_GPeAhv()
+[Activity
+    Attachments = ${json(Ask_Activity_GPeAhv_attachment_NSo2b3())}
+]
+
+# Ask_Activity_GPeAhv_attachment_NSo2b3()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# SendActivity_8Nuoy5_text()
+- I found the following complaint related to your account 👇
+# SendActivity_8Nuoy5()
+[Activity
+    Text = ${SendActivity_8Nuoy5_text()}
+]
+
+# SendActivity_VRm0Mg()
+[Activity
+    Attachments = ${json(SendActivity_VRm0Mg_attachment_DZQiRS())}
+]
+
+# SendActivity_VRm0Mg_attachment_DZQiRS()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "وجدت هذه الشكوى مرتبطة بحسابك.",
+      "wrap": true
+    }
+  ]
+}```
+
+# Ask_Activity_dzYI1W()
+[Activity
+    Attachments = ${json(Ask_Activity_dzYI1W_attachment_CiYEJM())}
+]
+
+# Ask_Activity_dzYI1W_attachment_CiYEJM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_oMRpJW()
+[Activity
+    Attachments = ${json(Ask_Activity_oMRpJW_attachment_Z5LUqa())}
+]
+
+# Ask_Activity_oMRpJW_attachment_Z5LUqa()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_c5GFfh()
+[Activity
+    Attachments = ${json(Ask_Activity_c5GFfh_attachment_XWKYij())}
+]
+
+# Ask_Activity_c5GFfh_attachment_XWKYij()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_hva1fS()
+[Activity
+    Attachments = ${json(Ask_Activity_hva1fS_attachment_3ximy4())}
+]
+
+# Ask_Activity_hva1fS_attachment_3ximy4()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_kHhGRp()
+[Activity
+    Attachments = ${json(Ask_Activity_kHhGRp_attachment_WwGpA9())}
+]
+
+# Ask_Activity_kHhGRp_attachment_WwGpA9()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_Z2I6JX()
+[Activity
+    Attachments = ${json(Ask_Activity_Z2I6JX_attachment_GG8Ii4())}
+]
+
+# Ask_Activity_Z2I6JX_attachment_GG8Ii4()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_fcIfvr()
+[Activity
+    Attachments = ${json(Ask_Activity_fcIfvr_attachment_5wJT5l())}
+]
+
+# Ask_Activity_fcIfvr_attachment_5wJT5l()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_LIfwYH()
+[Activity
+    Attachments = ${json(Ask_Activity_LIfwYH_attachment_UIwMJM())}
+]
+
+# Ask_Activity_LIfwYH_attachment_UIwMJM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_Mc42xq()
+[Activity
+    Attachments = ${json(Ask_Activity_Mc42xq_attachment_15AB3l())}
+]
+
+# Ask_Activity_Mc42xq_attachment_15AB3l()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_NCDqCW()
+[Activity
+    Attachments = ${json(Ask_Activity_NCDqCW_attachment_EpMNXl())}
+]
+
+# Ask_Activity_NCDqCW_attachment_EpMNXl()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_rdMFFo()
+[Activity
+    Attachments = ${json(Ask_Activity_rdMFFo_attachment_VMpqQf())}
+]
+
+# Ask_Activity_rdMFFo_attachment_VMpqQf()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click the button below to get support from one of our agents if you need more help.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Chat with Customer Support",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# Ask_Activity_mtdr2l()
+[Activity
+    Attachments = ${json(Ask_Activity_mtdr2l_attachment_x6CBsT())}
+]
+
+# Ask_Activity_mtdr2l_attachment_x6CBsT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط على الزر أدناه للحصول على الدعم من أحد الموظفين إذا كنت بحاجة لمزيد من المساعدة.",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "الدردشة مع دعم العملاء",
+            "data": {
+                "btn_value": "Chat with Customer Support"
+            }
+        }
+    ]
+}```
+
+# SendActivity_PXXmIm()
+[Activity
+    Attachments = ${json(SendActivity_PXXmIm_attachment_74YpKN())}
+]
+
+# SendActivity_PXXmIm_attachment_74YpKN()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "شيء أكيد! لمساعدتك بشكل أفضل، يرجى تسجيل الدخول إلى حساب الفرسان الخاص بك أولاً 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "سجل الدخول الآن ↖️",
+            "url": "${user.baseWebLink}"
+        }
+    ]
+}```

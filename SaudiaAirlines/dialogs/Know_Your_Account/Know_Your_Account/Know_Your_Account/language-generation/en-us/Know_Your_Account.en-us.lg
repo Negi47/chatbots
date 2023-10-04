@@ -1,0 +1,1104 @@
+                                                                                                                                                                                                                                                                                                                                                                            [import](common.lg)
+
+# Ask_Activity_DjZrbz()
+[Activity
+    Attachments = ${json(Ask_Activity_DjZrbz_attachment_rGt5Q2())}
+]
+
+# Ask_Activity_DjZrbz_attachment_rGt5Q2()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "🕵️‍♀️ For security reasons, I need to confirm your phone number."
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Proceed",
+          "data": {
+                "btnValue": "proceed"
+            }
+      }
+  ]
+}```
+# Ask_Activity_RJR8S5()
+[Activity
+    Attachments = ${json(Ask_Activity_RJR8S5_attachment_0mLbcd())}
+]
+
+# Ask_Activity_RJR8S5_attachment_0mLbcd()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "I have found ${user.no_of_accounts} ids account IDs associated with this ${user.phone_number}. "
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,        
+        "maxLines":2,
+        "text": "📧 Please enter the email address below to fetch the account ID that you're looking for 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "user_entered_email_id",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]+([.-_+][A-Za-z0-9]+)*@[A-Za-z0-9-]+(.[A-Za-z]{2,})+$",
+      "errorMessage": "Please enter a valid email address, for example: jonh.smith234@gmail.com",
+      "placeholder": "Enter Your Email ID",
+      "label": "Enter Your Email ID",
+      "style": "email"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "btnValue": "submit_2"
+            }
+      }
+  ]
+}```
+# SendActivity_abBf7N()
+[Activity
+    Text = ${SendActivity_abBf7N_text()}
+]
+
+# SendActivity_abBf7N_text()
+- came inside
+# Ask_Activity_vxyGke()
+[Activity
+    Attachments = ${json(Ask_Activity_vxyGke_attachment_hy2JbF())}
+]
+
+# Ask_Activity_vxyGke_attachment_hy2JbF()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "Of course! But I would need your phone number first to fetch your account ID. 📱"
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "Please enter your number with country code below 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "mobile_number",
+      "label": "💡 Example: +966*******",
+      "isRequired": true,
+      "regex":"^[+][0-9]{2,3}[0-9]{10,14}$",
+      "errorMessage": "Please enter a valid phone number with country code, for example:  +966*******"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "btnValue": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_0KIGWx()
+[Activity
+    Attachments = ${json(Ask_Activity_0KIGWx_attachment_j7wTj0())}
+]
+
+# Ask_Activity_0KIGWx_attachment_j7wTj0()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم جوالك ${user.phone_number} والذي يتألف من 6 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على ”إعادة الإرسال“ للحصول على رمز جديد بعد مرور 60 ثانية.🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 أدخل كلمة مرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "الرجاء إدخال رقم صالح مكون من 6 أرقام **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال الرمز",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_NdUpcN()
+[Activity
+    Text = ${SendActivity_NdUpcN_text()}
+]
+
+# SendActivity_NdUpcN_text()
+- ${turn.user_entered_otp}
+# Ask_Activity_I0Z0Ii()
+[Activity
+    Attachments = ${json(Ask_Activity_I0Z0Ii_attachment_NHWqNr())}
+]
+
+# Ask_Activity_I0Z0Ii_attachment_NHWqNr()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": " Great! Please enter the 6 digit OTP received on your number ${user.phone_number} below 👇"
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡 **Note:** In case you're facing any issue, please click on **'Resend OTP'**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 Enter the OTP below 👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "Please enter a valid 6 digit OTP"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "Resend via SMS",
+          "data": {
+                "btnValue": "proceed_otp_again"
+            }
+      }
+  ]
+}```
+# SendActivity_BgHAPI_text()
+- ${user.trycount}
+# SendActivity_BgHAPI()
+[Activity
+    Text = ${SendActivity_BgHAPI_text()}
+]
+
+# SendActivity_PsAeG3()
+[Activity
+    Text = ${SendActivity_PsAeG3_text()}
+]
+
+# SendActivity_PsAeG3_text()
+- FIXES --> ${turn.results}
+# Ask_Activity_0363jO()
+[Activity
+    Attachments = ${json(Ask_Activity_0363jO_attachment_TlGe7q())}
+]
+
+# Ask_Activity_0363jO_attachment_TlGe7q()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "That doesn't seem to be right 🤔 Please press **Try again** to enter OTP again",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Try again",
+            "data": {
+                "btnvalue": "try-again-otp"
+            }
+        }
+    ]
+}```
+# SendActivity_QXPEnL_text()
+- resend logic
+# SendActivity_QXPEnL()
+[Activity
+    Text = ${SendActivity_QXPEnL_text()}
+]
+
+# SendActivity_oZxfJ3_text()
+- ${user.trycount}
+# SendActivity_oZxfJ3()
+[Activity
+    Text = ${SendActivity_oZxfJ3_text()}
+]
+
+# SendActivity_9SdqMd_text()
+- ```Uh\-Oh!😥You have exceeded the maximum number of attempts!\n\nBut you can try again in a while.🔁
+```
+# SendActivity_9SdqMd()
+[Activity
+    Text = ${SendActivity_9SdqMd_text()}
+]
+
+# SendActivity_m58VDx()
+[Activity
+    Text = ${SendActivity_m58VDx_text()}
+]
+
+# SendActivity_m58VDx_text()
+- came inside otp flow
+# SendActivity_gbZfwK_text()
+- Response - > ${turn.results}
+# SendActivity_gbZfwK()
+[Activity
+    Text = ${SendActivity_gbZfwK_text()}
+]
+
+# SendActivity_MZya8m()
+[Activity
+    Text = ${SendActivity_MZya8m_text()}
+]
+
+# SendActivity_MZya8m_text()
+- ```resend oTP  flw
+dialog.retry_otp==${dialog.retry_otp}```
+# SendActivity_OoklSL_text()
+- We found your account number linked to this Alfursan account: ${turn.results.content.data.profiles[0].accountNumber}. 👏
+# SendActivity_OoklSL()
+[Activity
+    Text = ${SendActivity_OoklSL_text()}
+]
+
+# SendActivity_nwFndb()
+[Activity
+    Attachments = ${json(SendActivity_nwFndb_attachment_n20jMQ())}
+]
+
+# SendActivity_nwFndb_attachment_n20jMQ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "وجدنا رقم حسابك المرتبط بحساب برنامج الفرسان: ${turn.results.content.data.profiles[0].accountNumber}. 👏",
+      "wrap": true
+    }
+  ]
+}```
+# Ask_Activity_65iEu6()
+[Activity
+    Attachments = ${json(Ask_Activity_65iEu6_attachment_BrRaQG())}
+]
+
+# Ask_Activity_65iEu6_attachment_BrRaQG()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id":"rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "بالطبع! لكنني أحتاج أولاً رقم جوالك للعثور على رقم حسابك.📱"
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "text": "💡يرجى إدخال رقم جوالك ورمز البلد.👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "mobile_number",
+      "label": "💡 مثال: *******966+",
+      "isRequired": true,
+      "regex":"^[+][0-9]{2,3}[0-9]{10,14}$",
+      "errorMessage": "يرجى إدخال رقم جوال صحيح مع رمز البلد.👇 💡مثال: *******966+"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_mY5cBn_text()
+- Uh-oh! It seems like you are not registered with us 🙄
+# SendActivity_mY5cBn()
+[Activity
+    Text = ${SendActivity_mY5cBn_text()}
+]
+
+# SendActivity_SvdU09()
+[Activity
+    Attachments = ${json(SendActivity_SvdU09_attachment_13cnbp())}
+]
+
+# SendActivity_SvdU09_attachment_13cnbp()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "🤕عفواً! يبدو أنك لست مسجلاً معنا.",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_A00kuA()
+[Activity
+    Attachments = ${json(SendActivity_A00kuA_attachment_1VZI5d())}
+]
+
+# SendActivity_A00kuA_attachment_1VZI5d()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "🤕عفواً! يبدو أنك لست مسجلاً معنا.",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_cbxmLb_text()
+- Uh-oh! It seems like you are not registered with us 🙄
+# SendActivity_cbxmLb()
+[Activity
+    Text = ${SendActivity_cbxmLb_text()}
+]
+
+# SendActivity_Dcn6EJ()
+[Activity
+    Attachments = ${json(SendActivity_Dcn6EJ_attachment_t8oMox())}
+]
+
+# SendActivity_Dcn6EJ_attachment_t8oMox()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "🤕عفواً! يبدو أنك لست مسجلاً معنا.",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_ny61Aq_text()
+- Uh-oh! It seems like you are not registered with us 🙄
+# SendActivity_ny61Aq()
+[Activity
+    Text = ${SendActivity_ny61Aq_text()}
+]
+
+# Ask_Activity_dQdeoN()
+[Activity
+    Attachments = ${json(Ask_Activity_dQdeoN_attachment_phxYnQ())}
+]
+
+# Ask_Activity_dQdeoN_attachment_phxYnQ()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "🕵️لدواعٍ أمنية، أريد تأكيد رقم جوالك."
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "المتابعة",
+          "data": {
+                "btnValue": "proceed"
+            }
+      }
+  ]
+}```
+# SendActivity_EzpULI()
+[Activity
+    Attachments = ${json(SendActivity_EzpULI_attachment_z9NK35())}
+]
+
+# SendActivity_EzpULI_attachment_z9NK35()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عفواً!😥 لقد تخطيت الحد الأقصى للمحاولات.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لكن يمكنك المحاولة مرة أخرى بعد قليل.🔁",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_9p6mjJ_text()
+- ```Uh\-Oh 😥 You have exceeded the maximum number of attempts!
+
+But you can try again in a while.🔁```
+# SendActivity_9p6mjJ()
+[Activity
+    Text = ${SendActivity_9p6mjJ_text()}
+]
+
+# Ask_Activity_nkhGSu()
+[Activity
+    Attachments = ${json(Ask_Activity_nkhGSu_attachment_hjFD8T())}
+]
+
+# Ask_Activity_nkhGSu_attachment_hjFD8T()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم جوالك ${user.phone_number} والذي يتألف من 6 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على ”إعادة الإرسال“ للحصول على رمز جديد بعد مرور 60 ثانية.🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 أدخل كلمة مرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "الرجاء إدخال رقم صالح مكون من 6 أرقام **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال الرمز",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_NbRpRQ_text()
+- Uh-oh! We're unable to find your account ID associated with this ${user.email_id}. 🙄\n\n💡 Tap below to try again 👇
+# SendActivity_NbRpRQ()
+[Activity
+    Text = ${SendActivity_NbRpRQ_text()}
+]
+
+# SendActivity_epMNEJ()
+[Activity
+    Attachments = ${json(SendActivity_epMNEJ_attachment_WuPfcg())}
+]
+
+# SendActivity_epMNEJ_attachment_WuPfcg()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "للأسف لم نعثر على أي رقم حساب مرتبط بالبريد الإلكتروني ${user.email_id}.☹️",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "💡يرجى الضغط أدناه للمحاولة مرة أخرى👇",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_G0SIMb()
+[Activity
+    Attachments = ${json(SendActivity_G0SIMb_attachment_MMU7yA())}
+]
+
+# SendActivity_G0SIMb_attachment_MMU7yA()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "وجدنا رقم حسابك المرتبط بحساب برنامج الفرسان: ${user.alfursan_id}.👏",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_FVjUrV_text()
+- We found your account number linked to this Alfursan account: ${user.alfursan_id} ✌
+# SendActivity_FVjUrV()
+[Activity
+    Text = ${SendActivity_FVjUrV_text()}
+]
+
+# Ask_Activity_mt25Mq()
+[Activity
+    Attachments = ${json(Ask_Activity_mt25Mq_attachment_3RD1OU())}
+]
+
+# Ask_Activity_mt25Mq_attachment_3RD1OU()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم جوالك ${user.phone_number} والذي يتألف من 6 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على ”إعادة الإرسال“ للحصول على رمز جديد بعد مرور 60 ثانية.🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 أدخل كلمة مرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "الرجاء إدخال رقم صالح مكون من 6 أرقام **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال الرمز",
+          "data": {
+                "btnValue": "resend-sms-otp"
+            }
+      }
+  ]
+}```
+# SendActivity_MPeUow_text()
+- We found your account number linked to this Alfursan account: ${user.account_info[0].loginIDs.username} ✌
+# SendActivity_MPeUow()
+[Activity
+    Text = ${SendActivity_MPeUow_text()}
+]
+
+# SendActivity_db9Am8_text()
+- You're all set! Verification successful.👏
+# SendActivity_db9Am8()
+[Activity
+    Text = ${SendActivity_db9Am8_text()}
+]
+
+# SendActivity_zxJwdT()
+[Activity
+    Attachments = ${json(SendActivity_zxJwdT_attachment_Dx2PXZ())}
+]
+
+# SendActivity_zxJwdT_attachment_Dx2PXZ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "أنت جاهز! تم التحقق بنجاح.👏",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_n0A9Il()
+[Activity
+    Attachments = ${json(SendActivity_n0A9Il_attachment_iDF0UL())}
+]
+
+# SendActivity_n0A9Il_attachment_iDF0UL()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "وجدنا رقم حسابك المرتبط بحساب برنامج الفرسان: ${user.account_info[0].loginIDs.username}.👏",
+      "wrap": true
+    }
+  ]
+}```
+# Ask_Activity_SDFqDD()
+[Activity
+    Attachments = ${json(Ask_Activity_SDFqDD_attachment_YIXvWt())}
+]
+
+# Ask_Activity_SDFqDD_attachment_YIXvWt()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id":"rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text":"وجدنا رقم الحساب ${user.no_of_accounts} المرتبط برقم الجوال: ${user.phone_number}."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,        
+        "maxLines":2,
+        "text": "💡يرجى إدخال البريد الإلكتروني أدناه للبحث عن رقم الحساب الذي تبحث عنه.👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "user_entered_email_id",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]+([.-_+][A-Za-z0-9]+)*@[A-Za-z0-9-]+(.[A-Za-z]{2,})+$",
+      "errorMessage": "يرجى إدخال بريد إلكتروني صحيح.💡مثال:: john.smith234@gmail.com",
+      "placeholder": "أدخل معرف البريد الإلكتروني الخاص بك",
+      "label": "أدخل معرف البريد الإلكتروني الخاص بك",
+      "style": "email"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "يرسل",
+          "data": {
+                "btnValue": "submit_2"
+            }
+      }
+  ]
+}```
+# Ask_Activity_YEAk4w()
+[Activity
+    Attachments = ${json(Ask_Activity_YEAk4w_attachment_qXxxwS())}
+]
+
+# Ask_Activity_YEAk4w_attachment_qXxxwS()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id":"rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "يبدو أن هذا ليس صحيحًا 🤔 الرجاء الضغط على **المحاولة مرة أخرى** لإدخال كلمة المرور لمرة واحدة (OTP) مرة أخرى",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "حاول ثانية",
+            "data": {
+                "btnvalue": "try-again-otp"
+            }
+        }
+    ]
+}```
+# SendActivity_dsDQlF()
+[Activity
+    Attachments = ${json(SendActivity_dsDQlF_attachment_99RKVr())}
+]
+
+# SendActivity_dsDQlF_attachment_99RKVr()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عفواً!😥لقد تخطيت الحد الأقصى للمحاولات!",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لكن يمكنك المحاولة مرة أخرى بعد قليل.🔁",
+      "wrap": true
+    },
+  ]
+}```
+# Ask_Activity_r8KfnJ()
+[Activity
+    Attachments = ${json(Ask_Activity_r8KfnJ_attachment_xqHX0i())}
+]
+
+# Ask_Activity_r8KfnJ_attachment_xqHX0i()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم جوالك ${user.phone_number} والذي يتألف من 6 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على ”إعادة الإرسال“ للحصول على رمز جديد بعد مرور 60 ثانية.🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 أدخل كلمة مرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "الرجاء إدخال رقم صالح مكون من 6 أرقام **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال الرمز",
+          "data": {
+                "btnValue": "proceed_otp_again"
+            }
+      }
+  ]
+}```
+# Ask_Activity_0teTXf()
+[Activity
+    Attachments = ${json(Ask_Activity_0teTXf_attachment_RtRFi1())}
+]
+
+# Ask_Activity_0teTXf_attachment_RtRFi1()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "ممتاز!👏للمتابعة، يرجى إدخال رمز التحقق الذي تم إرساله إلى رقم جوالك ${user.phone_number} والذي يتألف من 6 أعداد."
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "wrap": true,
+        "maxLines":2,
+        "text": "💡ملاحظة: إذا كنت تواجه أي مشاكل، يرجى الضغط على ”إعادة الإرسال“ للحصول على رمز جديد بعد مرور 60 ثانية.🕝"
+    },
+    {
+      "type": "Input.Text",
+      "id": "otp",
+      "label": "💡 أدخل كلمة مرور لمرة واحدة أدناه👇",
+      "regex":"^[0-9]{6}$",
+      "errorMessage": "الرجاء إدخال رقم صالح مكون من 6 أرقام **OTP**"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تقديم",
+          "data": {
+                "btnValue": "otp-recieve"
+            }
+      },
+      {
+          "type": "Action.Submit",
+          "title": "إعادة إرسال الرمز",
+          "data": {
+                "btnValue": "proceed_otp_again"
+            }
+      }
+  ]
+}```
+# SendActivity_71v7oV()
+[Activity
+    Text = ${SendActivity_71v7oV_text()}
+]
+
+# SendActivity_71v7oV_text()
+- 1
+# SendActivity_FsGqIy()
+[Activity
+    Text = ${SendActivity_FsGqIy_text()}
+]
+
+# SendActivity_FsGqIy_text()
+- 2
+# SendActivity_q91kUX()
+[Activity
+    Text = ${SendActivity_q91kUX_text()}
+]
+
+# SendActivity_q91kUX_text()
+- 67
+# SendActivity_t6sepo()
+[Activity
+    Text = ${SendActivity_t6sepo_text()}
+]
+
+# SendActivity_t6sepo_text()
+- 68

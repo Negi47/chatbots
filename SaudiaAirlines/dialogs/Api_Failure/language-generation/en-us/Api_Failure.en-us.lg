@@ -1,0 +1,44 @@
+[import](common.lg)
+
+# SendActivity_48uVZ0()
+[Activity
+    Attachments = ${json(SendActivity_48uVZ0_attachment_2ja2b0())}
+]
+
+# SendActivity_48uVZ0_attachment_2ja2b0()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "سأقوم بتحويلك إلى خدمة العملاء للمزيد من المساعدة",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_1gM06k_attachment_WVHx5e()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "I am transferring you to customer care for further assistance",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_1gM06k()
+[Activity
+    Attachments = ${json(SendActivity_1gM06k_attachment_WVHx5e())}
+]

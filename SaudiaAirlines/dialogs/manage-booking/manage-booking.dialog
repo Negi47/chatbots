@@ -1,0 +1,166 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "2iuN1C",
+    "name": "manage-booking",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "9neiqe"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "aXlAR5"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_aXlAR5()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "turn.managebooking",
+          "choices": [
+            "Cancel & Refund",
+            "Upgrade Seat",
+            "Upgrade Class",
+            "Add Baggage",
+            "Add Meals/ Special Service Request (SSR)",
+            "Update Contact Details",
+            "Update Frequent Flyer (FF) Details"
+          ],
+          "style": "heroCard",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          },
+          "defaultValue": "Sorry try exceeded"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "TbSOeY"
+          },
+          "condition": "turn.managebooking",
+          "cases": [
+            {
+              "value": "Cancel & Refund",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "wRL0Or"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Cancel_Refund"
+                }
+              ]
+            },
+            {
+              "value": "Upgrade Seat",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "TwxGe4"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Upgrade_Seat"
+                }
+              ]
+            },
+            {
+              "value": "Upgrade Class",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "sHkRDq"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "UpgradeClass"
+                }
+              ]
+            },
+            {
+              "value": "Add Baggage",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "kmmXr8"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Add_Baggage"
+                }
+              ]
+            },
+            {
+              "value": "Add Meals/ Special Service Request (SSR)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "NeYTuA"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Add_Meals_Special_Service_Request"
+                }
+              ]
+            },
+            {
+              "value": "Update Contact Details",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "gjf8dP"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Contact_Details"
+                }
+              ]
+            },
+            {
+              "value": "Update Frequent Flyer (FF) Details",
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "aMZ4cp"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Frequent_Flyer_Details"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "manage-booking.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "manage-booking"
+}

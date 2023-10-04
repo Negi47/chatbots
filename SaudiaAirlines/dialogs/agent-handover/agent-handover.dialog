@@ -1,0 +1,341 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "DeFw0J",
+    "name": "agent-handover",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "hRw6HJ"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "ImHiH9",
+            "comment": "Check if queue has been set"
+          },
+          "condition": "=user.handoverQueue != null",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "1mjPTD"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "1eE7ax"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "property": "turn.handoverReason",
+                  "prompt": "${TextInput_Prompt_1eE7ax()}"
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "6OeQcK"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": true,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "prompt": "${ChoiceInput_Prompt_6OeQcK()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "turn.handoverReason",
+                  "choices": [
+                    "Al Fursan",
+                    "Government Services",
+                    "Other"
+                  ],
+                  "style": "suggestedAction",
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true,
+                    "recognizeNumbers": true
+                  },
+                  "outputFormat": "value"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.TextInput",
+                  "$designer": {
+                    "id": "UaizmU"
+                  },
+                  "disabled": false,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "property": "turn.handoverReason",
+                  "prompt": "${TextInput_Prompt_UaizmU()}"
+                },
+                {
+                  "$kind": "Microsoft.ChoiceInput",
+                  "$designer": {
+                    "id": "VU2zBf"
+                  },
+                  "defaultLocale": "en-us",
+                  "disabled": true,
+                  "maxTurnCount": 0,
+                  "alwaysPrompt": false,
+                  "allowInterruptions": false,
+                  "unrecognizedPrompt": "",
+                  "invalidPrompt": "",
+                  "prompt": "${ChoiceInput_Prompt_VU2zBf()}",
+                  "choiceOptions": {
+                    "includeNumbers": true,
+                    "inlineOrMore": ", or ",
+                    "inlineOr": " or ",
+                    "inlineSeparator": ", "
+                  },
+                  "property": "turn.handoverReason",
+                  "choices": [
+                    "الفرسان",
+                    "الخدمات الحكومية",
+                    "أسباب أخرى"
+                  ],
+                  "style": "suggestedAction",
+                  "recognizerOptions": {
+                    "recognizeOrdinals": true,
+                    "recognizeNumbers": true
+                  },
+                  "outputFormat": "value"
+                }
+              ],
+              "condition": "=user.lanuage_selected == \"English\""
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "cz1fq0"
+              },
+              "condition": "turn.handoverReason",
+              "cases": [
+                {
+                  "value": "Al Fursan",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "DPhupp"
+                      },
+                      "property": "user.handoverQueue",
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE"
+                    }
+                  ]
+                },
+                {
+                  "value": "Government Services",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "KUvAO4"
+                      },
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE",
+                      "property": "user.handoverQueue"
+                    }
+                  ]
+                },
+                {
+                  "value": "Other",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "9NlPPI"
+                      },
+                      "property": "user.handoverQueue",
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE"
+                    }
+                  ]
+                },
+                {
+                  "value": "الفرسان",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "Znf5mK"
+                      },
+                      "property": "user.handoverQueue",
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE"
+                    }
+                  ]
+                },
+                {
+                  "value": "الخدمات الحكومية",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "dWTZ7U"
+                      },
+                      "property": "user.handoverQueue",
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE"
+                    }
+                  ]
+                },
+                {
+                  "value": "أسباب أخرى",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "vdYpgR"
+                      },
+                      "property": "user.handoverQueue",
+                      "value": "DO_NOT_USE_TEST_QUEUE_AZURE"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "V0uLYQ"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CommonIdentifyFlow"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "JOPqRL"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "l9H6F9"
+              },
+              "activity": "${SendActivity_l9H6F9()}"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "5Iob5W"
+              },
+              "activity": "${SendActivity_5Iob5W()}"
+            }
+          ],
+          "condition": "=user.lanuage_selected == \"English\""
+        },
+        {
+          "$kind": "Microsoft.GetConversationReference",
+          "$designer": {
+            "id": "DXhsdT"
+          },
+          "property": "turn.convRef"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "Klb7xC"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "body": {
+            "convRef": "${turn.convRef}",
+            "queue": "${user.handoverQueue}",
+            "history": [
+              {
+                "source": "user",
+                "text": "hi"
+              },
+              {
+                "source": "bot",
+                "text": "welcome"
+              }
+            ]
+          },
+          "contentType": "application/json",
+          "responseType": "json",
+          "url": "http://localhost:4000/initiateHandoff"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "6N13Lc"
+          }
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "Z07fqg",
+        "name": "Message received (Message received activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.GetConversationReference",
+          "$designer": {
+            "id": "DXhsdT"
+          },
+          "property": "turn.convRef"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "aqXqHU"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "body": {
+            "convRef": "${turn.convRef}",
+            "input": "${turn.activity.text}"
+          },
+          "contentType": "application/json",
+          "responseType": "json",
+          "url": "http://localhost:4000/sendMessage"
+        },
+        {
+          "$kind": "Microsoft.EndTurn",
+          "$designer": {
+            "id": "5K1xP1"
+          }
+        }
+      ]
+    }
+  ],
+  "generator": "agent-handover.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "agent-handover"
+}

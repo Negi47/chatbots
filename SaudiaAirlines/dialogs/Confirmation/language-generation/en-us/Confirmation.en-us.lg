@@ -1,0 +1,103 @@
+[import](common.lg)
+
+# Ask_Activity_5GmrZc()
+[Activity
+    Text = ${Ask_Activity_5GmrZc_text()}
+]
+
+# Ask_Activity_5GmrZc_text()
+- No problem! I am here to help with all of your travel queries✈️ I can assist with managing your booking including government bookings, retrieving your AlFursan account, answering any questions related to check-in, baggage, AlFursan, Miles, and much more 😄. Let me know what I can help you with. 
+# SendActivity_Qs6r1k()
+[Activity
+    Text = ${SendActivity_Qs6r1k_text()}
+]
+
+# SendActivity_Qs6r1k_text()
+- ```I’m sorry, it looks like I couldn't help you with that 🙁
+💡 No worries though! One of my teammates will step in to assist you!👏```
+# SendActivity_K6MCNV()
+[Activity
+    Text = ${SendActivity_K6MCNV_text()}
+]
+
+# SendActivity_K6MCNV_text()
+- ```I’m sorry, it looks like I couldn't help you with that 🙁
+💡 No worries though! One of my teammates will step in to assist you!👏```
+# SendActivity_nDI51z()
+[Activity
+    Attachments = ${json(SendActivity_nDI51z_attachment_WS4PAB())}
+]
+
+# SendActivity_nDI51z_attachment_WS4PAB()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً، لم أتمكن من مساعدتك 🙁",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "💡 لا تقلق! سيقوم أحد موظفي خدمة العملاء بمساعدتك!👏",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_3gkHjw()
+[Activity
+    Attachments = ${json(SendActivity_3gkHjw_attachment_ywsyqa())}
+]
+
+# SendActivity_3gkHjw_attachment_ywsyqa()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً، يبدو أنني لا أستطيع مساعدتك بذلك 🙁",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "💡 لا تقلق! سيقوم أحد موظفي خدمة العملاء بمساعدتك! 👏",
+      "wrap": true
+    }
+  ]
+}```
+# Ask_Activity_DoJRUG()
+[Activity
+    Attachments = ${json(Ask_Activity_DoJRUG_attachment_uW7HrS())}
+]
+
+# Ask_Activity_DoJRUG_attachment_uW7HrS()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لا توجد مشكلة! أنا هنا للمساعدة في جميع استفساراتك المتعلقة بالسفر ✈️ يمكنني مساعدتك في إدارة حجزك، بما في ذلك الحجوزات الحكومية، واسترجاع حسابك في برنامج الفرسان، والإجابة عن أي أسئلة تتعلق بإتمام إجراءات السفر، والأمتعة، وبرنامج الفرسان، والأميال، وغير ذلك الكثير 😄 . فقط أخبرني ما الذي يمكنني مساعدتك به.",
+      "wrap": true
+    }
+  ]
+}```

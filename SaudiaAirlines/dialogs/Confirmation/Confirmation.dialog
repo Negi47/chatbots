@@ -1,0 +1,190 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "QvJ0Ug",
+    "name": "Confirmation",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "cD8ius"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "B1ns1C"
+          },
+          "condition": "=user.confirmation == true",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "C3ctsS"
+              },
+              "property": "user.confirmationfalse",
+              "value": "=add(user.confirmationfalse, 1)"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "OvezRs"
+              },
+              "condition": "user.confirmationfalse <= 2",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "GNb9GP"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "K6MCNV"
+                      },
+                      "activity": "${SendActivity_K6MCNV()}"
+                    }
+                  ],
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "3gkHjw"
+                      },
+                      "activity": "${SendActivity_3gkHjw()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "yTvEkS"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "agent-handover"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "LkVgIo"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "eRPmih"
+                      },
+                      "activity": "${Ask_Activity_5GmrZc()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "DoJRUG"
+                      },
+                      "activity": "${Ask_Activity_DoJRUG()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "OwDbOj"
+              },
+              "property": "user.confirmationfalse",
+              "value": "=add(user.confirmationfalse, 1)"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "mdGPQL"
+              },
+              "condition": "user.confirmationfalse <= 2",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "PZMqvf"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Qs6r1k"
+                      },
+                      "activity": "${SendActivity_Qs6r1k()}"
+                    }
+                  ],
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "nDI51z"
+                      },
+                      "activity": "${SendActivity_nDI51z()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "iYIU5v"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "agent-handover"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "oattqI"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CommonIdentifyFlow"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "xY098A",
+        "name": "Message received (Message received activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "NWQJWo"
+          },
+          "activityProcessed": true,
+          "dialog": "CommonIdentifyFlow"
+        }
+      ]
+    }
+  ],
+  "generator": "Confirmation.lg",
+  "recognizer": "Confirmation.lu.qna",
+  "id": "Confirmation"
+}

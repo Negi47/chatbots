@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# Ask_Activity_qXso1B()
+[Activity
+    Attachments = ${json(Ask_Activity_qXso1B_attachment_wCoyS6())}
+]
+
+# Ask_Activity_qXso1B_attachment_wCoyS6()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "The weather is nice and pleasant where I am! How can I help you?",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_48NKKt()
+[Activity
+    Attachments = ${json(Ask_Activity_48NKKt_attachment_xiMOUc())}
+]
+
+# Ask_Activity_48NKKt_attachment_xiMOUc()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": " الطقس رائع عندي! كيف يمكنني مساعدتك؟",
+            "wrap": true
+        }
+    ]
+}```

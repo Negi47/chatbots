@@ -1,0 +1,220 @@
+[import](common.lg)
+
+# SendActivity_AWZ7SZ_text()
+- ${user.traveller_id}
+# SendActivity_AWZ7SZ()
+[Activity
+    Text = ${SendActivity_AWZ7SZ_text()}
+]
+
+# SendActivity_1TxWKQ_text()
+- ${user.ServiceRequest}
+# SendActivity_1TxWKQ()
+[Activity
+    Text = ${SendActivity_1TxWKQ_text()}
+]
+
+# SendActivity_GaHdbf_text()
+- ${user.SSR_list}
+# SendActivity_GaHdbf()
+[Activity
+    Text = ${SendActivity_GaHdbf_text()}
+]
+
+# SendActivity_6HDrWq_text()
+- ${user.designSSR}
+# SendActivity_6HDrWq()
+[Activity
+    Text = ${SendActivity_6HDrWq_text()}
+]
+
+# SendActivity_0U7KIN_text()
+- ${turn.activity.value.SSR_options}
+# SendActivity_0U7KIN()
+[Activity
+    Text = ${SendActivity_0U7KIN_text()}
+]
+
+# SendActivity_zXgAFa_text()
+- ${dialog.updateSSRvalue}
+# SendActivity_zXgAFa()
+[Activity
+    Text = ${SendActivity_zXgAFa_text()}
+]
+
+# SendActivity_no9Yqh_text()
+- came inside oop
+# SendActivity_no9Yqh()
+[Activity
+    Text = ${SendActivity_no9Yqh_text()}
+]
+
+# SendActivity_wONILr_text()
+- came at last
+# SendActivity_wONILr()
+[Activity
+    Text = ${SendActivity_wONILr_text()}
+]
+
+# SendActivity_quyCB6_text()
+- ${turn.SSR_update}
+# SendActivity_quyCB6()
+[Activity
+    Text = ${SendActivity_quyCB6_text()}
+]
+
+# Ask_Activity_U2OPsy()
+[Activity
+    Attachments = ${json(Ask_Activity_U2OPsy_attachment_l9jJQ6())}
+]
+
+# Ask_Activity_U2OPsy_attachment_l9jJQ6()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+            "type": "TextBlock",
+            "text": "${user.service_user_name}, we can provide you with the following assistance services.",
+            "wrap": true
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "SSR_options",
+      "isMultiSelect": true,
+      "style": "compact",
+      "label": "💡Note : You can select more than one option.",
+      "maxLines": 2,
+      "placeholder": "Please choose",
+      "choices": ${user.designSSR}
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "OK",
+      "data": {
+            "btnValue": "submit-data"
+          }
+    }
+  ]
+}```
+# Ask_Activity_nzMVUl()
+[Activity
+    Attachments = ${json(Ask_Activity_nzMVUl_attachment_rQuAK8())}
+]
+
+# Ask_Activity_nzMVUl_attachment_rQuAK8()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {
+            "type": "TextBlock",
+            "text": "${user.service_user_name}يمكننا أن نقدم لك خدمات المساعدة التالية",
+            "wrap": true
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "SSR_options",
+      "isMultiSelect": true,
+      "style": "compact",
+      "label": "💡ملاحظة: يمكنك تحديد أكثر من خيار",
+      "placeholder": "Please choose",
+      "choices": ${user.designSSR}
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "OK",
+      "data": {
+            "btnValue": "submit-data"
+          }
+    }
+  ]
+}```
+# SendActivity_GYTy4G_text()
+- ${user.service_user_name}, apparently all available services have been requested, so you cannot choose more.
+# SendActivity_GYTy4G()
+[Activity
+    Text = ${SendActivity_GYTy4G_text()}
+]
+
+# SendActivity_hJXaPW_text()
+- Thank you for letting us know.👍Your request has been noted.
+# SendActivity_hJXaPW()
+[Activity
+    Text = ${SendActivity_hJXaPW_text()}
+]
+
+# SendActivity_eTdNYD()
+[Activity
+    Text = ${SendActivity_eTdNYD_text()}
+]
+
+# SendActivity_eTdNYD_text()
+- شكراً لإعلامنا.تم استلام طلبك.👍
+# SendActivity_gHenzo()
+[Activity
+    Text = ${SendActivity_gHenzo_text()}
+]
+
+# SendActivity_gHenzo_text()
+- ${user.service_user_name}, apparently all available services have been requested, so you cannot choose more.
+# SendActivity_k3szLB_text()
+- ${user.ssr_flightId}
+# SendActivity_k3szLB()
+[Activity
+    Text = ${SendActivity_k3szLB_text()}
+]
+
+# Ask_Activity_LQFkja()
+[Activity
+    Attachments = ${json(Ask_Activity_LQFkja_attachment_DBNw04())}
+]
+
+# Ask_Activity_LQFkja_attachment_DBNw04()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"${user.service_user_name}, apparently all available services have been requested, so you cannot choose more.",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_MTD7AR()
+[Activity
+    Attachments = ${json(Ask_Activity_MTD7AR_attachment_MTx55u())}
+]
+
+# Ask_Activity_MTD7AR_attachment_MTx55u()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "شكراً لإعلامنا. تم استلام طلبك. 👍",
+            "wrap": true
+        }
+    ]
+}```

@@ -1,0 +1,40 @@
+[import](common.lg)
+
+
+# ChoiceInput_Prompt_dGJk7v_text()
+- How can I assist you?
+# ChoiceInput_Prompt_dGJk7v()
+[Activity
+    Text = ${ChoiceInput_Prompt_dGJk7v_text()}
+]
+
+# ChoiceInput_Prompt_k3FiPx_text()
+- كيف يمكنني مساعدتك؟
+# ChoiceInput_Prompt_k3FiPx()
+[Activity
+    Text = ${ChoiceInput_Prompt_k3FiPx_text()}
+]
+
+# SendActivity_8eRtPX()
+[Activity
+    Text = ${SendActivity_8eRtPX_text()}
+]
+
+# SendActivity_8eRtPX_text()
+- ```Logged \-\-\-> ${user.loggedoption}
+Flow Name \-\-> ${user.flowName}```
+# SendActivity_nrgFbO_text()
+- ```Logged \-\-\-> ${user.loggedoption}
+Flow Name \-\-> ${user.flowName}```
+# SendActivity_nrgFbO()
+[Activity
+    Text = ${SendActivity_nrgFbO_text()}
+]
+
+# SendActivity_F0Jd2Z()
+[Activity
+    Text = ${SendActivity_F0Jd2Z_text()}
+]
+
+# SendActivity_F0Jd2Z_text()
+- --> ${user.flowName}

@@ -1,0 +1,451 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "1bs4wb",
+    "name": "SSR_main",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "G1NWA9"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "wy5uJw"
+          },
+          "assignments": [
+            {
+              "property": "user.SSR_getorder_list",
+              "value": []
+            },
+            {
+              "property": "user.designSSR",
+              "value": []
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "apLtd8"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.getorder.dictionaries.specialServiceRequest",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "04INJK"
+              },
+              "assignments": [
+                {
+                  "property": "user.SSR_getorder_list",
+                  "value": "=concat(user.SSR_getorder_list,[dialog.foreach.index])"
+                },
+                {
+                  "property": "user.ssr_flightId",
+                  "value": "=user.getorder.data.travelDocuments[0].flightIds[0]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "k3szLB"
+          },
+          "activity": "${SendActivity_k3szLB()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "SweFXi"
+          },
+          "property": "user.service_user_name",
+          "value": "=concat(user.getorder.data.travelers[0].names[0].firstName,' ',user.getorder.data.travelers[0].names[0].lastName)"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "AWZ7SZ"
+          },
+          "activity": "${SendActivity_AWZ7SZ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "4SSB39",
+            "name": "BuyOrder"
+          },
+          "resultProperty": "turn.mealresults",
+          "method": "GET",
+          "url": "${user.baseURL}/shopping/services/by-order?orderId=${user.pnr}&lastName=${user.lastName}",
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "XYQ7L6"
+          },
+          "assignments": [
+            {
+              "property": "dialog.byorder",
+              "value": "=turn.mealresults.content.data[0].services"
+            },
+            {
+              "property": "user.SSR_list",
+              "value": []
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "b7XVF9"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "dialog.byorder",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "TmVS5G"
+              },
+              "condition": "=dialog.foreach.value.tags[0] == \"PAXINFO\" &&  contains(user.SSR_getorder_list, dialog.foreach.value.descriptions[0].content)==false && dialog.foreach.value.quotaStatus != \"pending\" && count(dialog.foreach.value.flightIds)== 1 && dialog.foreach.value.flightIds[0] == user.ssr_flightId && contains( user.SSR_list ,dialog.foreach.value.descriptions[0].content) == false ",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "zRRF9d"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.ServiceRequest",
+                      "value": "=concat(user.ServiceRequest,[dialog.foreach.value])"
+                    },
+                    {
+                      "property": "user.designSSR",
+                      "value": "=concat(user.designSSR, [ {\"title\": dialog.foreach.value.descriptions[1].content , \"value\": dialog.foreach.value.id} ])"
+                    },
+                    {
+                      "property": "user.SSR_list",
+                      "value": "=concat(user.SSR_list,[dialog.foreach.value.descriptions[0].content])"
+                    },
+                    {
+                      "property": "user.SSR_traveller_id",
+                      "value": "=dialog.foreach.value.travelerIds[0]"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "1TxWKQ"
+          },
+          "activity": "${SendActivity_1TxWKQ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GaHdbf"
+          },
+          "activity": "${SendActivity_GaHdbf()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "6HDrWq"
+          },
+          "activity": "${SendActivity_6HDrWq()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "gFihnH"
+          },
+          "condition": "=user.SSR_list == []",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "o9ghWG"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "Qqu5r3"
+                  },
+                  "activity": "${Ask_Activity_U2OPsy()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "nzMVUl"
+                  },
+                  "activity": "${Ask_Activity_nzMVUl()}"
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "rwVIiF"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "GYTy4G"
+                  },
+                  "activity": "${SendActivity_GYTy4G()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "gHenzo"
+                  },
+                  "activity": "${SendActivity_gHenzo()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "LQFkja"
+                  },
+                  "activity": "${Ask_Activity_LQFkja()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "RCgMXt"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "RvzeCi"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "bdc1dd",
+        "name": "Message received (Message received activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "0U7KIN"
+          },
+          "activity": "${SendActivity_0U7KIN()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "8Y5phr"
+          },
+          "property": "dialog.updateSSRvalue",
+          "value": "=split(turn.activity.value.SSR_options, \",\")"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "zXgAFa"
+          },
+          "activity": "${SendActivity_zXgAFa()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "mK3CRg"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "dialog.updateSSRvalue",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "no9Yqh"
+              },
+              "activity": "${SendActivity_no9Yqh()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "LQU56N"
+              },
+              "property": "turn.SSR_update",
+              "value": "=concat(turn.SSR_update, [ {\"serviceId\": dialog.foreach.value ,\"travelerId\": user.SSR_traveller_id,\"quantity\": 1} ])"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "wONILr"
+              },
+              "activity": "${SendActivity_wONILr()}",
+              "disabled": true
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "quyCB6"
+          },
+          "activity": "${SendActivity_quyCB6()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "yOBnnj"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${user.baseURl}/purchase/orders/${user.pnr}/services?lastName=${user.lastName}",
+          "body": {
+            "services": "=turn.SSR_update"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "upMCNf"
+          },
+          "condition": "=turn.results.statusCode== 201",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "QBH9oj"
+              },
+              "condition": "=user.lanuage_selected==\"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "hJXaPW",
+                    "comment": ""
+                  },
+                  "activity": "${SendActivity_hJXaPW()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "eTdNYD"
+                  },
+                  "activity": "${SendActivity_eTdNYD()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "MTD7AR"
+                  },
+                  "activity": "${Ask_Activity_MTD7AR()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "gFdHOh"
+              },
+              "assignments": [
+                {
+                  "property": "user.SSR_getorder_list",
+                  "value": []
+                },
+                {
+                  "property": "user.designSSR",
+                  "value": []
+                },
+                {
+                  "property": "user.SSR_list",
+                  "value": []
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "DMDUJ7"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "VxbkWi"
+              },
+              "activityProcessed": true,
+              "dialog": "Api_Failure"
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btnValue==\"submit-data\""
+    }
+  ],
+  "generator": "SSR_main.lg",
+  "recognizer": "SSR_main.lu.qna",
+  "id": "SSR_main"
+}

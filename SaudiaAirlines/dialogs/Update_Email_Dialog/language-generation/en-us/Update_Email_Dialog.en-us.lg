@@ -1,0 +1,1103 @@
+[import](common.lg)
+
+# SendActivity_zERt1g()
+[Activity
+    Text = ${SendActivity_zERt1g_text()}
+]
+
+# SendActivity_zERt1g_text()
+- ```1. ${turn.activity.value.myEmail}
+2. ${turn.activity.value.myTel}
+${user.contactData}```
+# Ask_Activity_pynX00()
+[Activity
+    Attachments = ${json(Ask_Activity_pynX00_attachment_0ZTf8P())}
+]
+
+# Ask_Activity_pynX00_attachment_0ZTf8P()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "Please provide the below 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myEmail",
+      "isRequired": true,
+      "regex":"^([a-zA-Z0-9_.]+)@([a-zA-Z0-9_.]+)[.]([a-zA-Z]{2,5})$",
+      "errorMessage": "Please enter a valid email address, for example: jonh.smith234@gmail.com",
+      "label": "Enter your email address",
+      "style": "email"
+      }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Update my details",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# Ask_Activity_lp3SgC()
+[Activity
+    Attachments = ${json(Ask_Activity_lp3SgC_attachment_URnGJu())}
+]
+
+# Ask_Activity_lp3SgC_attachment_URnGJu()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "Please provide the below 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myTel",
+      "isRequired": true,
+      "regex":"^[+]?[0-9]{2,4}[-][0-9]{7,14}$",
+      "errorMessage": "Please enter a valid phone number with the country code, for example: +91-9912345XXX",
+      "label": "Enter phone number with country code",
+      "style": "tel"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myEmail",
+      "isRequired": true,
+      "regex":"^([a-zA-Z0-9_.]+)@([a-zA-Z0-9_.]+)[.]([a-zA-Z]{2,5})$",
+      "errorMessage": "Please enter a valid email address, for example: jonh.smith234@gmail.com",
+      "label": "Enter your email address",
+      "style": "email"
+      }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Update my details",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# Ask_Activity_0zPgXy()
+[Activity
+    Attachments = ${json(Ask_Activity_0zPgXy_attachment_4adrni())}
+]
+
+# Ask_Activity_0zPgXy_attachment_4adrni()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "Please provide the below 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myTel",
+      "isRequired": true,
+      "regex":"^[+]?[0-9]{2,4}[-][0-9]{7,14}$",
+      "errorMessage": "Please enter a valid phone number with country code, for example:  +91-9912345XXX",
+      "label": "Enter phone number with  country code",
+      "style": "tel"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Update my details",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# SendActivity_ch3mL0()
+[Activity
+    Text = ${SendActivity_ch3mL0_text()}
+]
+
+# SendActivity_ch3mL0_text()
+- ```Phone IDs => ${turn.contactIdsPhone}
+Email IDs => ${turn.contactIdsEmail}```
+# SendActivity_J7fihu()
+[Activity
+    Text = ${SendActivity_J7fihu_text()}
+]
+
+# SendActivity_J7fihu_text()
+- call api for both phone and email update
+# SendActivity_0yW3j8()
+[Activity
+    Text = ${SendActivity_0yW3j8_text()}
+]
+
+# SendActivity_0yW3j8_text()
+- call update phone number api
+# SendActivity_6QWFjg()
+[Activity
+    Text = ${SendActivity_6QWFjg_text()}
+]
+
+# SendActivity_6QWFjg_text()
+- calling delete and update email api
+# SendActivity_K1vpXJ()
+[Activity
+    Text = ${SendActivity_K1vpXJ_text()}
+]
+
+# SendActivity_K1vpXJ_text()
+- ```convert to string email ids=>${turn.emailIdString}
+
+convert to string phone Ids =>${turn.phoneIdString}```
+# SendActivity_zLCrMV()
+[Activity
+    Text = ${SendActivity_zLCrMV_text()}
+]
+
+# SendActivity_zLCrMV_text()
+- We’re sorry, we couldn't update your new Email. 😥
+# ChoiceInput_Prompt_sGlsYL_text()
+- Is there anything else I can help you with?
+# ChoiceInput_Prompt_sGlsYL()
+[Activity
+    Text = ${ChoiceInput_Prompt_sGlsYL_text()}
+]
+
+# ChoiceInput_Prompt_2mONVL_text()
+- ```Go ahead & click on the button below to select an option or tell me what you'd like to do 👇
+
+💡 **Example:**
+**◼ Check my account ID**
+**◼ I want to change my passport number**
+**◼ Upgrade my seat**```
+# ChoiceInput_Prompt_2mONVL()
+[Activity
+    Text = ${ChoiceInput_Prompt_2mONVL_text()}
+]
+
+
+# SendActivity_JuEdFe_text()
+- error updating phone number
+# SendActivity_JuEdFe()
+[Activity
+    Text = ${SendActivity_JuEdFe_text()}
+]
+
+# SendActivity_4nBKSJ_text()
+- We have successfully updated ✌
+# SendActivity_4nBKSJ()
+[Activity
+    Text = ${SendActivity_4nBKSJ_text()}
+]
+
+# SendActivity_5C0NmT_text()
+- ```🤕 Unfortunately, we are unable update your details. 
+
+Tap below to try again 👇```
+# SendActivity_5C0NmT()
+[Activity
+    Text = ${SendActivity_5C0NmT_text()}
+]
+
+# SendActivity_OHaOac()
+[Activity
+    Text = ${SendActivity_OHaOac_text()}
+]
+
+# SendActivity_OHaOac_text()
+- Email deleted success, phone update started
+# SendActivity_kkf075_text()
+- ${dialog.postPhoneRes}
+# SendActivity_kkf075()
+[Activity
+    Text = ${SendActivity_kkf075_text()}
+]
+
+# SendActivity_NPrmjE_text()
+- Post api for update phone number throws error
+# SendActivity_NPrmjE()
+[Activity
+    Text = ${SendActivity_NPrmjE_text()}
+]
+
+# SendActivity_0JKcJ2_text()
+- ${dialog.postPhoneRes}
+# SendActivity_0JKcJ2()
+[Activity
+    Text = ${SendActivity_0JKcJ2_text()}
+]
+
+# SendActivity_qo09GU_text()
+- response for post api => ${dialog.postEmailRes}
+# SendActivity_qo09GU()
+[Activity
+    Text = ${SendActivity_qo09GU_text()}
+]
+
+# SendActivity_yamtfS_text()
+- Email IDs updated. calling delete api for email.
+# SendActivity_yamtfS()
+[Activity
+    Text = ${SendActivity_yamtfS_text()}
+]
+
+# SendActivity_tnzl7x_text()
+- ```response for update email api=>
+${dialog.postEmailRes}```
+# SendActivity_tnzl7x()
+[Activity
+    Text = ${SendActivity_tnzl7x_text()}
+]
+
+# SendActivity_jB3Yho_text()
+- Sorry error occured for updating only email address
+# SendActivity_jB3Yho()
+[Activity
+    Text = ${SendActivity_jB3Yho_text()}
+]
+
+# SendActivity_7PUzTh_text()
+- ```response for update email api=>
+${dialog.postEmailRes}```
+# SendActivity_7PUzTh()
+[Activity
+    Text = ${SendActivity_7PUzTh_text()}
+]
+
+# ChoiceInput_Prompt_ykA6KD_text()
+- ```Alright ${user.fullname}! Here are your current details:
+▪ Email address: ${user.existingEmail}
+▪ Phone no: ${user.existingNumber}
+
+Which details would you like to update for ${user.pnr}? 👇```
+# ChoiceInput_Prompt_ykA6KD()
+[Activity
+    Text = ${ChoiceInput_Prompt_ykA6KD_text()}
+]
+
+# SendActivity_2pukFT_text()
+- Absolutely! Go ahead and enter your new email address below. 😀
+# SendActivity_2pukFT()
+[Activity
+    Text = ${SendActivity_2pukFT_text()}
+]
+
+# SendActivity_zIrjM5_text()
+- ```Absolutely! Go ahead and enter your new number below. 😀
+Don’t forget to add your country code! 👍```
+# SendActivity_zIrjM5()
+[Activity
+    Text = ${SendActivity_zIrjM5_text()}
+]
+
+# SendActivity_EwuVXb_text()
+- Absolutely! Go ahead and enter your new email address & phone number below. 😀
+# SendActivity_EwuVXb()
+[Activity
+    Text = ${SendActivity_EwuVXb_text()}
+]
+
+# Ask_Activity_bTCozl()
+[Activity
+    Attachments = ${json(Ask_Activity_bTCozl_attachment_84gzI9())}
+]
+
+# Ask_Activity_bTCozl_attachment_84gzI9()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "يرجى إضافة المعلومات أدناه 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myTel",
+      "isRequired": true,
+      "regex":"^[+]?[0-9]{2,4}[-][0-9]{7,14}$",
+      "errorMessage": "يرجى إدخال رقم جوال صحيح مع رمز الدولة، مثال: +91-9912345XXX",
+      "label": "أدخل رقم الجوال ورمز الدولة",
+      "style": "tel"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myEmail",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]+([.-_+][A-Za-z0-9]+)*@[A-Za-z0-9-]+(.[A-Za-z]{2,})+$",
+      "errorMessage": "يرجى إدخال بريد إلكتروني صحيح. مثال: john.smith234@gmail.com",
+      "label": "أدخل عنوان البريد الإلكتروني",
+      "style": "email"
+      }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحديث معلوماتي",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# Ask_Activity_Y0NomC()
+[Activity
+    Attachments = ${json(Ask_Activity_Y0NomC_attachment_pl1fEW())}
+]
+
+# Ask_Activity_Y0NomC_attachment_pl1fEW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "يرجى إضافة المعلومات أدناه.👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myTel",
+      "isRequired": true,
+      "regex": "^[+]?[0-9]{2,4}[-][0-9]{7,14}$",
+      "errorMessage": "يرجى إدخال رقم جوال صحيح مع رمز الدولة، مثال: 91-9912345XXX+",
+      "label": "أدخل رقم الجوال ورمز الدولة",
+      "style": "tel"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحديث معلوماتي",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# Ask_Activity_nPZmGD()
+[Activity
+    Attachments = ${json(Ask_Activity_nPZmGD_attachment_waSCPh())}
+]
+
+# Ask_Activity_nPZmGD_attachment_waSCPh()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "id": "rtl_1",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "يرجى إضافة المعلومات أدناه 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myEmail",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]+([.-_+][A-Za-z0-9]+)*@[A-Za-z0-9-]+(.[A-Za-z]{2,})+$",
+      "errorMessage": "يرجى إدخال عنوان بريد إلكتروني صحيح. مثال: john.smith234@gmail.com",
+      "label": "أدخل عنوان البريد الإلكتروني",
+      "style": "email"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحديث معلوماتي",
+          "data": {
+              "btnvalue": "Submit"
+          }
+      }
+  ]
+}```
+# SendActivity_2MKLBY_text()
+- Your details were updated successfully. 🎉
+# SendActivity_2MKLBY()
+[Activity
+    Text = ${SendActivity_2MKLBY_text()}
+]
+
+# SendActivity_4vg3gJ_text()
+- ```We’re sorry, we couldn't update your details.😥
+
+Please click below to try again.👇```
+# SendActivity_4vg3gJ()
+[Activity
+    Text = ${SendActivity_4vg3gJ_text()}
+]
+
+# SendActivity_dpDrTV_text()
+- ```We’re sorry, we couldn't update your details.😥
+Please click below to try again.👇```
+# SendActivity_dpDrTV()
+[Activity
+    Text = ${SendActivity_dpDrTV_text()}
+]
+
+# SendActivity_oqsvzY_text()
+- Your details were updated successfully. 🎉
+# SendActivity_oqsvzY()
+[Activity
+    Text = ${SendActivity_oqsvzY_text()}
+]
+
+# SendActivity_QLW8gN()
+[Activity
+    Attachments = ${json(SendActivity_QLW8gN_attachment_hhNFWJ())}
+]
+
+# SendActivity_2kGflA_text()
+- Your details were updated successfully. 🎉
+# SendActivity_2kGflA()
+[Activity
+    Text = ${SendActivity_2kGflA_text()}
+]
+
+# SendActivity_EVJwF3_text()
+- ```We’re sorry, we couldn't update your details.😥
+ Please try again after a while.```
+# SendActivity_EVJwF3()
+[Activity
+    Text = ${SendActivity_EVJwF3_text()}
+]
+
+# SendActivity_r3DYyN_text()
+- ```We’re sorry, we couldn't update your details.😥
+Please click below to try again.👇```
+# SendActivity_r3DYyN()
+[Activity
+    Text = ${SendActivity_r3DYyN_text()}
+]
+
+# SendActivity_rnmGfM_text()
+- Your details were updated successfully. 🎉
+# SendActivity_rnmGfM()
+[Activity
+    Text = ${SendActivity_rnmGfM_text()}
+]
+
+# SendActivity_vJ8fwP()
+[Activity
+    Text = ${SendActivity_vJ8fwP_text()}
+]
+
+# SendActivity_vJ8fwP_text()
+- ${turn.postEmailRes}
+# SendActivity_1MRWre()
+[Activity
+    Text = ${SendActivity_1MRWre_text()}
+]
+
+# SendActivity_1MRWre_text()
+- Email ids deleted and Updated new Email
+# SendActivity_cYriw4()
+[Activity
+    Text = ${SendActivity_cYriw4_text()}
+]
+
+# SendActivity_cYriw4_text()
+- Error deleting Email
+# SendActivity_zbmPu3()
+[Activity
+    Text = ${SendActivity_zbmPu3_text()}
+]
+
+# SendActivity_zbmPu3_text()
+- No IDs to delete Email Updated
+# SendActivity_0G0Uxt()
+[Activity
+    Text = ${SendActivity_0G0Uxt_text()}
+]
+
+# SendActivity_0G0Uxt_text()
+- if i needd to update both values add here
+# SendActivity_SkXAsP_text()
+- Starting Update phone
+# SendActivity_SkXAsP()
+[Activity
+    Text = ${SendActivity_SkXAsP_text()}
+]
+
+# SendActivity_bsM4MX_text()
+- ${turn.postPhoneRes}
+# SendActivity_bsM4MX()
+[Activity
+    Text = ${SendActivity_bsM4MX_text()}
+]
+
+# SendActivity_Wb0tXr_text()
+- Your details were updated successfully. 🎉
+# SendActivity_Wb0tXr()
+[Activity
+    Text = ${SendActivity_Wb0tXr_text()}
+]
+
+# SendActivity_Nu6u62_text()
+- ```We’re sorry, we couldn't update your details. 😥
+Please try again after a while.```
+# SendActivity_Nu6u62()
+[Activity
+    Text = ${SendActivity_Nu6u62_text()}
+]
+
+# SendActivity_wjY4y9()
+[Activity
+    Attachments = ${json(SendActivity_wjY4y9_attachment_56kyT6())}
+]
+
+# SendActivity_5Sruw0_text()
+- No ids to delete Your details were phone number updated successfully. 🎉
+# SendActivity_5Sruw0()
+[Activity
+    Text = ${SendActivity_5Sruw0_text()}
+]
+
+# SendActivity_1x5IXE_text()
+- We’re sorry, we couldn't update your new Phone number. 😥
+# SendActivity_1x5IXE()
+[Activity
+    Text = ${SendActivity_1x5IXE_text()}
+]
+
+
+# SendActivity_DtQxQ0()
+[Activity
+    Text = ${SendActivity_DtQxQ0_text()}
+]
+
+# SendActivity_DtQxQ0_text()
+- COMING INSIDE UPDATE EMAIL DIALOUGE
+# SendActivity_KTEiCy()
+[Activity
+    Text = ${SendActivity_KTEiCy_text()}
+]
+
+# SendActivity_KTEiCy_text()
+- ```came isn response\-\-\->  ${dialog.postEmailRes}
+
+
+status code \-\-\-> ${dialog.postEmailRes.statusCode}```
+# SendActivity_oMKIS4()
+[Activity
+    Text = ${SendActivity_oMKIS4_text()}
+]
+
+# SendActivity_oMKIS4_text()
+- came inside tru block ---> ${turn.updatedEmail}
+# SendActivity_I5Fa0y()
+[Activity
+    Text = ${SendActivity_I5Fa0y_text()}
+]
+
+# SendActivity_I5Fa0y_text()
+- came inside false block
+# SendActivity_8Ew68J()
+[Activity
+    Text = ${SendActivity_8Ew68J_text()}
+]
+
+# SendActivity_8Ew68J_text()
+- RESPONSE EMAIL ---> ${turn.emailIdString}
+# SendActivity_B5drUH()
+[Activity
+    Text = ${SendActivity_B5drUH_text()}
+]
+
+# SendActivity_B5drUH_text()
+- EMAIL ID ---> ${turn.updatedEmail}
+# SendActivity_lqKpws()
+[Activity
+    Text = ${SendActivity_lqKpws_text()}
+]
+
+# SendActivity_lqKpws_text()
+- API RESPONSE ---> ${turn.updateapiresults}
+# SendActivity_wcL3oh()
+[Activity
+    Attachments = ${json(SendActivity_wcL3oh_attachment_afpxJl())}
+]
+
+# SendActivity_wcL3oh_attachment_afpxJl()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "text": "بالطبع ${user.fullname}! هذه معلوماتك الحالية:",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "text": "عنوان البريد الإلكتروني: ${user.existingEmail}",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "text": "رقم الجوال: ${user.existingNumber}",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "text": "  ",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "text": "أي معلومة تريد تحديثها ل ${user.pnr} ؟ 👇",
+        "wrap": true
+    }
+    
+  ]
+}```
+# ChoiceInput_Prompt_h20LRN()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_h20LRN_attachment_eOfYDc())}
+]
+
+# ChoiceInput_Prompt_h20LRN_attachment_eOfYDc()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [],
+  "actions": []
+}```
+# SendActivity_I0z5bP()
+[Activity
+    Attachments = ${json(SendActivity_I0z5bP_attachment_8uDili())}
+]
+
+# SendActivity_I0z5bP_attachment_8uDili()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text": "تم تحديث معلوماتك بنجاح.🎉"
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_cSyUGO()
+[Activity
+    Attachments = ${json(SendActivity_cSyUGO_attachment_NS3Zfn())}
+]
+
+# SendActivity_cSyUGO_attachment_NS3Zfn()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً، لم نتمكن من تحديث معلوماتك.😥",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"يرجى الضغط أدناه للمحاولة مرة أخرى.👇",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_Kl360E()
+[Activity
+    Attachments = ${json(SendActivity_Kl360E_attachment_EpM7oa())}
+]
+
+# SendActivity_Kl360E_attachment_EpM7oa()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"تم تحديث معلوماتك بنجاح.🎉",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_aiVff1()
+[Activity
+    Attachments = ${json(SendActivity_aiVff1_attachment_4sGhuK())}
+]
+
+# SendActivity_aiVff1_attachment_4sGhuK()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً، لم نتمكن من تحديث معلوماتك.😥",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"يرجى الضغط أدناه للمحاولة مرة أخرى.👇",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_cvCeYj()
+[Activity
+    Attachments = ${json(SendActivity_cvCeYj_attachment_wMk0Wo())}
+]
+
+# SendActivity_cvCeYj_attachment_wMk0Wo()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"تم تحديث معلوماتك بنجاح. 🎉",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_xmvNfF()
+[Activity
+    Attachments = ${json(SendActivity_xmvNfF_attachment_jJ7Auz())}
+]
+
+# SendActivity_xmvNfF_attachment_jJ7Auz()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً، لم نتمكن من تحديث معلوماتك.😥",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"يرجى الضغط أدناه للمحاولة مرة أخرى.👇",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_JmD8zL()
+[Activity
+    Attachments = ${json(SendActivity_JmD8zL_attachment_jNr40w())}
+]
+
+# SendActivity_JmD8zL_attachment_jNr40w()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً، لم نتمكن من تحديث معلوماتك. 😥",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"يرجى الضغط أدناه للمحاولة مرة أخرى. 👇",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_QLW8gN_attachment_hhNFWJ()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"تم تحديث معلوماتك بنجاح.🎉",
+          "wrap": true
+      }
+      
+    ],
+    "actions": []
+  }```
+# SendActivity_wjY4y9_attachment_56kyT6()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "default text",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```  
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"عفواً، لم نتمكن من تحديث معلوماتك.😥",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"يرجى الضغط أدناه للمحاولة مرة أخرى.👇",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_5gdwsj()
+[Activity
+    Attachments = ${json(SendActivity_5gdwsj_attachment_sl0aHh())}
+]
+
+# SendActivity_5gdwsj_attachment_sl0aHh()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text":"تم تحديث معلوماتك بنجاح. 🎉",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_Kd3dkJ()
+[Activity
+    Attachments = ${json(SendActivity_Kd3dkJ_attachment_XhG4l4())}
+]
+
+# SendActivity_Kd3dkJ_attachment_XhG4l4()
+  > To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "طبعاً! أدخل عنوان بريدك الإلكتروني الجديد أدناه. 😀",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_ZqTwvJ()
+[Activity
+    Attachments = ${json(SendActivity_ZqTwvJ_attachment_tZ4AFp())}
+]
+
+# SendActivity_ZqTwvJ_attachment_tZ4AFp()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "طبعاً! أدخل رقم جوالك الجديد أدناه. 😀",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لا تنسَ إضافة رمز الدولة! 👍",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_sBTzhq()
+[Activity
+    Attachments = ${json(SendActivity_sBTzhq_attachment_ysgvYD())}
+]
+
+# SendActivity_sBTzhq_attachment_ysgvYD()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "بالتأكيد! أدخل عنوان بريدك الإلكتروني ورقم جوالك الجديدين أدناه. 😀",
+      "wrap": true
+    }
+  ],
+  "actions": []
+}```
+# SendActivity_SMpI5y()
+[Activity
+    Text = ${SendActivity_SMpI5y_text()}
+]
+
+# SendActivity_SMpI5y_text()
+- ```We’re sorry, we couldn't update your details.😥
+Please try again after a while.```
+# SendActivity_eqLiCL()
+[Activity
+    Text = ${SendActivity_eqLiCL_text()}
+]
+
+# SendActivity_eqLiCL_text()
+- ```We’re sorry, we couldn't update your details. 😥
+Please try again after a while.```
+# SendActivity_eJg9zY()
+[Activity
+    Text = ${SendActivity_eJg9zY_text()}
+]
+
+# SendActivity_eJg9zY_text()
+- ```We’re sorry, we couldn't update your details. 😥
+Please try again after a while.```
+# SendActivity_zAC0oo()
+[Activity
+    Text = ${SendActivity_zAC0oo_text()}
+]
+
+# SendActivity_zAC0oo_text()
+- ```We’re sorry, we couldn't update your details. 😥
+Please try again after a while.```
+# SendActivity_SuxDZX()
+[Activity
+    Text = ${SendActivity_SuxDZX_text()}
+]
+
+# SendActivity_SuxDZX_text()
+- ```We’re sorry, we couldn't update your details. 😥
+Please try again after a while.```

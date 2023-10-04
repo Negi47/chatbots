@@ -1,0 +1,63 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "TgsXPl",
+    "name": "Closure",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "SqvD7p"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "K5Nitk"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "QDrmgs"
+              },
+              "activity": "${Ask_Activity_QDrmgs()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "RG3b6n"
+              },
+              "activity": "${Ask_Activity_RG3b6n()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "e6yZFw"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "Closure.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Closure"
+}

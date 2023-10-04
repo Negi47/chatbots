@@ -1,0 +1,14 @@
+trigger: none
+
+stages:
+- stage: 'Virtual_Agent_Build'
+  dependsOn:
+  displayName: 'Virtual_Agent_Build'
+  pool:
+    name: 'devopsagent-linux-dev01'
+  #condition: or(always(), eq(variables['Build.SourceBranch'], 'refs/heads/feature/angular_pipeline'))
+  jobs: 
+  - job: 'Virtual_Agent_Build' 
+  - template: azure-pipeline.yml
+    parameters:
+      pool_name: 'devopsagent-linux-dev01'

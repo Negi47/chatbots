@@ -1,0 +1,60 @@
+parameters:
+  - name: pool_name
+  
+jobs:
+  - job: Create_Artifacts
+    pool:
+      name: ${{ parameters.pool_name }}
+    
+    steps:
+    - task: NodeTool@0  
+      inputs:  
+        versionSpec: '14.18.0'  
+      displayName: 'Install Node.js 14.18.0'
+    - task: Npm@1
+      displayName: 'clearing cache'
+      inputs:
+        command: 'custom'
+        customCommand: 'cache clean --force'
+        workingDir: ' ' 
+    - task: Npm@1
+      displayName: 'install modules'
+      inputs:
+        command: 'install'
+        workingDir: ' ' 
+    
+    - task: AzureCLI@2
+      displayName: 'Azure CLI - Prepare Deploy'
+      inputs:
+        azureSubscription: 'Saudia Digital Non-Prod(6a27a5af-3741-48fd-9ce1-0c100540bbe2)'
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: az bot prepare-deploy --lang Javascript --code-dir "."
+
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          ls -lrt
+          sudo apt install zip
+          zip -r $(Build.ArtifactStagingDirectory)/saudia-virtual-agent-$(Build.BuildId).zip .
+
+    #- task: CopyFiles@2
+    #  inputs:
+    #    SourceFolder: '$(system.defaultworkingdirectory)/'
+    #    Contents: '**'
+    #    TargetFolder: '$(Build.ArtifactStagingDirectory)/saudia-virtual-agent'
+    #  displayName: 'Copy Files to Staging Directory'
+   
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'artifact'
+        publishLocation: 'Container'
+    
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          echo '##vso[build.addbuildtag]saudia-virtual-agent'

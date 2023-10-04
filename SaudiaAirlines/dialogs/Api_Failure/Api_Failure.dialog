@@ -1,0 +1,69 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "9O5ogf",
+    "name": "Api_Failure",
+    "comment": "To handle all the API failure "
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "jnbcB9"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "lYn2fK"
+          },
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "48uVZ0"
+              },
+              "activity": "${SendActivity_48uVZ0()}",
+              "disabled": true
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "1gM06k"
+              },
+              "activity": "${SendActivity_1gM06k()}",
+              "disabled": true
+            }
+          ],
+          "condition": "=user.lanuage_selected == \"English\"",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "phRi9Y"
+          },
+          "property": "user.handoverQueue",
+          "value": "Others"
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "SP8TRK"
+          },
+          "activityProcessed": true,
+          "dialog": "agent-handover"
+        }
+      ]
+    }
+  ],
+  "generator": "Api_Failure.lg",
+  "recognizer": "Api_Failure.lu.qna",
+  "id": "Api_Failure"
+}

@@ -1,0 +1,81 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "zDty7F",
+    "name": "TypingMenuOption",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "Xoz7Sy"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "WTl6oH"
+          },
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "Ekrfe6"
+              },
+              "activity": "${Ask_Activity_kXuaSz()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "vNybtA"
+              },
+              "activity": "${SendActivity_vNybtA()}"
+            }
+          ],
+          "condition": "=user.lanuage_selected == \"English\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "0CmGVJ"
+              },
+              "activity": "${Ask_Activity_0CmGVJ()}"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "22ywlB"
+              },
+              "activity": "${SendActivity_22ywlB()}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "YB3vRO",
+        "name": "Pass text to CLU"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "sGoWFs"
+          },
+          "activityProcessed": true,
+          "dialog": "CommonIdentifyFlow"
+        }
+      ]
+    }
+  ],
+  "generator": "TypingMenuOption.lg",
+  "recognizer": "TypingMenuOption.lu.qna",
+  "id": "TypingMenuOption"
+}

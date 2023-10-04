@@ -1,0 +1,88 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "0PWRSr",
+    "name": "Frustration",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "rwnw01"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "XAZZ8m"
+          },
+          "property": "conversation.frustrationCounter",
+          "value": "=if(exists(conversation.frustrationCounter), conversation.frustrationCounter + 1, 1)"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "uE18sX"
+          },
+          "condition": "=greaterOrEquals(conversation.frustrationCounter, 3)",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "qT0nBN"
+              },
+              "activityProcessed": true,
+              "dialog": "agent-handover"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "utYRRe"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "PgeaOh"
+              },
+              "activity": "${Ask_Activity_PgeaOh()}"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "g1LUmK"
+              },
+              "activity": "${Ask_Activity_g1LUmK()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.CancelAllDialogs",
+          "$designer": {
+            "id": "HLsOXb"
+          },
+          "activityProcessed": true
+        }
+      ]
+    }
+  ],
+  "generator": "Frustration.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Frustration"
+}

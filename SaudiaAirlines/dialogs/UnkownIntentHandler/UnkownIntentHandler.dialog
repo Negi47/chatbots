@@ -1,0 +1,175 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "qa0qYa",
+    "name": "UnkownIntentHandler",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "KaisdR"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "0eqWYD"
+          },
+          "property": "user.fallbackCount",
+          "value": "=add(user.fallbackCount, 1)"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "YbtiKx"
+          },
+          "condition": "=user.fallbackCount <= 100",
+          "actions": [
+            {
+              "$kind": "Microsoft.GetConversationReference",
+              "$designer": {
+                "id": "dj9VLl"
+              },
+              "property": "turn.convRef"
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "k8goU0"
+              },
+              "resultProperty": "turn.chatHistory",
+              "url": "http://localhost:4000/getChatHistory",
+              "body": {
+                "convRef": "${turn.convRef}",
+                "loginState": "${user.Login}",
+                "pnrs": "${user.pnr}",
+                "miles": "${user.accountMiles}",
+                "tier": "${user.tierLevel}",
+                "name": "${user.userName}"
+              },
+              "method": "POST"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "Po9DWT"
+              },
+              "condition": "=turn.chatHistory.content.success",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "AA8n6s"
+                  },
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "ix7lQj"
+                      },
+                      "activity": "${SendActivity_ix7lQj()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "vZ5i8d"
+                      },
+                      "activity": "${SendActivity_vZ5i8d()}"
+                    }
+                  ],
+                  "condition": "=user.lanuage_selected == \"English\""
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "wJSx8g"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "agent-handover"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "o0sPVL"
+                  },
+                  "resultProperty": "turn.gptResponse",
+                  "method": "POST",
+                  "body": {
+                    "history": "=turn.chatHistory.content.data",
+                    "approach": "rrr",
+                    "type": "general",
+                    "overrides": {
+                      "semantic_ranker": "False",
+                      "semantic_captions": "False",
+                      "top": 3,
+                      "suggest_followup_questions": "False"
+                    }
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json",
+                  "url": "http://localhost:4000/chat"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "Wnwrb4"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "8pVwBo"
+                      },
+                      "activity": "${SendActivity_8pVwBo()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "3JhXJ4"
+                      },
+                      "activity": "${SendActivity_3JhXJ4()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ZsLkpD"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "RJteyJ"
+              },
+              "activityProcessed": true,
+              "dialog": "agent-handover"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "UnkownIntentHandler.lg",
+  "recognizer": "UnkownIntentHandler.lu.qna",
+  "id": "UnkownIntentHandler"
+}

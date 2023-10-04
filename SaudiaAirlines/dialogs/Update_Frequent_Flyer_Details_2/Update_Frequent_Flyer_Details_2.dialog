@@ -1,0 +1,478 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "nEP1lZ",
+    "name": "Update_Frequent_Flyer_Details_2",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "3uYV8b"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Nw1gZ1"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "eGuWut"
+              },
+              "activity": "${SendActivity_eGuWut()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "I5B2g5"
+              },
+              "activity": "${Ask_Activity_I5B2g5()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "2DrQOU"
+              },
+              "activity": "${SendActivity_2DrQOU()}"
+            },
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "yQt3r5"
+              },
+              "activity": "${Ask_Activity_I5B2g5()}"
+            },
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "ouIl6e"
+              },
+              "activity": "${Ask_Activity_gUClEw()}",
+              "disabled": true
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "aHQffW"
+              },
+              "activity": "${SendActivity_aHQffW()}"
+            },
+            {
+              "$kind": "Microsoft.Ask",
+              "$designer": {
+                "id": "Ap38Mf"
+              },
+              "activity": "${Ask_Activity_Ap38Mf()}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "lieHzf",
+        "name": "calling update FF details API"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "ldRhqb"
+          },
+          "assignments": [
+            {
+              "property": "dialog.ffprogram",
+              "value": "=turn.activity.value.CompactSelectVal"
+            },
+            {
+              "property": "dialog.ffNumber",
+              "value": "=turn.activity.value.ffnumber"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "FRb2K2"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.ConfirmInput",
+              "$designer": {
+                "id": "Ir0tWb"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "prompt": "${ConfirmInput_Prompt_Ir0tWb()}",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "dialog.confirmFFdetails",
+              "style": "heroCard",
+              "confirmChoices": [
+                "Confirm",
+                "Exit"
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "XJ35GR"
+              },
+              "activity": "${SendActivity_XJ35GR()}"
+            },
+            {
+              "$kind": "Microsoft.ConfirmInput",
+              "$designer": {
+                "id": "6DIW9q"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or "
+              },
+              "property": "dialog.confirmFFdetails",
+              "style": "heroCard",
+              "confirmChoices": [
+                "تأكيد",
+                "خروج"
+              ],
+              "prompt": "${ConfirmInput_Prompt_6DIW9q()}"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "hMXAyq"
+          },
+          "condition": "=dialog.confirmFFdetails == true",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "n4z5Dp"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "vdsNUY"
+                  },
+                  "activity": "${SendActivity_vdsNUY()}",
+                  "disabled": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "FXG0JZ"
+                  },
+                  "activity": "${SendActivity_FXG0JZ()}",
+                  "disabled": true
+                }
+              ],
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "8rij95"
+              },
+              "resultProperty": "dialog.postFFRes",
+              "method": "POST",
+              "url": "http://localhost:4000/updateFFDetails",
+              "headers": {
+                "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/frequent-flyer-cards?lastName=${user.lastName}",
+                "authorization": "=concat('Bearer',' ', user.access_token)",
+                "session_id": "=user.session_id"
+              },
+              "responseType": "json",
+              "contentType": "application/json",
+              "body": {
+                "contactType": "updatefrequentflyer",
+                "companyCode": "=dialog.ffprogram",
+                "cardNumber": "=dialog.ffNumber",
+                "travelerId": "=user.travelersId"
+              }
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "VtpLdg"
+              },
+              "resultProperty": "dialog.postFFRes",
+              "method": "POST",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/frequent-flyer-cards?lastName=${user.lastName}",
+              "body": {
+                "frequentFlyerCard": {
+                  "companyCode": "=dialog.ffprogram",
+                  "cardNumber": "=dialog.ffNumber",
+                  "travelerId": "=user.travelersId"
+                }
+              },
+              "headers": {
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "SAA-session-id": "=user.session_id",
+                "Content-Type": "application/json"
+              },
+              "contentType": "application/json",
+              "responseType": "json",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "tBvaOe"
+              },
+              "activity": "${SendActivity_tBvaOe()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "qV65j5"
+              },
+              "condition": "=dialog.postFFRes.statusCode == 200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "aEJ87C"
+                  },
+                  "condition": "=dialog.postFFRes.statusCode == 200 && dialog.postFFRes.content != \" \" && count(dialog.postFFRes.content) != 0",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "v4t1wV"
+                      },
+                      "activity": "${SendActivity_v4t1wV()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperty",
+                      "$designer": {
+                        "id": "MnmBeu"
+                      },
+                      "property": "turn.isVerified",
+                      "value": "=dialog.postFFRes.content.data[0].serviceRequests[0].isVerified"
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "ZAwFfH"
+                      },
+                      "condition": "=turn.isVerified == true",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "dOeh15"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "sQutoz"
+                              },
+                              "activity": "${SendActivity_sQutoz()}"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "8MkHKo"
+                              },
+                              "activity": "${SendActivity_8MkHKo()}"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "icRIP5"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "ulQrFl"
+                              },
+                              "activity": "${SendActivity_ulQrFl()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "VF7ec3"
+                              },
+                              "activity": "${SendActivity_VF7ec3()}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "NpRJY7"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "X95xzq",
+                            "comment": "need a clarity for this node"
+                          },
+                          "activity": "${SendActivity_X95xzq()}",
+                          "disabled": true
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "Qk9K9D"
+                          },
+                          "activity": "${SendActivity_Qk9K9D()}",
+                          "disabled": true
+                        }
+                      ],
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "rHo5KP"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "SKRO60"
+                          },
+                          "activity": "${SendActivity_SKRO60()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "8ldW26"
+                          },
+                          "activity": "${SendActivity_8ldW26()}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "u1Meg0"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "a9dFvp"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "cgygFI"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.RepeatDialog",
+              "$designer": {
+                "id": "j4pRJ1"
+              },
+              "activityProcessed": true
+            },
+            {
+              "$kind": "Microsoft.DeleteProperties",
+              "$designer": {
+                "id": "RLqdrM"
+              },
+              "properties": [
+                "dialog.ffprogram",
+                "dialog.FFNum",
+                "dialog.confirmFFdetails"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Update_Frequent_Flyer_Details_2.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Update_Frequent_Flyer_Details_2"
+}

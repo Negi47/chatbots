@@ -1,0 +1,461 @@
+[import](common.lg)
+
+# SendActivity_E4D0q7_attachment_4Uf0ys()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "Airline Name : ${turn.results.content.dictionaries.airline.SV}",
+            "color": "Attention"
+        },
+        {
+            "type": "TextBlock",
+            "text": "**PNR** : ${user.pnr}",
+            "size": "Medium",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Flight** : ${turn.results.content.dictionaries.airline.SV}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Departure** : ${turn.results.content.data[0].departure.dateTime}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Arrival** : ${turn.results.content.data[0].arrival.dateTime}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Airport** : ${turn.results.content.dictionaries.location.DXB.airportName}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Terminal** : ${turn.results.content.data[0].departure.terminal}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Class** : dfsklfd",
+            "color": "Default"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Confirm",
+            "data": "Confirm"
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Check With Another PNR",
+            "data": "Check With Another PNR"
+        }
+    ]
+}```
+# SendActivity_E4D0q7()
+[Activity
+    Attachments = ${json(SendActivity_E4D0q7_attachment_4Uf0ys())}
+]
+
+# SendActivity_wrQJoi_attachment_pAdl3G()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "☹ Unfortunately, we are unable to find your profile. Tap below to try again 👇",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Act",
+            "title": "Download now ↗",
+            "url": "https://www.google.com/"
+        }
+    ]
+}```
+# SendActivity_wrQJoi()
+[Activity
+    Attachments = ${json(SendActivity_wrQJoi_attachment_pAdl3G())}
+]
+
+# Ask_Activity_8Glk5G()
+[Activity
+    Attachments = ${json(Ask_Activity_8Glk5G_attachment_vp916d())}
+]
+
+# Ask_Activity_8Glk5G_attachment_vp916d()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_TOOyYX()
+[Activity
+    Attachments = ${json(Ask_Activity_TOOyYX_attachment_PmIElx())}
+]
+
+# Ask_Activity_TOOyYX_attachment_PmIElx()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_BWCMtW_text()
+- Difference ---> ${turn.daysDiff}
+# SendActivity_BWCMtW()
+[Activity
+    Text = ${SendActivity_BWCMtW_text()}
+]
+
+# SendActivity_opCx0J_text()
+- came here
+# SendActivity_opCx0J()
+[Activity
+    Text = ${SendActivity_opCx0J_text()}
+]
+
+# SendActivity_RF9L5N_attachment_988kns()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click below to continue 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Change seats ↗",
+            "url": "${user.baseBaggageLink}/checkIn/checkInoverview?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_RF9L5N()
+[Activity
+    Attachments = ${json(SendActivity_RF9L5N_attachment_988kns())}
+]
+
+# SendActivity_9fGcg6_attachment_lCYyJI()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط أدناه للمتابعة 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تغيير المقعد ↖",
+            "url": "${user.baseBaggageLink}/checkIn/checkInoverview?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_9fGcg6()
+[Activity
+    Attachments = ${json(SendActivity_9fGcg6_attachment_lCYyJI())}
+]
+
+# SendActivity_4ZMDjD_attachment_988kns()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click below to continue 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Check it out ↗",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_4ZMDjD()
+[Activity
+    Attachments = ${json(SendActivity_4ZMDjD_attachment_988kns())}
+]
+
+# SendActivity_i9nenw_attachment_lCYyJI()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط أدناه للمتابعة 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تحقق من ذلك ↖",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_i9nenw()
+[Activity
+    Attachments = ${json(SendActivity_i9nenw_attachment_lCYyJI())}
+]
+
+# SendActivity_4wrzF7_attachment_988kns()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click below to continue 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Change seats ↗",
+            "url": "${user.baseBaggageLink}/checkIn/checkInoverview?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_4wrzF7()
+[Activity
+    Attachments = ${json(SendActivity_4wrzF7_attachment_988kns())}
+]
+
+# SendActivity_kyhbmm_attachment_lCYyJI()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط أدناه للمتابعة 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تغيير المقعد ↖",
+            "url": "${user.baseBaggageLink}/checkIn/checkInoverview?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_kyhbmm()
+[Activity
+    Attachments = ${json(SendActivity_kyhbmm_attachment_lCYyJI())}
+]
+
+# SendActivity_5dtH2R_attachment_988kns()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Click below to continue 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Check it out ↗",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_5dtH2R()
+[Activity
+    Attachments = ${json(SendActivity_5dtH2R_attachment_988kns())}
+]
+
+# SendActivity_BOvKn2_attachment_lCYyJI()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اضغط أدناه للمتابعة 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تحقق من ذلك ↖",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_BOvKn2()
+[Activity
+    Attachments = ${json(SendActivity_BOvKn2_attachment_lCYyJI())}
+]
+
+# SendActivity_xCbFTX()
+[Activity
+    Text = ${SendActivity_xCbFTX_text()}
+]
+
+# SendActivity_xCbFTX_text()
+- Iside ---> ${user.loggedoption}

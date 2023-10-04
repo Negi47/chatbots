@@ -1,0 +1,492 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_BEUT67()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_BEUT67_attachment_LLRkIo())}
+]
+
+# Ask_Activity_KAUlzy()
+[Activity
+    Attachments = ${json(Ask_Activity_KAUlzy_attachment_ierqr6())}
+    AttachmentLayout = carousel
+]
+
+# SendActivity_q5ybTS()
+[Activity
+    Text = ${SendActivity_q5ybTS_text()}
+]
+
+# SendActivity_q5ybTS_text()
+- ```Great! I can help you with that 😇
+
+But first, I would require few details from you to fetch your booking details ✍🗒 ```
+# SendActivity_bcPw3P()
+[Activity
+    Text = ${SendActivity_bcPw3P_text()}
+]
+
+# SendActivity_bcPw3P_text()
+- ```Great! I can help you with that 😇
+
+But first, I would require few details from you to fetch your booking details ✍🗒 ```
+# SendActivity_uWeLUf()
+[Activity
+    Text = ${SendActivity_uWeLUf_text()}
+]
+
+# SendActivity_uWeLUf_text()
+- ```Great! I can help you with that 😇
+
+But first, I would require few details from you to fetch your booking details ✍🗒 ```
+
+# SendActivity_VWlVnr()
+[Activity
+    Text = ${SendActivity_VWlVnr_text()}
+]
+
+# SendActivity_VWlVnr_text()
+- ```Great! I can help you with that 😇
+
+But first, I would require few details from you to fetch your booking details ✍🗒 ```
+# SendActivity_dVuT3W()
+[Activity
+    Text = ${SendActivity_dVuT3W_text()}
+]
+
+# SendActivity_dVuT3W_text()
+- ```Great! I can help you with that 😇
+
+But first, I would require few details from you to fetch your booking details ✍🗒 ```
+>>>>>>> 72e4cf24da52539afa01f3cd69c909c86eb46e07
+>>>>>>> b3c0a5470278291cee9a2b47ed4e6c2b51b5c3f3
+
+# Ask_Activity_KAUlzy_attachment_ierqr6()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "placeholder": "Enter your booking reference or ticket number",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{5,6}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference or 13-digit ticker number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "placeholder": "Enter your last name",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit"
+      }
+  ]
+}```
+# SendActivity_s8xi36_attachment_EmhDpM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "*Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "placeholder": "Enter your booking reference or ticket number",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{5,6}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference or 13-digit ticker number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "placeholder": "Enter your last name",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit"
+      }
+  ]
+}```
+# SendActivity_s8xi36()
+[Activity
+    Attachments = ${json(SendActivity_s8xi36_attachment_EmhDpM())}
+    AttachmentLayout = carousel
+]
+
+# Ask_Activity_ThGlfT()
+[Activity
+    Attachments = ${json(Ask_Activity_ThGlfT_attachment_MJmJwY())}
+    AttachmentLayout = carousel
+]
+
+# Ask_Activity_ThGlfT_attachment_MJmJwY()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference or 13-digit ticker number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit"
+      }
+  ]
+}```
+# SendActivity_FTD8Yy()
+[Activity
+    Text = ${SendActivity_FTD8Yy_text()}
+]
+
+# SendActivity_FTD8Yy_text()
+- update dialouge
+# SendActivity_6PVicP()
+[Activity
+    Text = ${SendActivity_6PVicP_text()}
+]
+
+# SendActivity_6PVicP_text()
+- ULNGA3
+# Ask_Activity_VBU0vL()
+[Activity
+    Attachments = ${json(Ask_Activity_VBU0vL_attachment_eo6Eo2())}
+    AttachmentLayout = carousel
+]
+
+# Ask_Activity_VBU0vL_attachment_eo6Eo2()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "default text",
+      "weight": "bolder",
+      "isSubtle": false
+    }
+  ]
+}```
+# Ask_Activity_PNT8lA()
+[Activity
+    Attachments = ${Ask_Activity_PNT8lA_attachment_QN7ANA()}
+]
+
+# Ask_Activity_PNT8lA_attachment_QN7ANA()
+[HeroCard
+  title = ,
+  subtitle = ,
+  text = "👋🙂 Hello! I'm Saud, your virtual assistant to help you with all your travel queries ✈\n\n**💡 Please select which language would you like to proceed with 👇** الرجاء تحديد اللغة التي تريد المتابعة",
+  images = ,
+  buttons = ["English", "Hindi"]
+]
+
+# Ask_Activity_zOpfoL()
+[Activity
+    Attachments = ${json(Ask_Activity_zOpfoL_attachment_m0LSer())}
+]
+
+# Ask_Activity_zOpfoL_attachment_m0LSer()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "Container",
+            "id": "rtl_1",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "حدد الخيار الذي تريده من الأسفل، لأتمكن من مساعدتك بشكل أفضل، أو أخبرني ببساطة ما تريد أن تفعل.",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "**فيما يلي بعض الأمثلة على ما يمكنك طلبه مني:**",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "• ما هو رقم حسابي",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "• أريد تغيير رقم جواز السفر",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "• أريد ترقية مقعدي",
+                    "wrap": true
+                }
+            ]
+        }
+    ]
+}```
+# ChoiceInput_Prompt_bR9kBv()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_bR9kBv_attachment_eUOEZy())}
+]
+
+# ChoiceInput_Prompt_bR9kBv_attachment_eUOEZy()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+  ]
+}```
+# SendActivity_D62lS5()
+[Activity
+    Attachments = ${json(SendActivity_D62lS5_attachment_GSTNZ6())}
+]
+
+# SendActivity_D62lS5_attachment_GSTNZ6()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "Container",
+            "id": "rtl_1",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "أنا هنا لمساعدتك  في كل ما يتعلق بالفرسان، إدارة الحجوزات،",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "الحجوزات الحكومية، الأسئلة الشائعة والكثير غير ذلك.😊",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "   ",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "اكتب لي طلبك أو اختر من بين الخيارات التالية.",
+                    "wrap": true
+                }
+               
+            ]
+        }
+    ]
+}```
+# ChoiceInput_Prompt_BEUT67_attachment_LLRkIo()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+            "type": "Container",
+            "rtl": true,
+            "id": "rtl_1",
+            "items": [
+                {
+                    "type": "TextBlock",
+                    "text": "مرحباً! 👋",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "  ",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "أنا مساعدك الافتراضي من السعودية، وسأقوم بتقديم المساعدة حول جميع استفساراتك المتعلقة بالسفر. ✈️",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "اختر اللغة التي تريد مني التحدث معك بها 👇",
+                    "wrap": true
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "  ",
+                    "wrap": true
+                }
+            ]
+        },
+        {
+            "type": "TextBlock",
+            "text": "Hello! 👋",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "  ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "I’m your SAUDIA Virtual Assistant and I’m here to help you with all your travel queries. ✈️",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "Please select your preferred language 👇",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_QWkL77()
+[Activity
+    Text = ${SendActivity_QWkL77_text()}
+]
+
+# SendActivity_QWkL77_text()
+- ```I’m here to help you with all things related to AlFursan, Managing your booking, Government bookings, FAQs and many more.😊
+
+
+Type in your request below or select one of the below options to get started.```
+# ChoiceInput_Prompt_cF4Zke_attachment_LMoCNM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+  ]
+}```
+# ChoiceInput_Prompt_cF4Zke()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_cF4Zke_attachment_LMoCNM())}
+    AttachmentLayout = carousel
+]
+
+# SendActivity_2KQK8h()
+[Activity
+    Text = ${SendActivity_2KQK8h_text()}
+]
+
+# SendActivity_2KQK8h_text()
+- Selected ${user.menuOption}
+# TextInput_Prompt_4VLAJ6()
+[Activity
+    Text = ${TextInput_Prompt_4VLAJ6_text()}
+    Attachments = ${json(LinkButtonTemplateEN("Change Seat"))} | ${json(LinkButtonTemplateEN("Check-In"))} | ${json(LinkButtonTemplateEN("See what else I can do"))}
+]
+
+# TextInput_Prompt_4VLAJ6_text()
+- Feel free to type your question or you can pick from popular option below:
+# SendActivity_wfhwmn()
+[Activity
+    Text = ${SendActivity_wfhwmn_text()}
+]
+
+# SendActivity_wfhwmn_text()
+- Selected ${user.menuOption}
+# TextInput_Prompt_JDVJB3()
+[Activity
+    Attachments = ${json(RTLText("تفضل بكتابة سؤالك أو يمكنك الاختيار من الخيارات الشائعة أدناه:"))} | ${json(LinkButtonTemplateAR("تغير المقعد"))} | ${json(LinkButtonTemplateAR("إتمام الاجراءت"))} | ${json(LinkButtonTemplateAR("أشياء أخرى"))}
+]
+
+
+# TextInput_Prompt_3JIC7D_text()
+- Feel free to type in your request, or select one of the options below to get started 👇
+# TextInput_Prompt_3JIC7D()
+[Activity
+    Text = ${TextInput_Prompt_3JIC7D_text()}
+    Attachments = ${json(LinkButtonTemplateEN("Change seats"))} | ${json(LinkButtonTemplateEN("Check-in"))} | ${json(LinkButtonTemplateEN("Add baggage"))} | ${json(LinkButtonTemplateEN("Join AlFursan"))} | ${json(LinkButtonTemplateEN("Submit and claim Miles"))} | ${json(LinkButtonTemplateEN("See what else I can help you with"))}
+]
+
+# TextInput_Prompt_zmY4gb()
+[Activity
+    Attachments = ${json(RTLText("يمكنك كتابة استفسارك أو اختيار واحد من الخيارات أدناه 👇"))} | ${json(LinkButtonTemplateAR("تغيير المقاعد"))} | ${json(LinkButtonTemplateAR("إتمام إجراءات السفر"))} | ${json(LinkButtonTemplateAR("إضافة الأمتعة"))} | ${json(LinkButtonTemplateAR("الانضمام إلى برنامج الفرسان"))} | ${json(LinkButtonTemplateAR("إرسال المطالبة بالأميال"))} | ${json(LinkButtonTemplateAR("استفسارات أخرى يمكنني مساعدتك بها"))}
+]
+
+
+# SendActivity_64g7e9()
+[Activity
+    Text = ${SendActivity_64g7e9_text()}
+]
+
+# SendActivity_64g7e9_text()
+- ```\-\-\-> ${user.loggedoption}
+\-\-\-> ${user.lanuage_selected}```

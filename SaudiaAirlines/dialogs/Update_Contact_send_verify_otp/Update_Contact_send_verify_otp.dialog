@@ -1,0 +1,1275 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "8EWGcq",
+    "name": "Update_Contact_send_verify_otp",
+    "comment": "dialog for verification of update contact details"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "4hzZAX"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "6ag0kM"
+          },
+          "activity": "${SendActivity_6ag0kM()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "bS8K3y"
+          },
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "1NjQOM"
+              },
+              "activity": "${SendActivity_1NjQOM()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "SfvXjJ"
+              },
+              "condition": "=not(exists(user.smsverifyOTPCount)  && exists(user.emailverifyOTPCount) )",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.DeleteProperties",
+                  "$designer": {
+                    "id": "zJ0dTw"
+                  },
+                  "properties": [
+                    "user.smsverifyOTPCount",
+                    "user.emailverifyOTPCount"
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.EndDialog",
+                  "$designer": {
+                    "id": "B0JxWd"
+                  }
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "n4gQbJ"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_n4gQbJ()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or "
+              },
+              "property": "user.useAltOTPChannel",
+              "choices": [
+                "Yes",
+                "No"
+              ],
+              "style": "heroCard"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "GK3Rqj"
+              },
+              "condition": "=user.useAltOTPChannel == \"Yes\"",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "jRLTUO"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "MRB1IG"
+              },
+              "defaultLocale": "en-us",
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "prompt": "${ChoiceInput_Prompt_MRB1IG()}",
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "user.verifyByPhEmail",
+              "style": "heroCard",
+              "choices": [
+                "Email",
+                "SMS"
+              ],
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              }
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "HhlUQi"
+              },
+              "condition": "user.verifyByPhEmail",
+              "cases": [
+                {
+                  "value": "Email",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "XyLgMF"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.verifyFlow",
+                          "value": "=\"emailflow\""
+                        },
+                        {
+                          "property": "user.emailverifyOTPCount",
+                          "value": "=0"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "yYDkkE"
+                      },
+                      "activity": "${SendActivity_yYDkkE()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "vTqeSs",
+                        "name": "send OTP-email"
+                      },
+                      "resultProperty": "dialog.results",
+                      "method": "GET",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp?lastName=${user.lastName}&deliveryType=email",
+                      "headers": {
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json",
+                        "Authorization": "=concat('Bearer',' ', user.access_token)"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "LuXRwK"
+                      },
+                      "activity": "${SendActivity_LuXRwK()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "m3DyeS"
+                      },
+                      "condition": "=dialog.results.statusCode==200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "yUWDWl",
+                            "name": "store the checksum data"
+                          },
+                          "property": "user.emailCheckSum",
+                          "value": "=dialog.results.content.data.checksum"
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "If7tir"
+                          },
+                          "activity": "${SendActivity_If7tir()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "RNGJGK"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "IzkIid"
+                              },
+                              "activity": "${Ask_Activity_IzkIid()}"
+                            },
+                            {
+                              "$kind": "Microsoft.NumberInput",
+                              "$designer": {
+                                "id": "dsLudS",
+                                "name": "ask for user to enter otp"
+                              },
+                              "defaultLocale": "en-us",
+                              "disabled": true,
+                              "maxTurnCount": 3,
+                              "alwaysPrompt": false,
+                              "allowInterruptions": false,
+                              "unrecognizedPrompt": "",
+                              "invalidPrompt": "",
+                              "defaultValueResponse": "",
+                              "prompt": "${NumberInput_Prompt_dsLudS()}",
+                              "property": "user.emailOTP"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "AE5Qr0"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "VerifyOTPAPI",
+                              "disabled": true
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "ZWMzig"
+                              },
+                              "activity": "${Ask_Activity_ZWMzig()}"
+                            },
+                            {
+                              "$kind": "Microsoft.NumberInput",
+                              "$designer": {
+                                "id": "wU0Oq2"
+                              },
+                              "defaultLocale": "en-us",
+                              "disabled": true,
+                              "maxTurnCount": 3,
+                              "alwaysPrompt": false,
+                              "allowInterruptions": false,
+                              "unrecognizedPrompt": "",
+                              "invalidPrompt": "",
+                              "defaultValueResponse": "",
+                              "prompt": "${NumberInput_Prompt_wU0Oq2()}",
+                              "property": "user.emailOTP"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "jfxzU8"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "VerifyOTPAPI",
+                              "disabled": true
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "ixcOOK"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "HLc4kX"
+                              },
+                              "activity": "${SendActivity_HLc4kX()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "FTwhj8"
+                              },
+                              "activity": "${SendActivity_FTwhj8()}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "SMS",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "FY2gNN"
+                      },
+                      "activity": "${SendActivity_FY2gNN()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "k6DcsM"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.verifyflow",
+                          "value": "=\"smsflow\""
+                        },
+                        {
+                          "property": "user.smsverifyOTPCount",
+                          "value": "=0"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "OBPbod"
+                      },
+                      "resultProperty": "dialog.SmsResults",
+                      "method": "GET",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp?lastName=${user.lastName}&deliveryType=sms",
+                      "headers": {
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json",
+                        "Authorization": "=concat('Bearer',' ', user.access_token)"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json"
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "rEcRdC"
+                      },
+                      "condition": "=dialog.SmsResults.statusCode==200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "Tg1BdG"
+                          },
+                          "property": "user.smsCheckSum",
+                          "value": "=dialog.SmsResults.content.data.checksum"
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "gfjrN2"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "Z45Wpg"
+                              },
+                              "activity": "${Ask_Activity_Z45Wpg()}"
+                            },
+                            {
+                              "$kind": "Microsoft.NumberInput",
+                              "$designer": {
+                                "id": "ePr2w6"
+                              },
+                              "defaultLocale": "en-us",
+                              "disabled": true,
+                              "maxTurnCount": 3,
+                              "alwaysPrompt": false,
+                              "allowInterruptions": false,
+                              "prompt": "${NumberInput_Prompt_ePr2w6()}",
+                              "unrecognizedPrompt": "",
+                              "invalidPrompt": "",
+                              "defaultValueResponse": "",
+                              "property": "user.smsOTP"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "Pmdc3p"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "VerifyOTPAPI",
+                              "disabled": true
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "2Ilw0u"
+                              },
+                              "activity": "${Ask_Activity_2Ilw0u()}"
+                            },
+                            {
+                              "$kind": "Microsoft.NumberInput",
+                              "$designer": {
+                                "id": "yq04u3"
+                              },
+                              "defaultLocale": "en-us",
+                              "disabled": true,
+                              "maxTurnCount": 3,
+                              "alwaysPrompt": false,
+                              "allowInterruptions": false,
+                              "prompt": "${NumberInput_Prompt_yq04u3()}",
+                              "unrecognizedPrompt": "",
+                              "invalidPrompt": "",
+                              "defaultValueResponse": "",
+                              "property": "user.smsOTP"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "aUulmh"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "VerifyOTPAPI",
+                              "disabled": true
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "FjikWf"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "ROBC93"
+                              },
+                              "activity": "${SendActivity_ROBC93()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "l6cTVt"
+                              },
+                              "activity": "${SendActivity_l6cTVt()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "O0OCDm"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "cnMweO"
+              },
+              "condition": "=user.verifyflow == \"emailflow\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "Puzb3I"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.verifyFlow",
+                      "value": "=\"emailflow\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "eXRMXT"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.emailOTP",
+                      "value": "=\"\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "Hdb7IA"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "WvCxeT"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "prompt": "${NumberInput_Prompt_WvCxeT()}",
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.emailOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "LTmEdK"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "4r0dHZ"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.emailOTP",
+                      "prompt": "${NumberInput_Prompt_4r0dHZ()}"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "dpTioZ"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "1s43ey"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.verifyflow",
+                      "value": "=\"smsflow\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "eT0thr"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.smsOTP",
+                      "value": "=\"\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "3ekwnj"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "xi7PT0"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "prompt": "${NumberInput_Prompt_xi7PT0()}",
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.smsOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "aV8djU"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "r8vV2g"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.smsOTP",
+                      "prompt": "${NumberInput_Prompt_r8vV2g()}"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "npRiGC"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": "=user.verifyOTP == false"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "FyJ5qC",
+        "name": "resend email otp"
+      },
+      "condition": "=turn.activity.value.btnvalue=='resend-email-otp'",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "NeTlWM"
+          },
+          "activity": "${SendActivity_NeTlWM()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "nB2asl"
+          },
+          "assignments": [
+            {
+              "value": "=add(user.trycount, 1)",
+              "property": "user.trycount"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "GcjlRQ"
+          },
+          "activity": "${SendActivity_GcjlRQ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "5wEF5r"
+          },
+          "condition": "=user.trycount <= 2",
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "WD6h9T",
+                "name": "send OTP-email"
+              },
+              "resultProperty": "dialog.results",
+              "method": "GET",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp?lastName=${user.lastName}&deliveryType=email",
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Content-Type": "application/json",
+                "Authorization": "=concat('Bearer',' ', user.access_token)"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "hoMxIm"
+              },
+              "activity": "${SendActivity_hoMxIm()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "OoJvVw"
+              },
+              "condition": "=dialog.results.statusCode==200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "GMz23w",
+                    "name": "store the checksum data"
+                  },
+                  "property": "user.emailCheckSum",
+                  "value": "=dialog.results.content.data.checksum"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "hSVqK4"
+                  },
+                  "activity": "${SendActivity_hSVqK4()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "3sHpNP"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "OpUJHC"
+                      },
+                      "activity": "${Ask_Activity_IzkIid()}"
+                    },
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "zlHJUh",
+                        "name": "ask for user to enter otp"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": true,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${NumberInput_Prompt_zlHJUh()}",
+                      "property": "user.emailOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "GGsFtC"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI",
+                      "disabled": true
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "HIj9nB"
+                      },
+                      "activity": "${Ask_Activity_HIj9nB()}"
+                    },
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "f86kXt"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": true,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${NumberInput_Prompt_f86kXt()}",
+                      "property": "user.emailOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "jYnb9E"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI",
+                      "disabled": true
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "3WUMAa"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "FXsJ99"
+                      },
+                      "activity": "${SendActivity_FXsJ99()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "ZvrWF6"
+                      },
+                      "activity": "${SendActivity_ZvrWF6()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "qZTJcO"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Gh841p"
+                  },
+                  "activity": "${SendActivity_Gh841p()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "gjkNCY"
+                  },
+                  "activity": "${SendActivity_gjkNCY()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "2f3MCG"
+              },
+              "assignments": [
+                {
+                  "property": "user.verifyOTP",
+                  "value": true
+                },
+                {
+                  "property": "user.verifyByPhEmail",
+                  "value": "=\"\""
+                },
+                {
+                  "property": "user.trycount",
+                  "value": 0
+                },
+                {
+                  "property": "user.useAltOTPChannel",
+                  "value": "=\"\""
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "QHkJNy"
+              },
+              "activityProcessed": true,
+              "dialog": "Update_Contact_send_verify_otp"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "BJuQa6"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "EygDVL",
+            "name": "store the checksum data"
+          },
+          "property": "user.emailCheckSum",
+          "value": "=dialog.results.content.data.checksum"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "z1oAjh"
+          },
+          "activity": "${SendActivity_z1oAjh()}",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "2onjEz",
+        "name": "SendOTP"
+      },
+      "condition": "=turn.activity.value.btnvalue == 'otp-recieve-email' || turn.activity.value.btnvalue == 'otp-recieve-SMS'",
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "obgqhS"
+          },
+          "condition": "=turn.activity.value.btnvalue == 'otp-recieve-email'",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "Xlt1Xf"
+              },
+              "assignments": [
+                {
+                  "property": "user.emailOTP",
+                  "value": "=turn.activity.value.emailOTP"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "iblz3y"
+              },
+              "assignments": [
+                {
+                  "property": "user.smsOTP",
+                  "value": "=turn.activity.value.smsOTP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "Tr7Vqo"
+          },
+          "activityProcessed": true,
+          "dialog": "VerifyOTPAPI"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "UPbWQe",
+        "name": "resend sms otp"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "WbPpc1"
+          },
+          "activity": "${SendActivity_WbPpc1()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "LPwVku"
+          },
+          "assignments": [
+            {
+              "value": "=add(user.trycount, 1)",
+              "property": "user.trycount"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "aFXH1r"
+          },
+          "condition": "=user.trycount <= 2",
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "N9fQn1"
+              },
+              "resultProperty": "dialog.SmsResults",
+              "method": "GET",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp?lastName=${user.lastName}&deliveryType=sms",
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Content-Type": "application/json",
+                "Authorization": "=concat('Bearer',' ', user.access_token)"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "onj4ty"
+              },
+              "condition": "=dialog.SmsResults.statusCode==200",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "K7drn2"
+                  },
+                  "property": "user.smsCheckSum",
+                  "value": "=dialog.SmsResults.content.data.checksum"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "6wDmhr"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "louthq"
+                      },
+                      "activity": "${Ask_Activity_Z45Wpg()}"
+                    },
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "FRI6df"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": true,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "prompt": "${NumberInput_Prompt_FRI6df()}",
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.smsOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "to7WFa"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI",
+                      "disabled": true
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "gEpLxR"
+                      },
+                      "activity": "${Ask_Activity_gEpLxR()}"
+                    },
+                    {
+                      "$kind": "Microsoft.NumberInput",
+                      "$designer": {
+                        "id": "48kXsD"
+                      },
+                      "defaultLocale": "en-us",
+                      "disabled": true,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "prompt": "${NumberInput_Prompt_48kXsD()}",
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "property": "user.smsOTP"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "dsKZeX"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "VerifyOTPAPI",
+                      "disabled": true
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "mVn8Ae"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "ADz25A"
+                      },
+                      "activity": "${SendActivity_ADz25A()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Ml0fWV"
+                      },
+                      "activity": "${SendActivity_Ml0fWV()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "dYlTJd"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "V2KI01"
+                  },
+                  "activity": "${SendActivity_V2KI01()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "5mKSnw"
+                  },
+                  "activity": "${SendActivity_5mKSnw()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "RSiqjJ"
+              },
+              "assignments": [
+                {
+                  "property": "user.verifyOTP",
+                  "value": true
+                },
+                {
+                  "property": "user.verifyByPhEmail",
+                  "value": "=\"\""
+                },
+                {
+                  "property": "user.trycount",
+                  "value": 0
+                },
+                {
+                  "property": "user.useAltOTPChannel",
+                  "value": "=\"\""
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "QOH8RY"
+              },
+              "activityProcessed": true,
+              "dialog": "Update_Contact_send_verify_otp"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "0bK7o4"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btnvalue=='resend-sms-otp'"
+    }
+  ],
+  "generator": "Update_Contact_send_verify_otp.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Update_Contact_send_verify_otp"
+}

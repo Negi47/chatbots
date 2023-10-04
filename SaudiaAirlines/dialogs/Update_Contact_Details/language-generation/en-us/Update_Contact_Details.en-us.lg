@@ -1,0 +1,604 @@
+[import](common.lg)
+
+# SendActivity_Wfl0bL()
+[Activity
+    Text = ${SendActivity_Wfl0bL_text()}
+]
+
+# SendActivity_Wfl0bL_text()
+- came inside Update Contact Details
+# Ask_Activity_KJCtSM()
+[Activity
+    Attachments = ${json(Ask_Activity_KJCtSM_attachment_qdh7Xq())}
+]
+
+# Ask_Activity_KJCtSM_attachment_qdh7Xq()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "weight": "Bolder",
+            "text": "Airline Name : ${user.resultsUpCon.content.dictionaries.airline.SV}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "text": "**PNR** : ${user.resultsUpCon.content.data.id}",
+            "size": "Medium",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Flight** : ${concat(user.resultsUpCon.content.data.travelDocuments[0].fareInfos[0].flight.marketingAirlineCode,"-",user.resultsUpCon.content.data.travelDocuments[0].fareInfos[0].flight.marketingFlightNumber)}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Departure** : ${split(user.resultsUpCon.content.dictionaries.flight.ST1.departure.dateTime, 'T')[0]}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Arrival** : ${split(user.resultsUpCon.content.dictionaries.flight.ST1.arrival.dateTime, 'T')[0]}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Airport** : ${user.resultsUpCon.content.dictionaries.location.JED.airportName}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Terminal** : ${user.resultsUpCon.content.dictionaries.flight.ST1.departure.terminal}",
+            "color": "Default"
+        },
+        {
+            "type": "TextBlock",
+            "size": "Medium",
+            "text": "**Class** : ${user.resultsUpCon.content.dictionaries.flight.ST1.meals.bookingClass}",
+            "color": "Default"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Confirm",
+            "data": "Confirm"
+        },
+        {
+            "type": "Action.Submit",
+            "title": "Check With Another PNR",
+            "data": "Check With Another PNR"
+        }
+    ]
+}```
+# Ask_Activity_1iXhkN()
+[Activity
+    Attachments = ${json(Ask_Activity_1iXhkN_attachment_o23MDJ())}
+]
+
+# Ask_Activity_1iXhkN_attachment_o23MDJ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "bolder",
+      "size": "medium",
+      "text": "Please provide the below 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "myEmail",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z0-9-]{2,4}$",
+      "errorMessage": "Please enter a valid email address, for example: jonh.smith234@gmail.com",
+      "placeholder": "Enter your email address",
+      "label": "Enter your email address",
+      "style": "email"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Submit",
+      "Data": "SUBMIT"
+    }
+  ]
+}
+```
+# Ask_Activity_vpR1iW()
+[Activity
+    Attachments = ${json(Ask_Activity_vpR1iW_attachment_fPLzkw())}
+    AttachmentLayout = carousel
+]
+
+# Ask_Activity_vpR1iW_attachment_fPLzkw()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+        "type": "TextBlock",
+        "weight": "bolder",
+        "size": "medium",
+        "text": "Please provide the below 👇"
+        },
+        {
+        "type": "Input.Text",
+        "id": "myEmail",
+        "isRequired": true,
+        "regex":"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z0-9-]{2,4}$",
+        "errorMessage": "Please enter a valid email address, for example: jonh.smith234@gmail.com",
+        "placeholder": "Enter Your Email address",
+        "label": "Enter Your Email address",
+        "style": "email"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Submit"
+        }
+    ]
+}```
+# Ask_Activity_BxO8DJ()
+[Activity
+    Attachments = ${json(Ask_Activity_BxO8DJ_attachment_PySkf2())}
+]
+
+# Ask_Activity_BxO8DJ_attachment_PySkf2()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "medium",
+            "weight": "bolder",
+            "text": "Please provide the below 👇"
+        },
+        {
+            "type": "Input.Text",
+            "id": "updateEmail",
+            "placeholder": "Enter your new mail",
+            "label": "Enter your new email",
+            "style": "email"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Execute",
+            "title": "Update Email",
+            "data": "Update Email"
+        },
+        {
+            "type": "Action.Execute",
+            "title": "I Disagree",
+            "data": "I Disagree"
+        }
+    ]
+}```
+# SendActivity_zuqQyR()
+[Activity
+    Text = ${SendActivity_zuqQyR_text()}
+]
+
+# SendActivity_zuqQyR_text()
+- contact Data = > ${user.contactData}
+# SendActivity_kXpcXL()
+[Activity
+    Text = ${SendActivity_kXpcXL_text()}
+]
+
+# SendActivity_kXpcXL_text()
+- ```${dialog.foreach.value.number}
+${dialog.foreach.value.address}```
+# SendActivity_ax8Vgl()
+[Activity
+    Text = ${SendActivity_ax8Vgl_text()}
+]
+
+# SendActivity_ax8Vgl_text()
+- ```array values =>
+${dialog.storePhEmail}```
+# SendActivity_GZpAXu()
+[Activity
+    Attachments = ${SendActivity_GZpAXu_attachment_DByl1P()}
+]
+
+# SendActivity_GZpAXu_attachment_DByl1P()
+[HeroCard
+  text = Uh-oh! It seems like we don't have your contact details to verify, please tap below to get in touch with our Customer Support executive for further help. 👇
+  buttons = Chat with Customer Support
+]
+
+# SendActivity_4ni3aF()
+[Activity
+    Text = ${SendActivity_4ni3aF_text()}
+]
+
+# SendActivity_4ni3aF_text()
+- Only phone number found
+# SendActivity_K6Jfdu()
+[Activity
+    Text = ${SendActivity_K6Jfdu_text()}
+]
+
+# SendActivity_K6Jfdu_text()
+- Only Email found
+# SendActivity_1LeepM()
+[Activity
+    Text = ${SendActivity_1LeepM_text()}
+]
+
+# SendActivity_1LeepM_text()
+- False response for storePhEmail[0] and storePhEmail[1]
+# SendActivity_vw180N_text()
+- ```1. ${user.existingNumber}
+2. ${user.existingEmail}```
+# SendActivity_vw180N()
+[Activity
+    Text = ${SendActivity_vw180N_text()}
+]
+
+# Ask_Activity_VBRg9b()
+[Activity
+    Attachments = ${json(Ask_Activity_VBRg9b_attachment_cyqwPL())}
+]
+
+# Ask_Activity_VBRg9b_attachment_cyqwPL()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "🕵️ To maintain security, I'll need to confirm your phone number or email address. How would you like to receive the verification code: via SMS or email? ✉️",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Email",
+            "data": {
+                "btnValue": "Email ID"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "SMS",
+            "data": {
+                "btnValue": "SMS"
+            }
+        }
+    ]
+}```
+# Ask_Activity_sR62zp()
+[Activity
+    Attachments = ${json(Ask_Activity_sR62zp_attachment_u5K5EU())}
+]
+
+# Ask_Activity_sR62zp_attachment_u5K5EU()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "medium",
+            "text": "🕵️‍♀️ For security reasons, I need to confirm your phone number or email address. Would you prefer to receive the verification code through SMS or over the email?",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Email",
+            "data": "Email ID"
+        },
+        {
+            "type": "Action.Submit",
+            "title": "SMS",
+            "data": "SMS"
+        }
+    ]
+}```
+# Ask_Activity_CNwu5s()
+[Activity
+    Attachments = ${json(Ask_Activity_CNwu5s_attachment_ONIoJT())}
+]
+
+# Ask_Activity_CNwu5s_attachment_ONIoJT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "🕵️‍♀️ For security reasons, I need to confirm your email address.",
+        "wrap": true
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "Email",
+        "data": {
+                "btnValue": "Email ID"
+            }
+      }
+    ]
+}```
+# Ask_Activity_ecVLDJ()
+[Activity
+    Attachments = ${json(Ask_Activity_ecVLDJ_attachment_3l4WrX())}
+]
+
+# Ask_Activity_ecVLDJ_attachment_3l4WrX()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "medium",
+            "text": "🕵️‍♀️ For security reasons, I need to confirm your phone number or email id. Would you prefer to receive the verification code through SMS or over the email?",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Email",
+            "data": "Email ID"
+        },
+        {
+            "type": "Action.Submit",
+            "title": "SMS",
+            "data": "SMS"
+        }
+    ]
+}```
+# Ask_Activity_TehgGJ()
+[Activity
+    Attachments = ${json(Ask_Activity_TehgGJ_attachment_AoFm1A())}
+]
+
+# Ask_Activity_TehgGJ_attachment_AoFm1A()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "🕵️‍♀️ For security reasons, I need to confirm your phone number.",
+        "wrap": true
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "SMS",
+        "data": {
+                "btnValue": "SMS"
+            }
+      }
+    ]
+}```
+# SendActivity_9xHtpA_text()
+- ${user.checkin_option_select}
+# SendActivity_9xHtpA()
+[Activity
+    Text = ${SendActivity_9xHtpA_text()}
+]
+
+# SendActivity_ceXhHS_text()
+- contact Data = > ${user.contactData}
+# SendActivity_ceXhHS()
+[Activity
+    Text = ${SendActivity_ceXhHS_text()}
+]
+
+# SendActivity_h8nfZR_text()
+- ```${dialog.foreach.value.number}
+${dialog.foreach.value.address}```
+# SendActivity_h8nfZR()
+[Activity
+    Text = ${SendActivity_h8nfZR_text()}
+]
+
+# SendActivity_J61iZ9_text()
+- ```1. ${user.existingNumber}
+2. ${user.existingEmail}```
+# SendActivity_J61iZ9()
+[Activity
+    Text = ${SendActivity_J61iZ9_text()}
+]
+
+# SendActivity_pUW11s_text()
+- ```array values =>
+${dialog.storePhEmail}```
+# SendActivity_pUW11s()
+[Activity
+    Text = ${SendActivity_pUW11s_text()}
+]
+
+# SendActivity_IjOo7S_text()
+- Only Email found
+# SendActivity_IjOo7S()
+[Activity
+    Text = ${SendActivity_IjOo7S_text()}
+]
+
+# SendActivity_XGxXJg_attachment_DByl1P()
+[HeroCard
+  text = Uh-oh! It seems like we don't have your contact details to verify, please tap below to get in touch with our Customer Support executive for further help 👇
+  buttons = Chat with Customer Support
+]
+
+# SendActivity_XGxXJg()
+[Activity
+    Attachments = ${SendActivity_XGxXJg_attachment_DByl1P()}
+]
+
+# Ask_Activity_3qIHnV()
+[Activity
+    Attachments = ${json(Ask_Activity_3qIHnV_attachment_9m018T())}
+]
+
+# Ask_Activity_3qIHnV_attachment_9m018T()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "🕵️ لمزيد من الأمان، ستحتاج لتأكيد رقم جوالك أو عنوان بريدك الإلكتروني. كيف تريد الحصول على رمز التحقق: عبر رسالة نصية أم البريد الإلكتروني؟ ✉️",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "البريد الإلكتروني",
+            "data": {
+                "btnValue": "Email ID"
+            }
+        },
+        {
+            "type": "Action.Submit",
+            "title": "رسالة نصية",
+            "data": {
+                "btnValue": "SMS"
+            }
+        }
+    ]
+}```
+# SendActivity_tR7BmF_text()
+- Only phone number found
+# SendActivity_tR7BmF()
+[Activity
+    Text = ${SendActivity_tR7BmF_text()}
+]
+
+# Ask_Activity_QOsvMT()
+[Activity
+    Attachments = ${json(Ask_Activity_QOsvMT_attachment_R9Jt8A())}
+]
+
+# Ask_Activity_QOsvMT_attachment_R9Jt8A()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "🕵️ لمزيد من الأمان، ستحتاج لتأكيد رقم جوالك. ",
+        "wrap": true
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "رسالة نصية",
+        "data": {
+                "btnValue": "SMS"
+            }
+      }
+    ]
+}```
+# Ask_Activity_pmdVJL()
+[Activity
+    Attachments = ${json(Ask_Activity_pmdVJL_attachment_Sgqf4W())}
+]
+
+# Ask_Activity_pmdVJL_attachment_Sgqf4W()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+      {
+        "type": "TextBlock",
+        "size": "default",
+        "text": "🕵️ لمزيد من الأمان، ستحتاج إلى التحقق من عنوان بريدك الإلكتروني.",
+        "wrap": true
+      }
+    ],
+    "actions": [
+      {
+        "type": "Action.Submit",
+        "title": "البريد الإلكتروني",
+        "data": {
+                "btnValue": "Email ID"
+            }
+      }
+    ]
+}```
+# SendActivity_XA2Veg()
+[Activity
+    Text = ${SendActivity_XA2Veg_text()}
+]
+
+# SendActivity_XA2Veg_text()
+- ----- Both found ----
+# SendActivity_csdH8f()
+[Activity
+    Text = ${SendActivity_csdH8f_text()}
+]
+
+# SendActivity_csdH8f_text()
+- Phone Found ----

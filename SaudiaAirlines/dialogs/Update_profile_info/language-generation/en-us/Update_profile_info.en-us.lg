@@ -1,0 +1,2674 @@
+[import](common.lg)
+
+# Ask_Activity_8ZeDF2()
+[Activity
+    Attachments = ${json(Ask_Activity_8ZeDF2_attachment_F9G97V())}
+]
+
+# Ask_Activity_8ZeDF2_attachment_F9G97V()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Go ahead and enter your new nationality 👇",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "💡 **Example:** Indian/ Russian/ South Korean",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "country_select",
+      "style": "compact",
+      "label": "This is a required input",
+      "isMultiSelect": false,
+      "value": "1",
+      "choices": [
+        {
+          "title": "Saudi Arabia",
+          "value": "AF"
+      },
+      {
+          "title": "Afghanistan",
+          "value": "AL"
+      },
+      {
+          "title": "Albania",
+          "value": "DZ"
+      },
+      {
+          "title": "Algeria",
+          "value": "AS"
+      },
+      {
+          "title": "American Samoa",
+          "value": "AD"
+      },
+      {
+          "title": "Andorra",
+          "value": "AO"
+      },
+      {
+          "title": "Angola",
+          "value": "AI"
+      },
+      {
+          "title": "Anguilla",
+          "value": "AQ"
+      },
+      {
+          "title": "Antarctica",
+          "value": "AG"
+      },
+      {
+          "title": "Antigua",
+          "value": "AR"
+      },
+      {
+          "title": "Argentina",
+          "value": "AM"
+      },
+      {
+          "title": "Armenia",
+          "value": "AW"
+      },
+      {
+          "title": "Aruba",
+          "value": "AU"
+      },
+      {
+          "title": "Australia",
+          "value": "AT"
+      },
+      {
+          "title": "Azerbaijan",
+          "value": "BS"
+      },
+      {
+          "title": "Bahamas",
+          "value": "BH"
+      },
+      {
+          "title": "Bahrain",
+          "value": "BD"
+      },
+      {
+          "title": "Bangladesh",
+          "value": "BB"
+      },
+      {
+          "title": "Barbados",
+          "value": "BY"
+      },
+      {
+          "title": "Belarus",
+          "value": "BE"
+      },
+      {
+          "title": "Belgium",
+          "value": "BZ"
+      },
+      {
+          "title": "Belize",
+          "value": "BJ"
+      },
+      {
+          "title": "Benin",
+          "value": "BM"
+      },
+      {
+          "title": "Bermuda",
+          "value": "BT"
+      },
+      {
+          "title": "Bhutan",
+          "value": "BO"
+      },
+      {
+          "title": "Bolivia, Plurinational State of", 
+          "value": "BQ"
+      },
+      {
+          "title": "Bonaire, Sint Eustatius and Saba",
+          "value": "BA"
+      },
+      {
+          "title": "Bosnia and Herzegovina",
+          "value": "BW"
+      },
+      {
+          "title": "Botswana",
+          "value": "BR"
+      },
+      {
+          "title": "Brazil",
+          "value": "IO"
+      },
+      {
+          "title": "British Indian Ocean Territory",
+          "value": "BN"
+      },
+      {
+          "title": "Brunei Darussalam",
+          "value": "BG"
+      },
+      {
+          "title": "Bulgaria",
+          "value": "BF"
+      },
+      {
+          "title": "Burundi",
+          "value": "KH"
+      },
+      {
+          "title": "Cambodia",
+          "value": "CM"
+      },
+      {
+          "title": "Cameroon",
+          "value": "CA"
+      },
+      {
+          "title": "Canada",
+          "value": "CV"
+      },
+      {
+          "title": "BCape Verde",
+          "value": "KY"
+      },
+      {
+          "title": "Cayman Islands",
+          "value": "CF"
+      },
+      {
+          "title": "Central African Republic",
+          "value": "TD"
+      },
+      {
+          "title": "Chad",
+          "value": "CL"
+      },
+      {
+          "title": "Chile",
+          "value": "CN"
+      },
+      {
+          "title": "China",
+          "value": "CX"
+      },
+      {
+          "title": "Christmas Island",
+          "value": "CC"
+      },
+      {
+          "title": "Cocos (Keeling) Islands",
+          "value": "CO"
+      },
+      {
+          "title": "Colombia",
+          "value": "KM"
+      },
+      {
+          "title": "Comoros",
+          "value": "CG"
+      },
+      {
+          "title": "Congo",
+          "value": "CD"
+      },
+      {
+          "title": "Congo, the Democratic Republic of the",
+          "value": "CK"
+      },
+      {
+          "title": "Cook Islands",
+          "value": "CR"
+      },
+      {
+          "title": "Costa Rica",
+          "value": "CI"
+      },
+      {
+          "title": "Cote D Ivorie",
+          "value": "HR"
+      },
+      {
+          "title": "Croatia",
+          "value": "CU"
+      },
+      {
+          "title": "Cuba",
+          "value": "CY"
+      },
+      {
+          "title": "Cyprus",
+          "value": "CZ"
+      },
+      {
+          "title": "Czech Republic",
+          "value": "DK"
+      },
+      {
+          "title": "Denmark",
+          "value": "DJ"
+      },
+      {
+          "title": "Djibouti",
+          "value": "DM"
+      },
+      {
+          "title": "Dominica",
+          "value": "DO"
+      },
+      {
+          "title": "Ecuador",
+          "value": "EG"
+      },
+      {
+          "title": "Egypt",
+          "value": "SV"
+      },
+      {
+          "title": "El Salvador",
+          "value": "GQ"
+      },
+      {
+          "title": "Equatorial Guinea",
+          "value": "ER"
+      },
+      {
+          "title": "Eritrea",
+          "value": "EE"
+      },
+      {
+          "title": "Estonia",
+          "value": "ET"
+      },
+      {
+          "title": "Ethiopia",
+          "value": "FK"
+      },
+      {
+          "title": "Falkland Islands (Malvinas)",
+          "value": "FO"
+      },
+      {
+          "title": "Faroe Islands",
+          "value": "FJ"
+      },
+      {
+          "title": "Fiji",
+          "value": "FI"
+      },
+      {
+          "title": "Finland",
+          "value": "FR"
+      },
+      {
+          "title": "France",
+          "value": "GF"
+      },
+      {
+          "title": "French Guiana",
+          "value": "PF"
+      },
+      {
+          "title": "French Polynesia",
+          "value": "GA"
+      },
+      {
+          "title": "Gabon",
+          "value": "GM"
+      },
+      {
+          "title": "Gambia",
+          "value": "GE"
+      },
+      {
+          "title": "Georgia",
+          "value": "DE"
+      },
+      {
+          "title": "Germany",
+          "value": "GH"
+      },
+      {
+          "title": "Ghana",
+          "value": "GI"
+      },
+      {
+          "title": "Gibraltar",
+          "value": "GR"
+      },
+      {
+          "title": "Greece",
+          "value": "GL"
+      },
+      {
+          "title": "Greenland",
+          "value": "GD"
+      },
+      {
+          "title": "Grenada",
+          "value": "GP"
+      },
+      {
+          "title": "Guadeloupe",
+          "value": "GU"
+      },
+      {
+          "title": "Guam",
+          "value": "GT"
+      },
+      {
+          "title": "Guatemala",
+          "value": "GN"
+      },
+      {
+          "title": "Guinea",
+          "value": "GW"
+      },
+      {
+          "title": "Guinea-Bissau",
+          "value": "GY"
+      },
+      {
+          "title": "Guyana",
+          "value": "HT"
+      },
+      {
+          "title": "Haiti",
+          "value": "HN"
+      },
+      {
+          "title": "Honduras",
+          "value": "HU"
+      },
+      {
+          "title": "Hungary",
+          "value": "IS"
+      },
+      {
+          "title": "Iceland",
+          "value": "IN"
+      },
+      {
+          "title": "India",
+          "value": "ID"
+      },
+      {
+          "title": "Indonesia",
+          "value": "IR"
+      },
+      {
+          "title": "Iran",
+          "value": "IQ"
+      },
+      {
+          "title": "Iraq",
+          "value": "IE"
+      },
+      {
+          "title": "Ireland",
+          "value": "IL"
+      },
+      {
+          "title": "Israel",
+          "value": "IT"
+      },
+      {
+          "title": "Italy",
+          "value": "JM"
+      },
+      {
+          "title": "Jamaica",
+          "value": "JP"
+      },
+      {
+          "title": "Japan",
+          "value": "JO"
+      },
+      {
+          "title": "Jordan",
+          "value": "KZ"
+      },
+      {
+          "title": "Kazakhstan",
+          "value": "KE"
+      },
+      {
+          "title": "Kenya",
+          "value": "KI"
+      },
+      {
+          "title": "Kiribati",
+          "value": "KP"
+      },
+      {
+          "title": "Korea North",
+          "value": "KR"
+      },
+      {
+          "title": "Korea South",
+          "value": "KW"
+      },
+      {
+          "title": "Kuwait",
+          "value": "KG"
+      },
+      {
+          "title": "Kyrgyzstan",
+          "value": "LA"
+      },
+      {
+          "title": "Lao People's Democratic Republic",
+          "value": "LV"
+      },
+      {
+          "title": "Latvia",
+          "value": "LB"
+      },
+      {
+          "title": "Lebanon",
+          "value": "LS"
+      },
+      {
+          "title": "Lesotho",
+          "value": "LR"
+      },
+      {
+          "title": "Liberia",
+          "value": "LY"
+      },
+      {
+          "title": "Libya",
+          "value": "LI"
+      },
+      {
+          "title": "Liechtenstein",
+          "value": "LT"
+      },
+      {
+          "title": "Lithuania",
+          "value": "LU"
+      },
+      {
+          "title": "Luxembourg",
+          "value": "MK"
+      },
+      {
+          "title": "Macedonia",
+          "value": "MG"
+      },
+      {
+          "title": "Madagascar",
+          "value": "MW"
+      },
+      {
+          "title": "Malawi",
+          "value": "MY"
+      },
+      {
+          "title": "Malaysia",
+          "value": "MV"
+      },
+      {
+          "title": "Maldives",
+          "value": "ML"
+      },
+      {
+          "title": "Mali",
+          "value": "MT"
+      },
+      {
+          "title": "Malta",
+          "value": "MH"
+      },
+      {
+          "title": "Marshall Islands",
+          "value": "MQ"
+      },
+      {
+          "title": "Martinique",
+          "value": "MR"
+      },
+      {
+          "title": "Mauritania",
+          "value": "MU"
+      },
+      {
+          "title": "Mauritius",
+          "value": "YT"
+      },
+      {
+          "title": "Mayotte",
+          "value": "MX"
+      },
+      {
+          "title": "Mexico",
+          "value": "FM"
+      },
+      {
+          "title": "Micronesia, Federated States of",
+          "value": "MD"
+      },
+      {
+          "title": "Moldova",
+          "value": "MC"
+      },
+      {
+          "title": "Monaco",
+          "value": "MN"
+      },
+      {
+          "title": "Mongolia",
+          "value": "MS"
+      },
+      {
+          "title": "Montserrat",
+          "value": "MA"
+      },
+      {
+          "title": "Morocco",
+          "value": "MZ"
+      },
+      {
+          "title": "Mozambique",
+          "value": "MM"
+      },
+      {
+          "title": "Myanmar",
+          "value": "NA"
+      },
+      {
+          "title": "Namibia",
+          "value": "NR"
+      },
+      {
+          "title": "Nauru",
+          "value": "NP"
+      },
+      {
+          "title": "Nepal",
+          "value": "NL"
+      },
+      {
+          "title": "Netherlands",
+          "value": "NC"
+      },
+      {
+          "title": "New Caledonia",
+          "value": "NZ"
+      },
+      {
+          "title": "New Zealand",
+          "value": "NI"
+      },
+      {
+          "title": "Nicaragua",
+          "value": "NE"
+      },
+      {
+          "title": "Niger",
+          "value": "NG"
+      },
+      {
+          "title": "Nigeria",
+          "value": "NU"
+      },
+      {
+          "title": "Niue",
+          "value": "NF"
+      },
+      {
+          "title": "Norfolk Island",
+          "value": "MP"
+      },
+      {
+          "title": "Northern Mariana Islands",
+          "value": "NO"
+      },
+      {
+          "title": "Norway",
+          "value": "OM"
+      },
+      {
+          "title": "Oman",
+          "value": "PK"
+      },
+      {
+          "title": "Pakistan",
+          "value": "PW"
+      },
+      {
+          "title": "Palau",
+          "value": "PS"
+      },
+      {
+          "title": "Palestine, State of",
+          "value": "PA"
+      },
+      {
+          "title": "Panama",
+          "value": "PG"
+      },
+      {
+          "title": "Papua New Guinea",
+          "value": "PY"
+      },
+      {
+          "title": "Paraguay",
+          "value": "PE"
+      },
+      {
+          "title": "Peru",
+          "value": "PH"
+      },
+      {
+          "title": "Philippines",
+          "value": "PL"
+      },
+      {
+          "title": "Poland",
+          "value": "PT"
+      },
+      {
+          "title": "Portugal",
+          "value": "PR"
+      },
+      {
+          "title": "Puerto Rico",
+          "value": "QA"
+      },
+      {
+          "title": "Qatar",
+          "value": "RE"
+      },
+      {
+          "title": "Reunion",
+          "value": "RO"
+      },
+      {
+          "title": "Romania",
+          "value": "RU"
+      },
+      {
+          "title": "Russian Federation",
+          "value": "RW"
+      },
+      {
+          "title": "Rwanda",
+          "value": "SH"
+      },
+      {
+          "title": "Saint Helena, Ascension and Tristan da Cunha",
+          "value": "KN"
+      },
+      {
+          "title": "Saint Kitts and Nevis",
+          "value": "LC"
+      },
+      {
+          "title": "Saint Lucia",
+          "value": "MF"
+      },
+      {
+          "title": "Saint Martin (French part)",
+          "value": "PM"
+      },
+      {
+          "title": "Saint Pierre and Miquelon",
+          "value": "VC"
+      },
+      {
+          "title": "Saint Vincent and the Grenadines",
+          "value": "WS"
+      },
+      {
+          "title": "Samoa",
+          "value": "SM"
+      },
+      {
+          "title": "San Marino",
+          "value": "ST"
+      },
+      {
+          "title": "Sao Tome and Principe",
+          "value": "SN"
+      },
+      {
+          "title": "Senegal",
+          "value": "RS"
+      },
+      {
+          "title": "Serbia",
+          "value": "SC"
+      },
+      {
+          "title": "Seychelles",
+          "value": "SL"
+      },
+      {
+          "title": "Sierra Leone",
+          "value": "SG"
+      },
+      {
+          "title": "Singapore",
+          "value": "SX"
+      },
+      {
+          "title": "Sint Maarten (Dutch part)",
+          "value": "SK"
+      },
+      {
+          "title": "Slovakia",
+          "value": "SI"
+      },
+      {
+          "title": "Slovenia",
+          "value": "SB"
+      },
+      {
+          "title": "Solomon Islands",
+          "value": "SO"
+      },
+      {
+          "title": "Somalia",
+          "value": "ZA"
+      },
+      {
+          "title": "South Africa",
+          "value": "GS"
+      },
+      {
+          "title": "South Georgia and the South Sandwich Islands",
+          "value": "SD"
+      },
+      {
+          "title": "Sudan",
+          "value": "SS"
+      },
+      {
+          "title": "South Sudan",
+          "value": "ES"
+      },
+      {
+          "title": "Spain",
+          "value": "LK"
+      },
+      {
+          "title": "Sri Lanka",
+          "value": "SR"
+      },
+      {
+          "title": "Suriname",
+          "value": "SZ"
+      },
+      {
+          "title": "Swaziland",
+          "value": "SE"
+      },
+      {
+          "title": "Sweden",
+          "value": "CH"
+      },
+      {
+          "title": "Switzerland",
+          "value": "SY"
+      },
+      {
+          "title": "Syria",
+          "value": "TW"
+      },
+      {
+          "title": "Taiwan",
+          "value": "TJ"
+      },
+      {
+          "title": "Tajikistan",
+          "value": "TZ"
+      },
+      {
+          "title": "Tanzania",
+          "value": "TH"
+      },
+      {
+          "title": "Thailand",
+          "value": "TL"
+      },
+      {
+          "title": "Timor-Leste",
+          "value": "TG"
+      },
+      {
+          "title": "Togo",
+          "value": "TK"
+      },
+      {
+          "title": "Tokelau",
+          "value": "TO"
+      },
+      {
+          "title": "Tonga",
+          "value": "TT"
+      },
+      {
+          "title": "Trinidad and Tobago",
+          "value": "TN"
+      },
+      {
+          "title": "Tunisia",
+          "value": "TR"
+      },
+      {
+          "title": "Turkey",
+          "value": "TM"
+      },
+      {
+          "title": "Turkmenistan",
+          "value": "TC"
+      },
+      {
+          "title": "Turks and Caicos Islands",
+          "value": "TV"
+      },
+      {
+          "title": "Tuvalu",
+          "value": "UG"
+      },
+      {
+          "title": "Uganda",
+          "value": "UA"
+      },
+      {
+          "title": "Ukraine",
+          "value": "AE"
+      },
+      {
+          "title": "United Arab Emirates",
+          "value": "GB"
+      },
+      {
+          "title": "United Kingdom",
+          "value": "US"
+      },
+      {
+          "title": "United States",
+          "value": "UY"
+      },
+      {
+          "title": "Uruguay",
+          "value": "UZ"
+      },
+      {
+          "title": "Uzbekistan",
+          "value": "VU"
+      },
+      {
+          "title": "Vanuatu",
+          "value": "VE"
+      },
+      {
+          "title": "Venezuela",
+          "value": "VN"
+      },
+      {
+          "title": "Vietnam",
+          "value": "VG"
+      },
+      {
+          "title": "Virgin Islands, British",
+          "value": "VI"
+      },
+      {
+          "title": "Virgin Islands, U.S.",
+          "value": "YE"
+      },
+      {
+          "title": "Yemen",
+          "value": "ZM"
+      },
+      {
+          "title": "Zambia",
+          "value": "ZW"
+      },
+      {
+          "title": "Zimbabwe",
+          "value": "OTHER"
+      },
+      {
+          "title": "OTHER",
+          "value": "other"
+      }
+
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Submit",
+      "data": {
+            "btnValue": "submit-nation"
+            }
+    }
+  ]
+}```
+# Ask_Activity_8NM5b5()
+[Activity
+    Attachments = ${json(Ask_Activity_8NM5b5_attachment_jqhMOr())}
+]
+
+# Ask_Activity_8NM5b5_attachment_jqhMOr()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "Please go ahead and enter your new passport number 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "passport_number",
+      "label": "💡 Example: PA1234567",
+      "isRequired": true,
+      "regex":"^[A-Z0-9]{5,10}$",
+      "errorMessage": "Please enter a valid passport number,for example:  PA1234567"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "btnValue": "submit-passport"
+            }
+      }
+  ]
+}```
+# SendActivity_j4kSFB_text()
+- Response - > ${turn.results}
+# SendActivity_j4kSFB()
+[Activity
+    Text = ${SendActivity_j4kSFB_text()}
+]
+
+# SendActivity_Gf40FH_text()
+- user.dob>${user.dob}
+# SendActivity_Gf40FH()
+[Activity
+    Text = ${SendActivity_Gf40FH_text()}
+]
+
+# SendActivity_KLcEcg_text()
+- ${turn.results}
+# SendActivity_KLcEcg()
+[Activity
+    Text = ${SendActivity_KLcEcg_text()}
+]
+
+# Ask_Activity_njh0aJ()
+[Activity
+    Attachments = ${json(Ask_Activity_njh0aJ_attachment_ymzP1z())}
+]
+
+# Ask_Activity_njh0aJ_attachment_ymzP1z()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Please go ahead and enter your date of birth 👇",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+     {
+      "type": "Input.Date",
+      "id": "user_dob",
+      "label": "💡 Example: 02/22/2023",
+      "isRequired": true,
+      "errorMessage": "Please enter a valid date of birth, for example: 02/22/2023"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Submit",
+      "data": {
+            "btnValue": "submit-dob"
+          }
+    }
+  ]
+}```
+# Ask_Activity_uAMjQI()
+[Activity
+    Attachments = ${json(Ask_Activity_uAMjQI_attachment_SLGFzl())}
+]
+
+# Ask_Activity_uAMjQI_attachment_SLGFzl()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 Click the button below to get support from one of our agents if you need more help. 👇",
+            "wrap": true
+        }  
+],
+    "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Chat with customer support",
+          "data": {
+                "btnValue": "Chat-with-Customer-Support"
+            }
+      }
+    ]
+}```
+# ChoiceInput_Prompt_YQtZTT_text()
+- ```I can help you with that! 😀
+
+What would you like to update? 👇```
+# ChoiceInput_Prompt_YQtZTT()
+[Activity
+    Text = ${ChoiceInput_Prompt_YQtZTT_text()}
+]
+
+# ChoiceInput_Prompt_eR5RWM_text()
+- ```Absolutely! 👍
+
+Would you like to update your current nationality: ${user.nation}?```
+# ChoiceInput_Prompt_eR5RWM()
+[Activity
+    Text = ${ChoiceInput_Prompt_eR5RWM_text()}
+]
+
+# ChoiceInput_Prompt_trOM68_text()
+- ```Absolutely! 👍
+
+Would you like to update your current date of birth ${user.date_of_birth}?```
+# ChoiceInput_Prompt_trOM68()
+[Activity
+    Text = ${ChoiceInput_Prompt_trOM68_text()}
+]
+
+# SendActivity_RR7hwx_attachment_ZgC6cI()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "I can help you with that! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Please click on the link and follow these steps to update your details:",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": " 💠Visit saudia.com.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": " 💠On the page, click on the menu icon located at the top left corner and select 'Profile.'",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": " 💠Once you're on the profile page, you can make your updates.",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Update profile ↗",
+            "url": "${user.updateProfileLink}"
+        }
+    ]
+}```
+# SendActivity_RR7hwx()
+[Activity
+    Attachments = ${json(SendActivity_RR7hwx_attachment_ZgC6cI())}
+]
+
+# ChoiceInput_Prompt_z2hRUs()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_z2hRUs_attachment_AM4GRA())}
+]
+
+# ChoiceInput_Prompt_z2hRUs_attachment_AM4GRA()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "يمكنني مساعدتك! 😀",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "ما الذي تريد تحديثه؟ 👇",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# ChoiceInput_Prompt_LqPOOz()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_LqPOOz_attachment_2f1Sqq())}
+]
+
+# ChoiceInput_Prompt_lRDSfP()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_lRDSfP_attachment_y64oNm())}
+]
+
+# ChoiceInput_Prompt_lRDSfP_attachment_y64oNm()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "طبعاً! 👍",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "هل تريد تحديث جنسيتك: ${user.nation}؟",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# Ask_Activity_iiaoSo()
+[Activity
+    Attachments = ${json(Ask_Activity_iiaoSo_attachment_MmQH4M())}
+]
+
+# Ask_Activity_iiaoSo_attachment_MmQH4M()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "يرجى إدخال جنسيتك الجديدة👇",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "TextBlock",
+      "text": "💡مثال: هندي/روسي/كوري جنوبي",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "country_select",
+      "style": "compact",
+      "label": "هذا هو المدخلات المطلوبة",
+      "isMultiSelect": false,
+      "value": "1",
+      "choices": [
+        {
+          "title": "Saudi Arabia",
+          "value": "AF"
+      },
+      {
+          "title": "Afghanistan",
+          "value": "AL"
+      },
+      {
+          "title": "Albania",
+          "value": "DZ"
+      },
+      {
+          "title": "Algeria",
+          "value": "AS"
+      },
+      {
+          "title": "American Samoa",
+          "value": "AD"
+      },
+      {
+          "title": "Andorra",
+          "value": "AO"
+      },
+      {
+          "title": "Angola",
+          "value": "AI"
+      },
+      {
+          "title": "Anguilla",
+          "value": "AQ"
+      },
+      {
+          "title": "Antarctica",
+          "value": "AG"
+      },
+      {
+          "title": "Antigua",
+          "value": "AR"
+      },
+      {
+          "title": "Argentina",
+          "value": "AM"
+      },
+      {
+          "title": "Armenia",
+          "value": "AW"
+      },
+      {
+          "title": "Aruba",
+          "value": "AU"
+      },
+      {
+          "title": "Australia",
+          "value": "AT"
+      },
+      {
+          "title": "Azerbaijan",
+          "value": "BS"
+      },
+      {
+          "title": "Bahamas",
+          "value": "BH"
+      },
+      {
+          "title": "Bahrain",
+          "value": "BD"
+      },
+      {
+          "title": "Bangladesh",
+          "value": "BB"
+      },
+      {
+          "title": "Barbados",
+          "value": "BY"
+      },
+      {
+          "title": "Belarus",
+          "value": "BE"
+      },
+      {
+          "title": "Belgium",
+          "value": "BZ"
+      },
+      {
+          "title": "Belize",
+          "value": "BJ"
+      },
+      {
+          "title": "Benin",
+          "value": "BM"
+      },
+      {
+          "title": "Bermuda",
+          "value": "BT"
+      },
+      {
+          "title": "Bhutan",
+          "value": "BO"
+      },
+      {
+          "title": "Bolivia, Plurinational State of", 
+          "value": "BQ"
+      },
+      {
+          "title": "Bonaire, Sint Eustatius and Saba",
+          "value": "BA"
+      },
+      {
+          "title": "Bosnia and Herzegovina",
+          "value": "BW"
+      },
+      {
+          "title": "Botswana",
+          "value": "BR"
+      },
+      {
+          "title": "Brazil",
+          "value": "IO"
+      },
+      {
+          "title": "British Indian Ocean Territory",
+          "value": "BN"
+      },
+      {
+          "title": "Brunei Darussalam",
+          "value": "BG"
+      },
+      {
+          "title": "Bulgaria",
+          "value": "BF"
+      },
+      {
+          "title": "Burundi",
+          "value": "KH"
+      },
+      {
+          "title": "Cambodia",
+          "value": "CM"
+      },
+      {
+          "title": "Cameroon",
+          "value": "CA"
+      },
+      {
+          "title": "Canada",
+          "value": "CV"
+      },
+      {
+          "title": "BCape Verde",
+          "value": "KY"
+      },
+      {
+          "title": "Cayman Islands",
+          "value": "CF"
+      },
+      {
+          "title": "Central African Republic",
+          "value": "TD"
+      },
+      {
+          "title": "Chad",
+          "value": "CL"
+      },
+      {
+          "title": "Chile",
+          "value": "CN"
+      },
+      {
+          "title": "China",
+          "value": "CX"
+      },
+      {
+          "title": "Christmas Island",
+          "value": "CC"
+      },
+      {
+          "title": "Cocos (Keeling) Islands",
+          "value": "CO"
+      },
+      {
+          "title": "Colombia",
+          "value": "KM"
+      },
+      {
+          "title": "Comoros",
+          "value": "CG"
+      },
+      {
+          "title": "Congo",
+          "value": "CD"
+      },
+      {
+          "title": "Congo, the Democratic Republic of the",
+          "value": "CK"
+      },
+      {
+          "title": "Cook Islands",
+          "value": "CR"
+      },
+      {
+          "title": "Costa Rica",
+          "value": "CI"
+      },
+      {
+          "title": "Cote D Ivorie",
+          "value": "HR"
+      },
+      {
+          "title": "Croatia",
+          "value": "CU"
+      },
+      {
+          "title": "Cuba",
+          "value": "CY"
+      },
+      {
+          "title": "Cyprus",
+          "value": "CZ"
+      },
+      {
+          "title": "Czech Republic",
+          "value": "DK"
+      },
+      {
+          "title": "Denmark",
+          "value": "DJ"
+      },
+      {
+          "title": "Djibouti",
+          "value": "DM"
+      },
+      {
+          "title": "Dominica",
+          "value": "DO"
+      },
+      {
+          "title": "Ecuador",
+          "value": "EG"
+      },
+      {
+          "title": "Egypt",
+          "value": "SV"
+      },
+      {
+          "title": "El Salvador",
+          "value": "GQ"
+      },
+      {
+          "title": "Equatorial Guinea",
+          "value": "ER"
+      },
+      {
+          "title": "Eritrea",
+          "value": "EE"
+      },
+      {
+          "title": "Estonia",
+          "value": "ET"
+      },
+      {
+          "title": "Ethiopia",
+          "value": "FK"
+      },
+      {
+          "title": "Falkland Islands (Malvinas)",
+          "value": "FO"
+      },
+      {
+          "title": "Faroe Islands",
+          "value": "FJ"
+      },
+      {
+          "title": "Fiji",
+          "value": "FI"
+      },
+      {
+          "title": "Finland",
+          "value": "FR"
+      },
+      {
+          "title": "France",
+          "value": "GF"
+      },
+      {
+          "title": "French Guiana",
+          "value": "PF"
+      },
+      {
+          "title": "French Polynesia",
+          "value": "GA"
+      },
+      {
+          "title": "Gabon",
+          "value": "GM"
+      },
+      {
+          "title": "Gambia",
+          "value": "GE"
+      },
+      {
+          "title": "Georgia",
+          "value": "DE"
+      },
+      {
+          "title": "Germany",
+          "value": "GH"
+      },
+      {
+          "title": "Ghana",
+          "value": "GI"
+      },
+      {
+          "title": "Gibraltar",
+          "value": "GR"
+      },
+      {
+          "title": "Greece",
+          "value": "GL"
+      },
+      {
+          "title": "Greenland",
+          "value": "GD"
+      },
+      {
+          "title": "Grenada",
+          "value": "GP"
+      },
+      {
+          "title": "Guadeloupe",
+          "value": "GU"
+      },
+      {
+          "title": "Guam",
+          "value": "GT"
+      },
+      {
+          "title": "Guatemala",
+          "value": "GN"
+      },
+      {
+          "title": "Guinea",
+          "value": "GW"
+      },
+      {
+          "title": "Guinea-Bissau",
+          "value": "GY"
+      },
+      {
+          "title": "Guyana",
+          "value": "HT"
+      },
+      {
+          "title": "Haiti",
+          "value": "HN"
+      },
+      {
+          "title": "Honduras",
+          "value": "HU"
+      },
+      {
+          "title": "Hungary",
+          "value": "IS"
+      },
+      {
+          "title": "Iceland",
+          "value": "IN"
+      },
+      {
+          "title": "India",
+          "value": "ID"
+      },
+      {
+          "title": "Indonesia",
+          "value": "IR"
+      },
+      {
+          "title": "Iran",
+          "value": "IQ"
+      },
+      {
+          "title": "Iraq",
+          "value": "IE"
+      },
+      {
+          "title": "Ireland",
+          "value": "IL"
+      },
+      {
+          "title": "Israel",
+          "value": "IT"
+      },
+      {
+          "title": "Italy",
+          "value": "JM"
+      },
+      {
+          "title": "Jamaica",
+          "value": "JP"
+      },
+      {
+          "title": "Japan",
+          "value": "JO"
+      },
+      {
+          "title": "Jordan",
+          "value": "KZ"
+      },
+      {
+          "title": "Kazakhstan",
+          "value": "KE"
+      },
+      {
+          "title": "Kenya",
+          "value": "KI"
+      },
+      {
+          "title": "Kiribati",
+          "value": "KP"
+      },
+      {
+          "title": "Korea North",
+          "value": "KR"
+      },
+      {
+          "title": "Korea South",
+          "value": "KW"
+      },
+      {
+          "title": "Kuwait",
+          "value": "KG"
+      },
+      {
+          "title": "Kyrgyzstan",
+          "value": "LA"
+      },
+      {
+          "title": "Lao People's Democratic Republic",
+          "value": "LV"
+      },
+      {
+          "title": "Latvia",
+          "value": "LB"
+      },
+      {
+          "title": "Lebanon",
+          "value": "LS"
+      },
+      {
+          "title": "Lesotho",
+          "value": "LR"
+      },
+      {
+          "title": "Liberia",
+          "value": "LY"
+      },
+      {
+          "title": "Libya",
+          "value": "LI"
+      },
+      {
+          "title": "Liechtenstein",
+          "value": "LT"
+      },
+      {
+          "title": "Lithuania",
+          "value": "LU"
+      },
+      {
+          "title": "Luxembourg",
+          "value": "MK"
+      },
+      {
+          "title": "Macedonia",
+          "value": "MG"
+      },
+      {
+          "title": "Madagascar",
+          "value": "MW"
+      },
+      {
+          "title": "Malawi",
+          "value": "MY"
+      },
+      {
+          "title": "Malaysia",
+          "value": "MV"
+      },
+      {
+          "title": "Maldives",
+          "value": "ML"
+      },
+      {
+          "title": "Mali",
+          "value": "MT"
+      },
+      {
+          "title": "Malta",
+          "value": "MH"
+      },
+      {
+          "title": "Marshall Islands",
+          "value": "MQ"
+      },
+      {
+          "title": "Martinique",
+          "value": "MR"
+      },
+      {
+          "title": "Mauritania",
+          "value": "MU"
+      },
+      {
+          "title": "Mauritius",
+          "value": "YT"
+      },
+      {
+          "title": "Mayotte",
+          "value": "MX"
+      },
+      {
+          "title": "Mexico",
+          "value": "FM"
+      },
+      {
+          "title": "Micronesia, Federated States of",
+          "value": "MD"
+      },
+      {
+          "title": "Moldova",
+          "value": "MC"
+      },
+      {
+          "title": "Monaco",
+          "value": "MN"
+      },
+      {
+          "title": "Mongolia",
+          "value": "MS"
+      },
+      {
+          "title": "Montserrat",
+          "value": "MA"
+      },
+      {
+          "title": "Morocco",
+          "value": "MZ"
+      },
+      {
+          "title": "Mozambique",
+          "value": "MM"
+      },
+      {
+          "title": "Myanmar",
+          "value": "NA"
+      },
+      {
+          "title": "Namibia",
+          "value": "NR"
+      },
+      {
+          "title": "Nauru",
+          "value": "NP"
+      },
+      {
+          "title": "Nepal",
+          "value": "NL"
+      },
+      {
+          "title": "Netherlands",
+          "value": "NC"
+      },
+      {
+          "title": "New Caledonia",
+          "value": "NZ"
+      },
+      {
+          "title": "New Zealand",
+          "value": "NI"
+      },
+      {
+          "title": "Nicaragua",
+          "value": "NE"
+      },
+      {
+          "title": "Niger",
+          "value": "NG"
+      },
+      {
+          "title": "Nigeria",
+          "value": "NU"
+      },
+      {
+          "title": "Niue",
+          "value": "NF"
+      },
+      {
+          "title": "Norfolk Island",
+          "value": "MP"
+      },
+      {
+          "title": "Northern Mariana Islands",
+          "value": "NO"
+      },
+      {
+          "title": "Norway",
+          "value": "OM"
+      },
+      {
+          "title": "Oman",
+          "value": "PK"
+      },
+      {
+          "title": "Pakistan",
+          "value": "PW"
+      },
+      {
+          "title": "Palau",
+          "value": "PS"
+      },
+      {
+          "title": "Palestine, State of",
+          "value": "PA"
+      },
+      {
+          "title": "Panama",
+          "value": "PG"
+      },
+      {
+          "title": "Papua New Guinea",
+          "value": "PY"
+      },
+      {
+          "title": "Paraguay",
+          "value": "PE"
+      },
+      {
+          "title": "Peru",
+          "value": "PH"
+      },
+      {
+          "title": "Philippines",
+          "value": "PL"
+      },
+      {
+          "title": "Poland",
+          "value": "PT"
+      },
+      {
+          "title": "Portugal",
+          "value": "PR"
+      },
+      {
+          "title": "Puerto Rico",
+          "value": "QA"
+      },
+      {
+          "title": "Qatar",
+          "value": "RE"
+      },
+      {
+          "title": "Reunion",
+          "value": "RO"
+      },
+      {
+          "title": "Romania",
+          "value": "RU"
+      },
+      {
+          "title": "Russian Federation",
+          "value": "RW"
+      },
+      {
+          "title": "Rwanda",
+          "value": "SH"
+      },
+      {
+          "title": "Saint Helena, Ascension and Tristan da Cunha",
+          "value": "KN"
+      },
+      {
+          "title": "Saint Kitts and Nevis",
+          "value": "LC"
+      },
+      {
+          "title": "Saint Lucia",
+          "value": "MF"
+      },
+      {
+          "title": "Saint Martin (French part)",
+          "value": "PM"
+      },
+      {
+          "title": "Saint Pierre and Miquelon",
+          "value": "VC"
+      },
+      {
+          "title": "Saint Vincent and the Grenadines",
+          "value": "WS"
+      },
+      {
+          "title": "Samoa",
+          "value": "SM"
+      },
+      {
+          "title": "San Marino",
+          "value": "ST"
+      },
+      {
+          "title": "Sao Tome and Principe",
+          "value": "SN"
+      },
+      {
+          "title": "Senegal",
+          "value": "RS"
+      },
+      {
+          "title": "Serbia",
+          "value": "SC"
+      },
+      {
+          "title": "Seychelles",
+          "value": "SL"
+      },
+      {
+          "title": "Sierra Leone",
+          "value": "SG"
+      },
+      {
+          "title": "Singapore",
+          "value": "SX"
+      },
+      {
+          "title": "Sint Maarten (Dutch part)",
+          "value": "SK"
+      },
+      {
+          "title": "Slovakia",
+          "value": "SI"
+      },
+      {
+          "title": "Slovenia",
+          "value": "SB"
+      },
+      {
+          "title": "Solomon Islands",
+          "value": "SO"
+      },
+      {
+          "title": "Somalia",
+          "value": "ZA"
+      },
+      {
+          "title": "South Africa",
+          "value": "GS"
+      },
+      {
+          "title": "South Georgia and the South Sandwich Islands",
+          "value": "SD"
+      },
+      {
+          "title": "Sudan",
+          "value": "SS"
+      },
+      {
+          "title": "South Sudan",
+          "value": "ES"
+      },
+      {
+          "title": "Spain",
+          "value": "LK"
+      },
+      {
+          "title": "Sri Lanka",
+          "value": "SR"
+      },
+      {
+          "title": "Suriname",
+          "value": "SZ"
+      },
+      {
+          "title": "Swaziland",
+          "value": "SE"
+      },
+      {
+          "title": "Sweden",
+          "value": "CH"
+      },
+      {
+          "title": "Switzerland",
+          "value": "SY"
+      },
+      {
+          "title": "Syria",
+          "value": "TW"
+      },
+      {
+          "title": "Taiwan",
+          "value": "TJ"
+      },
+      {
+          "title": "Tajikistan",
+          "value": "TZ"
+      },
+      {
+          "title": "Tanzania",
+          "value": "TH"
+      },
+      {
+          "title": "Thailand",
+          "value": "TL"
+      },
+      {
+          "title": "Timor-Leste",
+          "value": "TG"
+      },
+      {
+          "title": "Togo",
+          "value": "TK"
+      },
+      {
+          "title": "Tokelau",
+          "value": "TO"
+      },
+      {
+          "title": "Tonga",
+          "value": "TT"
+      },
+      {
+          "title": "Trinidad and Tobago",
+          "value": "TN"
+      },
+      {
+          "title": "Tunisia",
+          "value": "TR"
+      },
+      {
+          "title": "Turkey",
+          "value": "TM"
+      },
+      {
+          "title": "Turkmenistan",
+          "value": "TC"
+      },
+      {
+          "title": "Turks and Caicos Islands",
+          "value": "TV"
+      },
+      {
+          "title": "Tuvalu",
+          "value": "UG"
+      },
+      {
+          "title": "Uganda",
+          "value": "UA"
+      },
+      {
+          "title": "Ukraine",
+          "value": "AE"
+      },
+      {
+          "title": "United Arab Emirates",
+          "value": "GB"
+      },
+      {
+          "title": "United Kingdom",
+          "value": "US"
+      },
+      {
+          "title": "United States",
+          "value": "UY"
+      },
+      {
+          "title": "Uruguay",
+          "value": "UZ"
+      },
+      {
+          "title": "Uzbekistan",
+          "value": "VU"
+      },
+      {
+          "title": "Vanuatu",
+          "value": "VE"
+      },
+      {
+          "title": "Venezuela",
+          "value": "VN"
+      },
+      {
+          "title": "Vietnam",
+          "value": "VG"
+      },
+      {
+          "title": "Virgin Islands, British",
+          "value": "VI"
+      },
+      {
+          "title": "Virgin Islands, U.S.",
+          "value": "YE"
+      },
+      {
+          "title": "Yemen",
+          "value": "ZM"
+      },
+      {
+          "title": "Zambia",
+          "value": "ZW"
+      },
+      {
+          "title": "Zimbabwe",
+          "value": "OTHER"
+      },
+      {
+          "title": "OTHER",
+          "value": "other"
+      }
+
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "إرسال",
+      "data": {
+            "btnValue": "submit-nation"
+            }
+    }
+  ]
+}```
+# Ask_Activity_INX2sc()
+[Activity
+    Attachments = ${json(Ask_Activity_INX2sc_attachment_uLkn5H())}
+]
+
+# Ask_Activity_INX2sc_attachment_uLkn5H()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "maxLines":2,
+        "wrap": true,
+        "text": "يرجى إدخال رقم جواز السفر الصحيح 👇"
+    },
+    {
+      "type": "Input.Text",
+      "id": "passport_number",
+      "label": "💡مثال: PA1234567",
+      "isRequired": true,
+      "regex":"^[A-Z0-9]{5,10}$",
+      "errorMessage": "يرجى إدخال رقم جواز السفر الصحيح، مثال: PA1234567"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "btnValue": "submit-passport"
+            }
+      }
+  ]
+}```
+# ChoiceInput_Prompt_LqPOOz_attachment_2f1Sqq()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "طبعاً! 👍",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text":"هل تريد تحديث تاريخ ميلادك الحالي ${user.date_of_birth}؟",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# Ask_Activity_lXsHzo()
+[Activity
+    Attachments = ${json(Ask_Activity_lXsHzo_attachment_xMEJhp())}
+]
+
+# Ask_Activity_lXsHzo_attachment_xMEJhp()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": " يرجى إدخال تاريخ الميلاد 👇",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+     {
+      "type": "Input.Date",
+      "id": "user_dob",
+      "label": "💡مثال: 22/01/2023 ",
+      "isRequired": true,
+      "errorMessage": "يرجى إدخال تاريخ الميلاد الصحيح، مثال: 22/01/2023"
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "إرسال",
+      "data": {
+                "btnValue": "submit-dob"
+          }
+    }
+  ]
+}```
+# SendActivity_4M1Vpo()
+[Activity
+    Attachments = ${json(SendActivity_4M1Vpo_attachment_i3b2Hi())}
+]
+
+# SendActivity_4M1Vpo_attachment_i3b2Hi()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "يمكنني مساعدتك! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "يرجى الضغط على الرابط واتباع هذه الخطوات لتحديث معلوماتك:",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💠قم بزيارة saudia.com.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💠اضغط في صفحة الموقع على أيقونة القائمة الموجودة في أعلى الصفحة على اليسار، ثم اضغط 'الملف الشخصي'.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💠يمكنك التحديث بمجرد وصولك إلى صفحة الملف الشخصي.",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تحديث الملف الشخصي ↗",
+            "url": "${user.updateProfileLink}"
+        }
+    ]
+}```
+# Ask_Activity_9DiPLW()
+[Activity
+    Attachments = ${json(Ask_Activity_9DiPLW_attachment_hUllMq())}
+]
+
+# Ask_Activity_9DiPLW_attachment_hUllMq()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡اضغط على الزر أدناه إذا كنت بحاجة لمزيد من المساعدة. 👇",
+            "wrap": true
+        }        
+],
+    "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "تحدث مع فريق دعم العملاء ",
+          "data": {
+                "btnValue": "Chat-with-Customer-Support"
+            }
+      }
+    ]
+}```
+# SendActivity_Tz8PqV_text()
+- ```Your nationality ${turn.fetchCountryKey} was updated successfully on your profile. 🎉
+
+💡 Please keep this update confirmation copy ready, as it may be needed for future reference.```
+# SendActivity_Tz8PqV()
+[Activity
+    Text = ${SendActivity_Tz8PqV_text()}
+]
+
+# SendActivity_J3iJTT_attachment_SlbXHL()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "تم تحديث جنسيتك  ${turn.fetchCountryKey}  في ملفك الشخصي بنجاح.🎉",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text":"💡يرجى الاحتفاظ بنسخة من تأكيد التحديث، حتى يمكنك الرجوع إليها عند الحاجة.",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_J3iJTT()
+[Activity
+    Attachments = ${json(SendActivity_J3iJTT_attachment_SlbXHL())}
+]
+
+# SendActivity_uPTAYZ_text()
+- turn.results token regenrengarion->${turn.results}
+# SendActivity_uPTAYZ()
+[Activity
+    Text = ${SendActivity_uPTAYZ_text()}
+]
+
+# SendActivity_WBkGqk_text()
+- turn.results token regenrengarion->${turn.results}
+# SendActivity_WBkGqk()
+[Activity
+    Text = ${SendActivity_WBkGqk_text()}
+]
+
+# SendActivity_6zNs2L_text()
+- turn.results token regenrengarion->${turn.results}
+# SendActivity_6zNs2L()
+[Activity
+    Text = ${SendActivity_6zNs2L_text()}
+]
+
+# SendActivity_NvPSgU_text()
+- ```Your date of birth ${user.dob} was updated successfully on your profile. 🎉
+
+💡 Please keep this update confirmation copy ready, as it may be needed for future reference.```
+# SendActivity_NvPSgU()
+[Activity
+    Text = ${SendActivity_NvPSgU_text()}
+]
+
+
+# SendActivity_Eqk9kc_attachment_lrFh5t()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "تم تحديث تاريخ الميلاد ${user.dob} في ملفك الشخصي بنجاح. 🎉",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text":"💡يرجى الاحتفاظ بنسخة من تأكيد التحديث، حتى يمكنك الرجوع إليها عند الحاجة.",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_Eqk9kc()
+[Activity
+    Attachments = ${json(SendActivity_Eqk9kc_attachment_lrFh5t())}
+]
+
+# SendActivity_e9fFY5_text()
+- ```Your passport no. as ${user.passport_number} was updated successfully on your profile. 🎉
+
+💡 Please keep this update confirmation copy ready, as it may be needed for future reference.```
+# SendActivity_e9fFY5()
+[Activity
+    Text = ${SendActivity_e9fFY5_text()}
+]
+
+# SendActivity_5aePu1_attachment_8HbZvN()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "تم تحديث رقم جواز السفر  ${user.passport_number} في ملفك الشخصي بنجاح.🎉",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text":"💡يرجى الاحتفاظ بنسخة من تأكيد التحديث، حتى يمكنك الرجوع إليها عند الحاجة.",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_5aePu1()
+[Activity
+    Attachments = ${json(SendActivity_5aePu1_attachment_8HbZvN())}
+]
+
+# SendActivity_5yDWzZ()
+[Activity
+    Text = ${SendActivity_5yDWzZ_text()}
+]
+
+# SendActivity_5yDWzZ_text()
+- nation select->${user.new_nation}
+# ChoiceInput_Prompt_L0vuE6_text()
+- ```Absolutely! 👍
+
+Would you like to update your current passport number ${user.passport_number}?```
+# ChoiceInput_Prompt_L0vuE6()
+[Activity
+    Text = ${ChoiceInput_Prompt_L0vuE6_text()}
+]
+
+# SendActivity_z6EWto()
+[Activity
+    Text = ${SendActivity_z6EWto_text()}
+]
+
+# SendActivity_z6EWto_text()
+- frequent flyerprofile->${turn.results}
+# SendActivity_Ydjgd1_text()
+- user.passport_number-${user.passport_number}
+# SendActivity_Ydjgd1()
+[Activity
+    Text = ${SendActivity_Ydjgd1_text()}
+]
+
+# ChoiceInput_Prompt_sTMSjq_attachment_9Iq3J2()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "طبعاً! 👍",
+          "wrap": true
+      },
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "هل تريد تحديث رقم جواز السفر ${user.passport_number}؟",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# ChoiceInput_Prompt_sTMSjq()
+[Activity
+    Attachments = ${json(ChoiceInput_Prompt_sTMSjq_attachment_9Iq3J2())}
+]
+
+# SendActivity_UMTupp_attachment_RVVAce()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Please log into your AlFursan account to proceed 👇",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Login Now ↗",
+            "url": "https://mmb-test.dcloud.saudia.com"
+        }
+    ]
+}```
+# SendActivity_UMTupp()
+[Activity
+    Attachments = ${json(SendActivity_UMTupp_attachment_RVVAce())}
+]
+
+# SendActivity_ESE2y4()
+[Activity
+    Attachments = ${json(SendActivity_ESE2y4_attachment_Zprpu5())}
+]
+
+# SendActivity_ESE2y4_attachment_Zprpu5()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى تسجيل الدخول إلى حسابك في برنامج  الفرسان للمتابعة 👇",
+      "wrap": true
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.OpenUrl",
+          "title": "سجل الدخول الآن ↖",
+          "url": "https://mmb-test.dcloud.saudia.com"
+      }
+  ]
+}```
+# TextInput_Prompt_fjzdBH()
+[Activity
+    Text = ${TextInput_Prompt_fjzdBH_text()}
+    Attachments = ${json(LinkButtonTemplateEN("Nationality"))} | ${json(LinkButtonTemplateEN("Passport"))} | ${json(LinkButtonTemplateEN("Date of Birth"))} | ${json(LinkButtonTemplateEN("Others"))}
+]
+
+# TextInput_Prompt_fjzdBH_text()
+- ```I can help you with that! 😀
+
+What would you like to update? 👇```
+# TextInput_Prompt_OMSMqt()
+[Activity
+    Attachments = ${json(RTLText("يمكنني مساعدتك! 😀"))} | {json(RTLText("  "))} | {json(RTLText("ما الذي تريد تحديثه؟ 👇"))} | ${json(LinkButtonTemplateAR("الجنسية"))} | ${json(LinkButtonTemplateAR("جواز السفر"))} | ${json(LinkButtonTemplateAR("تاريخ الميلاد"))} | ${json(LinkButtonTemplateAR("معلومات أخرى"))}
+]

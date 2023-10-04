@@ -1,0 +1,454 @@
+[import](common.lg)
+
+# SendActivity_Nucxhy()
+[Activity
+    Text = ${SendActivity_Nucxhy_text()}
+]
+
+# SendActivity_Nucxhy_text()
+- ${dialog.selected_meal}
+# Ask_Activity_W8a9eC()
+[Activity
+    Attachments = ${json(Ask_Activity_W8a9eC_attachment_XMZcMt())}
+]
+
+# Ask_Activity_W8a9eC_attachment_XMZcMt()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "Check this out ${user.service_user_name}, !We have a wide selection of meals for you to enjoy on your flight.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "💡 Please choose your preferred meal from the options below. 🙂",
+      "wrap": true
+    }
+  ],
+  "actions": ${user.designmeal}
+}
+```
+# SendActivity_izJ6a2()
+[Activity
+    Text = ${SendActivity_izJ6a2_text()}
+]
+
+# SendActivity_izJ6a2_text()
+- ```${user.meal_list}
+${user.designmeal}```
+# SendActivity_cHZWpn()
+[Activity
+    Text = ${SendActivity_cHZWpn_text()}
+]
+
+# SendActivity_cHZWpn_text()
+- ```final lesection
+${dialog.selected_meal}
+${ dialog.foreach.value.descriptions[1].content}```
+# SendActivity_c0clZ1()
+[Activity
+    Text = ${SendActivity_c0clZ1_text()}
+]
+
+# SendActivity_c0clZ1_text()
+- ${dialog.foreach.value.descriptions[1].content}
+# SendActivity_KlavBo()
+[Activity
+    Text = ${SendActivity_KlavBo_text()}
+]
+
+# SendActivity_KlavBo_text()
+- final ${dialog.finalselectedMealData}
+# SendActivity_SrmWUL()
+[Activity
+    Text = ${SendActivity_SrmWUL_text()}
+]
+
+# SendActivity_SrmWUL_text()
+- ${user.getorder.data.services}
+# SendActivity_sH7Hzy()
+[Activity
+    Text = ${SendActivity_sH7Hzy_text()}
+]
+
+# SendActivity_sH7Hzy_text()
+- for true ${dialog.foreach.value}
+# SendActivity_JrcrGg()
+[Activity
+    Text = ${SendActivity_JrcrGg_text()}
+]
+
+# SendActivity_JrcrGg_text()
+- for false ${dialog.foreach.value}
+# SendActivity_EkSL5s_text()
+- ```${dialog.finalSelectedId}
+${dialog.finalSelectedQuantity}
+${dialog.finalSelectedTravelerIds}```
+# SendActivity_EkSL5s()
+[Activity
+    Text = ${SendActivity_EkSL5s_text()}
+]
+
+# SendActivity_Ai38Wo_text()
+- ```${dialog.finalSelectedId}
+${dialog.finalSelectedQuantity}
+${dialog.finalSelectedTravelerIds}```
+# SendActivity_Ai38Wo()
+[Activity
+    Text = ${SendActivity_Ai38Wo_text()}
+]
+
+# SendActivity_3zlMf1()
+[Activity
+    Text = ${SendActivity_3zlMf1_text()}
+]
+
+# SendActivity_3zlMf1_text()
+- inside delete
+# SendActivity_X4k9Yp()
+[Activity
+    Text = ${SendActivity_X4k9Yp_text()}
+]
+
+# SendActivity_X4k9Yp_text()
+- delete success
+# SendActivity_V1P2ho()
+[Activity
+    Text = ${SendActivity_V1P2ho_text()}
+]
+
+# SendActivity_V1P2ho_text()
+- TURN ==${turn.activity.text}
+# Ask_Activity_caA4iJ()
+[Activity
+    Attachments = ${json(Ask_Activity_caA4iJ_attachment_ntnNIN())}
+]
+
+# Ask_Activity_caA4iJ_attachment_ntnNIN()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.3",
+  "id": "rtl_1",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "تحقق من هذا، لدينا خيارات متعددة للوجبات لتستمتع برحلتك.",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "💡 يرجى اختيار وجبتك المفضلة من الخيارات أدناه. 🙂",
+      "wrap": true
+    }
+  ],
+  "actions": ${user.designmeal}
+}
+```
+# SendActivity_rYtqLs_text()
+- You have selected ${dialog.selected_meal}. Great choice!👏
+# SendActivity_rYtqLs()
+[Activity
+    Text = ${SendActivity_rYtqLs_text()}
+]
+
+# SendActivity_9JJHPu()
+[Activity
+    Text = ${SendActivity_9JJHPu_text()}
+]
+
+# SendActivity_9JJHPu_text()
+- لقد اخترت ${dialog.selected_meal} اختيار رائع!👏
+# SendActivity_PFP0FW_text()
+- You have selected ${dialog.selected_meal}. Great choice!👏
+# SendActivity_PFP0FW()
+[Activity
+    Text = ${SendActivity_PFP0FW_text()}
+]
+
+# SendActivity_Tw4awO_text()
+- You have selected ${dialog.selected_meal}. Great choice!👏
+# SendActivity_Tw4awO()
+[Activity
+    Text = ${SendActivity_Tw4awO_text()}
+]
+
+# SendActivity_DbR52e_text()
+- لقد اخترت ${dialog.selected_meal} اختيار رائع!👏
+# SendActivity_DbR52e()
+[Activity
+    Text = ${SendActivity_DbR52e_text()}
+]
+
+# SendActivity_YeNDTr_text()
+- You have selected ${dialog.selected_meal}. Great choice!👏
+# SendActivity_YeNDTr()
+[Activity
+    Text = ${SendActivity_YeNDTr_text()}
+]
+
+# ConfirmInput_Prompt_5cU3So_text()
+- Do you need any special assistance? 
+# ConfirmInput_Prompt_5cU3So()
+[Activity
+    Text = ${ConfirmInput_Prompt_5cU3So_text()}
+]
+
+# ConfirmInput_Prompt_lASZ0v_text()
+- هل تحتاج لمزيد من المساعدة؟
+# ConfirmInput_Prompt_lASZ0v()
+[Activity
+    Text = ${ConfirmInput_Prompt_lASZ0v_text()}
+]
+
+# SendActivity_dkZIRw_text()
+- Alright, enjoy your flight!🙂
+# SendActivity_dkZIRw()
+[Activity
+    Text = ${SendActivity_dkZIRw_text()}
+]
+
+# SendActivity_s4dMPk_text()
+- حسناً، استمتع برحلتك!🙂
+# SendActivity_s4dMPk()
+[Activity
+    Text = ${SendActivity_s4dMPk_text()}
+]
+
+# ConfirmInput_Prompt_ixbs4z_text()
+- Do you need any special assistance? 
+# ConfirmInput_Prompt_ixbs4z()
+[Activity
+    Text = ${ConfirmInput_Prompt_ixbs4z_text()}
+]
+
+# SendActivity_iDgG48_text()
+- Alright, enjoy your flight!🙂
+# SendActivity_iDgG48()
+[Activity
+    Text = ${SendActivity_iDgG48_text()}
+]
+
+# ConfirmInput_Prompt_Bk6ofK_text()
+- Do you need any special assistance? 
+# ConfirmInput_Prompt_Bk6ofK()
+[Activity
+    Text = ${ConfirmInput_Prompt_Bk6ofK_text()}
+]
+
+# ConfirmInput_Prompt_INDtKU_text()
+- هل تحتاج لمزيد من المساعدة؟
+# ConfirmInput_Prompt_INDtKU()
+[Activity
+    Text = ${ConfirmInput_Prompt_INDtKU_text()}
+]
+
+# SendActivity_snIDSw_text()
+- Alright, enjoy your flight!🙂
+# SendActivity_snIDSw()
+[Activity
+    Text = ${SendActivity_snIDSw_text()}
+]
+
+# Ask_Activity_ad17I6()
+[Activity
+    Attachments = ${json(Ask_Activity_ad17I6_attachment_iVeUOJ())}
+]
+
+# Ask_Activity_ad17I6_attachment_iVeUOJ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"لقد اخترت ${dialog.selected_meal} اختيار رائع!👏"
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_h1Zzjm()
+[Activity
+    Attachments = ${json(Ask_Activity_h1Zzjm_attachment_78IyGd())}
+]
+
+# Ask_Activity_h1Zzjm_attachment_78IyGd()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"لقد اخترت ${dialog.selected_meal} اختيار رائع!👏"
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_gKeTyb()
+[Activity
+    Attachments = ${json(Ask_Activity_gKeTyb_attachment_T8fm8W())}
+]
+
+# Ask_Activity_gKeTyb_attachment_T8fm8W()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"حسناً، استمتع برحلتك!🙂",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_OnuZCn()
+[Activity
+    Attachments = ${json(Ask_Activity_OnuZCn_attachment_uiGOYa())}
+]
+
+# Ask_Activity_OnuZCn_attachment_uiGOYa()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"حسناً، استمتع برحلتك!🙂",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_mYL3KS()
+[Activity
+    Attachments = ${json(SendActivity_mYL3KS_attachment_K6O9Kr())}
+]
+
+# SendActivity_mYL3KS_attachment_K6O9Kr()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "لقد اخترت ${dialog.selected_meal}، اختيار رائع! 👏",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_MOExQR()
+[Activity
+    Attachments = ${json(SendActivity_MOExQR_attachment_niJQ1x())}
+]
+
+# SendActivity_MOExQR_attachment_niJQ1x()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text":"حسناً، استمتع برحلتك!🙂",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_FmM3tE()
+[Activity
+    Attachments = ${json(SendActivity_FmM3tE_attachment_E2ypcV())}
+]
+
+# SendActivity_FmM3tE_attachment_E2ypcV()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text":"حسناً، استمتع برحلتك!🙂",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_CNHeH7()
+[Activity
+    Attachments = ${json(SendActivity_CNHeH7_attachment_WrSjFb())}
+]
+
+# SendActivity_CNHeH7_attachment_WrSjFb()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text":"لقد اخترت ${dialog.selected_meal} اختيار رائع!👏",
+            "wrap": true
+        }
+    ]
+}```
+# ConfirmInput_Prompt_MMkPkk()
+[Activity
+    Attachments = ${json(ConfirmInput_Prompt_MMkPkk_attachment_q7vytw())}
+]
+
+# ConfirmInput_Prompt_MMkPkk_attachment_q7vytw()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "هل تحتاج لمزيد من المساعدة؟",
+      "wrap": true
+    }
+  ]
+}```

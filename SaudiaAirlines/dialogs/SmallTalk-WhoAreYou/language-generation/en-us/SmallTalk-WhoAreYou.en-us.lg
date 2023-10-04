@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# Ask_Activity_U5UAke()
+[Activity
+    Attachments = ${json(Ask_Activity_U5UAke_attachment_OMgTPR())}
+]
+
+# Ask_Activity_U5UAke_attachment_OMgTPR()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "I am your virtual assistant from Saudia! How can I help you?",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_Rukad8()
+[Activity
+    Attachments = ${json(Ask_Activity_Rukad8_attachment_CWAlvc())}
+]
+
+# Ask_Activity_Rukad8_attachment_CWAlvc()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "أنا مساعدك الافتراضي من السعودية! كيف يمكنني مساعدتك؟",
+            "wrap": true
+        }
+    ]
+}```

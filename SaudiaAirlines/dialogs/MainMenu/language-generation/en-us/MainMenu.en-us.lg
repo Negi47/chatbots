@@ -1,0 +1,23 @@
+[import](common.lg)
+
+# TextInput_Prompt_WMenA4_text()
+- Ask me anything, just keep it short and simple. I'm still learning! Or choose from our popular topics below 👇
+# TextInput_Prompt_WMenA4()
+[Activity
+    Text = ${TextInput_Prompt_WMenA4_text()}
+    Attachments = ${json(LinkButtonTemplateEN("Change seats"))} | ${json(LinkButtonTemplateEN("Check-in"))} | ${json(LinkButtonTemplateEN("Add baggage"))} | ${json(LinkButtonTemplateEN("Get your AlFursan account ID"))} | ${json(LinkButtonTemplateEN("See other topics"))}
+]
+
+# TextInput_Prompt_wzOhnc()
+[Activity
+    Attachments = ${json(RTLText("يمكنك أن تسألني أي شيء تريده، فقط اجعل السؤال قصيراً وبسيطاً لأنني ما زلت قيد التطوير! أو يمكنك اختيار واحد من الاختيارات أدناه 👇"))} | ${json(LinkButtonTemplateAR("تغيير المقاعد"))} | ${json(LinkButtonTemplateAR("إتمام إجراءات السفر"))} | ${json(LinkButtonTemplateAR("إضافة الأمتعة"))} | ${json(LinkButtonTemplateAR("الحصول على رقم حساب الفرسان"))} | ${json(LinkButtonTemplateAR("اطلع على استفسارات أخرى"))}
+]
+
+
+# SendActivity_zFyFKb()
+[Activity
+    Text = ${SendActivity_zFyFKb_text()}
+]
+
+# SendActivity_zFyFKb_text()
+- menu

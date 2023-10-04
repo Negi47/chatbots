@@ -1,0 +1,45 @@
+[import](common.lg)
+
+# Ask_Activity_A9kXen()
+[Activity
+    Attachments = ${json(Ask_Activity_A9kXen_attachment_kbuVLL())}
+]
+
+# Ask_Activity_A9kXen_attachment_kbuVLL()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "I'm doing great, thanks for asking! How can I help you?",
+            "wrap": true
+        }
+    ]
+}```
+# Ask_Activity_Q7hEMl()
+[Activity
+    Attachments = ${json(Ask_Activity_Q7hEMl_attachment_vGxs9H())}
+]
+
+# Ask_Activity_Q7hEMl_attachment_vGxs9H()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "أنا بخير، شكراً لسؤالك! كيف يمكنني مساعدتك؟",
+            "wrap": true
+        }
+    ]
+}```

@@ -1,0 +1,321 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "3oqg30",
+    "name": "CancelRefundFlight",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "w8W2Hr"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "NEjv4C"
+          },
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "clDc8J"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "MNukKu"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.Login",
+                      "value": false
+                    },
+                    {
+                      "property": "user.loggedoption",
+                      "value": "CancelRefundFlight"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "KATB3t"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CheckIn"
+                }
+              ],
+              "condition": "=user.Login == false && user.pnrCount == 0"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "eIY0b5"
+              },
+              "condition": "(user.pnr_type =='travel agent' || user.pnr_type !='travel agent') && user.cancel_refund_status != true",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "LcMmur"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "UFuiWj"
+                      },
+                      "activity": "${SendActivity_UFuiWj()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "nVNaBG"
+                      },
+                      "activity": "${SendActivity_nVNaBG()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "ua0697"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "XJlvpq"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "GET",
+                  "url": "${user.baseURL}/purchase/order-eligibilities?lastName=${user.lastName}&orderId=${user.pnr}&targetAction=cancelAndRefund&guestOfficeId=JEDSV08BB",
+                  "headers": {
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "SAA-session-id": "=user.session_id"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "ss2Rcd"
+                  },
+                  "condition": "=turn.results.statusCode == 200",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "f0ESkR"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.call_order_refund_status",
+                          "value": "=turn.results.content.data.cancelAndRefund.refundStatus"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "L0NyM0"
+                      },
+                      "activity": "${SendActivity_L0NyM0()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "VJGrXn"
+                      },
+                      "condition": "=user.call_order_refund_status=='refundable'",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "lAknxj"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "CDZ0To"
+                              },
+                              "activity": "${SendActivity_CDZ0To()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "gG1nTE"
+                              },
+                              "activity": "${SendActivity_gG1nTE()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "mf4BI6"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "vmv7pS"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "WuoN7E"
+                              },
+                              "activity": "${SendActivity_WuoN7E()}"
+                            },
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "k2PWCQ"
+                              },
+                              "activity": "${Ask_Activity_0fOivz()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "qZTkWN"
+                              },
+                              "activity": "${SendActivity_qZTkWN()}"
+                            },
+                            {
+                              "$kind": "Microsoft.Ask",
+                              "$designer": {
+                                "id": "WdiyMm"
+                              },
+                              "activity": "${Ask_Activity_klsPLe()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "9a5TMX"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "xJFrF3"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Api_Failure"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": "=user.Login == true && user.loggedoption != 'CancelRefundFlightLoggedIn'",
+          "actions": [
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "yZnk9u"
+              },
+              "activityProcessed": true,
+              "dialog": "CheckIn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnActivity",
+      "$designer": {
+        "id": "yAsnWR",
+        "name": "CancelRefundFlight-NoPNR-NotLoggedIn"
+      },
+      "condition": "=turn.activity.value.btnvalue == \"submit\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "cOvHeO"
+          },
+          "assignments": [
+            {
+              "property": "user.Login",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Ask",
+          "$designer": {
+            "id": "QqvGHI"
+          },
+          "activity": "${Ask_Activity_EOe0jw()}"
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "9EZ7SO",
+        "name": "Transfering to customer support"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "fMQjg3"
+          },
+          "activity": "${SendActivity_fMQjg3()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.BeginDialog",
+          "$designer": {
+            "id": "TpxDfs"
+          },
+          "activityProcessed": true,
+          "dialog": "agent-handover"
+        }
+      ],
+      "condition": "=turn.activity.value.btnvalue == \"chat-with-customer-support\""
+    }
+  ],
+  "generator": "cancel_and_refund.lg",
+  "recognizer": "cancel_and_refund.lu.qna",
+  "id": "cancel_and_refund"
+}

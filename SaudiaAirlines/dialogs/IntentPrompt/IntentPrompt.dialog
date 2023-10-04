@@ -1,0 +1,53 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "H9xywz",
+    "name": "IntentPrompt",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "NFMQRP"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.ConfirmInput",
+          "$designer": {
+            "id": "Lfj10m"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 0,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ConfirmInput_Prompt_Lfj10m()}",
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "dialog.conform"
+        },
+        {
+          "$kind": "Microsoft.EndDialog",
+          "$designer": {
+            "id": "7rCP6P"
+          },
+          "value": "=dialog.conform"
+        }
+      ]
+    }
+  ],
+  "generator": "IntentPrompt.lg",
+  "recognizer": "IntentPrompt.lu.qna",
+  "id": "IntentPrompt"
+}

@@ -1,0 +1,1644 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "HgEkRJ",
+    "name": "Update_Email_Dialog",
+    "comment": "dialog for update email address"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "update details options",
+        "description": "",
+        "id": "O9ygKS"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "DtQxQ0"
+          },
+          "activity": "${SendActivity_DtQxQ0()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "tzIYIa"
+          },
+          "condition": "=user.lanuage_selected == \"English\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "ykA6KD"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 0,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "prompt": "${ChoiceInput_Prompt_ykA6KD()}",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "turn.updateMobEmail",
+              "choices": [
+                "Email address",
+                "Phone number",
+                "Email address & Phone number"
+              ],
+              "style": "heroCard",
+              "recognizerOptions": {
+                "recognizeOrdinals": true
+              },
+              "defaultValue": "default"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "DAhS62"
+              },
+              "condition": "turn.updateMobEmail",
+              "cases": [
+                {
+                  "value": "Email address",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "2pukFT"
+                      },
+                      "activity": "${SendActivity_2pukFT()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "vkGCJD"
+                      },
+                      "activity": "${Ask_Activity_pynX00()}"
+                    }
+                  ]
+                },
+                {
+                  "value": "Phone number",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "zIrjM5"
+                      },
+                      "activity": "${SendActivity_zIrjM5()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "pk3RLu"
+                      },
+                      "activity": "${Ask_Activity_0zPgXy()}"
+                    }
+                  ]
+                },
+                {
+                  "value": "Email address & Phone number",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "EwuVXb"
+                      },
+                      "activity": "${SendActivity_EwuVXb()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "koYMZY"
+                      },
+                      "activity": "${Ask_Activity_lp3SgC()}"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "NFmyFg"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CommonIdentifyFlow"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "wcL3oh"
+              },
+              "activity": "${SendActivity_wcL3oh()}"
+            },
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "h20LRN"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 3,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "defaultValueResponse": "",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or "
+              },
+              "property": "turn.updateMobEmail",
+              "choices": [
+                "عنوان البريد الإلكتروني",
+                "رقم الجوال",
+                "عنوان البريد الإلكتروني ورقم الجوال"
+              ],
+              "style": "heroCard",
+              "prompt": "${ChoiceInput_Prompt_h20LRN()}"
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "LA1sSn"
+              },
+              "condition": "=turn.updateMobEmail",
+              "cases": [
+                {
+                  "value": "عنوان البريد الإلكتروني",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Kd3dkJ"
+                      },
+                      "activity": "${SendActivity_Kd3dkJ()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "nPZmGD"
+                      },
+                      "activity": "${Ask_Activity_nPZmGD()}"
+                    }
+                  ]
+                },
+                {
+                  "value": "رقم الجوال",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "ZqTwvJ"
+                      },
+                      "activity": "${SendActivity_ZqTwvJ()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "Y0NomC"
+                      },
+                      "activity": "${Ask_Activity_Y0NomC()}"
+                    }
+                  ]
+                },
+                {
+                  "value": "عنوان البريد الإلكتروني ورقم الجوال",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "sBTzhq"
+                      },
+                      "activity": "${SendActivity_sBTzhq()}"
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "bTCozl"
+                      },
+                      "activity": "${Ask_Activity_bTCozl()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "nyuhbl",
+        "name": "call delete and post api"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "zERt1g"
+          },
+          "activity": "${SendActivity_zERt1g()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "1vYG43"
+          },
+          "assignments": [
+            {
+              "property": "turn.updatedPhone",
+              "value": "=turn.activity.value.myTel"
+            },
+            {
+              "property": "turn.updatedEmail",
+              "value": "=turn.activity.value.myEmail"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "B5drUH"
+          },
+          "activity": "${SendActivity_B5drUH()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "sp9Ilw"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.contactData",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "MDZpTs"
+              },
+              "condition": "=dialog.foreach.value.contactType == \"Phone\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.EditArray",
+                  "$designer": {
+                    "id": "lR5AC4"
+                  },
+                  "changeType": "push",
+                  "itemsProperty": "turn.contactIdsPhone",
+                  "value": "${dialog.foreach.value.id}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "G8jNdJ"
+                  },
+                  "property": "turn.phoneIdString",
+                  "value": "=join(turn.contactIdsPhone, ',')"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.EditArray",
+                  "$designer": {
+                    "id": "fwkS47"
+                  },
+                  "changeType": "push",
+                  "itemsProperty": "turn.contactIdsEmail",
+                  "value": "${dialog.foreach.value.id}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "eQJByZ"
+                  },
+                  "property": "turn.emailIdString",
+                  "value": "=join(turn.contactIdsEmail, ',')"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "ch3mL0"
+          },
+          "activity": "${SendActivity_ch3mL0()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "vK5kin"
+          },
+          "assignments": [
+            {
+              "property": "dialog.updateSplitNum",
+              "value": "=split(turn.updatedPhone, '-')[1]"
+            },
+            {
+              "property": "dialog.updateSplitCountry",
+              "value": "=split(turn.updatedPhone, '-')[0]"
+            }
+          ],
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "K1vpXJ"
+          },
+          "activity": "${SendActivity_K1vpXJ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "CajTgf"
+          },
+          "condition": "=turn.updatedPhone != null && turn.updatedEmail != null  ",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "J7fihu"
+              },
+              "activity": "${SendActivity_J7fihu()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "tL2yKo"
+              },
+              "resultProperty": "dialog.postEmailRes1",
+              "method": "POST",
+              "url": "http://localhost:4000/updateEMail",
+              "body": {
+                "contactType": "Email",
+                "category": "other",
+                "purpose": "standard",
+                "address": "=turn.updatedEmail"
+              },
+              "contentType": "application/json",
+              "responseType": "json",
+              "headers": {
+                "authorization": "=concat('Bearer',' ', user.access_token)",
+                "session_id": "=user.session_id",
+                "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}"
+              }
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "9OJByX"
+              },
+              "resultProperty": "dialog.postEmailRes1",
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Content-Type": "application/json",
+                "Authorization": "=concat('Bearer',' ', user.access_token)"
+              },
+              "contentType": "application/json",
+              "responseType": "json",
+              "method": "POST",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+              "body": {
+                "contactType": "Email",
+                "category": "other",
+                "purpose": "standard",
+                "address": "=turn.updatedEmail"
+              },
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "vJ8fwP"
+              },
+              "activity": "${SendActivity_vJ8fwP()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "kd9GUi"
+              },
+              "condition": "=dialog.postEmailRes1.statusCode == 200",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "zLCrMV"
+                  },
+                  "activity": "${SendActivity_zLCrMV()}"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "n7MUg7"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "PyIzbN"
+                  },
+                  "condition": "=turn.emailIdString != null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "lW2x28",
+                        "name": "DeleteEmail"
+                      },
+                      "resultProperty": "dialog.delEmailRes1",
+                      "method": "DELETE",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}&contactIds=${turn.emailIdString}",
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "headers": {
+                        "Authorization": "=concat('Bearer',' ',user.access_token)",
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json"
+                      }
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "EVCBDD"
+                      },
+                      "condition": "=dialog.delEmailRes1.statusCode == 200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "1MRWre"
+                          },
+                          "activity": "${SendActivity_1MRWre()}",
+                          "disabled": true
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "cYriw4"
+                          },
+                          "activity": "${SendActivity_cYriw4()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "zAC0oo"
+                          },
+                          "activity": "${SendActivity_zAC0oo()}"
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "6Zy2KD"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        },
+                        {
+                          "$kind": "Microsoft.EndDialog",
+                          "$designer": {
+                            "id": "IuwQL5"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "zbmPu3"
+                      },
+                      "activity": "${SendActivity_zbmPu3()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "SuxDZX"
+                      },
+                      "activity": "${SendActivity_SuxDZX()}"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "F0p07a"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "0G0Uxt"
+                  },
+                  "activity": "${SendActivity_0G0Uxt()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "SkXAsP"
+                  },
+                  "activity": "${SendActivity_SkXAsP()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "ORfcPR"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.updateSplitNum",
+                      "value": "=split(turn.updatedPhone, '-')[1]"
+                    },
+                    {
+                      "property": "dialog.updateSplitCountry",
+                      "value": "=split(turn.updatedPhone, '-')[0]"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "eYHXnk"
+                  },
+                  "resultProperty": "dialog.postPhoneRes1",
+                  "method": "POST",
+                  "url": "http://localhost:4000/updatePhone",
+                  "headers": {
+                    "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                    "authorization": "=concat('Bearer',' ', user.access_token)",
+                    "session_id": "=user.session_id"
+                  },
+                  "body": {
+                    "contactType": "Phone",
+                    "category": "other",
+                    "deviceType": "MOBILE",
+                    "purpose": "standard",
+                    "countryPhoneExtension": "91",
+                    "number": "=dialog.updateSplitNum",
+                    "freeFlowText": "=dialog.updateSplitNum"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "A2YjEr",
+                    "comment": "calling phone number post api"
+                  },
+                  "resultProperty": "dialog.postPhoneRes1",
+                  "method": "POST",
+                  "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                  "body": {
+                    "contactType": "Phone",
+                    "category": "other",
+                    "deviceType": "MOBILE",
+                    "purpose": "standard",
+                    "countryPhoneExtension": "91",
+                    "number": "=dialog.updateSplitNum",
+                    "freeFlowText": "=dialog.updateSplitNum"
+                  },
+                  "headers": {
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "SAA-session-id": "=user.session_id",
+                    "Content-Type": "application/json"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "bsM4MX"
+                  },
+                  "activity": "${SendActivity_bsM4MX()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "xAkgkm"
+                  },
+                  "condition": "=dialog.postPhoneRes1.statusCode == 200",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "1x5IXE"
+                      },
+                      "activity": "${SendActivity_1x5IXE()}"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "QtSG8X"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "YCEHnm"
+                      }
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "nS2Flg"
+                      },
+                      "condition": "=turn.phoneIdString != null",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.HttpRequest",
+                          "$designer": {
+                            "id": "TRI9ML"
+                          },
+                          "method": "DELETE",
+                          "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}&contactIds=${turn.phoneIdString}",
+                          "resultProperty": "dialog.delPhoneRes1",
+                          "contentType": "application/json",
+                          "responseType": "json",
+                          "headers": {
+                            "Authorization": "=concat('Bearer',' ', user.access_token)",
+                            "SAA-session-id": "=user.session_id",
+                            "Content-Type": "application/json"
+                          }
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "nvnnuC"
+                          },
+                          "condition": "=dialog.delPhoneRes1.statusCode == 200",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "xbWh06"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "Wb0tXr"
+                                  },
+                                  "activity": "${SendActivity_Wb0tXr()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "rEEzvZ"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "5gdwsj"
+                                  },
+                                  "activity": "${SendActivity_5gdwsj()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "9G5D9k"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ]
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "suS4Xp"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "Nu6u62"
+                                  },
+                                  "activity": "${SendActivity_Nu6u62()}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "wjY4y9"
+                                  },
+                                  "activity": "${SendActivity_wjY4y9()}"
+                                }
+                              ]
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "bC6om2"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "5Sruw0"
+                          },
+                          "activity": "${SendActivity_5Sruw0()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "eqLiCL"
+                          },
+                          "activity": "${SendActivity_eqLiCL()}"
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "6YDpID"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        },
+                        {
+                          "$kind": "Microsoft.EndDialog",
+                          "$designer": {
+                            "id": "pghDaL"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "TbscsU"
+              },
+              "condition": "=turn.updatedPhone != null",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "0yW3j8"
+                  },
+                  "activity": "${SendActivity_0yW3j8()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "06XSeP"
+                  },
+                  "condition": "=turn.phoneIdString != null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "ZSNmgW"
+                      },
+                      "assignments": [
+                        {
+                          "property": "dialog.updateSplitNum",
+                          "value": "=split(turn.updatedPhone, '-')[1]"
+                        },
+                        {
+                          "property": "dialog.updateSplitCountry",
+                          "value": "=split(turn.updatedPhone, '-')[0]"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "hIetD7",
+                        "name": "UpdatePhone"
+                      },
+                      "resultProperty": "dialog.postPhoneRes",
+                      "method": "POST",
+                      "url": "http://localhost:4000/updatePhone",
+                      "headers": {
+                        "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                        "authorization": "=concat('Bearer',' ', user.access_token)",
+                        "session_id": "=user.session_id"
+                      },
+                      "body": {
+                        "contactType": "Phone",
+                        "category": "other",
+                        "deviceType": "MOBILE",
+                        "purpose": "standard",
+                        "countryPhoneExtension": "91",
+                        "number": "=dialog.updateSplitNum",
+                        "freeFlowText": "=dialog.updateSplitNum"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json"
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "C00RlU"
+                      },
+                      "resultProperty": "dialog.postPhoneRes",
+                      "method": "POST",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "headers": {
+                        "Authorization": "=concat('Bearer',' ', user.access_token)",
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json"
+                      },
+                      "body": {
+                        "contactType": "Phone",
+                        "category": "other",
+                        "deviceType": "MOBILE",
+                        "purpose": "standard",
+                        "countryPhoneExtension": "91",
+                        "number": "=dialog.updateSplitNum",
+                        "freeFlowText": "=dialog.updateSplitNum"
+                      },
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "MjKNVP"
+                      },
+                      "condition": "=dialog.postPhoneRes.statusCode == 200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.HttpRequest",
+                          "$designer": {
+                            "id": "u1aARH",
+                            "name": "DeletePhone"
+                          },
+                          "resultProperty": "dialog.delPhoneRes",
+                          "method": "DELETE",
+                          "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}&contactIds=${turn.phoneIdString}",
+                          "headers": {
+                            "Authorization": "=concat('Bearer',' ', user.access_token)",
+                            "SAA-session-id": "=user.session_id",
+                            "Content-Type": "application/json"
+                          },
+                          "contentType": "application/json",
+                          "responseType": "json"
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "kkf075"
+                          },
+                          "activity": "${SendActivity_kkf075()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "G4t8dT"
+                          },
+                          "condition": "=dialog.delPhoneRes.statusCode == 200",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "fp9SPy"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "2MKLBY"
+                                  },
+                                  "activity": "${SendActivity_2MKLBY()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "AYaFQk"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "I0z5bP"
+                                  },
+                                  "activity": "${SendActivity_I0z5bP()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "vxI5YQ"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ]
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "qfyD06"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "4vg3gJ"
+                                  },
+                                  "activity": "${SendActivity_4vg3gJ()}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "cSyUGO"
+                                  },
+                                  "activity": "${SendActivity_cSyUGO()}"
+                                }
+                              ]
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "0XaaL7"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "NPrmjE"
+                          },
+                          "activity": "${SendActivity_NPrmjE()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "eJg9zY"
+                          },
+                          "activity": "${SendActivity_eJg9zY()}"
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "PnHzHT"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "0gF0QP"
+                      },
+                      "assignments": [
+                        {
+                          "property": "dialog.updateSplitNum",
+                          "value": "=split(turn.updatedPhone, '-')[1]"
+                        },
+                        {
+                          "property": "dialog.updateSplitCountry",
+                          "value": "=split(turn.updatedPhone, '-')[0]"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "kSdZBQ",
+                        "name": "UpdatePhone"
+                      },
+                      "resultProperty": "dialog.postPhoneRes",
+                      "method": "POST",
+                      "url": "http://localhost:4000/updatePhone",
+                      "headers": {
+                        "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                        "authorization": "=concat('Bearer',' ', user.access_token)",
+                        "session_id": "=user.session_id"
+                      },
+                      "body": {
+                        "contactType": "Phone",
+                        "category": "other",
+                        "deviceType": "MOBILE",
+                        "purpose": "standard",
+                        "countryPhoneExtension": "91",
+                        "number": "=dialog.updateSplitNum",
+                        "freeFlowText": "=dialog.updateSplitNum"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json"
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "ejMx2S"
+                      },
+                      "resultProperty": "dialog.postPhoneRes",
+                      "method": "POST",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "headers": {
+                        "Authorization": "=concat('Bearer',' ', user.access_token)",
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json"
+                      },
+                      "body": {
+                        "contactType": "Phone",
+                        "category": "other",
+                        "deviceType": "MOBILE",
+                        "purpose": "standard",
+                        "countryPhoneExtension": "91",
+                        "number": "=dialog.updateSplitNum",
+                        "freeFlowText": "=dialog.updateSplitNum"
+                      },
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "0JKcJ2"
+                      },
+                      "activity": "${SendActivity_0JKcJ2()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "RXOpv1"
+                      },
+                      "condition": "=dialog.postPhoneRes.statusCode == 200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "JJBz23"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "oqsvzY"
+                              },
+                              "activity": "${SendActivity_oqsvzY()}"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "l55xVZ"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "Kl360E"
+                              },
+                              "activity": "${SendActivity_Kl360E()}"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "bi8jRF"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "khwzng"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "dpDrTV"
+                              },
+                              "activity": "${SendActivity_dpDrTV()}"
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "aiVff1"
+                              },
+                              "activity": "${SendActivity_aiVff1()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "FFwLqv"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "6QWFjg"
+                  },
+                  "activity": "${SendActivity_6QWFjg()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "8Ew68J"
+                  },
+                  "activity": "${SendActivity_8Ew68J()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "3XCSI0"
+                  },
+                  "condition": "=turn.emailIdString != null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "oMKIS4"
+                      },
+                      "activity": "${SendActivity_oMKIS4()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "lM17hX"
+                      },
+                      "resultProperty": "dialog.postEmailRes",
+                      "method": "POST",
+                      "url": "http://localhost:4000/updateEMail",
+                      "body": {
+                        "contactType": "Email",
+                        "category": "other",
+                        "purpose": "standard",
+                        "address": "=turn.updatedEmail"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "headers": {
+                        "authorization": "=concat('Bearer',' ', user.access_token)",
+                        "session_id": "=user.session_id",
+                        "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}"
+                      }
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "lqKpws"
+                      },
+                      "activity": "${SendActivity_lqKpws()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "61tF3Z",
+                        "name": "Update Email API"
+                      },
+                      "resultProperty": "dialog.postEmailRes",
+                      "method": "POST",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                      "headers": {
+                        "Authorization": "=concat('Bearer',' ', user.access_token)",
+                        "SAA-session-id": "=user.session_id"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "body": "[     {     \"contactType\": \"Email\",     \"category\": \"other\",     \"purpose\": \"standard\",     \"address\": \"=turn.updatedEmail\"   } ]",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "KTEiCy"
+                      },
+                      "activity": "${SendActivity_KTEiCy()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "qo09GU"
+                      },
+                      "activity": "${SendActivity_qo09GU()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "hvmcPY"
+                      },
+                      "condition": "=dialog.postEmailRes.statusCode == 200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "yamtfS"
+                          },
+                          "activity": "${SendActivity_yamtfS()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.HttpRequest",
+                          "$designer": {
+                            "id": "Cxbjmc",
+                            "name": "DeleteEmail API"
+                          },
+                          "resultProperty": "dialog.delEmailRes",
+                          "method": "DELETE",
+                          "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}&contactIds=${turn.emailIdString}",
+                          "headers": {
+                            "Authorization": "=concat('Bearer',' ', user.access_token)",
+                            "SAA-session-id": "=user.session_id"
+                          },
+                          "contentType": "application/json",
+                          "responseType": "json"
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "tnzl7x"
+                          },
+                          "activity": "${SendActivity_tnzl7x()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "U0cbEe"
+                          },
+                          "condition": "=dialog.delEmailRes.statusCode == 200",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "TLmC4n"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "QLW8gN"
+                                  },
+                                  "activity": "${SendActivity_QLW8gN()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "7FHkeH"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ],
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "2kGflA"
+                                  },
+                                  "activity": "${SendActivity_2kGflA()}"
+                                },
+                                {
+                                  "$kind": "Microsoft.BeginDialog",
+                                  "$designer": {
+                                    "id": "85KAor"
+                                  },
+                                  "activityProcessed": true,
+                                  "dialog": "FollowUp"
+                                }
+                              ]
+                            }
+                          ],
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "c8p3QK"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "EVJwF3"
+                                  },
+                                  "activity": "${SendActivity_EVJwF3()}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "JmD8zL"
+                                  },
+                                  "activity": "${SendActivity_JmD8zL()}"
+                                }
+                              ]
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "Na1kP1"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "jB3Yho"
+                          },
+                          "activity": "${SendActivity_jB3Yho()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "SMpI5y"
+                          },
+                          "activity": "${SendActivity_SMpI5y()}"
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "HIUDeS"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "I5Fa0y"
+                      },
+                      "activity": "${SendActivity_I5Fa0y()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "aFyI7Z",
+                        "name": "UpdateEmailAPI"
+                      },
+                      "resultProperty": "dialog.postEmailRes",
+                      "method": "POST",
+                      "url": "http://localhost:4000/updateEMail",
+                      "body": {
+                        "contactType": "Email",
+                        "category": "other",
+                        "purpose": "standard",
+                        "address": "=turn.updatedEmail"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "headers": {
+                        "authorization": "=concat('Bearer',' ', user.access_token)",
+                        "session_id": "=user.session_id",
+                        "updateurl": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}"
+                      }
+                    },
+                    {
+                      "$kind": "Microsoft.HttpRequest",
+                      "$designer": {
+                        "id": "Uqn5Ik"
+                      },
+                      "resultProperty": "dialog.postEmailRes",
+                      "method": "POST",
+                      "url": "${user.baseURL}/purchase/orders/${user.pnr}/contacts?lastName=${user.lastName}&useTest=true&lang=en&guestOfficeId=${user.guest_officeID}",
+                      "headers": {
+                        "Authorization": "=concat('Bearer',' ', user.access_token)",
+                        "SAA-session-id": "=user.session_id",
+                        "Content-Type": "application/json"
+                      },
+                      "contentType": "application/json",
+                      "responseType": "json",
+                      "body": {
+                        "contactType": "Email",
+                        "category": "other",
+                        "purpose": "standard",
+                        "address": "=turn.updatedEmail"
+                      },
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "7PUzTh"
+                      },
+                      "activity": "${SendActivity_7PUzTh()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "WDQ1n8"
+                      },
+                      "condition": "=dialog.postEmailRes.statusCode == 200",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "hmu5Xf"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "cvCeYj"
+                              },
+                              "activity": "${SendActivity_cvCeYj()}"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "y3jHca"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "rnmGfM"
+                              },
+                              "activity": "${SendActivity_rnmGfM()}"
+                            },
+                            {
+                              "$kind": "Microsoft.BeginDialog",
+                              "$designer": {
+                                "id": "kmnRnI"
+                              },
+                              "activityProcessed": true,
+                              "dialog": "FollowUp"
+                            }
+                          ]
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "DP0UZO"
+                          },
+                          "condition": "=user.lanuage_selected == \"English\"",
+                          "elseActions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "xmvNfF"
+                              },
+                              "activity": "${SendActivity_xmvNfF()}"
+                            }
+                          ],
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.SendActivity",
+                              "$designer": {
+                                "id": "r3DYyN"
+                              },
+                              "activity": "${SendActivity_r3DYyN()}"
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.BeginDialog",
+                          "$designer": {
+                            "id": "rAythW"
+                          },
+                          "activityProcessed": true,
+                          "dialog": "FollowUp"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "Update_Email_Dialog.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "Update_Email_Dialog"
+}

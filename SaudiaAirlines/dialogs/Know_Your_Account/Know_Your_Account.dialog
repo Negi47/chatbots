@@ -1,0 +1,1305 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "VJxu84",
+    "name": "Know_Your_Account",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "7iDEOl"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "VrGnUl"
+          },
+          "assignments": [
+            {
+              "property": "user.phone_number",
+              "value": "\"\""
+            },
+            {
+              "property": "user.no_of_accounts",
+              "value": "\"\""
+            },
+            {
+              "property": "user.account_info",
+              "value": "\"\""
+            },
+            {
+              "property": "user.v_token",
+              "value": "\"\""
+            },
+            {
+              "property": "user.alfursan_id",
+              "value": "\"\""
+            },
+            {
+              "property": "user.api_response_email",
+              "value": "\"\""
+            },
+            {
+              "property": "user.no_match_found"
+            },
+            {
+              "property": "user.match_found"
+            },
+            {
+              "property": "user.trycount",
+              "value": 0
+            },
+            {
+              "property": "user.email_id",
+              "value": "\"\""
+            },
+            {
+              "property": "user.try_count_email",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "wZx91J"
+          },
+          "condition": "=user.Login != true",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "YyCYDZ"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "VaQrCv"
+                  },
+                  "activity": "${Ask_Activity_vxyGke()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "65iEu6"
+                  },
+                  "activity": "${Ask_Activity_65iEu6()}"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "hKUNay",
+                "name": "To Fetch Frequent Flyer Profile [AccountNo]"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${user.baseURL}/frequent-flyer/profile",
+              "body": {
+                "jwtToken": "=user.jwtToken"
+              },
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Authorization": "=user.access_token"
+              },
+              "responseType": "json",
+              "contentType": "application/json"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "gbZfwK"
+              },
+              "activity": "${SendActivity_gbZfwK()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "AdVUlM"
+              },
+              "assignments": [
+                {
+                  "property": "user.no_of_accounts",
+                  "value": "=turn.results.content.data.profiles"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "mDKTnC"
+              },
+              "condition": "=count(turn.results.content.data.profiles)<=1",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "RrMGBB"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "OoklSL"
+                      },
+                      "activity": "${SendActivity_OoklSL()}"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "GJZxrS"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "nwFndb"
+                      },
+                      "activity": "${SendActivity_nwFndb()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "sdOEQt",
+        "name": "Vaild Phone number"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "abBf7N"
+          },
+          "activity": "${SendActivity_abBf7N()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "t39VMj"
+          },
+          "property": "user.phone_number",
+          "value": "=turn.activity.value.mobile_number"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "Ejjk2K"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${user.baseURL}/customer//accounts-search",
+          "body": {
+            "searchType": "mobile",
+            "value": "=user.phone_number"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SwitchCondition",
+          "$designer": {
+            "id": "HTjH4a"
+          },
+          "condition": "=turn.results.statusCode",
+          "cases": [
+            {
+              "value": "201",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "nwIUme"
+                  },
+                  "condition": "=count(turn.results.content.data.results)>0",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "Jv9N3f"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.no_of_accounts",
+                          "value": "=count(turn.results.content.data.results)"
+                        },
+                        {
+                          "property": "user.account_info",
+                          "value": "=turn.results.content.data.results"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "bMzLun"
+                      },
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "dQdeoN"
+                          },
+                          "activity": "${Ask_Activity_dQdeoN()}"
+                        }
+                      ],
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "fuGKJ0"
+                          },
+                          "activity": "${Ask_Activity_DjZrbz()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "PjgudN"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "mY5cBn"
+                          },
+                          "activity": "${SendActivity_mY5cBn()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "SvdU09"
+                          },
+                          "activity": "${SendActivity_SvdU09()}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "value": "500",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "PvSW3O"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "A00kuA"
+                      },
+                      "activity": "${SendActivity_A00kuA()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "cbxmLb"
+                      },
+                      "activity": "${SendActivity_cbxmLb()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "xDb5np"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            },
+            {
+              "value": "400",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "B75pUQ"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Dcn6EJ"
+                      },
+                      "activity": "${SendActivity_Dcn6EJ()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "ny61Aq"
+                      },
+                      "activity": "${SendActivity_ny61Aq()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "JcCzvd"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btnValue==\"submit\""
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "SeLeVt",
+        "name": "Proceed to Verify OTP"
+      },
+      "condition": "=turn.activity.value.btnValue==\"proceed\"||turn.activity.value.btnValue==\"proceed_otp_again\"||turn.activity.value.btnValue==\"try-again\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "lNW7dN"
+          },
+          "assignments": [
+            {
+              "property": "dialog.retry_otp",
+              "value": false
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "c7NLVP"
+          },
+          "condition": "=turn.activity.value.btnValue==\"proceed_otp_again\"",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "ByyFZI"
+              },
+              "condition": "=turn.activity.value.btnValue==\"try-again\"",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "2JbEmX"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "POST",
+                  "url": "${user.baseURL}/customer/virtual-agent/otp/sendOtp",
+                  "body": {
+                    "getOtpBy": "phoneNumber",
+                    "value": "=user.phone_number"
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "x-api-version": "1"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "4E2UUn"
+                  },
+                  "property": "user.v_token",
+                  "value": "=turn.results.content.data.vToken"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "Ljq0bF"
+                  },
+                  "activity": "${SendActivity_Ljq0bF()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "dxpZhO"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "cug3sf"
+                      },
+                      "activity": "${Ask_Activity_mt25Mq()}"
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "ks3Txq"
+                      },
+                      "activity": "${Ask_Activity_0KIGWx()}"
+                    }
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "Ce85CD"
+                  },
+                  "assignments": [
+                    {
+                      "value": "=add(user.try_count_email, 1)",
+                      "property": "user.try_count_email"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "DjO1uZ"
+                  },
+                  "activity": "${SendActivity_DjO1uZ()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "GExZP2"
+                  },
+                  "condition": "=user.try_count_email <= 2",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "DfV8fR"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "va4fgm"
+                          },
+                          "activity": "${Ask_Activity_MUc9bQ()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "Ur3Y4x"
+                          },
+                          "activity": "${Ask_Activity_Ur3Y4x()}"
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "m1dEjI"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "hlgidG"
+                          },
+                          "activity": "${SendActivity_hlgidG()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "lCQyPJ"
+                          },
+                          "activity": "${SendActivity_lCQyPJ()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "44JKSo"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "ZzHoq5"
+              },
+              "assignments": [
+                {
+                  "value": "=add(user.trycount, 1)",
+                  "property": "user.trycount"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "lvO6R0"
+              },
+              "condition": "=user.trycount <= 2",
+              "actions": [
+                {
+                  "$kind": "Microsoft.HttpRequest",
+                  "$designer": {
+                    "id": "1gGetf"
+                  },
+                  "resultProperty": "turn.results",
+                  "method": "POST",
+                  "url": "${user.baseURL}/customer/virtual-agent/otp/sendOtp",
+                  "body": {
+                    "getOtpBy": "phoneNumber",
+                    "value": "=user.phone_number"
+                  },
+                  "headers": {
+                    "SAA-session-id": "=user.session_id",
+                    "Authorization": "=concat('Bearer',' ', user.access_token)",
+                    "x-api-version": "1"
+                  },
+                  "contentType": "application/json",
+                  "responseType": "json"
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "6btf6S"
+                  },
+                  "property": "user.v_token",
+                  "value": "=turn.results.content.data.vToken"
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "C4wuPl"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "XDsMs4"
+                      },
+                      "activity": "${Ask_Activity_0KIGWx()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "nkhGSu"
+                      },
+                      "activity": "${Ask_Activity_nkhGSu()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "SW4YIN"
+                  },
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "P3vXkQ"
+                      },
+                      "activity": "${SendActivity_P3vXkQ()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "EzpULI"
+                      },
+                      "activity": "${SendActivity_EzpULI()}"
+                    }
+                  ],
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "9p6mjJ"
+                      },
+                      "activity": "${SendActivity_9p6mjJ()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "cims5k"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "AqA6BE"
+          },
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "unrecognizedPrompt": "",
+          "invalidPrompt": "",
+          "property": "turn.user_entered_otp",
+          "disabled": true
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "Rk5UAO",
+        "name": "More Than Two accounts"
+      },
+      "condition": "=turn.activity.value.btnValue==\"submit_2\"",
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "bwRm7i"
+          },
+          "activity": "${SendActivity_bwRm7i()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "BEHRMA"
+          },
+          "assignments": [
+            {
+              "property": "user.match_found",
+              "value": false
+            },
+            {
+              "property": "user.email_id",
+              "value": "=turn.activity.value.user_entered_email_id"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "FvL8bx"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "user.account_info",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "5LQPDe"
+              },
+              "property": "user.api_response_email",
+              "value": "=dialog.foreach.value.loginIDs.emails"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "eShJPx"
+              },
+              "condition": "=contains(dialog.foreach.value.loginIDs.emails,user.email_id)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "iToz5P"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.alfursan_id",
+                      "value": "=dialog.foreach.value[\"loginIDs\"][\"username\"]"
+                    },
+                    {
+                      "property": "user.match_found",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BreakLoop",
+                  "$designer": {
+                    "id": "ih4VYS"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "AVgatq"
+          },
+          "condition": "=user.match_found== false",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "gyoE16"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "lyCaMN"
+                  },
+                  "activity": "${Ask_Activity_lyCaMN()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "NbRpRQ"
+                  },
+                  "activity": "${SendActivity_NbRpRQ()}",
+                  "disabled": true
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "Eh5g0O"
+                  },
+                  "activity": "${Ask_Activity_Eh5g0O()}"
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "epMNEJ"
+                  },
+                  "activity": "${SendActivity_epMNEJ()}",
+                  "disabled": true
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "dmlnq9"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "G0SIMb"
+                  },
+                  "activity": "${SendActivity_G0SIMb()}"
+                }
+              ],
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "FVjUrV"
+                  },
+                  "activity": "${SendActivity_FVjUrV()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "GNH94R"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "VTECge",
+        "name": "resend otp"
+      },
+      "condition": "=turn.activity.value.btnValue==\"resend-sms-otp\" || turn.activity.value.btnValue=='try-again-otp'",
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Ko3vCa"
+          },
+          "condition": "=dialog.retry_otp",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "QXPEnL"
+              },
+              "activity": "${SendActivity_QXPEnL()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "ztdGsG"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "${user.baseURL}/customer/virtual-agent/otp/sendOtp",
+              "body": {
+                "getOtpBy": "phoneNumber",
+                "value": "=user.phone_number"
+              },
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "x-api-version": "1"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.SetProperty",
+              "$designer": {
+                "id": "i9h564"
+              },
+              "property": "user.v_token",
+              "value": "=turn.results.content.data.vToken"
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "5IZn8E"
+              },
+              "assignments": [
+                {
+                  "value": "=add(user.trycount, 1)",
+                  "property": "user.trycount"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "oZxfJ3"
+              },
+              "activity": "${SendActivity_oZxfJ3()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "6gYNie"
+              },
+              "condition": "=user.trycount <= 2",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "0uuraG"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "oHoofz"
+                      },
+                      "activity": "${Ask_Activity_I0Z0Ii()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "KGTong"
+                      },
+                      "activity": "${Ask_Activity_2wPYzR()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "0teTXf"
+                      },
+                      "activity": "${Ask_Activity_0teTXf()}"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "Ki8qPM"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "9SdqMd"
+                      },
+                      "activity": "${SendActivity_9SdqMd()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "dsDQlF"
+                      },
+                      "activity": "${SendActivity_dsDQlF()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "Zbxbv2"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "m58VDx"
+              },
+              "activity": "${SendActivity_m58VDx()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "J4DC9B"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "wQPhkE"
+                  },
+                  "activity": "${Ask_Activity_I0Z0Ii()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "URsDGi"
+                  },
+                  "activity": "${Ask_Activity_2wPYzR()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "r8KfnJ"
+                  },
+                  "activity": "${Ask_Activity_r8KfnJ()}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "d9isEZ",
+        "name": "OTP-recieve"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SetProperty",
+          "$designer": {
+            "id": "1TLA4q"
+          },
+          "property": "turn.user_entered_otp",
+          "value": "=turn.activity.value.otp"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "NdUpcN"
+          },
+          "activity": "${SendActivity_NdUpcN()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "OQYOj1"
+          },
+          "resultProperty": "turn.results",
+          "method": "POST",
+          "url": "${user.baseURL}/customer/virtual-agent/otp/login",
+          "body": {
+            "vToken": "=user.v_token",
+            "code": "=turn.user_entered_otp"
+          },
+          "headers": {
+            "SAA-session-id": "=user.session_id",
+            "Authorization": "=concat('Bearer',' ', user.access_token)"
+          },
+          "contentType": "application/json",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "PsAeG3"
+          },
+          "activity": "${SendActivity_PsAeG3()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "vQ3hrd"
+          },
+          "condition": "=turn.results.statusCode == 201 && contains(turn.results.content, 'data') && contains(turn.results.content.data,'verified')",
+          "actions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "535G51"
+              },
+              "assignments": [
+                {
+                  "property": "dialog.retry_otp",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "HokirE"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "db9Am8"
+                  },
+                  "activity": "${SendActivity_db9Am8()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "zxJwdT"
+                  },
+                  "activity": "${SendActivity_zxJwdT()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "w2DJ4p"
+              },
+              "condition": "=user.no_of_accounts==1",
+              "actions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "MnGe19"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "MPeUow"
+                      },
+                      "activity": "${SendActivity_MPeUow()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "n0A9Il"
+                      },
+                      "activity": "${SendActivity_n0A9Il()}"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "98Umjh"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "MWaBLd"
+                  },
+                  "condition": "=user.lanuage_selected == \"English\"",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "ZQV1oG"
+                      },
+                      "activity": "${Ask_Activity_RJR8S5()}"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.Ask",
+                      "$designer": {
+                        "id": "SDFqDD"
+                      },
+                      "activity": "${Ask_Activity_SDFqDD()}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "2Y7shJ"
+              },
+              "assignments": [
+                {
+                  "property": "dialog.retry_otp",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "nMhwXA"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "AVlGxY"
+                  },
+                  "activity": "${Ask_Activity_0363jO()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "YEAk4w"
+                  },
+                  "activity": "${Ask_Activity_YEAk4w()}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btnValue==\"otp-recieve\""
+    }
+  ],
+  "generator": "Know_Your_Account.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "Know_Your_Account"
+}

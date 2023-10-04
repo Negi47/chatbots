@@ -1,0 +1,93 @@
+[import](common.lg)
+
+# SendActivity_UVRo01()
+[Activity
+    Text = ${SendActivity_UVRo01_text()}
+]
+
+# SendActivity_UVRo01_text()
+- came here
+# SendActivity_RKUEB3()
+[Activity
+    Text = ${SendActivity_RKUEB3_text()}
+]
+
+# SendActivity_RKUEB3_text()
+- came insied ${user.loggedoption}
+# SendActivity_oZ3IU0()
+[Activity
+    Text = ${SendActivity_oZ3IU0_text()}
+]
+
+# SendActivity_oZ3IU0_text()
+- CLU intent identified -- ${user.CLUIntent}
+# SendActivity_xRx7vJ()
+[Activity
+    Text = ${SendActivity_xRx7vJ_text()}
+]
+
+# SendActivity_xRx7vJ_text()
+- ${turn.results}
+# SendActivity_DidNotUnderstand_text()
+- I can understand English and Arabic, please enter a valid input to serve and guide you better. Please rephase
+- I am not sure I understand. Let us try again. Please write your inquiry or request.
+- Thank you for chatting with us. Feel free to come back anytime you are ready with your inquiry.
+# SendActivity_3KU4RH()
+[Activity
+    Text = ${SendActivity_3KU4RH_text()}
+]
+
+# SendActivity_3KU4RH_text()
+- Is there anything else i can help you with?
+
+
+# SendActivity_5NIig2_text()
+- user said no
+# SendActivity_5NIig2()
+[Activity
+    Text = ${SendActivity_5NIig2_text()}
+]
+
+# Ask_Activity_JiJKop()
+[Activity
+    Text = ${Ask_Activity_JiJKop_text()}
+]
+
+# Ask_Activity_JiJKop_text()
+- I am not sure i understand what you said. Could you please try again?
+# ConfirmInput_Prompt_I5uMHa_text()
+- Alright! You would like to ${getProperty(user.intentOptions, user.CLUIntent)}. Would you like me to proceed?
+# ConfirmInput_Prompt_I5uMHa()
+[Activity
+    Text = ${ConfirmInput_Prompt_I5uMHa_text()}
+]
+
+# ConfirmInput_Prompt_trXID4()
+[Activity
+    Attachments = ${json(ConfirmInput_Prompt_trXID4_attachment_tg4GTD())}
+]
+
+# ConfirmInput_Prompt_trXID4_attachment_tg4GTD()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "حسناً!  ترغب إذاً  ${getProperty(user.intentOptionSA, user.CLUIntent)}. هل تريد المتابعة؟",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_M7GLxs()
+[Activity
+    Text = ${SendActivity_M7GLxs_text()}
+]
+
+# SendActivity_M7GLxs_text()
+- ${getProperty(user.intentOptionSA, user.CLUIntent)}

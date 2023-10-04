@@ -1,0 +1,332 @@
+[import](common.lg)
+
+# Ask_Activity_fuhbz8()
+[Activity
+    Attachments = ${json(Ask_Activity_fuhbz8_attachment_wt3viO())}
+]
+
+# Ask_Activity_fuhbz8_attachment_wt3viO()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_WkpjHr_text()
+- Add Extra Baggage
+# SendActivity_WkpjHr()
+[Activity
+    Text = ${SendActivity_WkpjHr_text()}
+]
+
+# SendActivity_TupmMR_text()
+- Add Extra Baggage
+# SendActivity_TupmMR()
+[Activity
+    Text = ${SendActivity_TupmMR_text()}
+]
+
+# SendActivity_nNWWaw_text()
+- came here
+# SendActivity_nNWWaw()
+[Activity
+    Text = ${SendActivity_nNWWaw_text()}
+]
+
+# SendActivity_fBal2N()
+[Activity
+    Text = ${SendActivity_fBal2N_text()}
+]
+
+# SendActivity_fBal2N_text()
+- came to logged add baggage
+# SendActivity_QojOEQ()
+[Activity
+    Text = ${SendActivity_QojOEQ_text()}
+]
+
+# SendActivity_QojOEQ_text()
+- frist time
+# SendActivity_6l2l1C_attachment_L3Ovlg()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 I can help you with that. Click below to add extra baggage. 🛄",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Add baggage ↗",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_6l2l1C()
+[Activity
+    Attachments = ${json(SendActivity_6l2l1C_attachment_L3Ovlg())}
+]
+
+# SendActivity_oD65nG_attachment_vap5LX()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 يمكنني مساعدتك. اضغط أدناه لإضافة الأمتعة الإضافية. 🛄",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "إضافة الأمتعة ↖",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_oD65nG()
+[Activity
+    Attachments = ${json(SendActivity_oD65nG_attachment_vap5LX())}
+]
+
+# SendActivity_g2qX2o_attachment_L3Ovlg()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 I can help you with that. Click below to add extra baggage. 🛄",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Add baggage ↗",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_g2qX2o()
+[Activity
+    Attachments = ${json(SendActivity_g2qX2o_attachment_L3Ovlg())}
+]
+
+# SendActivity_BbDmxd_text()
+- end of the add extra baggge
+# SendActivity_BbDmxd()
+[Activity
+    Text = ${SendActivity_BbDmxd_text()}
+]
+
+# SendActivity_Kd87rD_attachment_vap5LX()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "💡 يمكنني مساعدتك. اضغط أدناه لإضافة الأمتعة الإضافية. 🛄",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "إضافة الأمتعة ↖",
+            "url": "${user.baseWebLink}/managemybooking/addMoreTripSummaryPage?authenticated=true&pnr=${user.pnr}&lastname=${user.lastName}"
+        }
+    ]
+}```
+# SendActivity_Kd87rD()
+[Activity
+    Attachments = ${json(SendActivity_Kd87rD_attachment_vap5LX())}
+]
+
+# SendActivity_anP4FD_text()
+- ```Oops! Your flight is departing soon. ✈️
+You won’t be able to add extra baggage now. 😕```
+# SendActivity_anP4FD()
+[Activity
+    Text = ${SendActivity_anP4FD_text()}
+]
+
+# SendActivity_IWU7PO()
+[Activity
+    Attachments = ${json(SendActivity_IWU7PO_attachment_GB7sMd())}
+]
+
+# SendActivity_IWU7PO_attachment_GB7sMd()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! ستغادر رحلتك قريباً. ✈️",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لا يمكنك إضافة أمتعة إضافية الآن. 😕",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_TmhXYk_text()
+- ```Oops! Your flight is departing soon. ✈️
+You won’t be able to add extra baggage now. 😕```
+# SendActivity_TmhXYk()
+[Activity
+    Text = ${SendActivity_TmhXYk_text()}
+]
+
+# SendActivity_nxBDAa()
+[Activity
+    Attachments = ${json(SendActivity_nxBDAa_attachment_3U0wHO())}
+]
+
+# SendActivity_nxBDAa_attachment_3U0wHO()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! ستغادر رحلتك قريباً. ✈️",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "لا يمكنك إضافة أمتعة إضافية الآن. 😕",
+      "wrap": true
+    }
+  ]
+}```
+# Ask_Activity_OUasqC()
+[Activity
+    Attachments = ${json(Ask_Activity_OUasqC_attachment_r91opI())}
+]
+
+# Ask_Activity_OUasqC_attachment_r91opI()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```

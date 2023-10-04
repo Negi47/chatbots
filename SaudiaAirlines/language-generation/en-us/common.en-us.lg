@@ -1,0 +1,183 @@
+# APIBodyTemplate()
+-```
+{
+  "userinfo": {
+    "username": "${user.username}",
+    "name": "${user.personalname}",
+    "favoritecolor": "${user.favcolor}",
+    "profileupdated":"${dialog.userprofileuptodate}"
+  }
+}```
+
+# dataList()
+- ${
+[
+{"title": "xxx1", "subTitle": "yyy1", "text": "zzz1", "buttons": ["a1", "b1"]},
+{"title": "xxx2", "subTitle": "yyy2", "text": "zzz2", "buttons": ["a2", "b2"]},
+{"title": "xxx3", "subTitle": "yyy3", "text": "zzz3", "buttons": ["a3", "b3"]}
+]
+}
+# heroCards()
+-${foreach(dataList(), dataList, herocardTemplate(dataList.title, dataList.subTitle, dataList.text, dataList.buttons))}
+
+# cardActionTemplate(  title, value)
+[CardAction
+    Types = "my passenger1"
+    Title = ${title}
+    Value = "my pass 2"
+    Text = "my pass"
+] 
+
+# herocardTemplate(title, subTitle, text, buttons)
+[HeroCard
+    title=${coalesce(title, "")}
+    subtitle=${coalesce(subTitle, "")}
+    text=${coalesce(text, "")}
+    buttons=${cardActionTemplate( 'click me', 'click me intent' )}
+]
+
+># SendActivity_oaXojE()
+>[Activity
+>    Attachments = ${heroCards()}
+>    AttachmentLayout = carousel
+>]
+
+># SendActivity_oaXojE_attachment_iSTmfP()
+>- ${heroCards(dataList)}
+
+# LinkButtonTemplateEN(buttonText)
+-```{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "id": "linkButton",
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${buttonText}",
+                            "wrap": true,
+                            "color": "Good"
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "verticalContentAlignment": "Center",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "width": "7px",
+                            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAaCAYAAABozQZiAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADOSURBVHgBxdTBDYIwFAbgv2UBBjCGEbx7gQ3cQFdwAnETncAR9KJeZQMTF+DoQcSWNhJSoO/1wkseocD394VDgakqaq55GiOd35HN3ri8CjrWEN+zul8AcqUCntQAqTq2baqODtgv1xQs7NiJ3T1p31Qb7K5HPw4MEJ0VM0A4TxgBLmYE9GNiwDAmBIxjT4AfjwRIhFWJui5Cxi6BT4b89uD+sD/UCxEKhzEB9mMidDEDdjETtjgAGhwIdUnzcdMsaHY2Y6sDsDqp3lKhrh9nmZJ4s/N8XgAAAABJRU5ErkJggg==",
+                            "separator": true,
+                            "selectAction": {
+                                "type": "Action.Submit",
+                                "id": "${buttonText}",
+                                "title": "${buttonText}",
+                                "tooltip": "${buttonText}",
+                                "data": "${buttonText}"
+                            },
+                            "horizontalAlignment": "Left",
+                            "height": "12px"
+                        }
+                    ]
+                }
+            ],
+            "separator": true,
+            "selectAction": {
+                "type": "Action.Submit",
+                "id": "${buttonText}",
+                "title": "${buttonText}",
+                "tooltip": "${buttonText}",
+                "data": "${buttonText}"
+            },
+            "horizontalAlignment": "Left"
+        }
+    ]
+}```
+
+# LinkButtonTemplateAR(buttonText)
+-```{
+    "type": "AdaptiveCard",
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "id": "linkButton_ar",
+    "rtl": true,
+    "body": [
+        {
+            "type": "ColumnSet",
+            "columns": [
+                {
+                    "type": "Column",
+                    "width": "stretch",
+                    "items": [
+                        {
+                            "type": "TextBlock",
+                            "text": "${buttonText}",
+                            "wrap": true,
+                            "color": "Good"
+                        }
+                    ],
+                    "verticalContentAlignment": "Center"
+                },
+                {
+                    "type": "Column",
+                    "width": "auto",
+                    "verticalContentAlignment": "Center",
+                    "items": [
+                        {
+                            "type": "Image",
+                            "width": "7px",
+                            "url": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAaCAYAAABozQZiAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADiSURBVHgBxZS9DcIwEIWfkwUoKfgJGzCC0zEGjJANPAotFSNghERL2ADBAilpgrHBSojiJGc3PMnS2fL37OLuAf9S7HVb8AR8dkE6KSAfV+YF4nXQVfLZs3IdBYFGKmLDL7tAqA3EactCQVOxULAbJoBumAi2YQ+wCXuCNRwAfuFA0Mh0WGHXj6Wag6AY8vYEX+z0ayu9H1uaI50C8n7sh40CDeqRDDBozrOnQTsMPAzcSUI06I4hgkF/hg0Y0DJM8JHtwmV1plRGzDCpOzBKdZXbk0IHoKSnZ/WDcq9XBnHO30ANmArvRW6lAAAAAElFTkSuQmCC",
+                            "separator": true,
+                            "selectAction": {
+                                "type": "Action.Submit",
+                                "id": "${buttonText}",
+                                "title": "${buttonText}",
+                                "tooltip": "${buttonText}",
+                                "data": "${buttonText}"
+                            },
+                            "horizontalAlignment": "Left",
+                            "height": "12px"
+                        }
+                    ]
+                }
+            ],
+            "separator": true,
+            "selectAction": {
+                "type": "Action.Submit",
+                "id": "${buttonText}",
+                "title": "${buttonText}",
+                "tooltip": "${buttonText}",
+                "data": "${buttonText}"
+            },
+            "horizontalAlignment": "Left"
+        }
+    ]
+}```
+
+# RTLText(arabicText)
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "${arabicText}",
+            "wrap": true
+        }
+    ]
+}```

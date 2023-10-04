@@ -1,0 +1,228 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "R00y2t",
+    "name": "FollowUp",
+    "comment": "Follow Up "
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "OxNkt9"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "wKq2uM"
+          },
+          "condition": "=user.lanuage_selected==\"English\"",
+          "actions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "IyOpHq"
+              },
+              "defaultLocale": "en-us",
+              "maxTurnCount": 0,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "prompt": "${ChoiceInput_Prompt_IyOpHq()}",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "turn.user_reprompt",
+              "choices": [
+                "Yes",
+                "No"
+              ],
+              "style": "suggestedAction",
+              "recognizerOptions": {
+                "recognizeOrdinals": true,
+                "recognizeNumbers": true
+              }
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "SM4e0F"
+              },
+              "assignments": [
+                {
+                  "property": "user.loggedoption",
+                  "value": "=\"\""
+                },
+                {
+                  "property": "user.contactData",
+                  "value": "=[]"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "aTZhcG"
+              },
+              "activity": "${SendActivity_aTZhcG()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "ntTN9k"
+              },
+              "condition": "turn.user_reprompt",
+              "cases": [
+                {
+                  "value": "Yes",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.ReplaceDialog",
+                      "$designer": {
+                        "id": "gPB1mv"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "MainMenu"
+                    }
+                  ]
+                },
+                {
+                  "value": "No",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "kdhiMz"
+                      },
+                      "activity": "${SendActivity_kdhiMz()}"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.ReplaceDialog",
+                  "$designer": {
+                    "id": "NCCpHR"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CommonIdentifyFlow"
+                }
+              ]
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.ChoiceInput",
+              "$designer": {
+                "id": "ODdF3v"
+              },
+              "defaultLocale": "en-us",
+              "disabled": false,
+              "maxTurnCount": 0,
+              "alwaysPrompt": false,
+              "allowInterruptions": false,
+              "unrecognizedPrompt": "",
+              "invalidPrompt": "",
+              "prompt": "${ChoiceInput_Prompt_ODdF3v()}",
+              "choiceOptions": {
+                "includeNumbers": true,
+                "inlineOrMore": ", or ",
+                "inlineOr": " or ",
+                "inlineSeparator": ", "
+              },
+              "property": "turn.user_reprompt",
+              "style": "suggestedAction",
+              "choices": [
+                "نعم",
+                "لا"
+              ],
+              "recognizerOptions": {
+                "recognizeOrdinals": true
+              }
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "Rv6bkT"
+              },
+              "assignments": [
+                {
+                  "property": "user.loggedoption",
+                  "value": "=\"\""
+                },
+                {
+                  "property": "user.contactData",
+                  "value": "=[]"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "No2ENa"
+              },
+              "condition": "turn.user_reprompt",
+              "cases": [
+                {
+                  "value": "نعم",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.ReplaceDialog",
+                      "$designer": {
+                        "id": "s2X1Kv"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "MainMenu"
+                    }
+                  ]
+                },
+                {
+                  "value": "لا",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "xCfiRP"
+                      },
+                      "activity": "${SendActivity_xCfiRP()}"
+                    }
+                  ]
+                }
+              ],
+              "default": [
+                {
+                  "$kind": "Microsoft.ReplaceDialog",
+                  "$designer": {
+                    "id": "8W6sx3"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "CommonIdentifyFlow"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "FollowUp.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "FollowUp"
+}

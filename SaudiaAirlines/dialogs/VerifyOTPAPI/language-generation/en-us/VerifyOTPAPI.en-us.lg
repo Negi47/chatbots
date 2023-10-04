@@ -1,0 +1,95 @@
+[import](common.lg)
+
+# SendActivity_TiaNa4_text()
+- Can not verify sms otp
+# SendActivity_TiaNa4()
+[Activity
+    Text = ${SendActivity_TiaNa4_text()}
+]
+
+# SendActivity_UhhQJv_text()
+- otp entered => ${user.emailOTP}
+# SendActivity_UhhQJv()
+[Activity
+    Text = ${SendActivity_UhhQJv_text()}
+]
+
+# SendActivity_FpX4Xz_text()
+- ```${dialog.verifyOtpResults}
+${user.emailverifyOTPCount}```
+# SendActivity_FpX4Xz()
+[Activity
+    Text = ${SendActivity_FpX4Xz_text()}
+]
+
+# SendActivity_JBRbvB_text()
+- Otp success
+# SendActivity_JBRbvB()
+[Activity
+    Text = ${SendActivity_JBRbvB_text()}
+]
+
+# SendActivity_faUQrd_text()
+- COUNT ---> ${user.emailverifyOTPCount}
+# SendActivity_faUQrd()
+[Activity
+    Text = ${SendActivity_faUQrd_text()}
+]
+
+# SendActivity_kBYDlv_text()
+- COUNT ---> ${user.smsverifyOTPCount}
+# SendActivity_kBYDlv()
+[Activity
+    Text = ${SendActivity_kBYDlv_text()}
+]
+
+# SendActivity_wRVC9J()
+[Activity
+    Text = ${SendActivity_wRVC9J_text()}
+]
+
+# SendActivity_wRVC9J_text()
+- Response ---> ${user.verifyflow}
+# SendActivity_JKYhax_text()
+- Uh-Oh!😥You have exceeded the maximum number of attempts.
+# SendActivity_JKYhax()
+[Activity
+    Text = ${SendActivity_JKYhax_text()}
+]
+
+# SendActivity_3Uks1w()
+[Activity
+    Text = ${SendActivity_3Uks1w_text()}
+]
+
+# SendActivity_3Uks1w_text()
+- عفواً!😥لقد تخطيت الحد الأقصى للمحاولات.
+# SendActivity_C6TnwQ_text()
+- Uh-Oh!😥You have exceeded the maximum number of attempts.
+# SendActivity_C6TnwQ()
+[Activity
+    Text = ${SendActivity_C6TnwQ_text()}
+]
+
+# SendActivity_9FKhh2()
+[Activity
+    Attachments = ${json(SendActivity_9FKhh2_attachment_XPHLxz())}
+]
+
+# SendActivity_9FKhh2_attachment_XPHLxz()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "medium",
+          "text": "اه-أوه!😥لقد تجاوزت الحد الأقصى لعدد المحاولات."
+      }
+    ],
+    "actions": []
+  }```

@@ -1,0 +1,648 @@
+[import](common.lg)
+
+# Ask_Activity_gUClEw()
+[Activity
+    Attachments = ${json(Ask_Activity_gUClEw_attachment_aHaF8n())}
+]
+
+# Ask_Activity_gUClEw_attachment_aHaF8n()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+          "type": "TextBlock",
+          "text": "Select the frequent flyer program.",
+          "isSubtle": true,
+          "size": "Medium",
+          "weight": "Bolder"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "CompactSelectVal",
+          "label": "",
+          "errorMessage": "This is a required input",
+          "placeholder": "Select",
+          "isMultiSelect": false,
+          "choices": [
+              {
+                  "title": "Alfursan Miles - SV",
+                  "value": "SV"
+              },
+              {
+                  "title": "Aeromexico - AM",
+                  "value": "AM"
+              },
+              {
+                  "title": "Aeroflot - SU",
+                  "value": "SU"
+              },
+              {
+                  "title": "Aerolineas Argentinas - AR",
+                  "value": "AR"
+              },
+              {
+                  "title": "Air Europa - UX",
+                  "value": "UX"
+              },
+              {
+                  "title": "Air France - AF",
+                  "value": "AF"
+              },
+              {
+                  "title": "Alitalia S.P.A. In A.S - AZ",
+                  "value": "AZ"
+              },
+              {
+                  "title": "China Airlines Ltd. - CIF",
+                  "value": "CIF"
+              },
+              {
+                  "title": "China Eastern Airlines - MU",
+                  "value": "MU"
+              },
+              {
+                  "title": "China Southern Sky Pearl club (CZ)",
+                  "value": "CZ"
+              },
+              {
+                  "title": "Czech Airlines - OK",
+                  "value": "OK"
+              },
+              {
+                  "title": "Delta Air Lines - DL",
+                  "value": "DL"
+              },
+              {
+                  "title": "Etihad Airways - EY",
+                  "value": "EY"
+              },
+              {
+                  "title": "Garuda Indonesia - GA",
+                  "value": "GA"
+              },
+              {
+                  "title": "KLM Royal Dutch Airlines - KL",
+                  "value": "KL"
+              },
+              {
+                  "title": "Kenya Airways - KQ",
+                  "value": "KQ"
+              },
+              {
+                  "title": "Korean Air - KE",
+                  "value": "KE"
+              },
+              {
+                  "title": "Middle East Airlines - ME",
+                  "value": "ME"
+              },
+              {
+                  "title": "TAROM - RO",
+                  "value": "RO"
+              },
+              {
+                  "title": "Vietnam Airlines - VN",
+                  "value": "VN"
+              },
+              {
+                  "title": "Xiamen Airlines - MF",
+                  "value": "MF"
+              }
+            ]
+        },
+        {
+          "type": "Input.Text",
+          "id": "ffnumber",
+          "spacing":"medium",
+          "isRequired": false,
+          "regex":"^[0-9]{8,10}$",
+          "errorMessage": "Please enter correct number",
+          "label": "please provide your 8 or 10 digit frequent flyer number below.👇",
+          "style": "tel"
+        }
+    ],
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "Submit",
+            "data": "Submit"
+        }
+    ]
+}```
+
+# SendActivity_tBvaOe()
+[Activity
+    Text = ${SendActivity_tBvaOe_text()}
+]
+
+# SendActivity_tBvaOe_text()
+- ```post response => ${dialog.postFFRes}
+
+${count(dialog.postFFRes.content)}```
+# SendActivity_2DrQOU_text()
+- Click to select the frequent flyer program below. 👇
+# SendActivity_2DrQOU()
+[Activity
+    Text = ${SendActivity_2DrQOU_text()}
+]
+
+# Ask_Activity_Ap38Mf()
+[Activity
+    Attachments = ${json(Ask_Activity_Ap38Mf_attachment_ZX4oek())}
+]
+
+# Ask_Activity_Ap38Mf_attachment_ZX4oek()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "id": "rtl_1",
+    "type": "AdaptiveCard",
+    "body": [
+        {
+          "type": "TextBlock",
+          "text": "اختر برنامج المسافر الدائم.",
+          "isSubtle": true,
+          "size": "Medium",
+          "weight": "Bolder"
+        },
+        {
+          "type": "Input.ChoiceSet",
+          "id": "CompactSelectVal",
+          "style": "compact",
+          "label": " ",
+          "placeholder": "اختيار",
+          "isMultiSelect": false,
+          "value": "SV",
+          "choices": [
+              {
+                  "title": "Alfursan Miles - SV",
+                  "value": "SV"
+              },
+              {
+                  "title": "Aeromexico - AM",
+                  "value": "AM"
+              },
+              {
+                  "title": "Aeroflot - SU",
+                  "value": "SU"
+              },
+              {
+                  "title": "Aerolineas Argentinas - AR",
+                  "value": "AR"
+              },
+              {
+                  "title": "Air Europa - UX",
+                  "value": "UX"
+              },
+              {
+                  "title": "Air France - AF",
+                  "value": "AF"
+              },
+              {
+                  "title": "Alitalia S.P.A. In A.S - AZ",
+                  "value": "AZ"
+              },
+              {
+                  "title": "China Airlines Ltd. - CIF",
+                  "value": "CIF"
+              },
+              {
+                  "title": "China Eastern Airlines - MU",
+                  "value": "MU"
+              },
+              {
+                  "title": "China Southern Sky Pearl club (CZ)",
+                  "value": "CZ"
+              },
+              {
+                  "title": "Czech Airlines - OK",
+                  "value": "OK"
+              },
+              {
+                  "title": "Delta Air Lines - DL",
+                  "value": "DL"
+              },
+              {
+                  "title": "Etihad Airways - EY",
+                  "value": "EY"
+              },
+              {
+                  "title": "Garuda Indonesia - GA",
+                  "value": "GA"
+              },
+              {
+                  "title": "KLM Royal Dutch Airlines - KL",
+                  "value": "KL"
+              },
+              {
+                  "title": "Kenya Airways - KQ",
+                  "value": "KQ"
+              },
+              {
+                  "title": "Korean Air - KE",
+                  "value": "KE"
+              },
+              {
+                  "title": "Middle East Airlines - ME",
+                  "value": "ME"
+              },
+              {
+                  "title": "TAROM - RO",
+                  "value": "RO"
+              },
+              {
+                  "title": "Vietnam Airlines - VN",
+                  "value": "VN"
+              },
+              {
+                  "title": "Xiamen Airlines - MF",
+                  "value": "MF"
+              }
+            ]
+        },
+        {
+          "type": "Input.Text",
+          "id": "ffnumber",
+          "spacing":"medium",
+          "isRequired": false,
+          "regex":"^[0-9]{8,10}$",
+          "errorMessage": "يرجى إدخال رقم المسافر الدائم الصحيح المكون من 8 أو 10 أعداد.",
+          "label": "يرجى إدخال رقم المسافر الدائم المكون من 8 أو 10 أعداد أدناه. 👇 *",
+          "style": "tel"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.Submit",
+            "title": "إرسال ",
+            "data": {
+              "btnvalue": "Submit"
+          }
+        }
+    ]
+}```
+
+# ConfirmInput_Prompt_Ir0tWb_text()
+- Do you want to confirm ${dialog.ffprogram} & ${dialog.ffNumber}?
+# ConfirmInput_Prompt_Ir0tWb()
+[Activity
+    Text = ${ConfirmInput_Prompt_Ir0tWb_text()}
+]
+
+# SendActivity_eGuWut()
+[Activity
+    Text = ${SendActivity_eGuWut_text()}
+]
+
+# SendActivity_eGuWut_text()
+- came inside true block
+# Ask_Activity_I5B2g5()
+[Activity
+    Attachments = ${json(Ask_Activity_I5B2g5_attachment_Js0jHS())}
+]
+
+# Ask_Activity_I5B2g5_attachment_Js0jHS()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "Select the frequent flyer program.",
+      "isSubtle": true,
+      "size": "Medium",
+      "weight": "Bolder"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "CompactSelectVal",
+      "style": "compact",
+      "label": " ",
+      "placeholder": "Select",
+      "isMultiSelect": false,
+      "value": "SV",
+      "choices": [
+        {
+          "title": "Alfursan Miles - SV",
+          "value": "SV"
+      },
+      {
+          "title": "Aeromexico - AM",
+          "value": "AM"
+      },
+      {
+          "title": "Aeroflot - SU",
+          "value": "SU"
+      },
+      {
+          "title": "Aerolineas Argentinas - AR",
+          "value": "AR"
+      },
+      {
+          "title": "Air Europa - UX",
+          "value": "UX"
+      },
+      {
+          "title": "Air France - AF",
+          "value": "AF"
+      },
+      {
+          "title": "Alitalia S.P.A. In A.S - AZ",
+          "value": "AZ"
+      },
+      {
+          "title": "China Airlines Ltd. - CIF",
+          "value": "CIF"
+      },
+      {
+          "title": "China Eastern Airlines - MU",
+          "value": "MU"
+      },
+      {
+          "title": "China Southern Sky Pearl club (CZ)",
+          "value": "CZ"
+      },
+      {
+          "title": "Czech Airlines - OK",
+          "value": "OK"
+      },
+      {
+          "title": "Delta Air Lines - DL",
+          "value": "DL"
+      },
+      {
+          "title": "Etihad Airways - EY",
+          "value": "EY"
+      },
+      {
+          "title": "Garuda Indonesia - GA",
+          "value": "GA"
+      },
+      {
+          "title": "KLM Royal Dutch Airlines - KL",
+          "value": "KL"
+      },
+      {
+          "title": "Kenya Airways - KQ",
+          "value": "KQ"
+      },
+      {
+          "title": "Korean Air - KE",
+          "value": "KE"
+      },
+      {
+          "title": "Middle East Airlines - ME",
+          "value": "ME"
+      },
+      {
+          "title": "TAROM - RO",
+          "value": "RO"
+      },
+      {
+          "title": "Vietnam Airlines - VN",
+          "value": "VN"
+      },
+      {
+          "title": "Xiamen Airlines - MF",
+          "value": "MF"
+      }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "ffnumber",
+      "label": "Please provide your 8 or 10 digit frequent flyer number below.👇",
+      "isRequired": true,
+      "regex":"^[0-9]{8,10}$",
+      "errorMessage": "Please enter a valid 8 or 10 digit frequent flyer number."
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.Submit",
+      "title": "Submit"
+    }
+  ]
+}```
+# SendActivity_vdsNUY()
+[Activity
+    Text = ${SendActivity_vdsNUY_text()}
+]
+
+# SendActivity_vdsNUY_text()
+- Thank you! Your details are now confirmed 😀
+# SendActivity_aHQffW()
+[Activity
+    Attachments = ${json(SendActivity_aHQffW_attachment_hAnYT3())}
+]
+
+# SendActivity_aHQffW_attachment_hAnYT3()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "اضغط أدناه لاختيار برنامج المسافر الدائم. 👇",
+      "wrap": true
+    }
+  ]
+}```
+# ConfirmInput_Prompt_6DIW9q()
+[Activity
+    Attachments = ${json(ConfirmInput_Prompt_6DIW9q_attachment_oZ2VOy())}
+]
+
+# ConfirmInput_Prompt_6DIW9q_attachment_oZ2VOy()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[]
+}```
+# SendActivity_XJ35GR()
+[Activity
+    Attachments = ${json(SendActivity_XJ35GR_attachment_ucKBe9())}
+]
+
+# SendActivity_XJ35GR_attachment_ucKBe9()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.2",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "هل تريد تأكيد ${dialog.ffprogram} و ${dialog.ffNumber} ؟",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_X95xzq_text()
+- Sorry we couldn’t save your details. 😥
+# SendActivity_X95xzq()
+[Activity
+    Text = ${SendActivity_X95xzq_text()}
+]
+
+# SendActivity_Qk9K9D_attachment_HZS1w3()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عفواً، لم نتمكن من حفظ معلوماتك.😥",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_Qk9K9D()
+[Activity
+    Attachments = ${json(SendActivity_Qk9K9D_attachment_HZS1w3())}
+]
+
+# SendActivity_v4t1wV()
+[Activity
+    Text = ${SendActivity_v4t1wV_text()}
+]
+
+# SendActivity_v4t1wV_text()
+- ${dialog.postFFRes.content.data[0].serviceRequests[0].isVerified}
+# SendActivity_8MkHKo_text()
+- Your details have been validated and saved successfully. 😊
+# SendActivity_8MkHKo()
+[Activity
+    Text = ${SendActivity_8MkHKo_text()}
+]
+
+# SendActivity_sQutoz_attachment_PQROts()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "تم تأكيد وحفظ معلوماتك بنجاح. 😊",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_sQutoz()
+[Activity
+    Attachments = ${json(SendActivity_sQutoz_attachment_PQROts())}
+]
+
+# SendActivity_ulQrFl()
+[Activity
+    Text = ${SendActivity_ulQrFl_text()}
+]
+
+# SendActivity_ulQrFl_text()
+- 👇 Oops! We couldn't verify your details, but still added them to the passenger list. 😊
+# SendActivity_VF7ec3()
+[Activity
+    Attachments = ${json(SendActivity_VF7ec3_attachment_CSVbfb())}
+]
+
+# SendActivity_VF7ec3_attachment_CSVbfb()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عفواً! لم نتمكن من التحقق من معلوماتك، ولكن تم إضافتها إلى قائمة المسافرين.😊‎",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_FXG0JZ()
+[Activity
+    Attachments = ${json(SendActivity_FXG0JZ_attachment_aqE3MT())}
+]
+
+# SendActivity_FXG0JZ_attachment_aqE3MT()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "شكراً لك! تم تأكيد معلوماتك.😀",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_SKRO60_text()
+- Oops! We couldn't verify your details as the frequent flyer number was not found.
+# SendActivity_SKRO60()
+[Activity
+    Text = ${SendActivity_SKRO60_text()}
+]
+
+# SendActivity_8ldW26_attachment_CSVbfb()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "عذراً! لم نتمكن من التحقق من معلوماتك لعدم العثور على رقم المسافر الدائم.",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_8ldW26()
+[Activity
+    Attachments = ${json(SendActivity_8ldW26_attachment_CSVbfb())}
+]

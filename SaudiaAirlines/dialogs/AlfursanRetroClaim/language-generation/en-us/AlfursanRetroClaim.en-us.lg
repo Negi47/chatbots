@@ -1,0 +1,862 @@
+[import](common.lg)
+
+# SendActivity_HvtciA()
+[Activity
+    Text = ${SendActivity_HvtciA_text()}
+]
+
+# SendActivity_HvtciA_text()
+- came inside
+# Ask_Activity_WbudII()
+[Activity
+    Attachments = ${json(Ask_Activity_WbudII_attachment_uUmtre())}
+]
+
+# Ask_Activity_WbudII_attachment_uUmtre()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "firstname",
+      "label": "Enter your first name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid first name, for example: Steven"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastname",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr_number",
+      "label": "Enter your booking reference",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"[A-Za-z0-9]{6}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference, for example: 67AXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid 13-digit ticket number, for example: 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Date",
+      "id": "depart_date",
+      "label": "Enter your departure date",
+      "isRequired": true,
+      "errorMessage": "Please enter a valid date, for example: 08/22/2023"
+    },
+    {
+      "type": "Input.Text",
+      "id": "orgin",
+      "label": "Enter your origin",
+      "isRequired": true,
+      "regex":"^[A-Z]+$",
+      "errorMessage": "Please enter a valid orgin, for example: JED"
+    },
+    {
+      "type": "Input.Text",
+      "id": "destination",
+      "label": "Enter your destination",
+      "isRequired": true,
+      "regex":"^[A-Z]+$",
+      "errorMessage": "Please enter a valid destination, for example: RUH"
+    },
+    {
+      "type": "Input.Text",
+      "id": "airline_code",
+      "label": "Enter your airline code",
+      "isRequired": true,
+      "regex":"^[A-Z]{2}$",
+      "errorMessage":  "Please enter a valid airline code, for example: SV"
+    },
+    {
+      "type": "Input.Text",
+      "id": "flight_number",
+      "label": "Enter your flight number",
+      "isRequired": true,
+      "regex":"^[0-9]+$",
+      "errorMessage": "Please enter a valid flight number, for example: 504"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Submit",
+          "data": {
+                "btnvalue": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_RP0cjq()
+[Activity
+    Text = ${SendActivity_RP0cjq_text()}
+]
+
+# SendActivity_RP0cjq_text()
+- came inside message activity
+# SendActivity_cqsaVm_attachment_5wdRRs()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Sure thing! To better assist you, please log into your AlFursan account first. 👇",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Login ↗ ",
+            "url": "${user.baseWebLink}/en-SA"
+        }
+    ]
+}```
+# SendActivity_cqsaVm()
+[Activity
+    Attachments = ${json(SendActivity_cqsaVm_attachment_5wdRRs())}
+]
+
+# SendActivity_lPdApH()
+[Activity
+    Attachments = ${json(SendActivity_lPdApH_attachment_WaAnbF())}
+]
+
+# SendActivity_lPdApH_attachment_WaAnbF()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "id": "rtl_1",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "يرجى تسجيل الدخول باستخدام حساب الفرسان الخاص بك للمتابعة",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "تسجيل الدخول ↖",
+            "url": "${user.baseWebLink}/ar-SA"
+        }
+    ]
+}```
+# Ask_Activity_mzfzxX()
+[Activity
+    Attachments = ${json(Ask_Activity_mzfzxX_attachment_bxy6SB())}
+]
+
+# Ask_Activity_mzfzxX_attachment_bxy6SB()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تعبئة المعلومات أدناه 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "firstname",
+      "label": "أدخل اسمك الأول",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم أول صحيح، مثال: Steven"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastname",
+      "label": "أدخل اسم عائلتك",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr_number",
+      "label": "أدخل رقم مرجع الحجز",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"[A-Za-z0-9]{6}$",
+      "errorMessage": "يرجى إدخال رقم مرجع صحيح مكون من 6 خانات، مثال: 67AXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "دخل رقم تذكرتك",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم تذكرة صحيح مكون من 13 عدداً، مثال: 065 - 23XXXXXXXXX"
+    },
+    {
+      "type": "Input.Date",
+      "id": "depart_date",
+      "label": "أدخل تاريخ مغادرتك",
+      "isRequired": true,
+      "errorMessage": "يرجى إدخال تاريخ صحيح، مثال: 18/08/2023"
+    },
+    {
+      "type": "Input.Text",
+      "id": "orgin",
+      "label": "أدخل مدينة المغادرة",
+      "isRequired": true,
+      "regex":"^[A-Z]+$",
+      "errorMessage": "يرجى إدخال مدينة مغادرة صحيحة، مثال: JED"
+    },
+    {
+      "type": "Input.Text",
+      "id": "destination",
+      "label": "أدخل وجهتك",
+      "isRequired": true,
+      "regex":"^[A-Z]+$",
+      "errorMessage": "يرجى إدخال وجهة صحيحة، مثال: RUH"
+    },
+    {
+      "type": "Input.Text",
+      "id": "airline_code",
+      "label": "أدخل رمز شركة الطيران",
+      "isRequired": true,
+      "regex":"^[A-Z]{2}$",
+      "errorMessage":  "يرجى إدخال رمز شركة طيران صحيح، مثال: SV"
+    },
+    {
+      "type": "Input.Text",
+      "id": "flight_number",
+      "label": "أدخل رقم رحلتك",
+      "isRequired": true,
+      "regex":"^[0-9]+$",
+      "errorMessage": "يرجى إدخال رقم رحلة صحيح، مثال: 594"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "btnvalue": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_gfZ02I_text()
+- after submissions ${turn.results}
+# SendActivity_gfZ02I()
+[Activity
+    Text = ${SendActivity_gfZ02I_text()}
+]
+
+# SendActivity_nsOQYO()
+[Activity
+    Text = ${SendActivity_nsOQYO_text()}
+]
+
+# SendActivity_nsOQYO_text()
+- CAM INSIDE
+# SendActivity_hYVoKo()
+[Activity
+    Text = ${SendActivity_hYVoKo_text()}
+]
+
+# SendActivity_hYVoKo_text()
+- ```turn.depat_time=${turn.depat_time}
+turn.current_time=>${turn.current_time}
+turn.dateTimeDif==>${turn.dateTimeDif}
+turn.daysDiff==>${turn.daysDiff}```
+# SendActivity_WlLBzL_text()
+- I have successfully submitted your request. 🙂
+# SendActivity_WlLBzL()
+[Activity
+    Text = ${SendActivity_WlLBzL_text()}
+]
+
+# SendActivity_y9OmNS_text()
+- It seems like you haven't taken your flight yet. You can only make a retro claim after you have flown . ✈️
+# SendActivity_y9OmNS()
+[Activity
+    Text = ${SendActivity_y9OmNS_text()}
+]
+
+# SendActivity_XgNzmz()
+[Activity
+    Attachments = ${json(SendActivity_XgNzmz_attachment_rNCrgJ())}
+]
+
+# SendActivity_XgNzmz_attachment_rNCrgJ()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "يبدو أنك لم تستقل رحلتك بعد. لا يمكنك تقديم مطالبة بالأميال المفقودة إلا بعد سفرك بالطائرة. ✈️",
+          "wrap": true
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_ihIS5C()
+[Activity
+    Attachments = ${json(SendActivity_ihIS5C_attachment_J9N4bP())}
+]
+
+# SendActivity_ihIS5C_attachment_J9N4bP()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "تم إرسال طلبك بنجاح. 🙂"
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_v1VcPc()
+[Activity
+    Text = ${SendActivity_v1VcPc_text()}
+]
+
+# SendActivity_v1VcPc_text()
+- details are their
+# SendActivity_QVw2zv()
+[Activity
+    Text = ${SendActivity_QVw2zv_text()}
+]
+
+# SendActivity_QVw2zv_text()
+- not details
+# SendActivity_RNoLtH()
+[Activity
+    Text = ${SendActivity_RNoLtH_text()}
+]
+
+# SendActivity_RNoLtH_text()
+- We have already logged you request. Kindly wait ✌
+# SendActivity_4gB6c6_text()
+- Uh-oh! I am unable to raise your request. Please try again after a while.
+# SendActivity_4gB6c6()
+[Activity
+    Text = ${SendActivity_4gB6c6_text()}
+]
+
+# SendActivity_H1wDp8()
+[Activity
+    Attachments = ${json(SendActivity_H1wDp8_attachment_pb4cZL())}
+]
+
+# SendActivity_H1wDp8_attachment_pb4cZL()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "عذراً! لم أستطع إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً.",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_SkAIGK_text()
+- Uh-oh! I am unable to raise your request. Please try again after a while.
+# SendActivity_SkAIGK()
+[Activity
+    Text = ${SendActivity_SkAIGK_text()}
+]
+
+# SendActivity_y3iUy7()
+[Activity
+    Attachments = ${json(SendActivity_y3iUy7_attachment_g4uxQV())}
+]
+
+# SendActivity_y3iUy7_attachment_g4uxQV()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اه أوه! لا أستطيع رفع طلبك. يرجى المحاولة أجيان بعد وقت ما.",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_LwOiZj_text()
+- We have already logged you request. Kindly wait. ✌
+# SendActivity_LwOiZj()
+[Activity
+    Text = ${SendActivity_LwOiZj_text()}
+]
+
+# SendActivity_2duINg()
+[Activity
+    Attachments = ${json(SendActivity_2duINg_attachment_Lpj3sW())}
+]
+
+# SendActivity_2duINg_attachment_Lpj3sW()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لقد قمنا بالفعل بتسجيل طلبك. يرجى الانتظار ✌",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_l87BEh_text()
+- ```Uh\-oh! I am unable to raise your request. 
+Please try again after a while.```
+# SendActivity_l87BEh()
+[Activity
+    Text = ${SendActivity_l87BEh_text()}
+]
+
+# SendActivity_HGPMdO()
+[Activity
+    Attachments = ${json(SendActivity_HGPMdO_attachment_f5Rdcx())}
+]
+
+# SendActivity_HGPMdO_attachment_f5Rdcx()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "عذراً! لم أستطع إرسال طلبك. يرجى المحاولة مرة أخرى لاحقاً.",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_XlJIqD_text()
+- Uh-oh! I am unable to raise your request. Please try again after a while.
+# SendActivity_XlJIqD()
+[Activity
+    Text = ${SendActivity_XlJIqD_text()}
+]
+
+# SendActivity_jinSei_attachment_pb4cZL()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اه أوه! لا أستطيع رفع طلبك. يرجى المحاولة أجيان بعد وقت ما.",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_jinSei()
+[Activity
+    Attachments = ${json(SendActivity_jinSei_attachment_pb4cZL())}
+]
+
+# SendActivity_WWltz6_text()
+- I have successfully submitted your request🙂
+# SendActivity_WWltz6()
+[Activity
+    Text = ${SendActivity_WWltz6_text()}
+]
+
+# SendActivity_UaXb5v_attachment_J9N4bP()
+  > To learn more Adaptive Cards format, read the documentation at
+  > https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+  - ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+      {            
+          "type": "TextBlock",
+          "size": "default",
+          "text": "تم تسجيل طلبك بنجاح🙂"
+      }
+    ],
+    "actions": []
+  }```
+# SendActivity_UaXb5v()
+[Activity
+    Attachments = ${json(SendActivity_UaXb5v_attachment_J9N4bP())}
+]
+
+# SendActivity_Qosvpz_text()
+- Uh-oh! I am unable to raise your request. Please try again after a while.
+# SendActivity_Qosvpz()
+[Activity
+    Text = ${SendActivity_Qosvpz_text()}
+]
+
+# SendActivity_7XC47S_attachment_g4uxQV()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "اه أوه! لا أستطيع رفع طلبك. يرجى المحاولة أجيان بعد وقت ما.",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_7XC47S()
+[Activity
+    Attachments = ${json(SendActivity_7XC47S_attachment_g4uxQV())}
+]
+
+# SendActivity_CPB89A_text()
+- details are their
+# SendActivity_CPB89A()
+[Activity
+    Text = ${SendActivity_CPB89A_text()}
+]
+
+# SendActivity_AAN9Vs_text()
+- not details
+# SendActivity_AAN9Vs()
+[Activity
+    Text = ${SendActivity_AAN9Vs_text()}
+]
+
+# SendActivity_J4q1WI_text()
+- We have already logged you request. Kindly wait ✌
+# SendActivity_J4q1WI()
+[Activity
+    Text = ${SendActivity_J4q1WI_text()}
+]
+
+# SendActivity_38VtJO_attachment_Lpj3sW()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لقد قمنا بالفعل بتسجيل طلبك. يرجى الانتظار ✌",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_38VtJO()
+[Activity
+    Attachments = ${json(SendActivity_38VtJO_attachment_Lpj3sW())}
+]
+
+# SendActivity_ZIdmMv_text()
+- Uh-oh! I am unable to raise your request. Please try again after a while.
+# SendActivity_ZIdmMv()
+[Activity
+    Text = ${SendActivity_ZIdmMv_text()}
+]
+
+# SendActivity_cAMO6j_attachment_f5Rdcx()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لقد قمنا بالفعل بتسجيل طلبك. يرجى الانتظار ✌",
+            "wrap": true
+        }
+
+],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": []
+}```
+# SendActivity_cAMO6j()
+[Activity
+    Attachments = ${json(SendActivity_cAMO6j_attachment_f5Rdcx())}
+]
+
+# SendActivity_YsZcd6()
+[Activity
+    Text = ${SendActivity_YsZcd6_text()}
+]
+
+# SendActivity_YsZcd6_text()
+- going to hit API
+# SendActivity_NPMjFY()
+[Activity
+    Text = ${SendActivity_NPMjFY_text()}
+]
+
+# SendActivity_NPMjFY_text()
+- API is not deatils
+# SendActivity_NPbWL0()
+[Activity
+    Text = ${SendActivity_NPbWL0_text()}
+]
+
+# SendActivity_NPbWL0_text()
+- default
+# SendActivity_9vtyO7()
+[Activity
+    Text = ${SendActivity_9vtyO7_text()}
+]
+
+# SendActivity_9vtyO7_text()
+- get oder API result is their
+# SendActivity_sg0H2y()
+[Activity
+    Text = ${SendActivity_sg0H2y_text()}
+]
+
+# SendActivity_sg0H2y_text()
+- deaf
+# SendActivity_1PQFo3()
+[Activity
+    Text = ${SendActivity_1PQFo3_text()}
+]
+
+# SendActivity_1PQFo3_text()
+- 201
+# SendActivity_BZBz7K()
+[Activity
+    Text = ${SendActivity_BZBz7K_text()}
+]
+
+# SendActivity_BZBz7K_text()
+- 500
+# SendActivity_Uyq727()
+[Activity
+    Text = ${SendActivity_Uyq727_text()}
+]
+
+# SendActivity_Uyq727_text()
+- 400
+# SendActivity_mqxc0K_text()
+- ```card resuly 1
+"user.pnr",==>${user.pnr}
+"user.pnr_prefix",==>${user.pnr_prefix}
+"user.ticket_number",=>${user.ticket_number}
+"user.retro_orgin",=>${user.retro_orgin}
+"user.retro_depart_date",==>${user.retro_depart_date}
+"user.retro_destination",==>${user.retro_destination}
+"user.retro_flight_number",==>${user.retro_flight_number}
+user.retro_airline_code\->${user.retro_airline_code}
+user.lastname\->${user.lastname}
+user.fristnamw\->${user.firstname}```
+# SendActivity_mqxc0K()
+[Activity
+    Text = ${SendActivity_mqxc0K_text()}
+]
+
+# SendActivity_rmQgZN_text()
+- ```card resuly 2
+"user.pnr",==>${user.pnr}
+"user.pnr_prefix",==>${user.pnr_prefix}
+"user.ticket_number",=>${user.ticket_number}
+"user.retro_orgin",=>${user.retro_orgin}
+"user.retro_depart_date",==>${user.retro_depart_date}
+"user.retro_destination",==>${user.retro_destination}
+"user.retro_flight_number",==>${user.retro_flight_number}
+user.retro_airline_code\->${user.retro_airline_code}```
+# SendActivity_rmQgZN()
+[Activity
+    Text = ${SendActivity_rmQgZN_text()}
+]
+
+# SendActivity_98RSrH_text()
+- ```card resuly 2
+"user.pnr",==>${user.pnr}
+"user.pnr_prefix",==>${user.pnr_prefix}
+"user.ticket_number",=>${user.ticket_number}
+"user.retro_orgin",=>${user.retro_orgin}
+"user.retro_depart_date",==>${user.retro_depart_date}
+"user.retro_destination",==>${user.retro_destination}
+"user.retro_flight_number",==>${user.retro_flight_number}
+user.retro_airline_code\->${user.retro_airline_code}```
+# SendActivity_98RSrH()
+[Activity
+    Text = ${SendActivity_98RSrH_text()}
+]
+
+# SendActivity_9TbSHC_text()
+- ```card resuly 2
+"user.pnr",==>${user.pnr}
+"user.pnr_prefix",==>${user.pnr_prefix}
+"user.ticket_number",=>${user.ticket_number}
+"user.retro_orgin",=>${user.retro_orgin}
+"user.retro_depart_date",==>${user.retro_depart_date}
+"user.retro_destination",==>${user.retro_destination}
+"user.retro_flight_number",==>${user.retro_flight_number}
+user.retro_airline_code\->${user.retro_airline_code}```
+# SendActivity_9TbSHC()
+[Activity
+    Text = ${SendActivity_9TbSHC_text()}
+]
+
+# SendActivity_3ijKFX_text()
+- after submissions ${turn.results}
+# SendActivity_3ijKFX()
+[Activity
+    Text = ${SendActivity_3ijKFX_text()}
+]
+
+# SendActivity_M6Y0o6()
+[Activity
+    Text = ${SendActivity_M6Y0o6_text()}
+]
+
+# SendActivity_M6Y0o6_text()
+- ```I’m sorry! I cannot seem to find
+any active bookings.```
+# SendActivity_KJutEF()
+[Activity
+    Attachments = ${json(SendActivity_KJutEF_attachment_JlCzmF())}
+]
+
+# SendActivity_KJutEF_attachment_JlCzmF()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.0",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "أنا آسف! يبدو أنني لا أستطيع أن أجدأي حجوزات نشطة.",
+            "wrap": true
+        }
+],
+    "actions": []
+}```

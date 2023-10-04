@@ -1,0 +1,31 @@
+[import](common.lg)
+
+# SendActivity_f3eph3_text()
+- Please log in so we can better assist you in retrieving your information.
+# SendActivity_f3eph3()
+[Activity
+    Text = ${SendActivity_f3eph3_text()}
+]
+
+# Ask_Activity_6VSnCj()
+[Activity
+    Attachments = ${json(Ask_Activity_6VSnCj_attachment_OU5dfj())}
+]
+
+# Ask_Activity_6VSnCj_attachment_OU5dfj()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يرجى تسجيل الدخول لمساعدتك بشكل أفضل في استرجاع معلوماتك",
+      "wrap": true
+    }
+  ]
+}```

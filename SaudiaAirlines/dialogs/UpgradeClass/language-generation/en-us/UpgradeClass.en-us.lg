@@ -1,0 +1,446 @@
+[import](common.lg)
+
+# SendActivity_hmvWtP_text()
+- Inside modify url
+# SendActivity_hmvWtP()
+[Activity
+    Text = ${SendActivity_hmvWtP_text()}
+]
+
+# SendActivity_SPvMPH_text()
+- Inside new url
+# SendActivity_SPvMPH()
+[Activity
+    Text = ${SendActivity_SPvMPH_text()}
+]
+
+# SendActivity_XLAT3j_text()
+- We’re sorry! It seems you are not eligible to upgrade your class at the moment. 🙁
+# SendActivity_XLAT3j()
+[Activity
+    Text = ${SendActivity_XLAT3j_text()}
+]
+
+# SendActivity_Pnml7V_attachment_3TbiPD()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يؤسفنا إبلاغك أنك غير مؤهل لترقية درجة  السفر حالياً! 🙁",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_Pnml7V()
+[Activity
+    Attachments = ${json(SendActivity_Pnml7V_attachment_3TbiPD())}
+]
+
+# SendActivity_B8Hr2I_text()
+- Inside modify url
+# SendActivity_B8Hr2I()
+[Activity
+    Text = ${SendActivity_B8Hr2I_text()}
+]
+
+# SendActivity_lLJXLI_text()
+- Inside new url
+# SendActivity_lLJXLI()
+[Activity
+    Text = ${SendActivity_lLJXLI_text()}
+]
+
+# SendActivity_uAye34_attachment_4x2aHC()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لنقم بترقية درجة السفر! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "فقط اضغط على 'اختر الدرجة' لتقدم طلب الترقية إلى الدرجة الأعلى. 😊",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "اختر الدرجة ↖",
+            "url": "${turn.offerURL}"
+        }
+    ]
+}```
+# SendActivity_uAye34()
+[Activity
+    Attachments = ${json(SendActivity_uAye34_attachment_4x2aHC())}
+]
+
+# SendActivity_Al0Bl5_text()
+- We’re sorry! It seems you are not eligible to upgrade your class at the moment. 🙁
+# SendActivity_Al0Bl5()
+[Activity
+    Text = ${SendActivity_Al0Bl5_text()}
+]
+
+# SendActivity_Y0ySua_attachment_ZWgsLr()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "id": "rtl_1",
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "text": "يؤسفنا إبلاغك أنك غير مؤهل لترقية درجة  السفر حالياً! 🙁",
+      "wrap": true
+    }
+  ]
+}```
+# SendActivity_Y0ySua()
+[Activity
+    Attachments = ${json(SendActivity_Y0ySua_attachment_ZWgsLr())}
+]
+
+# Ask_Activity_RB5sC2()
+[Activity
+    Attachments = ${json(Ask_Activity_RB5sC2_attachment_FNDgBK())}
+]
+
+# Ask_Activity_RB5sC2_attachment_FNDgBK()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Hey there!🙂 You can click below to take a look at your bid.🤞",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Select class ↗",
+            "url": "${turn.modifyURL}"
+        }
+    ]
+}```
+# Ask_Activity_ychHec()
+[Activity
+    Attachments = ${json(Ask_Activity_ychHec_attachment_rWCDbE())}
+]
+
+# Ask_Activity_ychHec_attachment_rWCDbE()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "مرحباً! 🙂 يمكنك الضغط أدناه للتحقق من طلبك. 🤞",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "اختر الدرجة ↖",
+            "url": "${turn.modifyURL}"
+        }
+    ]
+}```
+# Ask_Activity_MpBYV1()
+[Activity
+    Attachments = ${json(Ask_Activity_MpBYV1_attachment_A3I7ur())}
+]
+
+# Ask_Activity_MpBYV1_attachment_A3I7ur()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Let’s upgrade your class! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Just click 'Select class' so you can submit a bid to upgrade. 😊",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Select class ↗",
+            "url": "${turn.offerURL}"
+        }
+    ]
+}```
+# Ask_Activity_H6oCRX()
+[Activity
+    Attachments = ${json(Ask_Activity_H6oCRX_attachment_gtdLTL())}
+]
+
+# Ask_Activity_H6oCRX_attachment_gtdLTL()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لنقم بترقية درجة السفر! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "فقط اضغط على 'اختر الدرجة' لتقدم طلب الترقية إلى الدرجة الأعلى. 😊",
+            "wrap": true
+        }
+    ],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "اختر الدرجة ↖",
+            "url": "${turn.offerURL}"
+        }
+    ]
+}```
+# Ask_Activity_RLEJIk()
+[Activity
+    Attachments = ${json(Ask_Activity_RLEJIk_attachment_o8kTTG())}
+]
+
+# Ask_Activity_RLEJIk_attachment_o8kTTG()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_ZaJowN()
+[Activity
+    Attachments = ${json(Ask_Activity_ZaJowN_attachment_EVvVAS())}
+]
+
+# Ask_Activity_ZaJowN_attachment_EVvVAS()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_f2Nqzr()
+[Activity
+    Attachments = ${json(Ask_Activity_f2Nqzr_attachment_hO8BuT())}
+]
+
+# Ask_Activity_f2Nqzr_attachment_hO8BuT()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "مرحباً!🙂يمكنك الضغط أدناه للتحقق من طلبك🤞",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "اختر الدرجة ↖",
+            "url": "${turn.modifyURL}"
+        }
+    ]
+}```
+# Ask_Activity_fZwXEf()
+[Activity
+    Attachments = ${json(Ask_Activity_fZwXEf_attachment_j1HaGj())}
+]
+
+# Ask_Activity_fZwXEf_attachment_j1HaGj()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Hey there!🙂 You can click below to take a look at your bid.🤞",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Select class ↗",
+            "url": "${turn.modifyURL}"
+        }
+    ]
+}```
+# SendActivity_gaSAqr()
+[Activity
+    Attachments = ${json(SendActivity_gaSAqr_attachment_xVVuEJ())}
+]
+
+# SendActivity_gaSAqr_attachment_xVVuEJ()
+> To learn more about the LG file format, read the documentation at
+> https://aka.ms/lg-file-format> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.3",
+    "body":[        
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Let’s upgrade your class! 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "Just click 'Select class' so you can submit a bid to upgrade. 😊",
+            "wrap": true
+        }
+],
+    "actions": [
+        {
+            "type": "Action.OpenUrl",
+            "title": "Select class ↗",
+            "url": "${turn.offerURL}"
+        }
+    ]
+}```

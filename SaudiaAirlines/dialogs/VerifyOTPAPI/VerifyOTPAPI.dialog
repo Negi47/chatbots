@@ -1,0 +1,417 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "KaMQB7",
+    "name": "VerifyOTPAPI",
+    "comment": "Verify the OTP Post accepting the api call"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "0ZTpz6"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "wRVC9J"
+          },
+          "activity": "${SendActivity_wRVC9J()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "EO2n3R"
+          },
+          "elseActions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "9me7V0"
+              },
+              "resultProperty": "dialog.verifySmsOtp",
+              "method": "POST",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp/verify",
+              "body": {
+                "otp": "${user.smsOTP}",
+                "checksum": "=user.smsCheckSum"
+              },
+              "headers": {
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "SAA-session-id": "=user.session_id",
+                "Content-Type": "application/json"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "WL0xBM"
+              },
+              "condition": "=dialog.verifySmsOtp.statusCode == 204",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "KoeTrm"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.smsverifyOTPCount",
+                      "value": "=0"
+                    },
+                    {
+                      "property": "user.smsCheckSum",
+                      "value": "=\"\""
+                    },
+                    {
+                      "property": "user.verifyOTP",
+                      "value": true
+                    },
+                    {
+                      "property": "user.smsOTP",
+                      "value": "=\"\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "HiV9sp"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Email_Dialog"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "TiaNa4"
+                  },
+                  "activity": "${SendActivity_TiaNa4()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "B5bz0n"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.verifyOTP",
+                      "value": false
+                    },
+                    {
+                      "property": "user.smsverifyOTPCount",
+                      "value": "=add(user.smsverifyOTPCount,1)"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "kBYDlv"
+                  },
+                  "activity": "${SendActivity_kBYDlv()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "0UMHWQ"
+                  },
+                  "condition": "=user.smsverifyOTPCount < 3",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "COvZ7e"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Update_Contact_send_verify_otp"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "ABehSx"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "JKYhax"
+                          },
+                          "activity": "${SendActivity_JKYhax()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "3Uks1w"
+                          },
+                          "activity": "${SendActivity_3Uks1w()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "dokXTi"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.verifyOTP",
+                          "value": true
+                        },
+                        {
+                          "property": "user.trycount",
+                          "value": 0
+                        },
+                        {
+                          "property": "user.verifyByPhEmail",
+                          "value": "=\"\""
+                        },
+                        {
+                          "property": "user.useAltOTPChannel",
+                          "value": "=\"\""
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "dGKCf0"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Update_Contact_send_verify_otp"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "UhhQJv"
+              },
+              "activity": "${SendActivity_UhhQJv()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "Lymx3u",
+                "name": "verify otp-email"
+              },
+              "resultProperty": "dialog.verifyOtpResults",
+              "method": "POST",
+              "url": "${user.baseURL}/purchase/orders/${user.pnr}/otp/verify",
+              "body": {
+                "otp": "${user.emailOTP}",
+                "checksum": "=user.emailCheckSum"
+              },
+              "headers": {
+                "SAA-session-id": "=user.session_id",
+                "Authorization": "=user.access_token",
+                "Content-Type": "application/json"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "FpX4Xz"
+              },
+              "activity": "${SendActivity_FpX4Xz()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "0ExP7P"
+              },
+              "condition": "=dialog.verifyOtpResults.statusCode == 204",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "JBRbvB"
+                  },
+                  "activity": "${SendActivity_JBRbvB()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "SoHN3V"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.emailverifyOTPCount",
+                      "value": "=0"
+                    },
+                    {
+                      "property": "user.emailCheckSum",
+                      "value": "=\"\""
+                    },
+                    {
+                      "property": "user.verifyOTP",
+                      "value": true
+                    },
+                    {
+                      "property": "user.emailOTP",
+                      "value": "=\"\""
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "bpGzff"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Update_Email_Dialog"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "DLDEW9"
+                  },
+                  "assignments": [
+                    {
+                      "property": "user.verifyOTP",
+                      "value": false
+                    },
+                    {
+                      "property": "user.emailverifyOTPCount",
+                      "value": "=user.emailverifyOTPCount + 1"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "faUQrd"
+                  },
+                  "activity": "${SendActivity_faUQrd()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "jv3tlU"
+                  },
+                  "condition": "=user.emailverifyOTPCount < 3",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "WwLYgH"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Update_Contact_send_verify_otp"
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "V5GaMo"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "C6TnwQ"
+                          },
+                          "activity": "${SendActivity_C6TnwQ()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "9FKhh2"
+                          },
+                          "activity": "${SendActivity_9FKhh2()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.SetProperties",
+                      "$designer": {
+                        "id": "5g0Pf0"
+                      },
+                      "assignments": [
+                        {
+                          "property": "user.verifyOTP",
+                          "value": true
+                        },
+                        {
+                          "property": "user.trycount",
+                          "value": 0
+                        },
+                        {
+                          "property": "user.verifyByPhEmail",
+                          "value": "=\"\""
+                        },
+                        {
+                          "property": "user.useAltOTPChannel",
+                          "value": "=\"\""
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "qAB9lx"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "Update_Contact_send_verify_otp"
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "Sq1lRK"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "condition": "=user.verifyflow == \"emailflow\""
+        }
+      ]
+    }
+  ],
+  "generator": "VerifyOTPAPI.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "VerifyOTPAPI"
+}

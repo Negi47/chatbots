@@ -1,0 +1,792 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_p9yZik()
+[Activity
+    Text = ${ChoiceInput_Prompt_p9yZik_text()}
+]
+
+# ChoiceInput_Prompt_p9yZik_text()
+- ```ماذا تريد أن تفعل اليوم 🙂
+
+حدد الخيار الذي تريده من الأسفل، لأتمكن من مساعدتك بشكل أفضل، أو أخبرني ببساطة ما تريد أن تفعل. 👇
+**فيما يلي بعض الأمثلة على ما يمكنك طلبه مني**
+**▪️ أريد ترقية مقعدي**
+**▪️ أريد تغيير رقم جواز السفر**
+**▪️ ما هو رقم حسابي*zz*```
+# Ask_Activity_KWB2Up()
+[Activity
+    Attachments = ${json(Ask_Activity_KWB2Up_attachment_Qjr0OZ())}
+]
+
+# Ask_Activity_KWB2Up_attachment_Qjr0OZ()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_gUANEc()
+[Activity
+    Attachments = ${json(Ask_Activity_gUANEc_attachment_iplHDu())}
+]
+
+# Ask_Activity_gUANEc_attachment_iplHDu()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid 6-digit booking reference or 13-digit ticker number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_H07VPJ()
+[Activity
+    Attachments = ${json(Ask_Activity_H07VPJ_attachment_VW3rld())}
+]
+
+# Ask_Activity_H07VPJ_attachment_VW3rld()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "Sorry, I am unable to find any active bookings associated with your account for check-in 🤕"
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "💡 You can tap below to try with another PNR details 👇"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Use a different booking reference"
+          "data": {
+                "btnvalue": "check-another-pnr"
+            }
+      }
+  ]
+}```
+# SendActivity_kDatn8_text()
+- ```Great! I can help you with that😇
+
+But first please share with me some more info to fetch your booking details🏃```
+# SendActivity_kDatn8()
+[Activity
+    Text = ${SendActivity_kDatn8_text()}
+]
+
+# Ask_Activity_N3w0MS()
+[Activity
+    Attachments = ${json(Ask_Activity_N3w0MS_attachment_dZ0Win())}
+]
+
+# Ask_Activity_N3w0MS_attachment_dZ0Win()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "Sorry, I am unable to find any active bookings associated with your account for check-in 🤕"
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "💡 You can tap below to try with another PNR details 👇"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Use a different booking reference"
+          "data": {
+                "btnvalue": "check-another-pnr"
+            }
+      }
+  ]
+}```
+# Ask_Activity_s3URu0()
+[Activity
+    Attachments = ${json(Ask_Activity_s3URu0_attachment_R7BhdP())}
+]
+
+# Ask_Activity_s3URu0_attachment_R7BhdP()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "I'm sorry! I cannot seem to find any active bookings related to your account!😕",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "💡 Let's try again with a different booking reference 👇"
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Use a different booking reference",
+          "data": {
+                "btnvalue": "check-another-pnr"
+            }
+      }
+  ]
+}```
+# Ask_Activity_EOe0jw()
+[Activity
+    Attachments = ${json(Ask_Activity_EOe0jw_attachment_wgLODH())}
+]
+
+# Ask_Activity_EOe0jw_attachment_wgLODH()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "btnvalue": "submit"
+            }
+      }
+  ]
+}```
+# SendActivity_SmEQI3()
+[Activity
+    Text = ${SendActivity_SmEQI3_text()}
+]
+
+# SendActivity_SmEQI3_text()
+- Logged Option --> ${user.loggedoption}
+# Ask_Activity_xTHJVU()
+[Activity
+    Attachments = ${json(Ask_Activity_xTHJVU_attachment_bW1bWM())}
+]
+
+# Ask_Activity_xTHJVU_attachment_bW1bWM()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the below 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "Enter your booking reference or ticket number",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid booking reference consisting of 6 alphanumeric characters or 13-digit ticket number, for example: 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid last name, for example: Smith "
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Send",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+# Ask_Activity_nuQVcA()
+[Activity
+    Attachments = ${json(Ask_Activity_nuQVcA_attachment_T7Urs0())}
+]
+
+# Ask_Activity_nuQVcA_attachment_T7Urs0()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+
+# SendActivity_7Yp1vj_attachment_Er3E4v()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "ممتاز! يمكنني مساعدتك",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "لكن أولاً يرجى مشاركة بعض المعلومات الإضافية للحصول على معلومات حجزك",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_7Yp1vj()
+[Activity
+    Attachments = ${json(SendActivity_7Yp1vj_attachment_Er3E4v())}
+]
+
+# Ask_Activity_1Sb2Ss()
+[Activity
+    Attachments = ${json(Ask_Activity_1Sb2Ss_attachment_nTeFG1())}
+]
+
+# Ask_Activity_1Sb2Ss_attachment_nTeFG1()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "I’m sorry! I cannot seem to find any active bookings related to your account! 😕",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "💡Let’s try again with a different booking reference.👇",
+        "wrap": true
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "Use a different booking reference",
+          "data": {
+                "btnvalue": "check-another-pnr"
+            }
+      }
+  ]
+}```
+# Ask_Activity_nFrja8()
+[Activity
+    Attachments = ${json(Ask_Activity_nFrja8_attachment_pQ8bsH())}
+]
+
+# Ask_Activity_nFrja8_attachment_pQ8bsH()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "عفواً! لم أعثر على حجوزات مفعلة مرتبطة بحسابك!😕",
+        "wrap": true
+    },
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "💡حاول مرة أخرى باستخدام مرجع حجز آخر.👇",
+        "wrap": true
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "استخدم مرجع حجز آخر",
+          "data": {
+                "btnvalue": "check-another-pnr"
+            }
+      }
+  ]
+}```
+# Ask_Activity_h5Nyoc()
+[Activity
+    Attachments = ${json(Ask_Activity_h5Nyoc_attachment_OsI2WW())}
+]
+
+# Ask_Activity_h5Nyoc_attachment_OsI2WW()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "id": "rtl_1",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**يرجى تقديم التالي 👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr",
+      "label": "أدخل مرجع الحجز أو رقم التذكرة",
+      "isRequired": true,
+      "iconUrl": "https://adaptivecards.io/content/send.png",
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "يرجى إدخال رقم مرجع الحجز الصحيح المكون من 6 خانات أو رقم التذكرة المكون من 13 عدداً، مثال: -67AXXX / 06523XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName",
+      "label": "أدخل اسم العائلة",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "يرجى إدخال اسم عائلة صحيح، مثال: Smith"
+    }
+  ],
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "إرسال",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+
+# SendActivity_Cb8gSO()
+[Activity
+    Text = ${SendActivity_Cb8gSO_text()}
+]
+
+# SendActivity_Cb8gSO_text()
+- ```user,pnr\->${user.pnr}
+turn.activity.value.btnvalue\->${turn.activity.value.btnvalue}
+\-\-\-> ${user.Loginflow}
+
+\-> ${user.loggedoption}```
+# SendActivity_b1Oqyd()
+[Activity
+    Text = ${SendActivity_b1Oqyd_text()}
+]
+
+# SendActivity_b1Oqyd_text()
+- came here
+# SendActivity_U8YRhO()
+[Activity
+    Text = ${SendActivity_U8YRhO_text()}
+]
+
+# SendActivity_U8YRhO_text()
+- ```came here2
+user,pnrt\-```
+# SendActivity_7P3Tek_text()
+- user,pnrrr-->${user.pnr}
+# SendActivity_7P3Tek()
+[Activity
+    Text = ${SendActivity_7P3Tek_text()}
+]
+
+# SendActivity_WaWfJC_text()
+- ```Great! I can help you with that.
+
+But first please share with me some more info to fetch your booking details.```
+# SendActivity_WaWfJC()
+[Activity
+    Text = ${SendActivity_WaWfJC_text()}
+]
+
+# SendActivity_K9V70E_attachment_Er3E4v()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "ممتاز! يمكنني مساعدتك.",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "  ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "size": "default",
+            "text": "لكن أولاً يرجى مشاركة بعض المعلومات الإضافية للحصول على معلومات حجزك.",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_K9V70E()
+[Activity
+    Attachments = ${json(SendActivity_K9V70E_attachment_Er3E4v())}
+]
+
+# SendActivity_ve4hpx_text()
+- ```As a valued ${user.tierLevel} member, I'm glad to assist you. 😀
+
+Your miles: ${user.accountMiles} ✈️```
+# SendActivity_ve4hpx()
+[Activity
+    Text = ${SendActivity_ve4hpx_text()}
+]
+
+# SendActivity_9u7uME_attachment_asnm5M()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "يسعدني جداً مساعدتك كعضو من المستوى ${user.tierLevel}. 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "   ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "رحلتك القادمة 👇",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "  ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "أميالك: ${user.accountMiles} ✈️",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_9u7uME()
+[Activity
+    Attachments = ${json(SendActivity_9u7uME_attachment_asnm5M())}
+]
+
+# SendActivity_BRbvnS_text()
+- came here
+# SendActivity_BRbvnS()
+[Activity
+    Text = ${SendActivity_BRbvnS_text()}
+]
+
+# SendActivity_XYYlL3_text()
+- ```As a valued ${user.tierLevel} member, I'm glad to assist you. 😀
+
+Your upcoming trip👇
+
+Booking reference: ${user.pnr}
+
+Your miles: ${user.accountMiles}  ✈️```
+# SendActivity_XYYlL3()
+[Activity
+    Text = ${SendActivity_XYYlL3_text()}
+]
+
+# SendActivity_i3397R_text()
+- ```As a valued ${user.tierLevel} member, I'm glad to assist you. 😀
+
+Your upcoming trip👇
+
+Booking reference: ${turn.multiplepnrarray} 
+
+Your miles: ${user.accountMiles}  ✈️```
+# SendActivity_i3397R()
+[Activity
+    Text = ${SendActivity_i3397R_text()}
+]
+
+# SendActivity_Tvyveu_attachment_asnm5M()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "يسعدني جداً مساعدتك كعضو من المستوى ${user.tierLevel}. 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "   ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "رحلتك القادمة 👇",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "مرجع الحجز: ${user.pnr}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "  ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "أميالك: ${user.accountMiles} ✈️",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_Tvyveu()
+[Activity
+    Attachments = ${json(SendActivity_Tvyveu_attachment_asnm5M())}
+]
+
+# SendActivity_aKvqGk_attachment_kbMNLD()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "version": "1.3",
+    "type": "AdaptiveCard",
+    "id": "rtl_1",
+    "body": [
+        {
+            "type": "TextBlock",
+            "text": "يسعدني جداً مساعدتك كعضو من المستوى ${user.tierLevel}. 😀",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "   ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "رحلتك القادمة 👇",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "مرجع الحجز: ${turn.multiplepnrarray}",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "   ",
+            "wrap": true
+        },
+        {
+            "type": "TextBlock",
+            "text": "أميالك: ${user.accountMiles} ✈️",
+            "wrap": true
+        }
+    ]
+}```
+# SendActivity_aKvqGk()
+[Activity
+    Attachments = ${json(SendActivity_aKvqGk_attachment_kbMNLD())}
+]
+

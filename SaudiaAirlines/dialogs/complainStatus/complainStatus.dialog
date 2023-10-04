@@ -1,0 +1,1483 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "yWVOgz",
+    "name": "complaintStatus",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "m509Df"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "oW5HvF"
+          },
+          "activity": "${SendActivity_oW5HvF()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Zl6TQT"
+          },
+          "condition": "=user.Login == true",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "9CvOxy"
+              },
+              "activity": "${SendActivity_9CvOxy()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "GRxYDO"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.Ask",
+                  "$designer": {
+                    "id": "V72uyX"
+                  },
+                  "activity": "${Ask_Activity_kOMNKY()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "PXXmIm"
+                  },
+                  "activity": "${SendActivity_PXXmIm()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.EndDialog",
+              "$designer": {
+                "id": "yp1IUc"
+              }
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "OeNwPp"
+              },
+              "resultProperty": "turn.results",
+              "method": "POST",
+              "url": "https://dapi-test.dcloud.saudia.com/session/auth/token/initialization",
+              "body": "grant_type=client_credentials&client_id=ca2363d9-0d4c-449e-96d6-75eb3bbf816e&client_secret=.YC8Q~caEZ.a3DwbQbyPMGrLxzn.nj9pY9WYKdtk&scope=259a88f9-c8c4-4083-9a20-a80d018987d7%2F.default",
+              "contentType": "application/x-www-form-urlencoded",
+              "responseType": "json",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SetProperties",
+              "$designer": {
+                "id": "c1lSiA"
+              },
+              "assignments": [
+                {
+                  "property": "user.session_id",
+                  "value": "=turn.results.content.session_id"
+                },
+                {
+                  "property": "user.access_token",
+                  "value": "=turn.results.content.access_token"
+                }
+              ],
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "D9lsw2"
+              },
+              "activity": "${SendActivity_D9lsw2()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "FVZFF8"
+              },
+              "resultProperty": "turn.results",
+              "method": "GET",
+              "url": "${user.baseURL}/customer/searchcomplaints?CustomerID=${user.accountId}&ComplaintType=PASSENGER",
+              "headers": {
+                "Authorization": "=concat('Bearer',' ', user.access_token)",
+                "SAA-session-id": "=user.session_id"
+              },
+              "contentType": "application/json",
+              "responseType": "json"
+            },
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "3iQ4qn"
+              },
+              "activity": "${SendActivity_3iQ4qn()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "APjjBF"
+              },
+              "condition": "=turn.results.statusCode == 200 || (turn.results.statusCode == 400 && turn.results.content.details[0].code == \"453\")",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "ub307s"
+                  },
+                  "activity": "${SendActivity_ub307s()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "4Wc1OM"
+                  },
+                  "condition": "=turn.results.content.data.SearchComplaintsResponse.statuscode == \"453\" || (turn.results.statusCode == 400 && turn.results.content.details[0].code == \"453\")",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "UUIA5j"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "siOyZe"
+                          },
+                          "activity": "${SendActivity_siOyZe()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "CN5IYk"
+                          },
+                          "activity": "${SendActivity_CN5IYk()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "8k2Ei3"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    },
+                    {
+                      "$kind": "Microsoft.EndDialog",
+                      "$designer": {
+                        "id": "hqpF5j"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "pn7MZH"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.currTime",
+                      "value": "=utcNow()"
+                    },
+                    {
+                      "property": "dialog.pastTime",
+                      "value": "=getPastTime(3, 'Month')"
+                    },
+                    {
+                      "property": "dialog.testTime",
+                      "value": "=getPastTime(2, 'Year')"
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "OPsVQv"
+                  },
+                  "activity": "${SendActivity_OPsVQv()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.SetProperty",
+                  "$designer": {
+                    "id": "4SjxlY"
+                  },
+                  "property": "dialog.dataArray",
+                  "value": "=turn.results.content.data.SearchComplaintsResponse"
+                },
+                {
+                  "$kind": "Microsoft.Foreach",
+                  "$designer": {
+                    "id": "RR3n8d"
+                  },
+                  "index": "dialog.foreach.index",
+                  "value": "dialog.foreach.value",
+                  "itemsProperty": "dialog.dataArray",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "lCxIa9"
+                      },
+                      "condition": "=dialog.foreach.value.CreationDate <= dialog.currTime && dialog.foreach.value.CreationDate > dialog.pastTime",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "ZVOpcj"
+                          },
+                          "activity": "${SendActivity_ZVOpcj()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.EditArray",
+                          "$designer": {
+                            "id": "1PVg1t"
+                          },
+                          "changeType": "push",
+                          "itemsProperty": "dialog.newDataArray",
+                          "value": "${dialog.foreach.value}"
+                        },
+                        {
+                          "$kind": "Microsoft.SetProperty",
+                          "$designer": {
+                            "id": "s99Xft"
+                          },
+                          "property": "dialog.dataCount",
+                          "value": "=count(dialog.newDataArray)"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "pbd3Jr"
+                          },
+                          "activity": "${SendActivity_pbd3Jr()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.ContinueLoop",
+                          "$designer": {
+                            "id": "bYjG7m"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "kxziMr"
+                  },
+                  "activity": "${SendActivity_kxziMr()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.IfCondition",
+                  "$designer": {
+                    "id": "0aVpb7"
+                  },
+                  "condition": "=dialog.dataCount != null",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "iZxI4X"
+                      },
+                      "activity": "${SendActivity_iZxI4X()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "e0pmyd"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "GndJ5h"
+                          },
+                          "activity": "${SendActivity_GndJ5h()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "hr2dNN"
+                          },
+                          "activity": "${SendActivity_hr2dNN()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.TextInput",
+                      "$designer": {
+                        "id": "lRU6E5"
+                      },
+                      "disabled": false,
+                      "maxTurnCount": 3,
+                      "alwaysPrompt": false,
+                      "allowInterruptions": false,
+                      "unrecognizedPrompt": "",
+                      "invalidPrompt": "",
+                      "defaultValueResponse": "",
+                      "prompt": "${TextInput_Prompt_lRU6E5()}",
+                      "property": "dialog.button_val",
+                      "value": "=turn.activity.value.btn_val"
+                    },
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "Sw3maZ"
+                      },
+                      "activity": "${SendActivity_Sw3maZ()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "rw2ozw"
+                      },
+                      "condition": "=dialog.button_val == turn.activity.value.btn_val && turn.activity.value.btn_name == \"Check Status\"",
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.IfCondition",
+                          "$designer": {
+                            "id": "Y5bksh"
+                          },
+                          "condition": "=dialog.button_val == turn.activity.value.btn_val && turn.activity.value.btn_name == \"Check with another complaint number\"",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "euG6Zf"
+                              },
+                              "condition": "=user.lanuage_selected == \"English\"",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "WtQ2at"
+                                  },
+                                  "activity": "${SendActivity_WtQ2at()}",
+                                  "disabled": true
+                                },
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "u0sW2W"
+                                  },
+                                  "activity": "${Ask_Activity_xlwE9U()}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "afe57s"
+                                  },
+                                  "activity": "${SendActivity_afe57s()}",
+                                  "disabled": true
+                                },
+                                {
+                                  "$kind": "Microsoft.Ask",
+                                  "$designer": {
+                                    "id": "jnO5x3"
+                                  },
+                                  "activity": "${Ask_Activity_jnO5x3()}"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.Foreach",
+                          "$designer": {
+                            "id": "bmiMb0"
+                          },
+                          "index": "dialog.foreach.index",
+                          "value": "dialog.foreach.value",
+                          "itemsProperty": "dialog.dataArray",
+                          "actions": [
+                            {
+                              "$kind": "Microsoft.IfCondition",
+                              "$designer": {
+                                "id": "gxVsv3"
+                              },
+                              "condition": "=dialog.foreach.value.ComplaintID == user.button_val",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.SetProperty",
+                                  "$designer": {
+                                    "id": "RDga0d"
+                                  },
+                                  "property": "dialog.externalStatus",
+                                  "value": "${dialog.foreach.value.ExternalStatus}"
+                                }
+                              ],
+                              "elseActions": [
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "BPFFm3"
+                                  },
+                                  "activity": "${SendActivity_BPFFm3()}",
+                                  "disabled": true
+                                },
+                                {
+                                  "$kind": "Microsoft.ContinueLoop",
+                                  "$designer": {
+                                    "id": "RVcT2W"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "GKwBYm"
+                          },
+                          "activity": "${SendActivity_GKwBYm()}",
+                          "disabled": true
+                        },
+                        {
+                          "$kind": "Microsoft.SwitchCondition",
+                          "$designer": {
+                            "id": "ec8Z2h"
+                          },
+                          "condition": "dialog.externalStatus",
+                          "cases": [
+                            {
+                              "value": "Over Due",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "2prkT2"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "WFQfc0"
+                                      },
+                                      "activity": "${SendActivity_WFQfc0()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "tnH17H"
+                                      },
+                                      "activity": "${Ask_Activity_tnH17H()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "9SsAnY"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_9SsAnY()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "kRkbII"
+                                      },
+                                      "activity": "${SendActivity_kRkbII()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "0ryPf1"
+                                      },
+                                      "activity": "${Ask_Activity_0ryPf1()}"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "$kind": "Microsoft.SendActivity",
+                                  "$designer": {
+                                    "id": "JRF3sP"
+                                  },
+                                  "activity": "${SendActivity_JRF3sP()}",
+                                  "disabled": true
+                                }
+                              ]
+                            },
+                            {
+                              "value": "Open",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "SRsZWY"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "058aYj"
+                                      },
+                                      "activity": "${SendActivity_058aYj()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "71Lfdo"
+                                      },
+                                      "activity": "${Ask_Activity_71Lfdo()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "7o79PU"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_7o79PU()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "l06sZ1"
+                                      },
+                                      "activity": "${SendActivity_l06sZ1()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "UGDfaR"
+                                      },
+                                      "activity": "${Ask_Activity_UGDfaR()}"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "value": "Closed",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "F4Ba6m"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "10DFF3"
+                                      },
+                                      "activity": "${SendActivity_10DFF3()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "zVEp6j"
+                                      },
+                                      "activity": "${Ask_Activity_zVEp6j()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "2Umm6B"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_2Umm6B()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "Ee8iPq"
+                                      },
+                                      "activity": "${SendActivity_Ee8iPq()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "OIMF8h"
+                                      },
+                                      "activity": "${Ask_Activity_OIMF8h()}"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "value": "Cancelled",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "GX9Ty3"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "1OMGD2"
+                                      },
+                                      "activity": "${SendActivity_1OMGD2()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "s9ZDy7"
+                                      },
+                                      "activity": "${Ask_Activity_s9ZDy7()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "hfeZhZ"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_hfeZhZ()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "1P72DF"
+                                      },
+                                      "activity": "${SendActivity_1P72DF()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "1DmgQO"
+                                      },
+                                      "activity": "${Ask_Activity_1DmgQO()}"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "value": "Compensation",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "pOPjPG"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "NaBUd3"
+                                      },
+                                      "activity": "${SendActivity_NaBUd3()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "2mBlwp"
+                                      },
+                                      "activity": "${Ask_Activity_2mBlwp()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "XW70Qn"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_XW70Qn()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "yQy209"
+                                      },
+                                      "activity": "${SendActivity_yQy209()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "6RgtCR"
+                                      },
+                                      "activity": "${Ask_Activity_6RgtCR()}"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "value": "Waiting for customer",
+                              "actions": [
+                                {
+                                  "$kind": "Microsoft.IfCondition",
+                                  "$designer": {
+                                    "id": "6PcbLM"
+                                  },
+                                  "condition": "=user.lanuage_selected == \"English\"",
+                                  "actions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "iz7w45"
+                                      },
+                                      "activity": "${SendActivity_iz7w45()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "h8eIws"
+                                      },
+                                      "activity": "${Ask_Activity_h8eIws()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.TextInput",
+                                      "$designer": {
+                                        "id": "Hcp7zr"
+                                      },
+                                      "disabled": true,
+                                      "maxTurnCount": 3,
+                                      "alwaysPrompt": false,
+                                      "allowInterruptions": false,
+                                      "unrecognizedPrompt": "",
+                                      "invalidPrompt": "",
+                                      "defaultValueResponse": "",
+                                      "prompt": "${TextInput_Prompt_Hcp7zr()}",
+                                      "property": "dialog.chatAgent"
+                                    }
+                                  ],
+                                  "elseActions": [
+                                    {
+                                      "$kind": "Microsoft.SendActivity",
+                                      "$designer": {
+                                        "id": "FMFmrt"
+                                      },
+                                      "activity": "${SendActivity_FMFmrt()}"
+                                    },
+                                    {
+                                      "$kind": "Microsoft.Ask",
+                                      "$designer": {
+                                        "id": "GPeAhv"
+                                      },
+                                      "activity": "${Ask_Activity_GPeAhv()}"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "elseActions": [
+                    {
+                      "$kind": "Microsoft.SendActivity",
+                      "$designer": {
+                        "id": "oH4Ffb"
+                      },
+                      "activity": "${SendActivity_oH4Ffb()}",
+                      "disabled": true
+                    },
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "lgxGYh"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "GJSn8V"
+                          },
+                          "activity": "${SendActivity_GJSn8V()}"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "ttP4Qj"
+                          },
+                          "activity": "${SendActivity_ttP4Qj()}"
+                        }
+                      ]
+                    },
+                    {
+                      "$kind": "Microsoft.BeginDialog",
+                      "$designer": {
+                        "id": "vpz1hD"
+                      },
+                      "activityProcessed": true,
+                      "dialog": "FollowUp"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "hqKaCI"
+                  },
+                  "activity": "${SendActivity_hqKaCI()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "aeIs7p"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "Api_Failure"
+                },
+                {
+                  "$kind": "Microsoft.BeginDialog",
+                  "$designer": {
+                    "id": "RGFbiT"
+                  },
+                  "activityProcessed": true,
+                  "dialog": "FollowUp"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$kind": "Microsoft.OnMessageActivity",
+      "$designer": {
+        "id": "7JAqaX",
+        "name": "Message received (Message received activity)"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "aHd69a"
+          },
+          "activity": "${SendActivity_aHd69a()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "FVDll1"
+          },
+          "assignments": [
+            {
+              "property": "dialog.complainId",
+              "value": "=turn.activity.value.myID"
+            },
+            {
+              "property": "dialog.checkID",
+              "value": "=dialog.dataArray"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "EeP5fG"
+          },
+          "activity": "${SendActivity_EeP5fG()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.Foreach",
+          "$designer": {
+            "id": "GoWlQy"
+          },
+          "index": "dialog.foreach.index",
+          "value": "dialog.foreach.value",
+          "itemsProperty": "dialog.checkID",
+          "actions": [
+            {
+              "$kind": "Microsoft.SendActivity",
+              "$designer": {
+                "id": "yVN8tb"
+              },
+              "activity": "${SendActivity_yVN8tb()}",
+              "disabled": true
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "MGyI9T"
+              },
+              "condition": "=dialog.foreach.value.ComplaintID ==string(dialog.complainId)",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "FbSbAu"
+                  },
+                  "activity": "${SendActivity_FbSbAu()}",
+                  "disabled": true
+                },
+                {
+                  "$kind": "Microsoft.EditArray",
+                  "$designer": {
+                    "id": "SjxcAX"
+                  },
+                  "changeType": "push",
+                  "itemsProperty": "dialog.statusID",
+                  "value": "${dialog.foreach.value.ExternalStatus}"
+                },
+                {
+                  "$kind": "Microsoft.SetProperties",
+                  "$designer": {
+                    "id": "qrjWkO"
+                  },
+                  "assignments": [
+                    {
+                      "property": "dialog.statusName",
+                      "value": "=join(dialog.statusID, ' ')"
+                    }
+                  ]
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.ContinueLoop",
+                  "$designer": {
+                    "id": "Vf1FwJ"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "fTNHYK"
+          },
+          "condition": "=dialog.statusID != null",
+          "actions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "orOIn6"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "8Nuoy5"
+                  },
+                  "activity": "${SendActivity_8Nuoy5()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "VRm0Mg"
+                  },
+                  "activity": "${SendActivity_VRm0Mg()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.SwitchCondition",
+              "$designer": {
+                "id": "bBHXIB"
+              },
+              "cases": [
+                {
+                  "value": "over due",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "tah2sK"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "UaBkLS"
+                          },
+                          "activity": "${SendActivity_UaBkLS()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "dzYI1W"
+                          },
+                          "activity": "${Ask_Activity_dzYI1W()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "HNWSjx"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_HNWSjx()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "o2INPI"
+                          },
+                          "activity": "${SendActivity_o2INPI()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "oMRpJW"
+                          },
+                          "activity": "${Ask_Activity_oMRpJW()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "open",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "e5xGgD"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "5hSsKz"
+                          },
+                          "activity": "${SendActivity_5hSsKz()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "c5GFfh"
+                          },
+                          "activity": "${Ask_Activity_c5GFfh()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "9LGKxE"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_9LGKxE()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "uSJkRz"
+                          },
+                          "activity": "${SendActivity_uSJkRz()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "hva1fS"
+                          },
+                          "activity": "${Ask_Activity_hva1fS()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "closed",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "KXKwu0"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "dFznPt"
+                          },
+                          "activity": "${SendActivity_dFznPt()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "kHhGRp"
+                          },
+                          "activity": "${Ask_Activity_kHhGRp()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "s21XHj"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_s21XHj()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "yk7wfR"
+                          },
+                          "activity": "${SendActivity_yk7wfR()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "Z2I6JX"
+                          },
+                          "activity": "${Ask_Activity_Z2I6JX()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "cancelled",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "px4Hk2"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "IJGmT0"
+                          },
+                          "activity": "${SendActivity_IJGmT0()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "fcIfvr"
+                          },
+                          "activity": "${Ask_Activity_fcIfvr()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "YFCa0C"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_YFCa0C()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "VjmlqG"
+                          },
+                          "activity": "${SendActivity_VjmlqG()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "LIfwYH"
+                          },
+                          "activity": "${Ask_Activity_LIfwYH()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "compensation",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "pR84GL"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "UZJTDZ"
+                          },
+                          "activity": "${SendActivity_UZJTDZ()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "Mc42xq"
+                          },
+                          "activity": "${Ask_Activity_Mc42xq()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "NNlzT1"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_NNlzT1()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "nM8TJN"
+                          },
+                          "activity": "${SendActivity_nM8TJN()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "NCDqCW"
+                          },
+                          "activity": "${Ask_Activity_NCDqCW()}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "value": "waiting for customer",
+                  "actions": [
+                    {
+                      "$kind": "Microsoft.IfCondition",
+                      "$designer": {
+                        "id": "Nv9hix"
+                      },
+                      "condition": "=user.lanuage_selected == \"English\"",
+                      "actions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "yds6s4"
+                          },
+                          "activity": "${SendActivity_yds6s4()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "rdMFFo"
+                          },
+                          "activity": "${Ask_Activity_rdMFFo()}"
+                        },
+                        {
+                          "$kind": "Microsoft.TextInput",
+                          "$designer": {
+                            "id": "54Zfqa"
+                          },
+                          "disabled": true,
+                          "maxTurnCount": 3,
+                          "alwaysPrompt": false,
+                          "allowInterruptions": false,
+                          "unrecognizedPrompt": "",
+                          "invalidPrompt": "",
+                          "defaultValueResponse": "",
+                          "prompt": "${TextInput_Prompt_54Zfqa()}",
+                          "property": "dialog.chatAgent"
+                        }
+                      ],
+                      "elseActions": [
+                        {
+                          "$kind": "Microsoft.SendActivity",
+                          "$designer": {
+                            "id": "tzz92d"
+                          },
+                          "activity": "${SendActivity_tzz92d()}"
+                        },
+                        {
+                          "$kind": "Microsoft.Ask",
+                          "$designer": {
+                            "id": "mtdr2l"
+                          },
+                          "activity": "${Ask_Activity_mtdr2l()}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "condition": "=toLower(dialog.statusName)"
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "i6pXFG"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ],
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "ppwCMP"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "2Aw2jV"
+                  },
+                  "activity": "${SendActivity_2Aw2jV()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "uhD7yG"
+                  },
+                  "activity": "${SendActivity_uhD7yG()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "WCu20u"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ],
+      "condition": "=turn.activity.value.btn_value == 'Check Status'"
+    }
+  ],
+  "generator": "complainStatus.lg",
+  "recognizer": {
+    "$kind": "Microsoft.RegexRecognizer",
+    "intents": []
+  },
+  "id": "complainStatus"
+}

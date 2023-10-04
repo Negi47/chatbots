@@ -1,0 +1,154 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "ersRDE",
+    "name": "FAQ",
+    "comment": ""
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "JkBXjY"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.GetConversationReference",
+          "$designer": {
+            "id": "dj9VLl"
+          },
+          "property": "turn.convRef"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "k8goU0"
+          },
+          "resultProperty": "turn.chatHistory",
+          "url": "http://localhost:4000/getChatHistory",
+          "body": {
+            "convRef": "${turn.convRef}",
+            "loginState": "${user.Login}",
+            "pnrs": "${user.pnr}",
+            "miles": "${user.accountMiles}",
+            "tier": "${user.tierLevel}",
+            "name": "${user.userName}"
+          },
+          "method": "POST"
+        },
+        {
+          "$kind": "Microsoft.IfCondition",
+          "$designer": {
+            "id": "Po9DWT"
+          },
+          "condition": "=turn.chatHistory.content.success",
+          "elseActions": [
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "AA8n6s"
+              },
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "IWvX2q"
+                  },
+                  "activity": "${SendActivity_IWvX2q()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "TqZeyn"
+                  },
+                  "activity": "${SendActivity_TqZeyn()}"
+                }
+              ],
+              "condition": "=user.lanuage_selected == \"English\""
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "wJSx8g"
+              },
+              "activityProcessed": true,
+              "dialog": "agent-handover"
+            }
+          ],
+          "actions": [
+            {
+              "$kind": "Microsoft.HttpRequest",
+              "$designer": {
+                "id": "o0sPVL"
+              },
+              "resultProperty": "turn.gptResponse",
+              "method": "POST",
+              "body": {
+                "history": "=turn.chatHistory.content.data",
+                "type": "saudia_faq",
+                "approach": "rrr",
+                "overrides": {
+                  "semantic_ranker": "False",
+                  "semantic_captions": "False",
+                  "top": 3,
+                  "suggest_followup_questions": "False"
+                }
+              },
+              "contentType": "application/json",
+              "responseType": "json",
+              "url": "http://localhost:4000/chat"
+            },
+            {
+              "$kind": "Microsoft.IfCondition",
+              "$designer": {
+                "id": "Wnwrb4"
+              },
+              "condition": "=user.lanuage_selected == \"English\"",
+              "actions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "UELSxP"
+                  },
+                  "activity": "${SendActivity_UELSxP()}"
+                }
+              ],
+              "elseActions": [
+                {
+                  "$kind": "Microsoft.SendActivity",
+                  "$designer": {
+                    "id": "qzDJq2"
+                  },
+                  "activity": "${SendActivity_qzDJq2()}"
+                }
+              ]
+            },
+            {
+              "$kind": "Microsoft.BeginDialog",
+              "$designer": {
+                "id": "ZsLkpD"
+              },
+              "activityProcessed": true,
+              "dialog": "FollowUp"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generator": "FAQ.lg",
+  "recognizer": {
+    "$kind": "Microsoft.CluRecognizer",
+    "projectName": "${user.CLUProjectName}",
+    "endpoint": "${user.CLUEndpoint}",
+    "endpointKey": "${user.CLUAPIKey}",
+    "deploymentName": "${user.CLUDeploymentName}"
+  },
+  "id": "FAQ"
+}

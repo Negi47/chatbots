@@ -1,0 +1,9 @@
+[import](common.lg)
+
+# ChoiceInput_Prompt_aXlAR5()
+[Activity
+    Text = ${ChoiceInput_Prompt_aXlAR5_text()}
+]
+
+# ChoiceInput_Prompt_aXlAR5_text()
+- How can I help you with your booking?

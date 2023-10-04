@@ -1,0 +1,100 @@
+[import](common.lg)
+
+# SendActivity_s7g16l()
+[Activity
+    Text = ${SendActivity_s7g16l_text()}
+]
+
+# SendActivity_s7g16l_text()
+- ${turn.activity.c}
+# SendActivity_NK0zdX()
+[Activity
+    Text = ${SendActivity_NK0zdX_text()}
+]
+
+# SendActivity_NK0zdX_text()
+- ```${user.session_id}
+${user.jwtToken}
+${user.access_token}```
+# SendActivity_0pe8z5()
+[Activity
+    Text = ${SendActivity_0pe8z5_text()}
+]
+
+# SendActivity_0pe8z5_text()
+- came inside the loop
+# Ask_Activity_Tw66eL()
+[Activity
+    Attachments = ${json(Ask_Activity_Tw66eL_attachment_zStoUk())}
+]
+
+# Ask_Activity_Tw66eL_attachment_zStoUk()
+> To learn more Adaptive Cards format, read the documentation at
+> https://docs.microsoft.com/en-us/adaptive-cards/getting-started/bots
+- ```{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "type": "AdaptiveCard",
+  "body": [
+    {            
+        "type": "TextBlock",
+        "size": "medium",
+        "weight": "bolder",
+        "text": "**Please provide the following details👇**"
+    },
+    {
+      "type": "Input.Text",
+      "id": "pnr_add_baggege",
+      "label": "Enter you PNR number or ticket number",
+      "isRequired": true,
+      "regex":"^[A-Za-z0-9]{6}$|^[0-9]{12}$|^[0-9]{3}[-]{1}[0-9]{10}$",
+      "errorMessage": "Please enter a valid 6 digit alphanumeric **PNR** or **Ticket Number** **Example:** 67AXXX / 065-23XXXXXXXX"
+    },
+    {
+      "type": "Input.Text",
+      "id": "lastName_add_baggege",
+      "label": "Enter your last name",
+      "isRequired": true,
+      "regex":"^[A-Za-z]+$",
+      "errorMessage": "Please enter a valid **Last Name** **Example:** Smith or S "
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.3",
+  "actions": [
+      {
+          "type": "Action.Submit",
+          "title": "SEND",
+          "data": {
+                "x": "submit"
+            }
+      }
+  ]
+}```
+
+# SendActivity_aNWgxa()
+[Activity
+    Text = ${SendActivity_aNWgxa_text()}
+]
+
+# SendActivity_aNWgxa_text()
+- ${user.Login}
+# SendActivity_ndGyiY()
+[Activity
+    Text = ${SendActivity_ndGyiY_text()}
+]
+
+# SendActivity_ndGyiY_text()
+- cancel refund
+# SendActivity_JE8T64()
+[Activity
+    Text = ${SendActivity_JE8T64_text()}
+]
+
+# SendActivity_JE8T64_text()
+- came here add fursan
+# SendActivity_IdZBfj()
+[Activity
+    Value = ${3000}
+    Type = ${"delay"}
+]
